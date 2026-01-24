@@ -62,47 +62,57 @@
 /* Partner Logos Grid */
 .logosGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 3rem;
-}
-
-@media (min-width: 768px) {
-    .logosGrid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
 }
 
 @media (min-width: 992px) {
     .logosGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem 4rem;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 .logoItem {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.logoItem img {
-    max-width: 160px;
-    max-height: 50px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.7;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    background: transparent;
     transition: all 0.3s ease;
 }
 
+.logoItem:nth-child(3n) {
+    border-right: none;
+}
+
+.logoItem:nth-last-child(-n+3) {
+    border-bottom: none;
+}
+
+.logoItem img {
+    width: 100%;
+    max-width: 140px;
+    height: 45px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.3);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    mix-blend-mode: multiply;
+}
+
+.logoItem:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
 .logoItem:hover img {
-    filter: grayscale(0%);
+    filter: grayscale(0%) brightness(1);
     opacity: 1;
 }
 
 /* Mobile adjustments */
-@media (max-width: 991px) {
+@media (max-width: 767px) {
     .section {
         padding: var(--spacing-xl) 0;
     }
@@ -112,15 +122,23 @@
     }
 
     .logosGrid {
-        gap: 1.5rem 2rem;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .logoItem {
-        justify-content: center;
+        padding: 1.5rem 1rem;
+    }
+
+    .logoItem:nth-child(3n) {
+        border-right: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .logoItem:nth-child(2n) {
+        border-right: none;
     }
 
     .logoItem img {
-        max-width: 120px;
-        max-height: 40px;
+        max-width: 100px;
+        height: 35px;
     }
 }
