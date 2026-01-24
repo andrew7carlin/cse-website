@@ -27,22 +27,22 @@
 /* Watermark Logo */
 .watermark {
     position: absolute;
-    left: -5%;
-    top: 50%;
+    left: 5%;
+    top: 55%;
     transform: translateY(-50%);
-    opacity: 0.06;
+    opacity: 0.08;
     z-index: 0;
     pointer-events: none;
 }
 
 .watermark img {
-    width: 400px;
+    width: 450px;
     height: auto;
 }
 
 @media (min-width: 992px) {
     .watermark img {
-        width: 500px;
+        width: 550px;
     }
 }
 
