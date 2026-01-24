@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import styles from './TradeDetail.module.css';
 
 // Import project images for service headers
-import roofingImage from '../assets/projects/Betty\'s Village_Las Vegas Nev_2.jpg';
+import roofingImage from '../assets/projects/Home2Suites_ Kingman Az.jpg';
 
 // Data Mock - In a real app this might come from a CMS or config file
 const tradeData = {
