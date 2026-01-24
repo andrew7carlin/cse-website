@@ -9,7 +9,7 @@ import roofingImage from '../assets/projects/BettysVillage_LasVegas_2.jpg';
 const tradeData = {
     roofing: {
         title: "Commercial & Residential Roofing",
-        description: "Experts in tile, TPO, foam, metal, and shingle roofing systems. We provide comprehensive roof asset management, repairs, and new installation.",
+        description: "Experts in tile, single ply, foam, metal, and shingle roofing systems. We provide comprehensive roof asset management, repairs, and new installation.",
         image: roofingImage,
         capabilities: ["Tile", "New Construction", "Re-roofing", "Repairs & Maintenance", "Coatings", "Inspections"]
     },
