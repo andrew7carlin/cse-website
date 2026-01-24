@@ -1,0 +1,136 @@
+.section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-dark-brown);
+    color: white;
+    overflow: hidden;
+}
+
+.header {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+}
+
+.headerContent h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.headerContent p {
+    font-size: 1.1rem;
+    opacity: 0.7;
+}
+
+.scrollControls {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.scrollBtn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrollBtn:hover {
+    background: var(--color-copper);
+    border-color: var(--color-copper);
+}
+
+.scrollContainer {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-left: max(var(--container-padding), calc((100vw - var(--container-width)) / 2 + var(--container-padding)));
+}
+
+.scrollContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.leadersTrack {
+    display: flex;
+    gap: 1.5rem;
+    padding-right: var(--container-padding);
+}
+
+.leaderCard {
+    flex-shrink: 0;
+    width: 280px;
+    text-align: center;
+}
+
+.photoContainer {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    margin-bottom: 1.25rem;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.photoContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photoPlaceholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-copper);
+    letter-spacing: 0.05em;
+}
+
+.leaderInfo h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.leaderInfo p {
+    font-size: 0.9rem;
+    color: var(--color-copper);
+    line-height: 1.4;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .leaderCard {
+        width: 240px;
+    }
+
+    .scrollBtn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}

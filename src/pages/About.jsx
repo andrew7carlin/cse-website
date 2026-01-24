@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Timeline from '../components/ui/Timeline';
+import LeadershipSection from '../components/ui/LeadershipSection';
 import { loadProjectAssets } from '../utils/assetLoader';
 import styles from './About.module.css';
 
@@ -137,17 +137,7 @@ const About = () => {
             </section>
 
             {/* Leadership Section */}
-            <section className={styles.leadershipSection}>
-                <div className="container">
-                    <div className={styles.leadershipHeader}>
-                        <h2>Leadership</h2>
-                        <p>The people who make it happen.</p>
-                    </div>
-                    <div className={styles.leadershipGrid}>
-                        <p className={styles.placeholder}>Leadership team photos and bios coming soon.</p>
-                    </div>
-                </div>
-            </section>
+            <LeadershipSection />
 
             {/* CTA Section */}
             <section className={styles.ctaSection}>
