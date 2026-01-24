@@ -1,0 +1,108 @@
+.section {
+    position: relative;
+    background: #0a0a0a;
+    padding: 8rem 0 6rem;
+    text-align: center;
+    overflow: visible;
+    margin-top: -60px;
+    /* Pull up to connect with section above */
+}
+
+/* Diamond plate texture overlay */
+.textureOverlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Circle Ring Container */
+.circleContainer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.circleRing {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: var(--color-copper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.circleInner {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #6b7280 0%, #4b5563 100%);
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 5;
+    padding-top: 60px;
+}
+
+.heading {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.button {
+    display: inline-block;
+    background: var(--color-copper);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(184, 115, 51, 0.3);
+}
+
+.button:hover {
+    background: #c9843e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184, 115, 51, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section {
+        padding: 6rem 0 4rem;
+        margin-top: -40px;
+    }
+
+    .circleRing {
+        width: 140px;
+        height: 140px;
+    }
+
+    .circleInner {
+        width: 100px;
+        height: 100px;
+    }
+
+    .content {
+        padding-top: 40px;
+    }
+}

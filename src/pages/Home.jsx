@@ -3,7 +3,7 @@ import TradeGrid from '../components/ui/TradeGrid';
 import Accordion from '../components/ui/Accordion';
 import PortfolioCarousel from '../components/ui/PortfolioCarousel';
 import SocialSection from '../components/ui/SocialSection';
-import ContactForm from '../components/ui/ContactForm';
+import QuoteCTA from '../components/ui/QuoteCTA';
 import { LOBBY_VIDEO_URL, IS_YOUTUBE } from '../constants/media';
 
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
 
             <SocialSection />
 
-            <ContactForm />
+            <QuoteCTA />
         </div>
     );
 };
