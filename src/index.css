@@ -12,13 +12,17 @@
   --color-text-muted: #666666;
 
   /* Soft Backgrounds */
-  --color-bg-base: #f7f6f2; /* Subtle warm bone color */
-  --color-bg-alt: #eae8e1;  /* Slightly darker warm gray */
-  --color-divider: #d6d3c9; /* Contrast border */
+  --color-bg-base: #f7f6f2;
+  /* Subtle warm bone color */
+  --color-bg-alt: #eae8e1;
+  /* Slightly darker warm gray */
+  --color-divider: #d6d3c9;
+  /* Contrast border */
 
   /* Typography - Big Type System */
-  --font-family-main: 'Manrope', system-ui, -apple-system, sans-serif; /* Placeholder for modern sans */
-  
+  --font-family-main: 'Manrope', system-ui, -apple-system, sans-serif;
+  /* Placeholder for modern sans */
+
   --font-size-hero: clamp(3rem, 5vw, 5rem);
   --font-size-h1: clamp(2.5rem, 4vw, 4rem);
   --font-size-h2: clamp(2rem, 3vw, 3rem);
@@ -41,6 +45,16 @@
   --container-width: 1440px;
   --container-padding: clamp(1rem, 5vw, 4rem);
   --header-height: 80px;
+}
+
+/* Mobile spacing adjustments */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 3.5rem;
+    --spacing-xxl: 5rem;
+    --header-height: 70px;
+  }
 }
 
 * {
@@ -113,8 +127,13 @@ button {
   line-height: var(--line-height-tight);
 }
 
-.text-copper { color: var(--color-copper); }
-.text-teal { color: var(--color-teal); }
+.text-copper {
+  color: var(--color-copper);
+}
+
+.text-teal {
+  color: var(--color-teal);
+}
 
 /* Layout Utilities */
 .section {
