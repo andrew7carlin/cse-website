@@ -1,6 +1,8 @@
-import { useState, useMemo } from 'react';
-import { loadProjectAssets } from '../../utils/assetLoader';
+import { useState } from 'react';
 import styles from './Accordion.module.css';
+
+// Direct import for reliable image loading
+import sideImage from '../../assets/projects/Fresenius Medical Care_ KIngman Az.jpg';
 
 const items = [
     { id: 1, title: 'Market Segments', content: 'Serving commercial, industrial, and residential sectors with specialized teams for every scale.' },
@@ -17,18 +19,6 @@ const Accordion = () => {
     const toggle = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
-
-    const sideImage = useMemo(() => {
-        const assets = loadProjectAssets();
-        // Use a random project image
-        if (assets.length > 0) {
-            const randomProject = assets[Math.floor(Math.random() * assets.length)];
-            if (randomProject && randomProject.media.length > 0) {
-                return randomProject.media[0].src;
-            }
-        }
-        return '';
-    }, []);
 
     return (
         <section className={styles.section}>
