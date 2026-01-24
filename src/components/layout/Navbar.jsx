@@ -6,6 +6,7 @@ import logoWhite from '../../assets/logos/logo-white.png';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
     const isHome = location.pathname === '/';
 
@@ -18,6 +19,11 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close mobile menu on route change
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location]);
+
     const navClass = `${styles.navbar} ${isScrolled || !isHome ? styles.scrolled : ''}`;
 
     return (
@@ -27,10 +33,24 @@ const Navbar = () => {
                     <img
                         src={logoWhite}
                         alt="Canyon State"
-                        style={{ height: '60px', width: 'auto', maxWidth: '200px', objectFit: 'contain' }}
+                        style={{ height: '50px', width: 'auto', maxWidth: '180px', objectFit: 'contain' }}
                     />
                 </Link>
 
+                {/* Mobile Menu Button */}
+                <button
+                    className={styles.mobileMenuBtn}
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.open : ''}`}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+
+                {/* Desktop Nav */}
                 <nav className={styles.navLinks}>
                     <div className={styles.navItem}>
                         <button className={styles.navLink}>Trades +</button>
@@ -51,13 +71,23 @@ const Navbar = () => {
                         </div>
                     </div>
                     <Link to="/about" className={styles.navLink}>About</Link>
-                    <Link to="/faq" className={styles.navLink}>FAQ</Link>
                     <Link to="/contact" className={styles.navLink}>Contact</Link>
                 </nav>
 
                 <div className={styles.actions}>
                     <Link to="/contact" className="btn-primary">Let's Talk</Link>
                 </div>
+            </div>
+
+            {/* Mobile Menu Overlay */}
+            <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+                <nav className={styles.mobileNav}>
+                    <Link to="/services" className={styles.mobileNavLink}>Services</Link>
+                    <Link to="/portfolio" className={styles.mobileNavLink}>Portfolio</Link>
+                    <Link to="/about" className={styles.mobileNavLink}>About</Link>
+                    <Link to="/contact" className={styles.mobileNavLink}>Contact</Link>
+                    <Link to="/contact" className={styles.mobileCta}>Let's Talk</Link>
+                </nav>
             </div>
         </header>
     );
