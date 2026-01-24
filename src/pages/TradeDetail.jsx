@@ -2,12 +2,15 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './TradeDetail.module.css';
 
+// Import project images for service headers
+import roofingImage from '../assets/projects/Betty\'s Village_Las Vegas Nev_2.jpg';
+
 // Data Mock - In a real app this might come from a CMS or config file
 const tradeData = {
     roofing: {
         title: "Commercial & Residential Roofing",
         description: "Experts in TPO, foam, metal, and shingle roofing systems. We provide comprehensive roof asset management, repairs, and new installation.",
-        image: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=2670",
+        image: roofingImage,
         capabilities: ["New Construction", "Re-roofing", "Repairs & Maintenance", "Coatings", "Inspections"]
     },
     stucco: {
