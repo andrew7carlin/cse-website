@@ -4,6 +4,13 @@ import Timeline from '../components/ui/Timeline';
 import { loadProjectAssets } from '../utils/assetLoader';
 import styles from './About.module.css';
 
+// Timeline placeholder images
+import timeline2005 from '../assets/projects/Custom Home_Kingman Az_5.jpg';
+import timeline2010 from '../assets/projects/Greenprint Apartments_Phoenix AZ.jpg';
+import timeline2015 from '../assets/projects/Home2Suites_ Kingman Az.jpg';
+import timeline2019 from '../assets/projects/EOS Fitness_Tempe Az.jpg';
+import timeline2024 from '../assets/projects/Betty\'s Village_Las Vegas Nev_3.jpg';
+
 const About = () => {
     const heroImage = useMemo(() => {
         const assets = loadProjectAssets();
@@ -35,27 +42,32 @@ const About = () => {
         {
             year: "2005",
             title: "Small Beginnings",
-            description: "Founded in Arizona with a single roofing crew and a commitment to quality that set us apart from day one."
+            description: "Founded in Arizona with a single roofing crew and a commitment to quality that set us apart from day one.",
+            image: timeline2005
         },
         {
             year: "2010",
             title: "Expanding Trades",
-            description: "Added stucco and HVAC divisions, establishing our multi-trade approach that gives clients a single point of accountability."
+            description: "Added stucco and HVAC divisions, establishing our multi-trade approach that gives clients a single point of accountability.",
+            image: timeline2010
         },
         {
             year: "2015",
             title: "Regional Growth",
-            description: "Expanded operations across Nevada and the broader Southwest region, completing landmark commercial projects."
+            description: "Expanded operations across Nevada and the broader Southwest region, completing landmark commercial projects.",
+            image: timeline2015
         },
         {
             year: "2019",
             title: "Going Vertical",
-            description: "Launched full construction services, becoming a true general contractor while maintaining our trade expertise."
+            description: "Launched full construction services, becoming a true general contractor while maintaining our trade expertise.",
+            image: timeline2019
         },
         {
             year: "2024",
             title: "West Coast Reach",
-            description: "Building the future of the west coast with offices in multiple states and a portfolio spanning commercial, residential, and industrial sectors."
+            description: "Building the future of the west coast with offices in multiple states and a portfolio spanning commercial, residential, and industrial sectors.",
+            image: timeline2024
         }
     ];
 
