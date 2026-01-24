@@ -185,12 +185,14 @@
 
 .video .btnSecondary {
     color: white;
-    border-color: white;
+    border-color: var(--color-copper);
+    background: var(--color-copper);
 }
 
 .video .btnSecondary:hover {
-    background: white;
-    color: black;
+    background: #c9843e;
+    border-color: #c9843e;
+    color: white;
 }
 
 /* Mobile Optimizations for Video Hero */
