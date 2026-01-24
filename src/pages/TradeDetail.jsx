@@ -4,6 +4,7 @@ import styles from './TradeDetail.module.css';
 
 // Import project images for service headers
 import roofingImage from '../assets/projects/BettysVillage_LasVegas_2.jpg';
+import stuccoImage from '../assets/projects/Greenprint Apartments_Phoenix AZ.jpg';
 
 // Data Mock - In a real app this might come from a CMS or config file
 const tradeData = {
@@ -16,7 +17,7 @@ const tradeData = {
     stucco: {
         title: "Stucco & EIFS",
         description: "Precision stucco application for durability and aesthetic appeal. We handle everything from traditional 3-coat systems to modern EIFS.",
-        image: "https://images.unsplash.com/photo-1594895689127-14e92a40498b?auto=format&fit=crop&q=80&w=2670",
+        image: stuccoImage,
         capabilities: ["Traditional Stucco", "EIFS Systems", "Lath & Plaster", "Repair & Patching"]
     },
     // Default fallback for others
