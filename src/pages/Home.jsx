@@ -1,5 +1,6 @@
 import Hero from '../components/ui/Hero';
 import TradeGrid from '../components/ui/TradeGrid';
+import PartnersSection from '../components/ui/PartnersSection';
 import Accordion from '../components/ui/Accordion';
 import ProjectsShowcase from '../components/ui/ProjectsShowcase';
 import SocialSection from '../components/ui/SocialSection';
@@ -18,6 +19,8 @@ const Home = () => {
             />
 
             <TradeGrid />
+
+            <PartnersSection />
 
             <Accordion />
 
