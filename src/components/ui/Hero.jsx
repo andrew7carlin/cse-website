@@ -46,7 +46,9 @@ const Hero = ({
                         <p className={styles.subheadline}>{subheadline}</p>
 
                         <div className={styles.ctaGroup}>
-                            <Link to={primaryCtaLink} className={styles.btnPrimary}>{primaryCtaText}</Link>
+                            {primaryCtaText && (
+                                <Link to={primaryCtaLink} className={styles.btnPrimary}>{primaryCtaText}</Link>
+                            )}
                             {secondaryCtaText && (
                                 <Link to={secondaryCtaLink} className={styles.btnSecondary}>{secondaryCtaText}</Link>
                             )}

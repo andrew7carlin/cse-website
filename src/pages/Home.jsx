@@ -16,6 +16,7 @@ const Home = () => {
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}
                 isYouTube={IS_YOUTUBE}
+                primaryCtaText=""
             />
 
             <TradeGrid />
