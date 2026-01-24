@@ -9,9 +9,9 @@ import roofingImage from '../assets/projects/Home2Suites_ Kingman Az.jpg';
 const tradeData = {
     roofing: {
         title: "Commercial & Residential Roofing",
-        description: "Experts in TPO, foam, metal, and shingle roofing systems. We provide comprehensive roof asset management, repairs, and new installation.",
+        description: "Experts in tile, TPO, foam, metal, and shingle roofing systems. We provide comprehensive roof asset management, repairs, and new installation.",
         image: roofingImage,
-        capabilities: ["New Construction", "Re-roofing", "Repairs & Maintenance", "Coatings", "Inspections"]
+        capabilities: ["Tile", "New Construction", "Re-roofing", "Repairs & Maintenance", "Coatings", "Inspections"]
     },
     stucco: {
         title: "Stucco & EIFS",
