@@ -198,51 +198,66 @@
 /* Mobile Optimizations for Video Hero */
 @media (max-width: 768px) {
     .hero {
-        min-height: 100vh;
+        min-height: 100svh;
     }
 
     .videoBg {
         position: absolute;
-        inset: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 
     .videoElement {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+    }
+
+    .overlay {
+        background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.4) 0%,
+                rgba(0, 0, 0, 0.2) 40%,
+                rgba(0, 0, 0, 0.5) 100%);
     }
 
     .glassContent {
-        justify-content: flex-end;
-        align-items: stretch;
-        padding: 0;
-        padding-bottom: 2rem;
+        justify-content: center;
+        align-items: center;
+        padding: var(--container-padding);
+        padding-top: calc(var(--header-height) + 1rem);
     }
 
     .glassCard {
         padding: 2rem 1.5rem;
         max-width: 100%;
-        margin: 0 1rem;
+        width: 100%;
+        margin: 0;
         text-align: center;
-        background: rgba(30, 30, 30, 0.7);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 16px;
-        box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        background: rgba(20, 20, 20, 0.65);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
     .video .headline {
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        margin-bottom: 1.25rem;
     }
 
     .video .subheadline {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         margin-bottom: 1rem;
+        opacity: 0.9;
     }
 
     .video .ctaGroup {
@@ -256,5 +271,6 @@
         text-align: center;
         padding: 1rem 1.5rem;
         border-radius: 8px;
+        font-size: 0.95rem;
     }
 }
