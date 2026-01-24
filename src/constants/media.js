@@ -1,13 +1,9 @@
 // ===========================================
 // VIDEO URL CONFIGURATION
 // ===========================================
-// Replace the URL below with your hosted video link
-// Options: YouTube, Vimeo, Cloudinary, AWS S3, etc.
 
-export const LOBBY_VIDEO_URL = "YOUR_VIDEO_URL_HERE";
+// YouTube embed URL with autoplay, mute, loop, no controls for background effect
+export const LOBBY_VIDEO_URL = "https://www.youtube.com/embed/1ZZs_XAApMs?autoplay=1&mute=1&loop=1&playlist=1ZZs_XAApMs&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1";
 
-// Example YouTube direct link:
-// export const LOBBY_VIDEO_URL = "https://www.youtube.com/embed/YOUR_VIDEO_ID";
-//
-// Example Cloudinary:
-// export const LOBBY_VIDEO_URL = "https://res.cloudinary.com/your-cloud/video/upload/v1/lobby.mp4";
+// Flag to indicate this is a YouTube embed (requires iframe instead of video tag)
+export const IS_YOUTUBE = true;

@@ -3,7 +3,7 @@ import TradeGrid from '../components/ui/TradeGrid';
 import Accordion from '../components/ui/Accordion';
 import PortfolioCarousel from '../components/ui/PortfolioCarousel';
 import ContactForm from '../components/ui/ContactForm';
-import { LOBBY_VIDEO_URL } from '../constants/media';
+import { LOBBY_VIDEO_URL, IS_YOUTUBE } from '../constants/media';
 
 const Home = () => {
     return (
@@ -13,6 +13,7 @@ const Home = () => {
                 subheadline="Expertise. Experience. Small town, big aspirations."
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}
+                isYouTube={IS_YOUTUBE}
             />
 
             <TradeGrid />

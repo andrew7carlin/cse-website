@@ -11,20 +11,32 @@ const Hero = ({
     secondaryCtaLink = "/portfolio",
     imageUrl,
     videoUrl,
+    isYouTube = false,
     variant = "split" // 'split', 'full', or 'video'
 }) => {
     if (variant === 'video' && videoUrl) {
         return (
             <section className={`${styles.hero} ${styles.video}`}>
                 <div className={styles.videoBg}>
-                    <video
-                        src={videoUrl}
-                        className={styles.videoElement}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                    />
+                    {isYouTube ? (
+                        <iframe
+                            src={videoUrl}
+                            className={styles.videoElement}
+                            frameBorder="0"
+                            allow="autoplay; encrypted-media"
+                            allowFullScreen
+                            title="Background Video"
+                        />
+                    ) : (
+                        <video
+                            src={videoUrl}
+                            className={styles.videoElement}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                    )}
                     <div className={styles.overlay}></div>
                 </div>
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LOBBY_VIDEO_URL } from '../constants/media';
+import { LOBBY_VIDEO_URL, IS_YOUTUBE } from '../constants/media';
 
 const Portfolio = () => {
     const [isCover, setIsCover] = useState(false);
@@ -7,14 +7,26 @@ const Portfolio = () => {
     return (
         <div className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center">
             {/* Cinematic Video */}
-            <video
-                src={LOBBY_VIDEO_URL}
-                className={`transition-all duration-700 ease-in-out w-full h-full ${isCover ? 'object-cover' : 'object-contain'}`}
-                autoPlay
-                loop
-                muted
-                playsInline
-            />
+            {IS_YOUTUBE ? (
+                <iframe
+                    src={LOBBY_VIDEO_URL}
+                    className={`transition-all duration-700 ease-in-out w-full h-full ${isCover ? 'object-cover' : 'object-contain'}`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    title="Portfolio Showreel"
+                    style={{ pointerEvents: 'none' }}
+                />
+            ) : (
+                <video
+                    src={LOBBY_VIDEO_URL}
+                    className={`transition-all duration-700 ease-in-out w-full h-full ${isCover ? 'object-cover' : 'object-contain'}`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                />
+            )}
 
             {/* Cinematic Overlay Gradient (Only visible in cover mode for text readability) */}
             <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none transition-opacity duration-500 ${isCover ? 'opacity-100' : 'opacity-0'}`} />
