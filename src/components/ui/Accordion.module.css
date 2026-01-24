@@ -74,19 +74,16 @@
 
 @media (min-width: 992px) {
     .contentCol {
-        width: 45%;
+        width: 35%;
         margin-left: 5%;
-        padding: 2.5rem 4rem;
-        /* Shrink vertical padding */
+        padding: 1.5rem 2.5rem;
 
         /* Charcoal Frost */
         background: rgba(30, 30, 30, 0.85);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        /* Subtle border for dark mode */
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        /* Darker shadow */
         border-radius: 4px;
         min-height: auto;
         color: white;
