@@ -6,20 +6,6 @@ const Timeline = ({ events }) => {
 
     return (
         <div className={styles.timeline}>
-            {/* Hover Image Preview */}
-            <div className={styles.imagePreview}>
-                {events.map((event, index) => (
-                    <div
-                        key={index}
-                        className={`${styles.previewImage} ${hoveredIndex === index ? styles.visible : ''}`}
-                    >
-                        {event.image && (
-                            <img src={event.image} alt={event.title} />
-                        )}
-                    </div>
-                ))}
-            </div>
-
             <div className={styles.track}>
                 {/* The connecting line */}
                 <div className={styles.line}></div>
@@ -34,6 +20,14 @@ const Timeline = ({ events }) => {
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                         >
+                            {/* Background image on hover */}
+                            {event.image && (
+                                <div
+                                    className={styles.eventBgImage}
+                                    style={{ backgroundImage: `url(${event.image})` }}
+                                ></div>
+                            )}
+
                             <div className={styles.marker}>
                                 <span className={styles.year}>{event.year}</span>
                                 <div className={styles.dot}></div>
