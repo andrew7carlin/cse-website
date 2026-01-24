@@ -28,7 +28,7 @@
 .watermark {
     position: absolute;
     left: 5%;
-    top: 55%;
+    top: 65%;
     transform: translateY(-50%);
     opacity: 0.08;
     z-index: 0;
