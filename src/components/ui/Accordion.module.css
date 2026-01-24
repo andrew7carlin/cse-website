@@ -1,0 +1,142 @@
+.section {
+    padding: 0;
+    background: var(--color-bg-base);
+    overflow: hidden;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.split {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile: Stacked */
+    min-height: 80vh;
+}
+
+@media (min-width: 992px) {
+    .split {
+        display: flex;
+        /* alignment helper */
+        align-items: center;
+        min-height: 700px;
+        /* Force height since image is absolute */
+        position: relative;
+        overflow: hidden;
+        /* Contain the image */
+    }
+}
+
+.imageCol {
+    width: 100%;
+    min-height: 500px;
+    /* Taller for drama */
+    position: relative;
+    background-color: var(--color-bg-alt);
+    z-index: 0;
+}
+
+@media (min-width: 992px) {
+    .imageCol {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 60%;
+        /* Take up right 60% */
+        height: 100%;
+    }
+}
+
+/* Background image fill */
+.bgImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.contentCol {
+    width: 100%;
+    padding: var(--spacing-lg) var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 992px) {
+    .contentCol {
+        width: 45%;
+        margin-left: 5%;
+        padding: 2.5rem 4rem;
+        /* Shrink vertical padding */
+
+        /* Charcoal Frost */
+        background: rgba(30, 30, 30, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Subtle border for dark mode */
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        /* Darker shadow */
+        border-radius: 4px;
+        min-height: auto;
+        color: white;
+    }
+}
+
+.item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Lighter border for dark bg */
+}
+
+.trigger {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.2s;
+    color: white;
+    /* Ensure title/trigger is white */
+}
+
+.trigger:hover {
+    color: var(--color-copper);
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: var(--font-family-main);
+}
+
+.icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.panel {
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.panelContent {
+    padding-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    /* Light grey text for readability */
+    line-height: 1.6;
+    font-size: 1rem;
+}

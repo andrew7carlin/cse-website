@@ -1,0 +1,57 @@
+.section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-alt);
+    /* Warmer gray/bone */
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.header {
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+}
+
+.subtext {
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.card {
+    background: var(--color-bg-base);
+    /* Soft off-white instead of stark white */
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--color-text-main);
+}
+
+.card:hover {
+    border-color: var(--color-copper);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: var(--color-copper);
+    font-weight: 300;
+}
+
+.label {
+    font-size: 1.125rem;
+    font-weight: 600;
+}

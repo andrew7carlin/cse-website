@@ -1,0 +1,115 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    color: var(--color-white);
+    /* Default transparent on dark hero */
+}
+
+/* Scrolled or Non-Home State */
+.navbar.scrolled {
+    background-color: rgba(40, 40, 40, 0.85);
+    /* Medium charcoal, semi-transparent */
+    backdrop-filter: blur(12px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    /* Safari support */
+    color: var(--color-white);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtle border */
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: inherit;
+}
+
+.navLinks {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.navItem {
+    position: relative;
+}
+
+.navLink {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: inherit;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--color-white);
+    min-width: 200px;
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    color: var(--color-text-main);
+}
+
+.navItem:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown a {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-main);
+    transition: background 0.2s;
+}
+
+.dropdown a:hover {
+    background: var(--color-light-gray);
+    color: var(--color-copper);
+}
+
+.actions .btn-primary {
+    background: var(--color-copper);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.actions .btn-primary:hover {
+    background: #8a3d1b;
+}

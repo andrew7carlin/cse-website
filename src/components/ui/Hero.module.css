@@ -1,0 +1,179 @@
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Split Variant */
+.split {
+    flex-direction: column;
+}
+
+@media (min-width: 992px) {
+    .split {
+        flex-direction: row;
+    }
+}
+
+.imageCol {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    min-height: 50vh;
+}
+
+@media (min-width: 992px) {
+    .imageCol {
+        min-height: 100vh;
+        order: 2;
+        /* Image on right for split? User request said "Left" or "Full". Let's stick to Left based on standard split. Wait, request said "large left image OR full-bleed". */
+        order: 1;
+    }
+}
+
+.contentCol {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-white);
+    padding: var(--spacing-lg) var(--container-padding);
+    order: 2;
+}
+
+@media (min-width: 992px) {
+    .contentCol {
+        order: 2;
+        /* Text on right */
+        min-height: 100vh;
+    }
+}
+
+.contentInner {
+    max-width: 600px;
+}
+
+.headline {
+    font-size: var(--font-size-hero);
+    line-height: var(--line-height-tight);
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-sm);
+}
+
+.subheadline {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    max-width: 450px;
+}
+
+.ctaGroup {
+    display: flex;
+    gap: 1rem;
+}
+
+.btnPrimary {
+    background: var(--color-copper);
+    color: white;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.btnPrimary:hover {
+    background: #8a3d1b;
+}
+
+.btnSecondary {
+    background: transparent;
+    color: var(--color-text-main);
+    border: 1px solid var(--color-text-main);
+    padding: 1rem 2rem;
+    font-weight: 600;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.btnSecondary:hover {
+    background: var(--color-text-main);
+    color: white;
+}
+
+/* Video Variant */
+.video {
+    display: block;
+    padding: 0;
+    overflow: hidden;
+}
+
+.videoBg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.videoElement {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    /* Subtle dim for contrast */
+    z-index: 1;
+}
+
+/* Glass Card Content Positioned Top Right */
+.glassContent {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /* Right align */
+    align-items: flex-start;
+    /* Top align */
+    padding: var(--spacing-xxl) var(--container-padding);
+}
+
+.glassCard {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 3rem;
+    max-width: 600px;
+    color: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 10vh;
+    /* Spacing from top */
+}
+
+/* Override text colors for dark video bg */
+.video .headline {
+    color: white;
+}
+
+.video .subheadline {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.video .btnSecondary {
+    color: white;
+    border-color: white;
+}
+
+.video .btnSecondary:hover {
+    background: white;
+    color: black;
+}

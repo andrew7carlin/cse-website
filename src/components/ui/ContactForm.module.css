@@ -1,0 +1,117 @@
+.section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-light-gray);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: 1fr 1.5fr;
+        gap: var(--spacing-xl);
+    }
+}
+
+.intro {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 400px;
+}
+
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.detailItem h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.formCol {
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: 2px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.group input,
+.group select,
+.group textarea {
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.group input:focus,
+.group select:focus,
+.group textarea:focus {
+    outline: none;
+    border-color: var(--color-copper);
+}
+
+.submitBtn {
+    background: var(--color-copper);
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.submitBtn:hover {
+    background: #8a3d1b;
+}
+
+@media (min-width: 768px) {
+    .submitBtn {
+        width: auto;
+    }
+}
