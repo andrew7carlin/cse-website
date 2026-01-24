@@ -8,7 +8,7 @@ import rAndO from '../../assets/Partners/R and O.png';
 import saladAndGo from '../../assets/Partners/Salad and go.png';
 import homeDepot from '../../assets/Partners/the-home-depot-1-logo-black-and-white.png';
 import certainteed from '../../assets/Partners/Certainteed.png';
-import eagleTile from '../../assets/Partners/Eagle Tile.png';
+import eagleTile from '../../assets/Partners/Eagle tile.png';
 import eosFitness from '../../assets/Partners/EOS Fitness.png';
 
 // Watermark logo
