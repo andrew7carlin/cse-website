@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import Hero from '../components/ui/Hero';
+import { Link } from 'react-router-dom';
 import Timeline from '../components/ui/Timeline';
 import { loadProjectAssets } from '../utils/assetLoader';
 import styles from './About.module.css';
@@ -11,14 +11,10 @@ import timeline2015 from '../assets/projects/Home2Suites_ Kingman Az.jpg';
 import timeline2019 from '../assets/projects/EOS Fitness_Tempe Az.jpg';
 import timeline2024 from '../assets/projects/Betty\'s Village_Las Vegas Nev_3.jpg';
 
-const About = () => {
-    const heroImage = useMemo(() => {
-        const assets = loadProjectAssets();
-        if (assets.length > 8) return assets[8].media[0].src;
-        if (assets.length > 0) return assets[0].media[0].src;
-        return '';
-    }, []);
+// Hero image
+import heroImage from '../assets/projects/Hyundai Gilbert_Gilbert Az.jpg';
 
+const About = () => {
     const values = [
         {
             title: "One Team",
@@ -73,15 +69,16 @@ const About = () => {
 
     return (
         <div className="about-page">
-            <Hero
-                headline="Built on Integrity."
-                subheadline="Arizona roots. West coast ambitions. One team."
-                imageUrl={heroImage}
-                variant="split"
-                primaryCtaText="Let's Talk"
-                primaryCtaLink="/contact"
-                secondaryCtaText=""
-            />
+            {/* Full-Bleed Hero */}
+            <section className={styles.fullHero}>
+                <div className={styles.heroBg} style={{ backgroundImage: `url(${heroImage})` }}></div>
+                <div className={styles.heroOverlay}></div>
+                <div className={styles.heroContent}>
+                    <span className={styles.heroLabel}>ABOUT US</span>
+                    <h1 className={styles.heroHeadline}>We Are<br />Canyon State</h1>
+                    <p className={styles.heroSubline}>Arizona roots. Southwest reach. One team.</p>
+                </div>
+            </section>
 
             {/* Our Story Section */}
             <section className={styles.storySection}>
