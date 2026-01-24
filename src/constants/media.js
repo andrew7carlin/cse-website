@@ -1,5 +1,13 @@
-// Place your hosted video URLs here.
-// You can use a direct link to an MP4 (e.g., AWS S3, Cloudinary) or a local path if needed (though local large files are hard to git push).
+// ===========================================
+// VIDEO URL CONFIGURATION
+// ===========================================
+// Replace the URL below with your hosted video link
+// Options: YouTube, Vimeo, Cloudinary, AWS S3, etc.
 
-// Example: "https://your-cdn.com/videos/lobby-presentation.mp4"
-export const LOBBY_VIDEO_URL = "/src/assets/videos/lobby.mp4"; // Defaulting to local for now, REPLACE THIS with your URL.
+export const LOBBY_VIDEO_URL = "YOUR_VIDEO_URL_HERE";
+
+// Example YouTube direct link:
+// export const LOBBY_VIDEO_URL = "https://www.youtube.com/embed/YOUR_VIDEO_ID";
+//
+// Example Cloudinary:
+// export const LOBBY_VIDEO_URL = "https://res.cloudinary.com/your-cloud/video/upload/v1/lobby.mp4";
