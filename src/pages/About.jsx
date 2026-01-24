@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import Hero from '../components/ui/Hero';
+import Timeline from '../components/ui/Timeline';
 import { loadProjectAssets } from '../utils/assetLoader';
+import styles from './About.module.css';
 
 const About = () => {
     const heroImage = useMemo(() => {
@@ -10,52 +12,144 @@ const About = () => {
         return '';
     }, []);
 
+    const values = [
+        {
+            title: "One Team",
+            description: "By self-performing our trades, we control the schedule, quality, and safety of every project. No finger-pointing—just results."
+        },
+        {
+            title: "Integrity First",
+            description: "We stand behind our word and our work. Relationships built on trust last longer than any building we construct."
+        },
+        {
+            title: "Safety Always",
+            description: "Everyone goes home safe. Our commitment to safety isn't a checkbox—it's woven into everything we do."
+        },
+        {
+            title: "Quality Obsessed",
+            description: "We obsess over every detail because our name is on every project. Good enough isn't in our vocabulary."
+        }
+    ];
+
+    const timelineEvents = [
+        {
+            year: "2005",
+            title: "Small Beginnings",
+            description: "Founded in Arizona with a single roofing crew and a commitment to quality that set us apart from day one."
+        },
+        {
+            year: "2010",
+            title: "Expanding Trades",
+            description: "Added stucco and HVAC divisions, establishing our multi-trade approach that gives clients a single point of accountability."
+        },
+        {
+            year: "2015",
+            title: "Regional Growth",
+            description: "Expanded operations across Nevada and the broader Southwest region, completing landmark commercial projects."
+        },
+        {
+            year: "2019",
+            title: "Going Vertical",
+            description: "Launched full construction services, becoming a true general contractor while maintaining our trade expertise."
+        },
+        {
+            year: "2024",
+            title: "West Coast Reach",
+            description: "Building the future of the west coast with offices in multiple states and a portfolio spanning commercial, residential, and industrial sectors."
+        }
+    ];
+
     return (
         <div className="about-page">
             <Hero
                 headline="Built on Integrity."
-                subheadline="Serving Arizona since 19XX. Family owned, corporate capabilities."
+                subheadline="Arizona roots. West coast ambitions. One team."
                 imageUrl={heroImage}
                 variant="split"
-                primaryCtaText="Contact Us"
-                secondaryCtaLink="/contact"
+                primaryCtaText="Let's Talk"
+                primaryCtaLink="/contact"
+                secondaryCtaText=""
             />
 
-            <div className="container section">
-                <div className="grid-cols-2">
-                    <div>
-                        <h2 className="text-h2">Our Story</h2>
-                    </div>
-                    <div>
-                        <p style={{ fontSize: '1.25rem', lineHeight: '1.6', color: 'var(--color-text-muted)' }}>
-                            Canyon State Enterprises was founded on a simple principle: do good work, and treat people right.
-                            What started as a small local operation has grown into a multi-trade powerhouse serving the entire Southwest.
-                            <br /><br />
-                            We believe in the power of "One Team." By self-performing many of our trades, we control the schedule,
-                            the quality, and the safety of every project.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div style={{ background: 'var(--color-light-gray)' }} className="section">
+            {/* Our Story Section */}
+            <section className={styles.storySection}>
                 <div className="container">
-                    <h2 className="text-h2" style={{ marginBottom: '3rem' }}>Leadership</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '2rem' }}>
-                        {/* Mock Team Members - TODO: Get real photos */}
-                        {/* 
-                        {[1, 2, 3, 4].map(i => (
-                            <div key={i}>
-                                <div style={{ height: '300px', background: '#333', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666' }}>Photo</div>
-                                <h3 className="text-h3">John Doe</h3>
-                                <p style={{ color: 'var(--color-copper)' }}>Managing Partner</p>
-                            </div>
-                        ))} 
-                        */}
-                        <p className="text-gray-500">Leadership team photos coming soon.</p>
+                    <div className={styles.storyGrid}>
+                        <div className={styles.storyHeading}>
+                            <h2>Our Story</h2>
+                        </div>
+                        <div className={styles.storyContent}>
+                            <p>
+                                Canyon State Enterprises was founded on a simple principle: do good work, and treat people right.
+                                What started as a small local operation has grown into a multi-trade powerhouse serving the entire Southwest.
+                            </p>
+                            <p>
+                                We believe in the power of "One Team." By self-performing many of our trades, we control the schedule,
+                                the quality, and the safety of every project. When you work with Canyon State, you're not hiring a
+                                general contractor who subs everything out—you're partnering with craftsmen who take personal pride in their work.
+                            </p>
+                            <p>
+                                From roofing to stucco, HVAC to full construction services, our integrated approach means fewer delays,
+                                better communication, and superior quality control. One team. Multiple trades. Zero excuses.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            {/* Values Section */}
+            <section className={styles.valuesSection}>
+                <div className="container">
+                    <div className={styles.valuesHeader}>
+                        <h2>What We Stand For</h2>
+                        <p>Our values aren't wall decorations—they're how we make decisions every day.</p>
+                    </div>
+                    <div className={styles.valuesGrid}>
+                        {values.map((value, index) => (
+                            <div key={index} className={styles.valueCard}>
+                                <span className={styles.valueNumber}>0{index + 1}</span>
+                                <h3>{value.title}</h3>
+                                <p>{value.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Timeline Section */}
+            <section className={styles.timelineSection}>
+                <div className="container">
+                    <div className={styles.timelineHeader}>
+                        <h2>Our Journey</h2>
+                        <p>Nearly two decades of building the Southwest, one project at a time.</p>
+                    </div>
+                    <Timeline events={timelineEvents} />
+                </div>
+            </section>
+
+            {/* Leadership Section */}
+            <section className={styles.leadershipSection}>
+                <div className="container">
+                    <div className={styles.leadershipHeader}>
+                        <h2>Leadership</h2>
+                        <p>The people who make it happen.</p>
+                    </div>
+                    <div className={styles.leadershipGrid}>
+                        <p className={styles.placeholder}>Leadership team photos and bios coming soon.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className={styles.ctaSection}>
+                <div className="container">
+                    <div className={styles.ctaContent}>
+                        <h2>Ready to Build Something Great?</h2>
+                        <p>Let's talk about your next project.</p>
+                        <a href="/contact" className={styles.ctaButton}>Get in Touch</a>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };

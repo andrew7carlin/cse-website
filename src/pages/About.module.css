@@ -1,0 +1,223 @@
+/* Our Story Section */
+.storySection {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-bg-base);
+}
+
+.storyGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 992px) {
+    .storyGrid {
+        grid-template-columns: 0.4fr 1fr;
+        gap: var(--spacing-xxl);
+        align-items: start;
+    }
+}
+
+.storyHeading h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-text-main);
+}
+
+.storyContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.storyContent p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+.storyContent p:first-child {
+    font-size: 1.35rem;
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+/* Values Section */
+.valuesSection {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-dark-brown);
+    color: white;
+}
+
+.valuesHeader {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.valuesHeader h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.valuesHeader p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .valuesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .valuesGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.valueCard {
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+}
+
+.valueCard:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--color-copper);
+}
+
+.valueNumber {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-copper);
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.valueCard h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.valueCard p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Timeline Section */
+.timelineSection {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-bg-base);
+    overflow: hidden;
+}
+
+.timelineHeader {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.timelineHeader h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+}
+
+.timelineHeader p {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+}
+
+/* Leadership Section */
+.leadershipSection {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-alt);
+}
+
+.leadershipHeader {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.leadershipHeader h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.leadershipHeader p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+}
+
+.leadershipGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.placeholder {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    padding: 3rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    border: 1px dashed var(--color-divider);
+}
+
+/* CTA Section */
+.ctaSection {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-copper);
+    color: white;
+}
+
+.ctaContent {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ctaContent h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.ctaContent p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.ctaButton {
+    display: inline-block;
+    background: white;
+    color: var(--color-copper);
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.ctaButton:hover {
+    background: var(--color-dark-brown);
+    color: white;
+}
