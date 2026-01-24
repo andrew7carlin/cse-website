@@ -12,7 +12,7 @@ const Home = () => {
         <div className="home-page">
             <Hero
                 headline="One Team, Multiple Trades."
-                subheadline="Expertise. Experience. Small town, big aspirations."
+                subheadline=""
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}
                 isYouTube={IS_YOUTUBE}
