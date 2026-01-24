@@ -8,15 +8,31 @@ const Portfolio = () => {
         <div className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center">
             {/* Cinematic Video */}
             {IS_YOUTUBE ? (
-                <iframe
-                    src={LOBBY_VIDEO_URL}
-                    className={`transition-all duration-700 ease-in-out w-full h-full ${isCover ? 'object-cover' : 'object-contain'}`}
-                    frameBorder="0"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    title="Portfolio Showreel"
-                    style={{ pointerEvents: 'none' }}
-                />
+                <div
+                    className="absolute inset-0 overflow-hidden"
+                    style={{
+                        transform: isCover ? 'scale(1.5)' : 'scale(1)',
+                        transition: 'transform 0.7s ease-in-out'
+                    }}
+                >
+                    <iframe
+                        src={LOBBY_VIDEO_URL}
+                        className="absolute top-1/2 left-1/2 w-full h-full"
+                        style={{
+                            transform: 'translate(-50%, -50%)',
+                            minWidth: '100%',
+                            minHeight: '100%',
+                            width: 'auto',
+                            height: 'auto',
+                            aspectRatio: '16/9',
+                            pointerEvents: 'none',
+                            border: 'none'
+                        }}
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                        title="Portfolio Showreel"
+                    />
+                </div>
             ) : (
                 <video
                     src={LOBBY_VIDEO_URL}
