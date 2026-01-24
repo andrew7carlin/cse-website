@@ -1,0 +1,253 @@
+.section {
+    padding: var(--spacing-xxl) 0;
+    background: white;
+    overflow: hidden;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.heading {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: -0.02em;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+}
+
+.filterBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-copper);
+    border-radius: 50px;
+    color: var(--color-copper);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filterBtn:hover {
+    background: var(--color-copper);
+    color: white;
+}
+
+.allProjectsBtn {
+    padding: 0.75rem 1.5rem;
+    background: var(--color-copper);
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.allProjectsBtn:hover {
+    background: #c9843e;
+    transform: translateY(-2px);
+}
+
+/* Main Showcase */
+.showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .showcase {
+        grid-template-columns: 1.2fr 0.8fr 0.8fr;
+        gap: 3rem;
+    }
+}
+
+/* Featured Project */
+.featured {
+    position: relative;
+}
+
+.featuredImage {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+    aspect-ratio: 4/3;
+}
+
+.featuredImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.featured:hover .featuredImage img {
+    transform: scale(1.02);
+}
+
+/* Project Info */
+.projectInfo {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.projectTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.projectType {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.navBtn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.navBtn:hover {
+    color: var(--color-copper);
+}
+
+.indicator {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--color-copper);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.indicatorDot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-copper);
+    border-radius: 50%;
+}
+
+.projectLocation {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* Next Preview */
+.nextPreview {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .nextPreview {
+        display: block;
+        position: relative;
+    }
+}
+
+.nextImage {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.nextImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nextOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(184, 115, 51, 0.7);
+    transition: opacity 0.3s ease;
+}
+
+.nextPreview:hover .nextOverlay {
+    opacity: 0.5;
+}
+
+/* Progress Dots */
+.progressDots {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding-left: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--color-copper);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.dot:hover {
+    background: rgba(184, 115, 51, 0.3);
+}
+
+.dotActive {
+    background: var(--color-copper);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.featured,
+.projectInfo,
+.nextPreview {
+    animation: fadeIn 0.5s ease-out;
+}

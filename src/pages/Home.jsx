@@ -1,7 +1,7 @@
 import Hero from '../components/ui/Hero';
 import TradeGrid from '../components/ui/TradeGrid';
 import Accordion from '../components/ui/Accordion';
-import PortfolioCarousel from '../components/ui/PortfolioCarousel';
+import ProjectsShowcase from '../components/ui/ProjectsShowcase';
 import SocialSection from '../components/ui/SocialSection';
 import QuoteCTA from '../components/ui/QuoteCTA';
 import { LOBBY_VIDEO_URL, IS_YOUTUBE } from '../constants/media';
@@ -21,7 +21,7 @@ const Home = () => {
 
             <Accordion />
 
-            <PortfolioCarousel />
+            <ProjectsShowcase />
 
             <SocialSection />
 
