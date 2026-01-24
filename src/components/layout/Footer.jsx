@@ -11,7 +11,7 @@ const Footer = () => {
                     <div className={styles.logoCol}>
                         <img src={logoTan} alt="Canyon State Enterprises" className={styles.logo} />
                         <p className={styles.tagline}>
-                            Building the future of Arizona with extensive expertise across commercial, residential, and industrial sectors.
+                            Building the future of the west coast with extensive experience across commercial, residential, and industrial sectors.
                         </p>
                     </div>
 
