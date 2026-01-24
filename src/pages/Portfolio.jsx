@@ -5,26 +5,21 @@ const Portfolio = () => {
     const [isCover, setIsCover] = useState(true);
 
     return (
-        <div className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center">
+        <div className="relative w-full h-screen overflow-hidden bg-black">
             {/* Cinematic Video */}
             {IS_YOUTUBE ? (
-                <div
-                    className="absolute inset-0 overflow-hidden"
-                    style={{
-                        transform: isCover ? 'scale(1.5)' : 'scale(1)',
-                        transition: 'transform 0.7s ease-in-out'
-                    }}
-                >
+                <div className="absolute inset-0 w-full h-full">
                     <iframe
                         src={LOBBY_VIDEO_URL}
-                        className="absolute top-1/2 left-1/2 w-full h-full"
                         style={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            width: '177.78vh', /* 16:9 aspect ratio based on height */
+                            height: '100vh',
+                            minWidth: '100vw',
+                            minHeight: '56.25vw', /* 16:9 aspect ratio based on width */
                             transform: 'translate(-50%, -50%)',
-                            minWidth: '100%',
-                            minHeight: '100%',
-                            width: 'auto',
-                            height: 'auto',
-                            aspectRatio: '16/9',
                             pointerEvents: 'none',
                             border: 'none'
                         }}
@@ -36,7 +31,7 @@ const Portfolio = () => {
             ) : (
                 <video
                     src={LOBBY_VIDEO_URL}
-                    className={`transition-all duration-700 ease-in-out w-full h-full ${isCover ? 'object-cover' : 'object-contain'}`}
+                    className="absolute inset-0 w-full h-full object-cover"
                     autoPlay
                     loop
                     muted
