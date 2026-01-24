@@ -7,6 +7,9 @@ import qxo from '../../assets/Partners/QXO.png';
 import rAndO from '../../assets/Partners/R and O.png';
 import saladAndGo from '../../assets/Partners/Salad and go.png';
 import homeDepot from '../../assets/Partners/the-home-depot-1-logo-black-and-white.png';
+import certainteed from '../../assets/Partners/Certainteed.png';
+import eagleTile from '../../assets/Partners/Eagle Tile.png';
+import eosFitness from '../../assets/Partners/EOS Fitness.png';
 
 // Watermark logo
 import iconDark from '../../assets/logos/icon-dark.png';
@@ -14,6 +17,9 @@ import iconDark from '../../assets/logos/icon-dark.png';
 const partners = [
     { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },
     { name: 'Carlisle', logo: carlisle, url: 'https://www.carlisleconstructionmaterials.com/' },
+    { name: 'Certainteed', logo: certainteed, url: 'https://www.certainteed.com/' },
+    { name: 'Eagle Tile', logo: eagleTile, url: 'https://www.eagleroofing.com/' },
+    { name: 'EOS Fitness', logo: eosFitness, url: 'https://www.eosfitness.com/' },
     { name: 'QXO', logo: qxo, url: 'https://www.qxo.com/' },
     { name: 'R and O', logo: rAndO, url: 'https://www.randoco.com/' },
     { name: 'Salad and Go', logo: saladAndGo, url: 'https://www.saladandgo.com/' },
