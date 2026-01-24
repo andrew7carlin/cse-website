@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { LOBBY_VIDEO_URL, IS_YOUTUBE } from '../constants/media';
 
 const Portfolio = () => {
-    const [isCover, setIsCover] = useState(false);
+    const [isCover, setIsCover] = useState(true);
 
     return (
         <div className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center">
