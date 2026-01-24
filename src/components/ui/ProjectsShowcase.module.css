@@ -251,3 +251,99 @@
 .nextPreview {
     animation: fadeIn 0.5s ease-out;
 }
+
+/* Mobile Optimizations */
+@media (max-width: 991px) {
+    .section {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .filters {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .filterBtn,
+    .allProjectsBtn {
+        padding: 0.6rem 1rem;
+        font-size: 0.875rem;
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .showcase {
+        gap: 1.5rem;
+    }
+
+    .featuredImage {
+        border-radius: 6px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .projectInfo {
+        padding: 1rem 0;
+    }
+
+    .projectTitle {
+        font-size: 1.25rem;
+    }
+
+    .projectType {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .navigation {
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .navBtn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .indicator {
+        width: 44px;
+        height: 44px;
+    }
+
+    .progressDots {
+        justify-content: center;
+        margin-top: 1.5rem;
+        padding-left: 0;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 1.75rem;
+    }
+
+    .filterBtn,
+    .allProjectsBtn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .projectTitle {
+        font-size: 1.1rem;
+    }
+}

@@ -192,3 +192,38 @@
     background: white;
     color: black;
 }
+
+/* Mobile Optimizations for Video Hero */
+@media (max-width: 768px) {
+    .glassContent {
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing-lg) var(--container-padding);
+    }
+
+    .glassCard {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+        margin-top: 5vh;
+        text-align: center;
+    }
+
+    .video .headline {
+        font-size: 2rem;
+    }
+
+    .video .subheadline {
+        font-size: 1rem;
+    }
+
+    .video .ctaGroup {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .video .btnPrimary,
+    .video .btnSecondary {
+        width: 100%;
+        text-align: center;
+    }
+}
