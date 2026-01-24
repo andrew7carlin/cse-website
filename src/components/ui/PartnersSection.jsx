@@ -4,7 +4,7 @@ import styles from './PartnersSection.module.css';
 import arMays from '../../assets/Partners/AR Mays.png';
 import carlisle from '../../assets/Partners/Carlisle.png';
 import qxo from '../../assets/Partners/QXO.png';
-import rAndO from '../../assets/Partners/R and O.jpg';
+import rAndO from '../../assets/Partners/R and O.png';
 import saladAndGo from '../../assets/Partners/Salad and go.png';
 import homeDepot from '../../assets/Partners/the-home-depot-1-logo-black-and-white.png';
 
