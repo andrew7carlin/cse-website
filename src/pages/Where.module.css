@@ -53,9 +53,13 @@
 
 .subtitle {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-teal);
+    background: var(--color-tan);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
     max-width: 500px;
     margin: 0 auto 2rem;
+    display: inline-block;
 }
 
 /* Arrow Navigation */
