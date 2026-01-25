@@ -14,10 +14,12 @@ import ProjectDetail from './pages/ProjectDetail';
 import FAQ from './pages/FAQ';
 
 import IntroSplash from './components/common/IntroSplash';
+import MouseGlow from './components/ui/MouseGlow';
 
 function App() {
   return (
     <Router>
+      <MouseGlow />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
