@@ -97,6 +97,8 @@
     background-image: var(--copper-bg);
     background-size: cover;
     background-position: center;
+    border: 3px solid var(--color-copper);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .photoContainer img {

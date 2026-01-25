@@ -6,6 +6,7 @@ import kevenOtt from '../../assets/leadership/Kevin-Ott.png';
 import joeJuelfs from '../../assets/leadership/Joe-Juelfs.png';
 import jessicaGonzalez from '../../assets/leadership/Jessica-Gonzalez.png';
 import anthonyGonzalez from '../../assets/leadership/Anthony-Gonzalez.png';
+import patCarlin from '../../assets/leadership/Pat-Carlin.png';
 import cameronOtt from '../../assets/leadership/Cameron-Ott.png';
 import steveSampson from '../../assets/leadership/Steve-Samson.png';
 import clayFinch from '../../assets/leadership/Clay-Finch.png';
@@ -26,6 +27,7 @@ const leaders = [
     { name: 'Joe Juelfs', title: 'Owner', photo: joeJuelfs },
     { name: 'Jessica Gonzalez', title: 'Owner', photo: jessicaGonzalez },
     { name: 'Anthony Gonzalez', title: 'Owner', photo: anthonyGonzalez },
+    { name: 'Pat Carlin', title: 'Chief Operating Officer', photo: patCarlin },
     { name: 'Cameron Ott', title: 'Commercial Manager', photo: cameronOtt },
     { name: 'Steve Sampson', title: 'Director of Roofing – Mohave County', photo: steveSampson },
     { name: 'Clay Finch', title: 'Director of Stucco', photo: clayFinch },
