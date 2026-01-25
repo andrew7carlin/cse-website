@@ -1,7 +1,10 @@
 .section {
-    padding: var(--spacing-xl) 0;
+    padding: calc(var(--spacing-xl) + 3rem) 0 var(--spacing-xl);
     background: var(--color-bg-alt);
-    /* Warmer gray/bone */
+    position: relative;
+    /* Diagonal slant at top */
+    clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -3rem;
 }
 
 .container {
