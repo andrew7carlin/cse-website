@@ -1,48 +1,89 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styles from './Where.module.css';
 
-const locations = [
+const serviceAreas = [
     {
-        id: 'kingman',
-        city: 'Kingman',
-        state: 'AZ',
-        type: 'Corporate Headquarters',
-        address: '2959 Rhoades Ave',
-        addressLine2: 'Kingman, AZ 86409',
-        byAppointment: false,
-        position: { top: '52%', left: '28%' },
+        id: 'arizona',
+        state: 'Arizona',
+        abbrev: 'AZ',
+        tagline: 'Home Base',
+        description: 'Full-service coverage across the entire state. From Phoenix metro to Flagstaff, Tucson to Kingman — we\'re your local partner.',
+        coverage: 'Statewide',
+        hq: {
+            city: 'Kingman',
+            address: '2959 Rhoades Ave',
+            zip: 'Kingman, AZ 86409',
+        },
+        satellite: 'Phoenix office by appointment',
+        gradient: 'linear-gradient(135deg, #A04921 0%, #c45827 50%, #d4713a 100%)',
     },
     {
-        id: 'phoenix',
-        city: 'Phoenix',
-        state: 'AZ',
-        type: 'Regional Office',
-        address: 'Phoenix, Arizona',
-        addressLine2: null,
-        byAppointment: true,
-        position: { top: '68%', left: '32%' },
+        id: 'nevada',
+        state: 'Nevada',
+        abbrev: 'NV',
+        tagline: 'Full Coverage',
+        description: 'Complete service throughout Nevada. Las Vegas, Reno, Henderson, and everywhere in between.',
+        coverage: 'Statewide',
+        hq: null,
+        satellite: 'Las Vegas office by appointment',
+        gradient: 'linear-gradient(135deg, #1B150F 0%, #2a211a 50%, #3d2f24 100%)',
     },
     {
-        id: 'vegas',
-        city: 'Las Vegas',
-        state: 'NV',
-        type: 'Regional Office',
-        address: 'Las Vegas, Nevada',
-        addressLine2: null,
-        byAppointment: true,
-        position: { top: '38%', left: '22%' },
+        id: 'newmexico',
+        state: 'New Mexico',
+        abbrev: 'NM',
+        tagline: 'By Appointment',
+        description: 'Serving New Mexico clients with scheduled project consultations. Contact us to arrange a site visit.',
+        coverage: 'By Appointment',
+        hq: null,
+        satellite: null,
+        gradient: 'linear-gradient(135deg, #008080 0%, #00a0a0 50%, #00b8b8 100%)',
+    },
+    {
+        id: 'utah',
+        state: 'Utah',
+        abbrev: 'UT',
+        tagline: 'By Appointment',
+        description: 'Serving Utah clients with scheduled project consultations. Contact us to arrange a site visit.',
+        coverage: 'By Appointment',
+        hq: null,
+        satellite: null,
+        gradient: 'linear-gradient(135deg, #B48F73 0%, #c9a78b 50%, #ddbfa3 100%)',
     },
 ];
 
 const Where = () => {
-    const [activeLocation, setActiveLocation] = useState(null);
+    const scrollContainerRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
-    const handlePinClick = (location) => {
-        setActiveLocation(activeLocation?.id === location.id ? null : location);
-    };
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
 
-    const closePanel = () => {
-        setActiveLocation(null);
+        const handleScroll = () => {
+            const scrollLeft = container.scrollLeft;
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            const progress = scrollLeft / maxScroll;
+            setScrollProgress(progress);
+
+            const slideWidth = container.clientWidth;
+            const newIndex = Math.round(scrollLeft / slideWidth);
+            setActiveIndex(Math.min(newIndex, serviceAreas.length - 1));
+        };
+
+        container.addEventListener('scroll', handleScroll);
+        return () => container.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToSlide = (index) => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+        const slideWidth = container.clientWidth;
+        container.scrollTo({
+            left: slideWidth * index,
+            behavior: 'smooth',
+        });
     };
 
     return (
@@ -50,119 +91,116 @@ const Where = () => {
             {/* Hero Header */}
             <section className={styles.hero}>
                 <div className={styles.heroContent}>
-                    <span className={styles.eyebrow}>Our Locations</span>
-                    <h1 className={styles.title}>Where to Find Us</h1>
+                    <span className={styles.eyebrow}>Service Areas</span>
+                    <h1 className={styles.title}>Where We Work</h1>
                     <p className={styles.subtitle}>
-                        Serving Arizona and Nevada from three strategic locations.
+                        Four states. One standard of excellence.
                     </p>
-                </div>
-            </section>
-
-            {/* Interactive Map Section */}
-            <section className={styles.mapSection}>
-                <div className={styles.mapContainer}>
-                    {/* Stylized 3D Map Background */}
-                    <div className={styles.map}>
-                        {/* State Outlines - Simplified SVG representation */}
-                        <svg
-                            className={styles.mapSvg}
-                            viewBox="0 0 400 500"
-                            preserveAspectRatio="xMidYMid meet"
-                        >
-                            {/* Nevada */}
-                            <path
-                                className={styles.statePath}
-                                d="M50,50 L150,50 L150,80 L160,120 L170,180 L140,280 L50,280 Z"
-                                data-state="NV"
-                            />
-                            {/* Arizona */}
-                            <path
-                                className={styles.statePath}
-                                d="M140,280 L170,180 L160,120 L240,120 L280,140 L320,200 L340,350 L280,400 L200,420 L140,400 L100,350 L140,280 Z"
-                                data-state="AZ"
-                            />
-                            {/* State Labels */}
-                            <text x="90" y="170" className={styles.stateLabel}>NV</text>
-                            <text x="210" y="290" className={styles.stateLabel}>AZ</text>
-                        </svg>
-
-                        {/* Glowing Pins */}
-                        {locations.map((loc) => (
-                            <button
-                                key={loc.id}
-                                className={`${styles.pin} ${activeLocation?.id === loc.id ? styles.pinActive : ''} ${loc.id === 'kingman' ? styles.pinHq : ''}`}
-                                style={{ top: loc.position.top, left: loc.position.left }}
-                                onClick={() => handlePinClick(loc)}
-                                aria-label={`View ${loc.city} office`}
-                            >
-                                <span className={styles.pinPulse}></span>
-                                <span className={styles.pinDot}></span>
-                                <span className={styles.pinLabel}>{loc.city}</span>
-                            </button>
-                        ))}
-
-                        {/* Connection Lines */}
-                        <svg className={styles.connections} viewBox="0 0 400 500">
-                            <line x1="112" y1="260" x2="128" y2="340" className={styles.connectionLine} />
-                            <line x1="88" y1="190" x2="112" y2="260" className={styles.connectionLine} />
+                    <div className={styles.scrollHint}>
+                        <span>Swipe to explore</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </div>
                 </div>
+            </section>
 
-                {/* Detail Panel */}
-                <div className={`${styles.detailPanel} ${activeLocation ? styles.detailPanelOpen : ''}`}>
-                    {activeLocation && (
-                        <>
-                            <button className={styles.closeBtn} onClick={closePanel} aria-label="Close">
-                                ×
-                            </button>
-                            <div className={styles.detailContent}>
-                                <span className={styles.detailType}>{activeLocation.type}</span>
-                                <h2 className={styles.detailCity}>
-                                    {activeLocation.city}, {activeLocation.state}
-                                </h2>
-                                <div className={styles.detailAddress}>
-                                    <p>{activeLocation.address}</p>
-                                    {activeLocation.addressLine2 && <p>{activeLocation.addressLine2}</p>}
+            {/* Horizontal Scroll Journey */}
+            <section className={styles.journeySection}>
+                {/* Progress Bar */}
+                <div className={styles.progressTrack}>
+                    <div
+                        className={styles.progressBar}
+                        style={{ width: `${(scrollProgress * 100) || 25}%` }}
+                    />
+                </div>
+
+                {/* Navigation Dots */}
+                <div className={styles.navDots}>
+                    {serviceAreas.map((area, index) => (
+                        <button
+                            key={area.id}
+                            className={`${styles.navDot} ${activeIndex === index ? styles.navDotActive : ''}`}
+                            onClick={() => scrollToSlide(index)}
+                            aria-label={`Go to ${area.state}`}
+                        >
+                            <span className={styles.dotLabel}>{area.abbrev}</span>
+                        </button>
+                    ))}
+                </div>
+
+                {/* Scrollable Container */}
+                <div ref={scrollContainerRef} className={styles.scrollContainer}>
+                    {serviceAreas.map((area, index) => (
+                        <article
+                            key={area.id}
+                            className={styles.slide}
+                            style={{ '--slide-gradient': area.gradient }}
+                        >
+                            <div className={styles.slideBackground} />
+                            <div className={styles.slideContent}>
+                                <div className={styles.stateHeader}>
+                                    <span className={styles.stateAbbrev}>{area.abbrev}</span>
+                                    <div className={styles.stateInfo}>
+                                        <h2 className={styles.stateName}>{area.state}</h2>
+                                        <span className={styles.stateTagline}>{area.tagline}</span>
+                                    </div>
                                 </div>
-                                {activeLocation.byAppointment && (
-                                    <span className={styles.appointmentBadge}>By Appointment Only</span>
+
+                                <p className={styles.stateDescription}>{area.description}</p>
+
+                                <div className={styles.coverageBadge}>
+                                    <span className={styles.coverageIcon}>◉</span>
+                                    <span>{area.coverage}</span>
+                                </div>
+
+                                {area.hq && (
+                                    <div className={styles.hqCard}>
+                                        <span className={styles.hqLabel}>Headquarters</span>
+                                        <p className={styles.hqCity}>{area.hq.city}</p>
+                                        <p className={styles.hqAddress}>{area.hq.address}</p>
+                                        <p className={styles.hqAddress}>{area.hq.zip}</p>
+                                    </div>
                                 )}
-                                <a
-                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activeLocation.address + ' ' + (activeLocation.addressLine2 || ''))}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={styles.directionsBtn}
-                                >
-                                    Get Directions →
+
+                                {area.satellite && (
+                                    <div className={styles.satelliteInfo}>
+                                        <span className={styles.satelliteIcon}>📍</span>
+                                        <span>{area.satellite}</span>
+                                    </div>
+                                )}
+
+                                <a href="/contact" className={styles.ctaBtn}>
+                                    Get a Quote in {area.state} →
                                 </a>
                             </div>
-                        </>
-                    )}
+
+                            {/* Slide Number */}
+                            <div className={styles.slideNumber}>
+                                <span className={styles.current}>{String(index + 1).padStart(2, '0')}</span>
+                                <span className={styles.divider}>/</span>
+                                <span className={styles.total}>{String(serviceAreas.length).padStart(2, '0')}</span>
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </section>
 
-            {/* Location Cards Grid (Fallback/Additional Info) */}
-            <section className={styles.cardsSection}>
-                <div className={styles.cardsContainer}>
-                    {locations.map((loc, index) => (
-                        <div
-                            key={loc.id}
-                            className={`${styles.card} ${loc.id === 'kingman' ? styles.cardHq : ''}`}
-                            style={{ '--card-delay': `${index * 100}ms` }}
-                        >
-                            <div className={styles.cardHeader}>
-                                <span className={styles.cardType}>{loc.type}</span>
-                                {loc.id === 'kingman' && <span className={styles.hqBadge}>HQ</span>}
+            {/* Quick Reference Grid */}
+            <section className={styles.gridSection}>
+                <div className={styles.gridContainer}>
+                    <h3 className={styles.gridTitle}>At a Glance</h3>
+                    <div className={styles.grid}>
+                        {serviceAreas.map((area) => (
+                            <div key={area.id} className={styles.gridCard}>
+                                <span className={styles.gridAbbrev}>{area.abbrev}</span>
+                                <span className={styles.gridState}>{area.state}</span>
+                                <span className={`${styles.gridBadge} ${area.coverage === 'Statewide' ? styles.gridBadgeFull : ''}`}>
+                                    {area.coverage}
+                                </span>
                             </div>
-                            <h3 className={styles.cardCity}>{loc.city}, {loc.state}</h3>
-                            <p className={styles.cardAddress}>{loc.address}</p>
-                            {loc.addressLine2 && <p className={styles.cardAddress}>{loc.addressLine2}</p>}
-                            {loc.byAppointment && (
-                                <span className={styles.cardBadge}>By Appointment</span>
-                            )}
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </section>
         </main>
