@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './Accordion.module.css';
 
 // Direct import for reliable image loading
@@ -15,6 +16,8 @@ const items = [
 
 const Accordion = () => {
     const [activeIndex, setActiveIndex] = useState(null);
+    const { ref: imageRef, isVisible: imageVisible } = useScrollReveal({ threshold: 0.2 });
+    const { ref: contentRef, isVisible: contentVisible } = useScrollReveal({ threshold: 0.1 });
 
     const toggle = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -23,13 +26,19 @@ const Accordion = () => {
     return (
         <section className={styles.section}>
             <div className={styles.split}>
-                <div className={styles.imageCol}>
+                <div
+                    ref={imageRef}
+                    className={`${styles.imageCol} reveal-scale ${imageVisible ? 'visible' : ''}`}
+                >
                     <div
                         className={styles.bgImage}
                         style={{ backgroundImage: `url(${sideImage})` }}
                     ></div>
                 </div>
-                <div className={styles.contentCol}>
+                <div
+                    ref={contentRef}
+                    className={`${styles.contentCol} reveal ${contentVisible ? 'visible' : ''}`}
+                >
                     <h2 className="text-h2" style={{ marginBottom: '3rem' }}>What We Offer</h2>
                     <div className={styles.list}>
                         {items.map((item, index) => (

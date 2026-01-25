@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './QuoteCTA.module.css';
 
 const QuoteCTA = () => {
+    const { ref, isVisible } = useScrollReveal({ threshold: 0.3 });
+
     return (
-        <section className={styles.section}>
+        <section ref={ref} className={`${styles.section} reveal ${isVisible ? 'visible' : ''}`}>
             {/* Circle Ring Element - Connects to section above */}
             <div className={styles.circleContainer}>
                 <div className={styles.circleRing}>
