@@ -53,7 +53,6 @@ const TradeGrid = () => {
                             className={`${styles.card} ${isVisible ? styles.cardVisible : ''}`}
                             style={{ '--stagger-delay': `${index * 60}ms` }}
                         >
-                            <span className={styles.icon}>+</span>
                             <span className={styles.label}>{trade.label}</span>
                         </Link>
                     ))}

@@ -5,7 +5,7 @@
     width: 100%;
     height: var(--header-height);
     z-index: 1000;
-    background-color: rgba(25, 25, 25, 0.56);
+    background-color: rgba(25, 25, 25, 0.62);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -16,7 +16,7 @@
 
 /* Scrolled State - slightly more opaque */
 .navbar.scrolled {
-    background-color: rgba(20, 20, 20, 0.75);
+    background-color: rgba(20, 20, 20, 0.40);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.25);
@@ -61,10 +61,11 @@
 .navLink {
     background: none;
     border: none;
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    word-spacing: 0.15em;
     text-transform: uppercase;
     color: inherit;
     cursor: pointer;
