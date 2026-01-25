@@ -60,7 +60,7 @@ const PartnersSection = () => {
                             rel="noopener noreferrer"
                             className={styles.logoItem}
                         >
-                            <img src={partner.logo} alt={partner.name} />
+                            <img src={partner.logo} alt={partner.name} loading="lazy" />
                         </a>
                     ))}
                 </div>

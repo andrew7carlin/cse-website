@@ -88,7 +88,7 @@ const LeadershipSection = () => {
                                 style={{ backgroundImage: `url(${copperBg})` }}
                             >
                                 {leader.photo ? (
-                                    <img src={leader.photo} alt={leader.name} />
+                                    <img src={leader.photo} alt={leader.name} loading="lazy" />
                                 ) : (
                                     <div className={styles.photoPlaceholder}>
                                         <span>{leader.name.split(' ').map(n => n[0]).join('')}</span>
