@@ -7,9 +7,9 @@ import styles from './About.module.css';
 // Timeline placeholder images
 import timeline2005 from '../assets/projects/Custom Home_Kingman Az_5.jpg';
 import timeline2010 from '../assets/projects/Greenprint Apartments_Phoenix AZ.jpg';
-import timeline2015 from '../assets/projects/Home2Suites_ Kingman Az.jpg';
+import timeline2015 from '../assets/projects/28th and Sunrise_Las Vegas Nv.jpg';
 import timeline2019 from '../assets/projects/EOS Fitness_Tempe Az.jpg';
-import timeline2024 from '../assets/projects/Betty\'s Village_Las Vegas Nev_3.jpg';
+import timeline2024 from '../assets/projects/Aquila Place_ Apache Junction_(2).JPG';
 
 // Hero image
 import heroImage from '../assets/projects/Hyundai Gilbert_Gilbert Az.jpg';
