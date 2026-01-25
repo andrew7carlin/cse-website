@@ -13,33 +13,79 @@ import eagleTile from '../assets/Partners/Eagle tile.png';
 import eosFitness from '../assets/Partners/EOS Fitness.png';
 
 const partnerLogos = [
-    { name: 'AR Mays', logo: arMays },
-    { name: 'Carlisle', logo: carlisle },
-    { name: 'Certainteed', logo: certainteed },
-    { name: 'Eagle Tile', logo: eagleTile },
-    { name: 'EOS Fitness', logo: eosFitness },
     { name: 'QXO', logo: qxo },
-    { name: 'R and O', logo: rAndO },
+    { name: 'EOS Fitness', logo: eosFitness },
+    { name: 'Carlisle', logo: carlisle },
     { name: 'Salad and Go', logo: saladAndGo },
     { name: 'Home Depot', logo: homeDepot },
+    { name: 'Certainteed', logo: certainteed },
+    { name: 'AR Mays', logo: arMays },
+    { name: 'Eagle Tile', logo: eagleTile },
+    { name: 'R and O', logo: rAndO },
 ];
 
 const Partnerships = () => {
     const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({ subject: '', message: '' });
     const [formStatus, setFormStatus] = useState('');
-    const [logoOrder, setLogoOrder] = useState([...Array(partnerLogos.length).keys()]);
+    const [visibleLogos, setVisibleLogos] = useState([]);
+    const [showHeader, setShowHeader] = useState(false);
 
-    // Shuffle logos every 2 seconds
+    // Random starting positions for each logo
+    const logoAnimations = useMemo(() => {
+        return partnerLogos.map(() => {
+            const edges = ['top', 'right', 'bottom', 'left'];
+            const edge = edges[Math.floor(Math.random() * edges.length)];
+            let startX = 0, startY = 0;
+
+            switch (edge) {
+                case 'top':
+                    startX = Math.random() * 100 - 50;
+                    startY = -150;
+                    break;
+                case 'right':
+                    startX = 150;
+                    startY = Math.random() * 100 - 50;
+                    break;
+                case 'bottom':
+                    startX = Math.random() * 100 - 50;
+                    startY = 150;
+                    break;
+                case 'left':
+                    startX = -150;
+                    startY = Math.random() * 100 - 50;
+                    break;
+            }
+            return { startX, startY };
+        });
+    }, []);
+
+    // Staggered logo fly-in effect
     useEffect(() => {
-        const interval = setInterval(() => {
-            setLogoOrder((prev) => {
-                const shuffled = [...prev].sort(() => Math.random() - 0.5);
-                return shuffled;
-            });
-        }, 2000);
+        const showLogoAtIndex = (index) => {
+            if (index < partnerLogos.length) {
+                setVisibleLogos(prev => [...prev, index]);
+            }
+        };
 
-        return () => clearInterval(interval);
+        // Show first logo immediately on load
+        const initialTimeout = setTimeout(() => showLogoAtIndex(0), 500);
+
+        // Show subsequent logos every 3 seconds
+        const intervals = partnerLogos.slice(1).map((_, i) => {
+            return setTimeout(() => showLogoAtIndex(i + 1), 500 + (i + 1) * 3000);
+        });
+
+        // Show header after 7 seconds
+        const headerTimeout = setTimeout(() => {
+            setShowHeader(true);
+        }, 7000);
+
+        return () => {
+            clearTimeout(initialTimeout);
+            clearTimeout(headerTimeout);
+            intervals.forEach(clearTimeout);
+        };
     }, []);
 
     const handleSubmit = async (e) => {
@@ -47,7 +93,6 @@ const Partnerships = () => {
         setFormStatus('sending');
 
         try {
-            // Send email via mailto (opens default email client)
             const mailtoLink = `mailto:pat@canyonstateaz.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
             window.location.href = mailtoLink;
             setFormStatus('success');
@@ -100,15 +145,23 @@ const Partnerships = () => {
 
                         {/* Right Side - Animated Partner Logos */}
                         <div className={styles.logosSection}>
+                            {/* Header that fades in after 7 seconds */}
+                            <div className={`${styles.logosHeader} ${showHeader ? styles.headerVisible : ''}`}>
+                                <span>Our Trusted Partners</span>
+                            </div>
+
                             <div className={styles.logosGrid}>
-                                {logoOrder.map((orderIndex, visualIndex) => {
-                                    const partner = partnerLogos[orderIndex];
+                                {partnerLogos.map((partner, index) => {
+                                    const isVisible = visibleLogos.includes(index);
+                                    const anim = logoAnimations[index];
+
                                     return (
                                         <div
                                             key={partner.name}
-                                            className={styles.logoItem}
+                                            className={`${styles.logoItem} ${isVisible ? styles.logoVisible : ''}`}
                                             style={{
-                                                order: visualIndex,
+                                                '--start-x': `${anim.startX}%`,
+                                                '--start-y': `${anim.startY}%`,
                                             }}
                                         >
                                             <img src={partner.logo} alt={partner.name} />
