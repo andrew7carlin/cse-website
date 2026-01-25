@@ -7,10 +7,12 @@ const ProjectsShowcase = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const trackRef = useRef(null);
 
-    // Load real projects
+    // Load real projects and shuffle for variety
     const projects = useMemo(() => {
         const allProjects = loadProjectAssets();
-        return allProjects.slice(0, 8); // Show up to 8 projects
+        // Shuffle array
+        const shuffled = [...allProjects].sort(() => Math.random() - 0.5);
+        return shuffled.slice(0, 8); // Show up to 8 projects
     }, []);
 
     if (projects.length === 0) return null;
