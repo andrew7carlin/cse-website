@@ -2,18 +2,18 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './PartnersSection.module.css';
 
 // Partner logos
-import arMays from '../../assets/Partners/AR Mays.png';
-import carlisle from '../../assets/Partners/Carlisle.png';
-import qxo from '../../assets/Partners/QXO.png';
-import rAndO from '../../assets/Partners/R and O.png';
-import saladAndGo from '../../assets/Partners/Salad and go.png';
-import homeDepot from '../../assets/Partners/the-home-depot-1-logo-black-and-white.png';
-import certainteed from '../../assets/Partners/Certainteed.png';
-import eagleTile from '../../assets/Partners/Eagle tile.png';
-import eosFitness from '../../assets/Partners/EOS Fitness.png';
+import arMays from '../../assets/Partners/AR Mays.webp';
+import carlisle from '../../assets/Partners/Carlisle.webp';
+import qxo from '../../assets/Partners/QXO.webp';
+import rAndO from '../../assets/Partners/R and O.webp';
+import saladAndGo from '../../assets/Partners/Salad and go.webp';
+import homeDepot from '../../assets/Partners/the-home-depot-1-logo-black-and-white.webp';
+import certainteed from '../../assets/Partners/Certainteed.webp';
+import eagleTile from '../../assets/Partners/Eagle tile.webp';
+import eosFitness from '../../assets/Partners/EOS Fitness.webp';
 
 // Watermark logo
-import iconDark from '../../assets/logos/icon-dark.png';
+import iconDark from '../../assets/logos/icon-dark.webp';
 
 const partners = [
     { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },

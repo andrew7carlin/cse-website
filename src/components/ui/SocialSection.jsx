@@ -1,12 +1,12 @@
 import styles from './SocialSection.module.css';
 
 // Import logo for watermark
-import logoTan from '../../assets/logos/logo-tan.png';
+import logoTan from '../../assets/logos/logo-tan.webp';
 
 // Import a few project images for the collage
-import img1 from '../../assets/projects/28th and Sunrise_Las Vegas Nv.jpg';
-import img2 from '../../assets/projects/Fresenius Medical Care_ KIngman Az.jpg';
-import img3 from '../../assets/projects/Hospice Home_ Kingman Az.jpg';
+import img1 from '../../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
+import img2 from '../../assets/projects/Fresenius Medical Care_ KIngman Az.webp';
+import img3 from '../../assets/projects/Hospice Home_ Kingman Az.webp';
 
 const SocialSection = () => {
     return (
