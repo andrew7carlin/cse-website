@@ -1,7 +1,7 @@
 import styles from './SocialSection.module.css';
 
 // Import logo for watermark
-import logoTan from '../../assets/logos/logo-tan.webp';
+import logoTan from '../../assets/logos/logo-tan.png';
 
 // Import a few project images for the collage
 import img1 from '../../assets/projects/28th and Sunrise_Las Vegas Nv.webp';

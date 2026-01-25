@@ -1,4 +1,4 @@
-import watermarkLogo from '../../assets/logos/logo-tan.webp';
+import watermarkLogo from '../../assets/logos/logo-tan.png';
 import styles from './ProjectCard.module.css';
 
 const ProjectCard = ({ project, onClick }) => {
