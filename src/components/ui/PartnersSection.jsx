@@ -13,7 +13,7 @@ import eagleTile from '../../assets/Partners/Eagle tile.webp';
 import eosFitness from '../../assets/Partners/EOS Fitness.webp';
 
 // Watermark logo
-import iconDark from '../../assets/logos/icon-dark.webp';
+import iconDark from '../../assets/logos/icon-dark.png';
 
 const partners = [
     { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },
