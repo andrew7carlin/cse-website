@@ -1,3 +1,4 @@
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './PartnersSection.module.css';
 
 // Partner logos
@@ -27,6 +28,9 @@ const partners = [
 ];
 
 const PartnersSection = () => {
+    const { ref: headingRef, isVisible: headingVisible } = useScrollReveal({ threshold: 0.2 });
+    const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
+
     return (
         <section className={styles.section}>
             {/* Watermark Logo */}
@@ -36,12 +40,18 @@ const PartnersSection = () => {
 
             <div className={styles.container}>
                 {/* Left Content */}
-                <div className={styles.heading}>
+                <div
+                    ref={headingRef}
+                    className={`${styles.heading} reveal ${headingVisible ? 'visible' : ''}`}
+                >
                     <h2>We Are<br />Trusted by</h2>
                 </div>
 
                 {/* Partner Logos Grid */}
-                <div className={styles.logosGrid}>
+                <div
+                    ref={gridRef}
+                    className={`${styles.logosGrid} reveal-stagger ${gridVisible ? 'visible' : ''}`}
+                >
                     {partners.map((partner, index) => (
                         <a
                             key={index}
