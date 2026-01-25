@@ -70,6 +70,12 @@
     justify-content: center;
     position: relative;
     z-index: 10;
+
+    /* Mobile: Frosted Glass Overlay */
+    background: rgba(35, 35, 35, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: white;
 }
 
 @media (min-width: 992px) {

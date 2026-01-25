@@ -157,7 +157,7 @@
     box-shadow:
         0 4px 30px rgba(0, 0, 0, 0.15),
         0 0 40px rgba(184, 115, 51, 0.1);
-    margin-top: 10vh;
+    margin-top: 5vh;
     border-radius: 4px;
 
     /* Start hidden, slide in after 8 seconds */
