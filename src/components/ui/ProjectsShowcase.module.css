@@ -19,10 +19,11 @@
 }
 
 .heading {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-light);
     color: var(--color-text-main);
-    letter-spacing: -0.02em;
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: var(--line-height-heading);
 }
 
 .allProjectsBtn {
