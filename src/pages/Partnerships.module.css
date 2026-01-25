@@ -131,7 +131,7 @@
 .logosGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem 2rem;
+    gap: 6rem 4rem;
 }
 
 /* Logo Items with fly-in animation */
@@ -290,7 +290,7 @@
 @media (max-width: 767px) {
     .logosGrid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem 1.5rem;
+        gap: 4rem 3rem;
     }
 
     .logosSection {
