@@ -2,6 +2,10 @@
     padding: 0;
     background: var(--color-bg-base);
     overflow: hidden;
+    position: relative;
+    /* Diagonal slant at top - opposite direction */
+    clip-path: polygon(0 0, 100% 2.5%, 100% 100%, 0 100%);
+    margin-top: -2rem;
 }
 
 .container {
