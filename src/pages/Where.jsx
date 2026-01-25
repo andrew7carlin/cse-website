@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react';
-import MorphingStates from '../components/ui/MorphingStates';
 import styles from './Where.module.css';
 
 const serviceAreas = [
@@ -97,7 +96,6 @@ const Where = () => {
                     <p className={styles.subtitle}>
                         Four states. One standard of excellence.
                     </p>
-                    <MorphingStates />
                 </div>
             </section>
 
