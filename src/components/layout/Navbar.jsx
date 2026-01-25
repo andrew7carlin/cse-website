@@ -6,7 +6,6 @@ import logoWhite from '../../assets/logos/logo-white.png';
 import cactusImg from '../../assets/logos/cactus.png';
 
 const Navbar = () => {
-    const [activeLink, setActiveLink] = useState(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
@@ -27,22 +26,6 @@ const Navbar = () => {
     }, [location]);
 
     const navClass = `${styles.navbar} ${isScrolled || !isHome ? styles.scrolled : ''}`;
-
-    const NavLinkWithCactus = ({ to, children }) => (
-        <Link
-            to={to}
-            className={styles.navLink}
-            onMouseEnter={() => setActiveLink(to)}
-            onMouseLeave={() => setActiveLink(null)}
-        >
-            <span className={styles.navLinkText}>{children}</span>
-            <img
-                src={cactusImg}
-                alt=""
-                className={`${styles.cactusDecor} ${activeLink === to ? styles.cactusActive : ''}`}
-            />
-        </Link>
-    );
 
     return (
         <header className={navClass}>
@@ -70,11 +53,26 @@ const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <nav className={styles.navLinks}>
-                    <NavLinkWithCactus to="/services">Trades</NavLinkWithCactus>
-                    <NavLinkWithCactus to="/portfolio">Portfolio</NavLinkWithCactus>
-                    <NavLinkWithCactus to="/about">About</NavLinkWithCactus>
-                    <NavLinkWithCactus to="/where">Where</NavLinkWithCactus>
-                    <NavLinkWithCactus to="/contact">Contact</NavLinkWithCactus>
+                    <Link to="/services" className={styles.navLink}>
+                        <span className={styles.navLinkText}>Trades</span>
+                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    </Link>
+                    <Link to="/portfolio" className={styles.navLink}>
+                        <span className={styles.navLinkText}>Portfolio</span>
+                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    </Link>
+                    <Link to="/about" className={styles.navLink}>
+                        <span className={styles.navLinkText}>About</span>
+                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    </Link>
+                    <Link to="/where" className={styles.navLink}>
+                        <span className={styles.navLinkText}>Where</span>
+                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    </Link>
+                    <Link to="/contact" className={styles.navLink}>
+                        <span className={styles.navLinkText}>Contact</span>
+                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    </Link>
                 </nav>
 
                 <div className={styles.actions}>

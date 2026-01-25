@@ -96,7 +96,7 @@
     pointer-events: none;
 }
 
-.cactusActive {
+.navLink:hover .cactusDecor {
     transform: translateX(-50%) scaleY(1);
     opacity: 0.9;
 }
