@@ -9,14 +9,14 @@ const MorphingStates = () => {
         {
             abbrev: 'AZ',
             name: 'Arizona',
-            // Arizona: Rectangular with jagged SW corner (Colorado River/Grand Canyon edge)
-            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 35% 100%, 30% 85%, 20% 75%, 15% 100%, 0% 100%)'
+            // Arizona: Straight top/east, jagged west edge following Colorado River
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 40% 100%, 35% 92%, 28% 82%, 20% 72%, 14% 62%, 10% 50%, 8% 38%, 5% 25%, 0% 15%)'
         },
         {
             abbrev: 'NV',
             name: 'Nevada',
-            // Nevada: Wedge shape - wider at top, pointed at bottom
-            clipPath: 'polygon(15% 0%, 100% 0%, 100% 15%, 85% 100%, 35% 100%, 0% 20%)'
+            // Nevada: Arrow pointing south, angled western border
+            clipPath: 'polygon(30% 0%, 100% 0%, 100% 22%, 85% 100%, 45% 100%, 0% 18%)'
         },
         {
             abbrev: 'UT',
