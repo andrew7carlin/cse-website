@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { loadProjectAssets } from '../utils/assetLoader';
-import watermarkIcon from '../assets/logos/logo-tan.png';
 
 const ProjectDetail = () => {
     const { projectId } = useParams();
@@ -63,10 +62,6 @@ const ProjectDetail = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {project.media.map((item, index) => (
                         <div key={index} className="group relative rounded-lg overflow-hidden bg-gray-900 border-2 border-[#b87333] shadow-2xl hover:shadow-[0_0_20px_rgba(184,115,51,0.2)] transition-shadow duration-300">
-                            {/* Watermark */}
-                            <div className="absolute top-4 right-4 z-10 opacity-60 mix-blend-overlay pointer-events-none">
-                                <img src={watermarkIcon} alt="" className="w-24 h-auto object-contain" />
-                            </div>
 
                             {item.type === 'video' ? (
                                 <video
