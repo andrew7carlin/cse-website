@@ -69,8 +69,8 @@
 }
 
 .navArrow:hover {
-    background: var(--color-copper);
-    border-color: var(--color-copper);
+    background: var(--color-tan);
+    border-color: var(--color-tan);
     transform: translateY(-50%) scale(1.1);
 }
 
