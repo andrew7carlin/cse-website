@@ -3,6 +3,8 @@
  * Routes emails to appropriate team members based on selected office
  */
 
+import { Resend } from 'resend';
+
 const OFFICE_EMAIL_MAP = {
     'kingman': 'office@canyonstateaz.com',
     'phoenix': 'John@canyonstateaz.com',
@@ -19,6 +21,8 @@ export const handler = async (event) => {
     }
 
     try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
+
         const data = JSON.parse(event.body);
         const { name, company, email, phone, city, state, closestOffice, projectType, timeline, message } = data;
 
@@ -56,41 +60,33 @@ export const handler = async (event) => {
             <p>${message.replace(/\n/g, '<br />')}</p>
         `;
 
-        // Send email via Resend
-        const response = await fetch('https://api.resend.com/emails', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                from: 'Canyon State Contact <onboarding@resend.dev>',
-                to: recipient,
-                reply_to: email,
-                subject: `New Inquiry from ${name} - ${projectType}`,
-                html: emailHtml
-            })
+        // Send email via Resend SDK
+        const { data: emailData, error } = await resend.emails.send({
+            from: 'Canyon State Contact <onboarding@resend.dev>',
+            to: [recipient],
+            replyTo: email,
+            subject: `New Inquiry from ${name} - ${projectType}`,
+            html: emailHtml
         });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.error('Resend API error:', errorData);
+        if (error) {
+            console.error('Resend API error:', error);
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: 'Failed to send email' })
+                body: JSON.stringify({ error: 'Failed to send email', details: error.message })
             };
         }
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ success: true, message: 'Email sent successfully' })
+            body: JSON.stringify({ success: true, message: 'Email sent successfully', id: emailData?.id })
         };
 
     } catch (error) {
         console.error('Function error:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Internal server error' })
+            body: JSON.stringify({ error: 'Internal server error', details: error.message })
         };
     }
 };
