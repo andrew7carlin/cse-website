@@ -103,15 +103,55 @@
     font-size: 1rem;
     margin-top: 1rem;
     width: 100%;
-    transition: background 0.2s;
+    transition: background 0.2s, opacity 0.2s;
+    cursor: pointer;
 }
 
-.submitBtn:hover {
+.submitBtn:hover:not(:disabled) {
     background: #8a3d1b;
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 @media (min-width: 768px) {
     .submitBtn {
         width: auto;
     }
+}
+
+/* Office Select - Prominent Styling */
+.officeSelect {
+    background: #fef9f5;
+    border: 2px solid var(--color-copper) !important;
+    font-weight: 500;
+}
+
+/* Success Message */
+.successMessage {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+.successMessage span {
+    font-size: 1.25rem;
+}
+
+/* Error Message */
+.errorMessage {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
 }

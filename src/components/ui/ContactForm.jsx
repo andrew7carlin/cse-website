@@ -9,21 +9,57 @@ const ContactForm = () => {
         phone: '',
         city: '',
         state: 'AZ',
-        service: [],
+        closestOffice: '',
         projectType: 'Commercial',
         timeline: 'ASAP',
         message: ''
     });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Fom submitted:', formData);
-        alert('Thank you! We will be in touch shortly.');
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+
+        try {
+            const response = await fetch('/.netlify/functions/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setSubmitStatus('success');
+                setFormData({
+                    name: '',
+                    company: '',
+                    email: '',
+                    phone: '',
+                    city: '',
+                    state: 'AZ',
+                    closestOffice: '',
+                    projectType: 'Commercial',
+                    timeline: 'ASAP',
+                    message: ''
+                });
+            } else {
+                setSubmitStatus('error');
+            }
+        } catch (error) {
+            console.error('Submit error:', error);
+            setSubmitStatus('error');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -37,20 +73,51 @@ const ContactForm = () => {
                         <div className={styles.contactDetails}>
                             <div className={styles.detailItem}>
                                 <h4>Headquarters</h4>
-                                <p>1234 Construction Way<br />Phoenix, AZ 85034</p>
+                                <p>2959 Rhoades Ave<br />Kingman, AZ 86409</p>
                             </div>
                             <div className={styles.detailItem}>
                                 <h4>Phone</h4>
-                                <p>(602) 555-0123</p>
+                                <p>(928) 757-5380</p>
                             </div>
                             <div className={styles.detailItem}>
                                 <h4>Email</h4>
-                                <p>info@canyonstateaz.com</p>
+                                <p>office@canyonstateaz.com</p>
                             </div>
                         </div>
                     </div>
 
                     <form className={styles.formCol} onSubmit={handleSubmit}>
+                        {/* Success Message */}
+                        {submitStatus === 'success' && (
+                            <div className={styles.successMessage}>
+                                <span>✓</span> Thank you! We'll be in touch shortly.
+                            </div>
+                        )}
+
+                        {/* Error Message */}
+                        {submitStatus === 'error' && (
+                            <div className={styles.errorMessage}>
+                                Something went wrong. Please try again or call us directly.
+                            </div>
+                        )}
+
+                        {/* Closest Office - REQUIRED */}
+                        <div className={styles.group}>
+                            <label>Which office is closest to you? *</label>
+                            <select
+                                name="closestOffice"
+                                value={formData.closestOffice}
+                                onChange={handleChange}
+                                required
+                                className={styles.officeSelect}
+                            >
+                                <option value="">-- Please Select --</option>
+                                <option value="kingman">Kingman, AZ (Headquarters)</option>
+                                <option value="phoenix">Phoenix, AZ</option>
+                                <option value="lasvegas">Las Vegas, NV</option>
+                            </select>
+                        </div>
+
                         <div className={styles.row}>
                             <div className={styles.group}>
                                 <label>Name *</label>
@@ -84,6 +151,7 @@ const ContactForm = () => {
                                     <option value="AZ">Arizona</option>
                                     <option value="NV">Nevada</option>
                                     <option value="UT">Utah</option>
+                                    <option value="NM">New Mexico</option>
                                 </select>
                             </div>
                         </div>
@@ -113,7 +181,13 @@ const ContactForm = () => {
                             <textarea name="message" rows="4" required value={formData.message} onChange={handleChange}></textarea>
                         </div>
 
-                        <button type="submit" className={styles.submitBtn}>Send Message</button>
+                        <button
+                            type="submit"
+                            className={styles.submitBtn}
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
+                        </button>
                     </form>
                 </div>
             </div>
