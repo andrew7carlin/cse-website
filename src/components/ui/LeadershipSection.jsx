@@ -18,6 +18,9 @@ import koreyHines from '../../assets/leadership/Korey-Hines.png';
 import ashleyUngaro from '../../assets/leadership/Ashley-Ungaro.png';
 import randyPerry from '../../assets/leadership/Randy-Perry.png';
 
+// Copper background for transparent headshots
+import copperBg from '../../assets/leadership/copper-bg.jpg';
+
 const leaders = [
     { name: 'Keven Ott', title: 'Owner', photo: kevenOtt },
     { name: 'Joe Juelfs', title: 'Owner', photo: joeJuelfs },
@@ -78,7 +81,10 @@ const LeadershipSection = () => {
                 <div className={styles.leadersTrack}>
                     {leaders.map((leader, index) => (
                         <div key={index} className={styles.leaderCard}>
-                            <div className={styles.photoContainer}>
+                            <div
+                                className={styles.photoContainer}
+                                style={{ backgroundImage: `url(${copperBg})` }}
+                            >
                                 {leader.photo ? (
                                     <img src={leader.photo} alt={leader.name} />
                                 ) : (

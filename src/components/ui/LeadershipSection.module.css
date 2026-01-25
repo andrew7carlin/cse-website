@@ -52,21 +52,33 @@
 }
 
 .scrollContainer {
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-copper) rgba(255, 255, 255, 0.1);
     padding-left: max(var(--container-padding), calc((100vw - var(--container-width)) / 2 + var(--container-padding)));
+    padding-bottom: 1rem;
 }
 
 .scrollContainer::-webkit-scrollbar {
-    display: none;
+    height: 8px;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+    background: var(--color-copper);
+    border-radius: 4px;
 }
 
 .leadersTrack {
     display: flex;
     gap: 1.5rem;
     padding-right: var(--container-padding);
+    width: max-content;
 }
 
 .leaderCard {
@@ -82,12 +94,16 @@
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    background-image: var(--copper-bg);
+    background-size: cover;
+    background-position: center;
 }
 
 .photoContainer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
 }
 
 .photoPlaceholder {
