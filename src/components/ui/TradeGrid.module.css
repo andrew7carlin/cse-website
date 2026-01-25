@@ -28,27 +28,45 @@
 
 .card {
     background: var(--color-bg-base);
-    /* Soft off-white instead of stark white */
     padding: 2rem;
     display: flex;
     align-items: center;
     gap: 1rem;
     border: 1px solid transparent;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     text-decoration: none;
     color: var(--color-text-main);
+
+    /* Initial hidden state for animation */
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+}
+
+.cardVisible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition:
+        opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1) var(--stagger-delay, 0ms),
+        transform 0.5s cubic-bezier(0.23, 1, 0.32, 1) var(--stagger-delay, 0ms),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .card:hover {
     border-color: var(--color-copper);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 .icon {
     font-size: 1.5rem;
     color: var(--color-copper);
     font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .icon {
+    transform: rotate(90deg);
 }
 
 .label {
