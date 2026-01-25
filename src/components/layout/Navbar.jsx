@@ -52,16 +52,7 @@ const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <nav className={styles.navLinks}>
-                    <div className={styles.navItem}>
-                        <button className={styles.navLink}>Trades +</button>
-                        <div className={styles.dropdown}>
-                            <Link to="/services">All Services</Link>
-                            <Link to="/services/roofing">Roofing</Link>
-                            <Link to="/services/stucco">Stucco</Link>
-                            <Link to="/services/hvac">HVAC</Link>
-                            <Link to="/services/construction">Construction</Link>
-                        </div>
-                    </div>
+                    <Link to="/services" className={styles.navLink}>Trades</Link>
                     <Link to="/portfolio" className={styles.navLink}>Portfolio</Link>
                     <Link to="/about" className={styles.navLink}>About</Link>
                     <Link to="/where" className={styles.navLink}>Where</Link>

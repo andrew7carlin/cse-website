@@ -96,12 +96,6 @@ const Where = () => {
                     <p className={styles.subtitle}>
                         Four states. One standard of excellence.
                     </p>
-                    <div className={styles.scrollHint}>
-                        <span>Swipe to explore</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </div>
                 </div>
             </section>
 
@@ -127,6 +121,14 @@ const Where = () => {
                             <span className={styles.dotLabel}>{area.abbrev}</span>
                         </button>
                     ))}
+                </div>
+
+                {/* Scroll Hint */}
+                <div className={styles.scrollHint}>
+                    <span>Swipe to explore</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
                 </div>
 
                 {/* Scrollable Container */}
