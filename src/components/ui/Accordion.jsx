@@ -3,7 +3,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './Accordion.module.css';
 
 // Direct import for reliable image loading
-import sideImage from '../../assets/projects/Fresenius Medical Care_ KIngman Az.jpg';
+import sideImage from '../../assets/projects/Fresenius Medical Care_ KIngman Az.webp';
 
 const items = [
     { id: 1, title: 'Market Segments', content: 'Serving commercial, industrial, and residential sectors with specialized teams for every scale.' },

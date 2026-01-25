@@ -2,25 +2,25 @@ import React, { useRef } from 'react';
 import styles from './LeadershipSection.module.css';
 
 // Leadership photos
-import kevenOtt from '../../assets/leadership/Kevin-Ott.png';
-import joeJuelfs from '../../assets/leadership/Joe-Juelfs.png';
-import jessicaGonzalez from '../../assets/leadership/Jessica-Gonzalez.png';
-import anthonyGonzalez from '../../assets/leadership/Anthony-Gonzalez.png';
-import patCarlin from '../../assets/leadership/Pat-Carlin.png';
-import cameronOtt from '../../assets/leadership/Cameron-Ott.png';
-import steveSampson from '../../assets/leadership/Steve-Samson.png';
-import clayFinch from '../../assets/leadership/Clay-Finch.png';
-import jeremiahDevine from '../../assets/leadership/Jeremiah-Devine.png';
-import andrewCarlin from '../../assets/leadership/Andrew-Carlin.png';
-import johnBlake from '../../assets/leadership/John-Blake.png';
-import nathanSchoolmeester from '../../assets/leadership/Nathan-Schoolmeester.png';
-import randyFinch from '../../assets/leadership/Randy-Finch.png';
-import koreyHines from '../../assets/leadership/Korey-Hines.png';
-import ashleyUngaro from '../../assets/leadership/Ashley-Ungaro.png';
-import randyPerry from '../../assets/leadership/Randy-Perry.png';
+import kevenOtt from '../../assets/leadership/Kevin-Ott.webp';
+import joeJuelfs from '../../assets/leadership/Joe-Juelfs.webp';
+import jessicaGonzalez from '../../assets/leadership/Jessica-Gonzalez.webp';
+import anthonyGonzalez from '../../assets/leadership/Anthony-Gonzalez.webp';
+import patCarlin from '../../assets/leadership/Pat-Carlin.webp';
+import cameronOtt from '../../assets/leadership/Cameron-Ott.webp';
+import steveSampson from '../../assets/leadership/Steve-Samson.webp';
+import clayFinch from '../../assets/leadership/Clay-Finch.webp';
+import jeremiahDevine from '../../assets/leadership/Jeremiah-Devine.webp';
+import andrewCarlin from '../../assets/leadership/Andrew-Carlin.webp';
+import johnBlake from '../../assets/leadership/John-Blake.webp';
+import nathanSchoolmeester from '../../assets/leadership/Nathan-Schoolmeester.webp';
+import randyFinch from '../../assets/leadership/Randy-Finch.webp';
+import koreyHines from '../../assets/leadership/Korey-Hines.webp';
+import ashleyUngaro from '../../assets/leadership/Ashley-Ungaro.webp';
+import randyPerry from '../../assets/leadership/Randy-Perry.webp';
 
 // Copper background for transparent headshots
-import copperBg from '../../assets/leadership/copper-bg.jpg';
+import copperBg from '../../assets/leadership/copper-bg.webp';
 
 const leaders = [
     { name: 'Keven Ott', title: 'Owner', photo: kevenOtt },

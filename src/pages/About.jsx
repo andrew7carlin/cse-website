@@ -5,14 +5,14 @@ import { loadProjectAssets } from '../utils/assetLoader';
 import styles from './About.module.css';
 
 // Timeline placeholder images
-import timeline2005 from '../assets/projects/Custom Home_Kingman Az_5.jpg';
-import timeline2010 from '../assets/projects/Greenprint Apartments_Phoenix AZ.jpg';
-import timeline2015 from '../assets/projects/28th and Sunrise_Las Vegas Nv.jpg';
-import timeline2019 from '../assets/projects/EOS Fitness_Tempe Az.jpg';
-import timeline2024 from '../assets/projects/Aquila Place_ Apache Junction_(2).JPG';
+import timeline2005 from '../assets/projects/Custom Home_Kingman Az_5.webp';
+import timeline2010 from '../assets/projects/Greenprint Apartments_Phoenix AZ.webp';
+import timeline2015 from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
+import timeline2019 from '../assets/projects/EOS Fitness_Tempe Az.webp';
+import timeline2024 from '../assets/projects/Aquila Place_ Apache Junction_(2).webp';
 
 // Hero image
-import heroImage from '../assets/projects/Hyundai Gilbert_Gilbert Az.jpg';
+import heroImage from '../assets/projects/Hyundai Gilbert_Gilbert Az.webp';
 
 const About = () => {
     const values = [
