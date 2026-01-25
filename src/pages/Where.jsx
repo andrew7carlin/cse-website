@@ -72,20 +72,10 @@ const Where = () => {
             setActiveIndex(Math.min(newIndex, serviceAreas.length - 1));
         };
 
-        // Mouse wheel horizontal scroll
-        const handleWheel = (e) => {
-            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-                e.preventDefault();
-                container.scrollLeft += e.deltaY;
-            }
-        };
-
         container.addEventListener('scroll', handleScroll);
-        container.addEventListener('wheel', handleWheel, { passive: false });
 
         return () => {
             container.removeEventListener('scroll', handleScroll);
-            container.removeEventListener('wheel', handleWheel);
         };
     }, []);
 
