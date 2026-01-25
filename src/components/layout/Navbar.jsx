@@ -62,15 +62,9 @@ const Navbar = () => {
                             <Link to="/services/construction">Construction</Link>
                         </div>
                     </div>
-                    <div className={styles.navItem}>
-                        <button className={styles.navLink}>Portfolio +</button>
-                        <div className={styles.dropdown}>
-                            <Link to="/portfolio">All Projects</Link>
-                            <Link to="/portfolio?cat=commercial">Commercial</Link>
-                            <Link to="/portfolio?cat=residential">Residential</Link>
-                        </div>
-                    </div>
+                    <Link to="/portfolio" className={styles.navLink}>Portfolio</Link>
                     <Link to="/about" className={styles.navLink}>About</Link>
+                    <Link to="/where" className={styles.navLink}>Where</Link>
                     <Link to="/contact" className={styles.navLink}>Contact</Link>
                 </nav>
 
@@ -85,6 +79,7 @@ const Navbar = () => {
                     <Link to="/services" className={styles.mobileNavLink}>Services</Link>
                     <Link to="/portfolio" className={styles.mobileNavLink}>Portfolio</Link>
                     <Link to="/about" className={styles.mobileNavLink}>About</Link>
+                    <Link to="/where" className={styles.mobileNavLink}>Where</Link>
                     <Link to="/contact" className={styles.mobileNavLink}>Contact</Link>
                     <Link to="/contact" className={styles.mobileCta}>Let's Talk</Link>
                 </nav>
