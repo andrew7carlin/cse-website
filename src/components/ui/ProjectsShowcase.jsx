@@ -5,53 +5,45 @@ import styles from './ProjectsShowcase.module.css';
 
 const ProjectsShowcase = () => {
     const sectionRef = useRef(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
+    const [visibleItems, setVisibleItems] = useState(new Set());
 
     // Load and shuffle projects
     const projects = useMemo(() => {
         const allProjects = loadProjectAssets();
         const shuffled = [...allProjects].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, 9); // Show 9 projects in masonry grid
+        return shuffled.slice(0, 12); // Show 12 projects for better masonry variety
     }, []);
 
-    // Parallax scroll effect
+    // Scroll-triggered reveal effect
     useEffect(() => {
-        const handleScroll = () => {
-            if (!sectionRef.current) return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const index = parseInt(entry.target.dataset.index);
+                        setVisibleItems((prev) => new Set([...prev, index]));
+                    }
+                });
+            },
+            {
+                threshold: 0.15,
+                rootMargin: '50px 0px'
+            }
+        );
 
-            const rect = sectionRef.current.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+        const items = document.querySelectorAll(`.${styles.gridItem}`);
+        items.forEach((item) => observer.observe(item));
 
-            // Calculate progress from 0 to 1 as section scrolls through viewport
-            const progress = Math.max(0, Math.min(1,
-                (windowHeight - rect.top) / (windowHeight + rect.height)
-            ));
-
-            setScrollProgress(progress);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll(); // Initial check
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        return () => observer.disconnect();
+    }, [projects]);
 
     if (projects.length === 0) return null;
 
-    // Assign varying heights for masonry effect
-    const heightClasses = ['tall', 'medium', 'short'];
-
-    // Calculate parallax offset for each item based on its index
-    const getParallaxStyle = (index) => {
-        // Different speeds for different items create depth
-        const speeds = [0.15, 0.1, 0.05, 0.12, 0.08, 0.18, 0.06, 0.14, 0.09];
-        const speed = speeds[index % speeds.length];
-        const offset = (scrollProgress - 0.5) * 100 * speed;
-
-        return {
-            transform: `translateY(${offset}px)`,
-            transition: 'transform 0.1s ease-out'
-        };
+    // More dramatic size variations for masonry
+    const getSizeClass = (index) => {
+        // Pattern for varied sizes: large, small, medium, small, large, small, medium, medium, small, large, small, medium
+        const sizes = ['xlarge', 'small', 'medium', 'small', 'large', 'small', 'medium', 'medium', 'small', 'xlarge', 'small', 'medium'];
+        return sizes[index % sizes.length];
     };
 
     return (
@@ -68,13 +60,16 @@ const ProjectsShowcase = () => {
                 {/* Masonry Grid */}
                 <div className={styles.masonryGrid}>
                     {projects.map((project, index) => {
-                        const heightClass = heightClasses[index % 3];
+                        const sizeClass = getSizeClass(index);
+                        const isVisible = visibleItems.has(index);
+                        const delay = (index % 4) * 0.1; // Staggered animation
 
                         return (
                             <div
                                 key={project.id}
-                                className={`${styles.gridItem} ${styles[heightClass]}`}
-                                style={getParallaxStyle(index)}
+                                data-index={index}
+                                className={`${styles.gridItem} ${styles[sizeClass]} ${isVisible ? styles.visible : ''}`}
+                                style={{ transitionDelay: `${delay}s` }}
                             >
                                 <div className={styles.imageWrapper}>
                                     <img
