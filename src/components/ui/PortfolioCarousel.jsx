@@ -31,7 +31,7 @@ const PortfolioCarousel = () => {
                                 {project.media[0].type === 'video' ? (
                                     <video src={project.media[0].src} className={styles.image} muted playsInline />
                                 ) : (
-                                    <img src={project.media[0].src} alt={project.title} className={styles.image} />
+                                    <img src={project.media[0].src} alt={project.title} className={styles.image} loading="lazy" />
                                 )}
                                 <div className={styles.overlay}>
                                     <span className={styles.viewLabel}>View Project</span>

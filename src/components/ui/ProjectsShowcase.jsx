@@ -76,6 +76,7 @@ const ProjectsShowcase = () => {
                                         src={project.media[0]?.src}
                                         alt={project.title}
                                         className={styles.projectImage}
+                                        loading="lazy"
                                     />
                                     <div className={styles.overlay}>
                                         <div className={styles.projectInfo}>

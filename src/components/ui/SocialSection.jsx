@@ -54,13 +54,13 @@ const SocialSection = () => {
                 <div className={styles.collage}>
                     <div className={styles.accentBlock}></div>
                     <div className={styles.photoMain}>
-                        <img src={img1} alt="Canyon State project" />
+                        <img src={img1} alt="Canyon State project" loading="lazy" />
                     </div>
                     <div className={styles.photoSecondary}>
-                        <img src={img2} alt="Canyon State project" />
+                        <img src={img2} alt="Canyon State project" loading="lazy" />
                     </div>
                     <div className={styles.photoTertiary}>
-                        <img src={img3} alt="Canyon State project" />
+                        <img src={img3} alt="Canyon State project" loading="lazy" />
                     </div>
                 </div>
             </div>
