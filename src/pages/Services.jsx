@@ -1,16 +1,11 @@
-import { useMemo } from 'react';
 import Hero from '../components/ui/Hero';
 import TradeGrid from '../components/ui/TradeGrid';
 import Accordion from '../components/ui/Accordion';
-import { loadProjectAssets } from '../utils/assetLoader';
+
+// Hero image
+import heroImage from '../assets/projects/Aquila Place_ Apache Junction_(2).JPG';
 
 const Services = () => {
-    const heroImage = useMemo(() => {
-        const assets = loadProjectAssets();
-        if (assets.length > 3) return assets[3].media[0].src;
-        if (assets.length > 0) return assets[0].media[0].src;
-        return '';
-    }, []);
 
     return (
         <div>
