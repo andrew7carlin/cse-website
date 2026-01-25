@@ -13,25 +13,39 @@
 
   /* Soft Backgrounds */
   --color-bg-base: #f7f6f2;
-  /* Subtle warm bone color */
   --color-bg-alt: #eae8e1;
-  /* Slightly darker warm gray */
   --color-divider: #d6d3c9;
-  /* Contrast border */
 
-  /* Typography - Big Type System */
-  --font-family-main: 'Manrope', system-ui, -apple-system, sans-serif;
-  /* Placeholder for modern sans */
+  /* Typography - Elegant Light System */
+  --font-family-main: 'Inter', system-ui, -apple-system, sans-serif;
 
-  --font-size-hero: clamp(3rem, 5vw, 5rem);
-  --font-size-h1: clamp(2.5rem, 4vw, 4rem);
-  --font-size-h2: clamp(2rem, 3vw, 3rem);
-  --font-size-h3: 1.5rem;
-  --font-size-body: 1.125rem;
+  /* Font Sizes - Generous Scale */
+  --font-size-hero: clamp(2.75rem, 5vw, 4.5rem);
+  --font-size-h1: clamp(2.25rem, 4vw, 3.5rem);
+  --font-size-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --font-size-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --font-size-body: 1.0625rem;
+  --font-size-body-lg: 1.125rem;
   --font-size-small: 0.875rem;
+  --font-size-eyebrow: 0.8125rem;
 
-  --line-height-tight: 1.1;
-  --line-height-normal: 1.5;
+  /* Font Weights - Light & Elegant */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.15;
+  --line-height-heading: 1.25;
+  --line-height-normal: 1.7;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.08em;
+  --letter-spacing-eyebrow: 0.12em;
 
   /* Spacing - Generous Whitespace */
   --spacing-xs: 0.5rem;
@@ -54,6 +68,7 @@
     --spacing-xl: 3.5rem;
     --spacing-xxl: 5rem;
     --header-height: 70px;
+    --font-size-body: 1rem;
   }
 }
 
@@ -69,7 +84,9 @@ body {
   color: var(--color-text-main);
   line-height: var(--line-height-normal);
   font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -106,25 +123,52 @@ button {
   border-width: 0;
 }
 
-/* Typography Utilities */
+/* Typography Utilities - Elegant Light Style */
 .text-hero {
   font-size: var(--font-size-hero);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-tight);
   line-height: var(--line-height-tight);
 }
 
 .text-h1 {
   font-size: var(--font-size-h1);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-heading);
 }
 
 .text-h2 {
   font-size: var(--font-size-h2);
-  font-weight: 600;
-  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-heading);
+}
+
+.text-h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-heading);
+}
+
+.text-eyebrow {
+  font-size: var(--font-size-eyebrow);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-eyebrow);
+  color: var(--color-teal);
+}
+
+.text-body {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+
+.text-cta {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 .text-copper {

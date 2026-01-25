@@ -38,24 +38,25 @@
 
 .heroLabel {
     display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-eyebrow);
     color: var(--color-copper);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
 }
 
 .heroHeadline {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.75rem, 6vw, 5rem);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-tight);
     margin-bottom: 1.5rem;
 }
 
 .heroSubline {
-    font-size: 1.35rem;
+    font-size: var(--font-size-body-lg);
+    font-weight: var(--font-weight-regular);
     opacity: 0.9;
     max-width: 500px;
     margin: 0 auto;
@@ -83,8 +84,8 @@
 
 .storyHeading h2 {
     font-size: var(--font-size-h1);
-    font-weight: 700;
-    line-height: 1.1;
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-heading);
     color: var(--color-text-main);
 }
 
@@ -120,7 +121,7 @@
 
 .valuesHeader h2 {
     font-size: var(--font-size-h1);
-    font-weight: 700;
+    font-weight: var(--font-weight-light);
     margin-bottom: 1rem;
 }
 
@@ -195,7 +196,7 @@
 
 .timelineHeader h2 {
     font-size: var(--font-size-h1);
-    font-weight: 700;
+    font-weight: var(--font-weight-light);
     color: var(--color-text-main);
     margin-bottom: 1rem;
 }
@@ -218,7 +219,7 @@
 
 .leadershipHeader h2 {
     font-size: var(--font-size-h2);
-    font-weight: 700;
+    font-weight: var(--font-weight-light);
     color: var(--color-text-main);
     margin-bottom: 0.5rem;
 }
@@ -259,7 +260,7 @@
 
 .ctaContent h2 {
     font-size: var(--font-size-h2);
-    font-weight: 700;
+    font-weight: var(--font-weight-light);
     margin-bottom: 1rem;
 }
 

@@ -53,9 +53,9 @@
 }
 
 .heading h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-heading);
     color: var(--color-text-main);
 }
 
