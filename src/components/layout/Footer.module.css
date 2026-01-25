@@ -97,6 +97,19 @@
     font-weight: 500;
 }
 
+.phoneRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.phoneLocation {
+    color: #ddd;
+    font-weight: 500;
+    opacity: 0.5;
+    min-width: 50px;
+}
+
 .bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
