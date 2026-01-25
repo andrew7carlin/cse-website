@@ -4,31 +4,31 @@ import styles from './MorphingStates.module.css';
 const MorphingStates = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Actual state outline polygons (clip-path coordinates)
+    // Actual SVG paths for state outlines (simplified but accurate)
     const states = [
         {
             abbrev: 'AZ',
             name: 'Arizona',
-            // Arizona: Straight top/east, jagged west edge following Colorado River
-            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 40% 100%, 35% 92%, 28% 82%, 20% 72%, 14% 62%, 10% 50%, 8% 38%, 5% 25%, 0% 15%)'
+            // Arizona actual shape
+            path: 'M 80 20 L 220 20 L 220 280 L 160 280 L 140 260 L 100 220 L 80 180 L 60 140 L 50 100 L 50 60 Z'
         },
         {
             abbrev: 'NV',
             name: 'Nevada',
-            // Nevada: Arrow pointing south, angled western border
-            clipPath: 'polygon(30% 0%, 100% 0%, 100% 22%, 85% 100%, 45% 100%, 0% 18%)'
+            // Nevada actual shape - V pointing south
+            path: 'M 100 20 L 220 20 L 220 80 L 180 280 L 120 280 L 50 80 Z'
         },
         {
             abbrev: 'UT',
             name: 'Utah',
-            // Utah: Rectangle with notch cut out of top-right corner
-            clipPath: 'polygon(0% 0%, 65% 0%, 65% 30%, 100% 30%, 100% 100%, 0% 100%)'
+            // Utah - L-shape (rectangle with corner notch)
+            path: 'M 50 20 L 150 20 L 150 100 L 220 100 L 220 280 L 50 280 Z'
         },
         {
             abbrev: 'NM',
             name: 'New Mexico',
-            // New Mexico: Nearly rectangular with small jog on east side
-            clipPath: 'polygon(0% 0%, 100% 0%, 100% 35%, 92% 35%, 92% 100%, 0% 100%)'
+            // New Mexico - rectangle with boot
+            path: 'M 50 20 L 220 20 L 220 100 L 200 100 L 200 280 L 50 280 Z'
         }
     ];
 
@@ -40,20 +40,32 @@ const MorphingStates = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const currentState = states[currentIndex];
-
     return (
         <div className={styles.container}>
-            <div
-                className={styles.shape}
-                style={{ clipPath: currentState.clipPath }}
-            />
+            <svg viewBox="0 0 270 300" className={styles.svg}>
+                <defs>
+                    <linearGradient id="stateGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#c45827" />
+                        <stop offset="100%" stopColor="#d4713a" />
+                    </linearGradient>
+                </defs>
+
+                {states.map((state, index) => (
+                    <path
+                        key={state.abbrev}
+                        d={state.path}
+                        fill="url(#stateGradient)"
+                        className={`${styles.statePath} ${index === currentIndex ? styles.active : ''}`}
+                    />
+                ))}
+            </svg>
+
             <div className={styles.textOverlay}>
-                <span className={styles.stateAbbrev} key={currentState.abbrev}>
-                    {currentState.abbrev}
+                <span className={styles.stateAbbrev} key={states[currentIndex].abbrev}>
+                    {states[currentIndex].abbrev}
                 </span>
-                <span className={styles.stateName} key={`name-${currentState.abbrev}`}>
-                    {currentState.name}
+                <span className={styles.stateName} key={`name-${states[currentIndex].abbrev}`}>
+                    {states[currentIndex].name}
                 </span>
             </div>
         </div>
