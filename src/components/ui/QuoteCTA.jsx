@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styles from './QuoteCTA.module.css';
-import copperBg from '../../assets/leadership/copper-bg.jpg';
 
 const QuoteCTA = () => {
     return (
@@ -8,10 +7,7 @@ const QuoteCTA = () => {
             {/* Circle Ring Element - Connects to section above */}
             <div className={styles.circleContainer}>
                 <div className={styles.circleRing}>
-                    <div
-                        className={styles.circleInner}
-                        style={{ backgroundImage: `url(${copperBg})` }}
-                    ></div>
+                    <div className={styles.circleInner}></div>
                 </div>
             </div>
 
