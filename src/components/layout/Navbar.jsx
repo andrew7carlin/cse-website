@@ -78,10 +78,6 @@ const Navbar = () => {
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
                 </nav>
-
-                <div className={styles.actions}>
-                    <Link to="/contact" className="btn-primary">Let's Talk</Link>
-                </div>
             </div>
 
             {/* Mobile Menu Overlay */}
