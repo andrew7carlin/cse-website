@@ -15,8 +15,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
     margin-bottom: 3rem;
 }
 
@@ -27,302 +25,130 @@
     letter-spacing: -0.02em;
 }
 
-.filters {
-    display: flex;
-    gap: 1rem;
-}
-
-.filterBtn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid var(--color-copper);
-    border-radius: 50px;
-    color: var(--color-copper);
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.filterBtn:hover {
-    background: var(--color-copper);
-    color: white;
-}
-
 .allProjectsBtn {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 2rem;
     background: var(--color-copper);
     border-radius: 50px;
     color: white;
     font-weight: 600;
+    font-size: 1rem;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .allProjectsBtn:hover {
     background: #c9843e;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 115, 51, 0.3);
 }
 
-/* Main Showcase */
-.showcase {
+/* Masonry Grid */
+.masonryGrid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    grid-auto-flow: dense;
 }
 
-@media (min-width: 992px) {
-    .showcase {
-        grid-template-columns: 1.2fr 0.8fr 0.8fr;
-        gap: 3rem;
+@media (min-width: 768px) {
+    .masonryGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 }
 
-/* Featured Project */
-.featured {
-    position: relative;
+@media (min-width: 1024px) {
+    .masonryGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
 }
 
-.featuredImage {
+/* Grid Items with Variable Heights */
+.gridItem {
     position: relative;
-    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
-    aspect-ratio: 4/3;
-
-    /* Animated copper border */
-    &::before {
-        content: '';
-        position: absolute;
-        inset: -3px;
-        background: linear-gradient(135deg,
-                var(--color-copper),
-                #8a3d1b,
-                var(--color-copper));
-        border-radius: 8px;
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
-    /* Gradient overlay */
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg,
-                rgba(184, 115, 51, 0.15) 0%,
-                rgba(138, 61, 27, 0.1) 50%,
-                rgba(184, 115, 51, 0.15) 100%);
-        background-size: 200% 200%;
-        opacity: 0.6;
-        transition: all 0.6s ease;
-        pointer-events: none;
-        z-index: 1;
-    }
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.featuredImage img {
+.gridItem.short {
+    grid-row: span 1;
+}
+
+.gridItem.medium {
+    grid-row: span 2;
+}
+
+.gridItem.tall {
+    grid-row: span 3;
+}
+
+/* Image Wrapper */
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    overflow: hidden;
+}
+
+.projectImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hover effects */
-.featured:hover .featuredImage::before {
-    opacity: 1;
-    animation: borderGlow 2s ease-in-out infinite;
-}
-
-.featured:hover .featuredImage::after {
-    background-position: 100% 100%;
-    opacity: 0.8;
-}
-
-.featured:hover .featuredImage img {
+.gridItem:hover .projectImage {
     transform: scale(1.05);
 }
 
-@keyframes borderGlow {
+/* Copper Overlay */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(184, 115, 51, 0.85) 0%,
+            rgba(138, 61, 27, 0.9) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+}
 
-    0%,
-    100% {
-        filter: brightness(1);
-    }
-
-    50% {
-        filter: brightness(1.2);
-    }
+.gridItem:hover .overlay {
+    opacity: 1;
 }
 
 /* Project Info */
 .projectInfo {
-    text-align: center;
-    padding: 2rem 0;
+    color: white;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gridItem:hover .projectInfo {
+    transform: translateY(0);
 }
 
 .projectTitle {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-text-main);
     margin-bottom: 0.5rem;
     line-height: 1.2;
 }
 
-.projectType {
-    color: var(--color-text-muted);
-    font-size: 1rem;
-    margin-bottom: 2rem;
-}
-
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.navBtn {
-    width: 44px;
-    height: 44px;
-    border: none;
-    background: transparent;
-    color: var(--color-text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.navBtn:hover {
-    color: var(--color-copper);
-}
-
-.indicator {
-    width: 50px;
-    height: 50px;
-    border: 2px solid var(--color-copper);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.indicatorDot {
-    width: 8px;
-    height: 8px;
-    background: var(--color-copper);
-    border-radius: 50%;
-}
-
 .projectLocation {
-    color: var(--color-text-muted);
     font-size: 0.95rem;
-}
-
-/* Next Preview */
-.nextPreview {
-    display: none;
-}
-
-@media (min-width: 992px) {
-    .nextPreview {
-        display: block;
-        position: relative;
-    }
-}
-
-.nextImage {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-}
-
-.nextImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.nextOverlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(184, 115, 51, 0.7);
-    transition: opacity 0.3s ease;
-}
-
-.nextPreview:hover .nextOverlay {
-    opacity: 0.5;
-}
-
-/* Progress Dots */
-.progressDots {
-    display: flex;
-    justify-content: flex-start;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    padding-left: 0.5rem;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border: 2px solid var(--color-copper);
-    border-radius: 50%;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
-}
-
-.dot:hover {
-    background: rgba(184, 115, 51, 0.3);
-}
-
-.dotActive {
-    background: var(--color-copper);
-    animation: dotPulse 2s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(184, 115, 51, 0.4);
-    }
-
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 0 4px rgba(184, 115, 51, 0);
-    }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.featured,
-.projectInfo,
-.nextPreview {
-    animation: fadeIn 0.5s ease-out;
+    opacity: 0.9;
+    font-weight: 500;
 }
 
 /* Mobile Optimizations */
-@media (max-width: 991px) {
+@media (max-width: 767px) {
     .section {
         padding: var(--spacing-xl) 0;
     }
@@ -338,81 +164,25 @@
         font-size: 2rem;
     }
 
-    .filters {
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    .filterBtn,
     .allProjectsBtn {
-        padding: 0.6rem 1rem;
-        font-size: 0.875rem;
-        flex: 1;
-        justify-content: center;
-        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.65rem 1.5rem;
     }
 
-    .showcase {
-        gap: 1.5rem;
+    .masonryGrid {
+        gap: 1rem;
     }
 
-    .featuredImage {
-        border-radius: 6px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    }
-
-    .projectInfo {
-        padding: 1rem 0;
+    .gridItem.tall,
+    .gridItem.medium {
+        grid-row: span 1;
     }
 
     .projectTitle {
         font-size: 1.25rem;
     }
 
-    .projectType {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .navigation {
-        gap: 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .navBtn {
-        width: 40px;
-        height: 40px;
-    }
-
-    .indicator {
-        width: 44px;
-        height: 44px;
-    }
-
-    .progressDots {
-        justify-content: center;
-        margin-top: 1.5rem;
-        padding-left: 0;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .heading {
-        font-size: 1.75rem;
-    }
-
-    .filterBtn,
-    .allProjectsBtn {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.8rem;
-    }
-
-    .projectTitle {
-        font-size: 1.1rem;
+    .projectLocation {
+        font-size: 0.85rem;
     }
 }
