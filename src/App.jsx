@@ -9,6 +9,7 @@ import Portfolio from './pages/Portfolio';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Where from './pages/Where';
+import Partnerships from './pages/Partnerships';
 
 import ProjectDetail from './pages/ProjectDetail';
 import FAQ from './pages/FAQ';
@@ -29,6 +30,7 @@ function App() {
           <Route path="portfolio/:projectId" element={<ProjectDetail />} />
           <Route path="about" element={<About />} />
           <Route path="where" element={<Where />} />
+          <Route path="partnerships" element={<Partnerships />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="contact" element={<Contact />} />
         </Route>
