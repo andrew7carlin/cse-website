@@ -72,8 +72,21 @@ const Where = () => {
             setActiveIndex(Math.min(newIndex, serviceAreas.length - 1));
         };
 
+        // Mouse wheel horizontal scroll
+        const handleWheel = (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault();
+                container.scrollLeft += e.deltaY;
+            }
+        };
+
         container.addEventListener('scroll', handleScroll);
-        return () => container.removeEventListener('scroll', handleScroll);
+        container.addEventListener('wheel', handleWheel, { passive: false });
+
+        return () => {
+            container.removeEventListener('scroll', handleScroll);
+            container.removeEventListener('wheel', handleWheel);
+        };
     }, []);
 
     const scrollToSlide = (index) => {
@@ -84,6 +97,18 @@ const Where = () => {
             left: slideWidth * index,
             behavior: 'smooth',
         });
+    };
+
+    const goNext = () => {
+        if (activeIndex < serviceAreas.length - 1) {
+            scrollToSlide(activeIndex + 1);
+        }
+    };
+
+    const goPrev = () => {
+        if (activeIndex > 0) {
+            scrollToSlide(activeIndex - 1);
+        }
     };
 
     return (
@@ -109,6 +134,26 @@ const Where = () => {
                     />
                 </div>
 
+                {/* Arrow Navigation */}
+                <button
+                    className={`${styles.navArrow} ${styles.navArrowLeft} ${activeIndex === 0 ? styles.navArrowDisabled : ''}`}
+                    onClick={goPrev}
+                    aria-label="Previous state"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <button
+                    className={`${styles.navArrow} ${styles.navArrowRight} ${activeIndex === serviceAreas.length - 1 ? styles.navArrowDisabled : ''}`}
+                    onClick={goNext}
+                    aria-label="Next state"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+
                 {/* Navigation Dots */}
                 <div className={styles.navDots}>
                     {serviceAreas.map((area, index) => (
@@ -121,14 +166,6 @@ const Where = () => {
                             <span className={styles.dotLabel}>{area.abbrev}</span>
                         </button>
                     ))}
-                </div>
-
-                {/* Scroll Hint */}
-                <div className={styles.scrollHint}>
-                    <span>Swipe to explore</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
                 </div>
 
                 {/* Scrollable Container */}

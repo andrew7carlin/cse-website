@@ -58,36 +58,49 @@
     margin: 0 auto 2rem;
 }
 
-.scrollHint {
+/* Arrow Navigation */
+.navArrow {
     position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(8px);
-    padding: 10px 20px;
-    border-radius: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
     z-index: 25;
-    animation: hintPulse 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
 }
 
-@keyframes hintPulse {
+.navArrow:hover {
+    background: var(--color-copper);
+    border-color: var(--color-copper);
+    transform: translateY(-50%) scale(1.1);
+}
 
-    0%,
-    100% {
-        opacity: 0.5;
-        transform: translateX(0);
-    }
+.navArrowLeft {
+    left: 2rem;
+}
 
-    50% {
-        opacity: 1;
-        transform: translateX(4px);
-    }
+.navArrowRight {
+    right: 6rem;
+}
+
+.navArrowDisabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.navArrowDisabled:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%);
 }
 
 /* Journey Section */
