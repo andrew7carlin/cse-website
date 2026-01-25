@@ -1,0 +1,112 @@
+.card {
+    position: relative;
+    height: 320px;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    background: #1a1a1a;
+    border: 1px solid var(--color-copper);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.mediaWrapper {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.media {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.card:hover .media {
+    transform: scale(1.1);
+}
+
+.watermark {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    opacity: 0.6;
+    mix-blend-mode: overlay;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .watermark {
+    opacity: 1;
+}
+
+.watermark img {
+    width: 6rem;
+    height: auto;
+    object-fit: contain;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2) 50%, transparent);
+}
+
+.content {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 100%;
+    padding-right: 1.5rem;
+}
+
+.titleRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.title {
+    font-family: var(--font-family-main);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.divider {
+    color: var(--color-copper);
+    font-weight: 300;
+    font-size: 1.25rem;
+}
+
+.location {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #d1d5db;
+    text-transform: uppercase;
+}
+
+.badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
