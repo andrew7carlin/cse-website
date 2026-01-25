@@ -200,7 +200,7 @@ button {
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 1.6s ease, transform 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .reveal.visible {
@@ -212,7 +212,7 @@ button {
 .reveal-stagger>* {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .reveal-stagger.visible>*:nth-child(1) {
@@ -220,35 +220,35 @@ button {
 }
 
 .reveal-stagger.visible>*:nth-child(2) {
-  transition-delay: 80ms;
-}
-
-.reveal-stagger.visible>*:nth-child(3) {
   transition-delay: 160ms;
 }
 
-.reveal-stagger.visible>*:nth-child(4) {
-  transition-delay: 240ms;
-}
-
-.reveal-stagger.visible>*:nth-child(5) {
+.reveal-stagger.visible>*:nth-child(3) {
   transition-delay: 320ms;
 }
 
-.reveal-stagger.visible>*:nth-child(6) {
-  transition-delay: 400ms;
-}
-
-.reveal-stagger.visible>*:nth-child(7) {
+.reveal-stagger.visible>*:nth-child(4) {
   transition-delay: 480ms;
 }
 
+.reveal-stagger.visible>*:nth-child(5) {
+  transition-delay: 640ms;
+}
+
+.reveal-stagger.visible>*:nth-child(6) {
+  transition-delay: 800ms;
+}
+
+.reveal-stagger.visible>*:nth-child(7) {
+  transition-delay: 960ms;
+}
+
 .reveal-stagger.visible>*:nth-child(8) {
-  transition-delay: 560ms;
+  transition-delay: 1120ms;
 }
 
 .reveal-stagger.visible>*:nth-child(9) {
-  transition-delay: 640ms;
+  transition-delay: 1280ms;
 }
 
 .reveal-stagger.visible>* {
@@ -259,7 +259,7 @@ button {
 /* Fade only (no movement) */
 .reveal-fade {
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 1.6s ease;
 }
 
 .reveal-fade.visible {
@@ -270,7 +270,7 @@ button {
 .reveal-scale {
   opacity: 0;
   transform: scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .reveal-scale.visible {
