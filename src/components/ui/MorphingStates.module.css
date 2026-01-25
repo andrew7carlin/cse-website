@@ -1,7 +1,7 @@
 .container {
     position: relative;
     width: 280px;
-    height: 280px;
+    height: 320px;
     margin: 2rem auto;
 }
 
@@ -11,7 +11,7 @@
     background: linear-gradient(145deg, var(--color-copper) 0%, #d4713a 100%);
     opacity: 0.9;
     /* Smooth 0.9s transition between state shapes */
-    transition: border-radius 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .textOverlay {
@@ -58,7 +58,7 @@
 @media (min-width: 768px) {
     .container {
         width: 320px;
-        height: 320px;
+        height: 360px;
     }
 
     .stateAbbrev {
@@ -69,6 +69,6 @@
 @media (min-width: 992px) {
     .container {
         width: 350px;
-        height: 350px;
+        height: 400px;
     }
 }
