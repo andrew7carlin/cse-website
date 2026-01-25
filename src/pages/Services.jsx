@@ -3,7 +3,7 @@ import TradeGrid from '../components/ui/TradeGrid';
 import Accordion from '../components/ui/Accordion';
 
 // Hero image
-import heroImage from '../assets/projects/Aquila Place_ Apache Junction_(2).JPG';
+import heroImage from '../assets/projects/28th & Sunrise_Las Vegas Nv_6.JPG';
 
 const Services = () => {
 
