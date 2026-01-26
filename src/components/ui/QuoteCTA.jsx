@@ -16,7 +16,7 @@ const QuoteCTA = () => {
 
             {/* Content */}
             <div className={styles.content}>
-                <h2 className={styles.heading}>Request a Quote</h2>
+                <h2 className={styles.heading}>Tell Us About Your Project</h2>
                 <Link to="/contact" className={styles.button}>
                     Get Started
                 </Link>
