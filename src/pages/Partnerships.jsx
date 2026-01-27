@@ -45,7 +45,7 @@ const certifiedByPartners = [
     { name: 'GAF', logo: gaf, url: 'https://www.gaf.com/' },
     { name: 'Karnak', logo: karnak, url: 'https://www.karnak.com/' },
     { name: 'MBCI', logo: mbci, url: 'https://www.mbci.com/' },
-    { name: 'TRI Alliance', logo: triAlliance, url: 'https://www.tri-alliance.com/' },
+    { name: 'TRI Alliance', logo: triAlliance, url: 'https://www.tileroofing.org/' },
     { name: 'Taylor Metal Products', logo: taylorMetal, url: 'https://www.taylormetalproducts.com/' },
     { name: 'Carlisle Syntec', logo: carlisleSyntec, url: 'https://www.carlislesyntec.com/' },
     { name: 'Dryvit', logo: dryvit, url: 'https://www.dryvit.com/' },
