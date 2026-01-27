@@ -87,17 +87,26 @@
     box-shadow: 0 6px 20px rgba(184, 115, 51, 0.3);
 }
 
-/* Logos Section - White background with copper accent */
+/* Logos Section - Two columns side by side */
 .logosSection {
     background: white;
     border-radius: 0;
     padding: 0;
     position: relative;
     min-height: 500px;
+    display: flex;
+    gap: 4rem;
 }
 
-/* Header with copper vertical line */
-.logosHeader {
+/* Individual Logo Column */
+.logoColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Column Header with copper vertical line */
+.columnHeader {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -107,19 +116,19 @@
     transition: opacity 1s ease, transform 1s ease;
 }
 
-.logosHeader.headerVisible {
+.columnHeader.headerVisible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.logosHeader::before {
+.columnHeader::before {
     content: '';
     width: 2px;
     height: 24px;
     background: var(--color-copper);
 }
 
-.logosHeader span {
+.columnHeader span {
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
@@ -127,11 +136,11 @@
     color: var(--color-dark-brown);
 }
 
-/* Logos Grid - More spacing, fills right side */
+/* Logos Grid within each column */
 .logosGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 
 /* Logo Items with fly-in animation */
@@ -288,13 +297,18 @@
 
 /* Mobile */
 @media (max-width: 767px) {
-    .logosGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4rem 3rem;
+    .logosSection {
+        flex-direction: column;
+        gap: 3rem;
+        min-height: auto;
     }
 
-    .logosSection {
-        min-height: 350px;
+    .logoColumn {
+        min-height: 300px;
+    }
+
+    .logosGrid {
+        gap: 3rem;
     }
 
     .modal {
