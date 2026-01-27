@@ -3,6 +3,7 @@ import TradeGrid from '../components/ui/TradeGrid';
 import PartnersSection from '../components/ui/PartnersSection';
 import Accordion from '../components/ui/Accordion';
 import ProjectsShowcase from '../components/ui/ProjectsShowcase';
+import SafetyStats from '../components/ui/SafetyStats';
 import SocialSection from '../components/ui/SocialSection';
 import QuoteCTA from '../components/ui/QuoteCTA';
 import SEO from '../components/common/SEO';
@@ -31,6 +32,8 @@ const Home = () => {
             <Accordion />
 
             <ProjectsShowcase />
+
+            <SafetyStats />
 
             <SocialSection />
 
