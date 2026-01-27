@@ -10,7 +10,9 @@ import Home from './pages/Home';
 // Lazy load all other pages for code splitting
 const TradeDetail = lazy(() => import('./pages/TradeDetail'));
 const Services = lazy(() => import('./pages/Services'));
-const Portfolio = lazy(() => import('./pages/Portfolio'));
+const PortfolioLanding = lazy(() => import('./pages/PortfolioLanding'));
+const CommercialPortfolio = lazy(() => import('./pages/CommercialPortfolio'));
+const ResidentialPortfolio = lazy(() => import('./pages/ResidentialPortfolio'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Where = lazy(() => import('./pages/Where'));
@@ -54,7 +56,9 @@ function App() {
             <Route index element={<Home />} />
             <Route path="services" element={<Services />} />
             <Route path="services/:tradeId" element={<TradeDetail />} />
-            <Route path="portfolio" element={<Portfolio />} />
+            <Route path="portfolio" element={<PortfolioLanding />} />
+            <Route path="portfolio/commercial" element={<CommercialPortfolio />} />
+            <Route path="portfolio/residential" element={<ResidentialPortfolio />} />
             <Route path="portfolio/:projectId" element={<ProjectDetail />} />
             <Route path="about" element={<About />} />
             <Route path="where" element={<Where />} />
