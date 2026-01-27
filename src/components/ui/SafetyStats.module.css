@@ -13,7 +13,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-copper), transparent);
+    background: linear-gradient(90deg, transparent, #b87333, transparent);
 }
 
 .content {
@@ -46,7 +46,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 2px solid var(--color-copper);
+    border: 2px solid #b87333;
     transform: rotate(-2deg);
     border-radius: 4px;
 }
@@ -63,7 +63,7 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--color-copper);
+    color: #b87333;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -71,7 +71,7 @@
 .rating {
     font-size: 6rem;
     font-weight: 700;
-    color: var(--color-copper);
+    color: #b87333;
     line-height: 1;
     margin-bottom: 0.5rem;
     text-shadow: 0 0 30px rgba(184, 115, 51, 0.3);
@@ -81,26 +81,26 @@
     font-size: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--color-text-muted);
+    color: #9ca3af;
     font-weight: 500;
 }
 
 /* Info Section */
 .info {
-    color: var(--color-text-base);
+    color: #ffffff;
 }
 
 .headline {
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: var(--color-text-base);
+    color: #ffffff;
 }
 
 .description {
     font-size: 1.125rem;
     line-height: 1.8;
-    color: var(--color-text-muted);
+    color: #d1d5db;
     margin-bottom: 2rem;
 }
 
@@ -125,20 +125,20 @@
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-text-muted);
+    color: #9ca3af;
     font-weight: 500;
 }
 
 .comparisonValue {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-copper);
+    color: #b87333;
 }
 
 .divider {
     width: 2px;
     height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--color-copper), transparent);
+    background: linear-gradient(to bottom, transparent, #b87333, transparent);
 }
 
 /* Responsive */
@@ -187,6 +187,6 @@
     .divider {
         width: 100px;
         height: 2px;
-        background: linear-gradient(to right, transparent, var(--color-copper), transparent);
+        background: linear-gradient(to right, transparent, #b87333, transparent);
     }
 }
