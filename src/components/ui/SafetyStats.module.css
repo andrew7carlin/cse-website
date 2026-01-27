@@ -104,6 +104,43 @@
     margin-bottom: 2rem;
 }
 
+.description strong {
+    color: #b87333;
+    font-weight: 700;
+}
+
+/* Stats Grid */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.statItem {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(184, 115, 51, 0.05);
+    border-radius: 4px;
+    border: 1px solid rgba(184, 115, 51, 0.2);
+}
+
+.statValue {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #b87333;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
 .comparison {
     display: flex;
     align-items: center;
@@ -176,6 +213,15 @@
 
     .description {
         font-size: 1rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .statValue {
+        font-size: 1.75rem;
     }
 
     .comparison {
