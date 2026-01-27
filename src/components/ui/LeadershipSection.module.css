@@ -35,35 +35,30 @@
     justify-items: center;
 }
 
-.leadersTrack {
-    display: flex;
-    gap: 1.5rem;
-    padding-right: var(--container-padding);
-    width: max-content;
-    align-items: flex-end;
-    /* Align cards to bottom for visual harmony */
-}
-
 .leaderCard {
-    flex-shrink: 0;
-    width: 280px;
+    width: 100%;
+    max-width: 340px;
     text-align: center;
     transition: transform 0.3s ease;
 }
 
+.leaderCard:hover {
+    transform: translateY(-8px);
+}
+
 /* Hierarchical Scaling */
 .scaleOwner {
-    width: 340px;
+    max-width: 340px;
     /* Biggest - Owners */
 }
 
 .scaleCOO {
-    width: 310px;
+    max-width: 310px;
     /* Slightly smaller - COO */
 }
 
 .scaleDirector {
-    width: 280px;
+    max-width: 280px;
     /* Smallest - Directors (default) */
 }
 
