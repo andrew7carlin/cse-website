@@ -35,6 +35,29 @@
     justify-items: center;
 }
 
+/* Level Groups with Scroll Animations */
+.levelGroup {
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.levelGroup.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.levelTitle {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-copper);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 .leaderCard {
     width: 100%;
     max-width: 340px;
