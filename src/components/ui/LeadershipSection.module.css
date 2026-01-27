@@ -79,12 +79,31 @@
     gap: 1.5rem;
     padding-right: var(--container-padding);
     width: max-content;
+    align-items: flex-end;
+    /* Align cards to bottom for visual harmony */
 }
 
 .leaderCard {
     flex-shrink: 0;
     width: 280px;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Hierarchical Scaling */
+.scaleOwner {
+    width: 340px;
+    /* Biggest - Owners */
+}
+
+.scaleCOO {
+    width: 310px;
+    /* Slightly smaller - COO */
+}
+
+.scaleDirector {
+    width: 280px;
+    /* Smallest - Directors (default) */
 }
 
 .photoContainer {
@@ -143,6 +162,19 @@
     }
 
     .leaderCard {
+        width: 240px;
+    }
+
+    /* Maintain hierarchy on mobile with smaller scales */
+    .scaleOwner {
+        width: 280px;
+    }
+
+    .scaleCOO {
+        width: 260px;
+    }
+
+    .scaleDirector {
         width: 240px;
     }
 
