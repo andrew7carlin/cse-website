@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styles from './LeadershipSection.module.css';
 
 // Leadership photos
@@ -42,18 +42,6 @@ const leaders = [
 ];
 
 const LeadershipSection = () => {
-    const scrollRef = useRef(null);
-
-    const scroll = (direction) => {
-        if (scrollRef.current) {
-            const scrollAmount = 320;
-            scrollRef.current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
-
     // Determine scale class based on role
     const getScaleClass = (title) => {
         if (title === 'Owner') return styles.scaleOwner;
@@ -69,47 +57,29 @@ const LeadershipSection = () => {
                     <h2>Meet Our Leaders</h2>
                     <p>The people who make it happen.</p>
                 </div>
-                <div className={styles.scrollControls}>
-                    <button
-                        className={styles.scrollBtn}
-                        onClick={() => scroll('left')}
-                        aria-label="Scroll left"
-                    >
-                        ←
-                    </button>
-                    <button
-                        className={styles.scrollBtn}
-                        onClick={() => scroll('right')}
-                        aria-label="Scroll right"
-                    >
-                        →
-                    </button>
-                </div>
             </div>
 
-            <div className={styles.scrollContainer} ref={scrollRef}>
-                <div className={styles.leadersTrack}>
-                    {leaders.map((leader, index) => (
-                        <div key={index} className={`${styles.leaderCard} ${getScaleClass(leader.title)}`}>
-                            <div
-                                className={styles.photoContainer}
-                                style={{ backgroundImage: `url(${copperBg})` }}
-                            >
-                                {leader.photo ? (
-                                    <img src={leader.photo} alt={leader.name} loading="lazy" />
-                                ) : (
-                                    <div className={styles.photoPlaceholder}>
-                                        <span>{leader.name.split(' ').map(n => n[0]).join('')}</span>
-                                    </div>
-                                )}
-                            </div>
-                            <div className={styles.leaderInfo}>
-                                <h3>{leader.name}</h3>
-                                <p>{leader.title}</p>
-                            </div>
+            <div className={styles.gridContainer}>
+                {leaders.map((leader, index) => (
+                    <div key={index} className={`${styles.leaderCard} ${getScaleClass(leader.title)}`}>
+                        <div
+                            className={styles.photoContainer}
+                            style={{ backgroundImage: `url(${copperBg})` }}
+                        >
+                            {leader.photo ? (
+                                <img src={leader.photo} alt={leader.name} loading="lazy" />
+                            ) : (
+                                <div className={styles.photoPlaceholder}>
+                                    <span>{leader.name.split(' ').map(n => n[0]).join('')}</span>
+                                </div>
+                            )}
                         </div>
-                    ))}
-                </div>
+                        <div className={styles.leaderInfo}>
+                            <h3>{leader.name}</h3>
+                            <p>{leader.title}</p>
+                        </div>
+                    </div>
+                ))}
             </div>
         </section>
     );
