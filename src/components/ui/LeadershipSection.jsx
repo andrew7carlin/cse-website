@@ -54,6 +54,14 @@ const LeadershipSection = () => {
         }
     };
 
+    // Determine scale class based on role
+    const getScaleClass = (title) => {
+        if (title === 'Owner') return styles.scaleOwner;
+        if (title === 'Chief Operating Officer') return styles.scaleCOO;
+        if (title.startsWith('Director')) return styles.scaleDirector;
+        return styles.scaleDirector; // Default to director size
+    };
+
     return (
         <section className={styles.section}>
             <div className={styles.header}>
@@ -82,7 +90,7 @@ const LeadershipSection = () => {
             <div className={styles.scrollContainer} ref={scrollRef}>
                 <div className={styles.leadersTrack}>
                     {leaders.map((leader, index) => (
-                        <div key={index} className={styles.leaderCard}>
+                        <div key={index} className={`${styles.leaderCard} ${getScaleClass(leader.title)}`}>
                             <div
                                 className={styles.photoContainer}
                                 style={{ backgroundImage: `url(${copperBg})` }}
