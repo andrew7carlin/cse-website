@@ -61,8 +61,16 @@
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     color: white;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     letter-spacing: -0.02em;
+}
+
+.subheading {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-copper);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
 }
 
 .button {
