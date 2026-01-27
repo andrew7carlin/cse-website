@@ -58,6 +58,17 @@
     letter-spacing: 0.05em;
 }
 
+/* Ensure owners stay on one line on desktop */
+.ownersLevel .gridContainer {
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 1400px) {
+    .ownersLevel .gridContainer {
+        flex-wrap: wrap;
+    }
+}
+
 .leaderCard {
     width: 100%;
     max-width: 340px;
