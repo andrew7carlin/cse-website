@@ -25,8 +25,8 @@ import copperBg from '../../assets/leadership/copper-bg.webp';
 const leaders = [
     { name: 'Keven Ott', title: 'Owner', photo: kevenOtt },
     { name: 'Joe Juelfs', title: 'Owner', photo: joeJuelfs },
-    { name: 'Jessica Gonzalez', title: 'Owner', photo: jessicaGonzalez },
-    { name: 'Anthony Gonzalez', title: 'Owner', photo: anthonyGonzalez },
+    { name: 'Jessica Gonzalez', title: 'Owner - Stucco', photo: jessicaGonzalez },
+    { name: 'Anthony Gonzalez', title: 'Owner - Stucco', photo: anthonyGonzalez },
     { name: 'Pat Carlin', title: 'Chief Operating Officer', photo: patCarlin },
     { name: 'Cameron Ott', title: 'Commercial Manager', photo: cameronOtt },
     { name: 'Steve Sampson', title: 'Director of Roofing – Mohave County', photo: steveSampson },
@@ -69,14 +69,14 @@ const LeadershipSection = () => {
 
     // Determine scale class based on role
     const getScaleClass = (title) => {
-        if (title === 'Owner') return styles.scaleOwner;
+        if (title.startsWith('Owner')) return styles.scaleOwner;
         if (title === 'Chief Operating Officer') return styles.scaleCOO;
         if (title.startsWith('Director') || title.startsWith('Commercial')) return styles.scaleDirector;
         return styles.scaleDirector; // Default to director size
     };
 
     // Group leaders by level
-    const owners = leaders.filter(l => l.title === 'Owner');
+    const owners = leaders.filter(l => l.title.startsWith('Owner'));
     const coo = leaders.filter(l => l.title === 'Chief Operating Officer');
     const directors = leaders.filter(l => l.title.startsWith('Director') || l.title.startsWith('Commercial'));
 
