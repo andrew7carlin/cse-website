@@ -40,29 +40,20 @@ const SafetyStats = () => {
                         Our 0.72 EMR means we've experienced <strong>28% fewer safety incidents</strong> than the average contractor.
                         This exceptional rating qualifies us for projects others can't bid on and saves our clients thousands in insurance costs.
                     </p>
-                    <div className={styles.statsGrid}>
-                        <div className={styles.statItem}>
-                            <div className={styles.statValue}>28%</div>
-                            <div className={styles.statLabel}>Fewer Incidents</div>
-                        </div>
-                        <div className={styles.statItem}>
-                            <div className={styles.statValue}>Top 15%</div>
-                            <div className={styles.statLabel}>National Ranking</div>
-                        </div>
-                        <div className={styles.statItem}>
-                            <div className={styles.statValue}>$1000s</div>
-                            <div className={styles.statLabel}>Client Savings</div>
-                        </div>
-                    </div>
                     <div className={styles.comparison}>
                         <div className={styles.comparisonItem}>
-                            <span className={styles.comparisonLabel}>Canyon State</span>
-                            <span className={styles.comparisonValue}>0.72</span>
+                            <span className={styles.comparisonValue}>28%</span>
+                            <span className={styles.comparisonLabel}>Fewer Incidents</span>
                         </div>
                         <div className={styles.divider}></div>
                         <div className={styles.comparisonItem}>
-                            <span className={styles.comparisonLabel}>Industry Average</span>
-                            <span className={styles.comparisonValue}>1.0</span>
+                            <span className={styles.comparisonValue}>Top 15%</span>
+                            <span className={styles.comparisonLabel}>National Ranking</span>
+                        </div>
+                        <div className={styles.divider}></div>
+                        <div className={styles.comparisonItem}>
+                            <span className={styles.comparisonValue}>$1000s</span>
+                            <span className={styles.comparisonLabel}>Client Savings</span>
                         </div>
                     </div>
                 </div>
