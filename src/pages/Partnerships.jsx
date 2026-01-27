@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import styles from './Partnerships.module.css';
 
-// Partner logos
+// Partner logos - categorized
 import arMays from '../assets/Partners/AR Mays.webp';
 import carlisle from '../assets/Partners/Carlisle.webp';
 import qxo from '../assets/Partners/QXO.webp';
@@ -12,28 +12,34 @@ import certainteed from '../assets/Partners/Certainteed.webp';
 import eagleTile from '../assets/Partners/Eagle tile.webp';
 import eosFitness from '../assets/Partners/EOS Fitness.webp';
 
-const partnerLogos = [
-    { name: 'QXO', logo: qxo },
+// Trusted By - Client Partners
+const trustedByPartners = [
     { name: 'EOS Fitness', logo: eosFitness },
-    { name: 'Carlisle', logo: carlisle },
     { name: 'Salad and Go', logo: saladAndGo },
     { name: 'Home Depot', logo: homeDepot },
-    { name: 'Certainteed', logo: certainteed },
     { name: 'AR Mays', logo: arMays },
-    { name: 'Eagle Tile', logo: eagleTile },
     { name: 'R and O', logo: rAndO },
+];
+
+// Certified By - Industry Certifications/Partners
+const certifiedByPartners = [
+    { name: 'QXO', logo: qxo },
+    { name: 'Carlisle', logo: carlisle },
+    { name: 'Certainteed', logo: certainteed },
+    { name: 'Eagle Tile', logo: eagleTile },
 ];
 
 const Partnerships = () => {
     const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({ subject: '', message: '' });
     const [formStatus, setFormStatus] = useState('');
-    const [visibleLogos, setVisibleLogos] = useState([]);
-    const [showHeader, setShowHeader] = useState(false);
+    const [visibleTrustedBy, setVisibleTrustedBy] = useState([]);
+    const [visibleCertifiedBy, setVisibleCertifiedBy] = useState([]);
+    const [showHeaders, setShowHeaders] = useState(false);
 
     // Random starting positions for each logo
-    const logoAnimations = useMemo(() => {
-        return partnerLogos.map(() => {
+    const trustedByAnimations = useMemo(() => {
+        return trustedByPartners.map(() => {
             const edges = ['top', 'right', 'bottom', 'left'];
             const edge = edges[Math.floor(Math.random() * edges.length)];
             let startX = 0, startY = 0;
@@ -60,31 +66,73 @@ const Partnerships = () => {
         });
     }, []);
 
-    // Staggered logo fly-in effect
-    useEffect(() => {
-        const showLogoAtIndex = (index) => {
-            if (index < partnerLogos.length) {
-                setVisibleLogos(prev => [...prev, index]);
+    const certifiedByAnimations = useMemo(() => {
+        return certifiedByPartners.map(() => {
+            const edges = ['top', 'right', 'bottom', 'left'];
+            const edge = edges[Math.floor(Math.random() * edges.length)];
+            let startX = 0, startY = 0;
+
+            switch (edge) {
+                case 'top':
+                    startX = Math.random() * 100 - 50;
+                    startY = -150;
+                    break;
+                case 'right':
+                    startX = 150;
+                    startY = Math.random() * 100 - 50;
+                    break;
+                case 'bottom':
+                    startX = Math.random() * 100 - 50;
+                    startY = 150;
+                    break;
+                case 'left':
+                    startX = -150;
+                    startY = Math.random() * 100 - 50;
+                    break;
             }
-        };
-
-        // Show first logo immediately on load
-        const initialTimeout = setTimeout(() => showLogoAtIndex(0), 500);
-
-        // Show subsequent logos every 3 seconds
-        const intervals = partnerLogos.slice(1).map((_, i) => {
-            return setTimeout(() => showLogoAtIndex(i + 1), 500 + (i + 1) * 3000);
+            return { startX, startY };
         });
+    }, []);
 
-        // Show header after 7 seconds
+    // Alternating logo fly-in effect - one from each column every 2 seconds
+    useEffect(() => {
+        const maxPairs = Math.max(trustedByPartners.length, certifiedByPartners.length);
+
+        // Show first pair immediately
+        const initialTimeout = setTimeout(() => {
+            if (trustedByPartners.length > 0) setVisibleTrustedBy([0]);
+            if (certifiedByPartners.length > 0) setVisibleCertifiedBy([0]);
+        }, 500);
+
+        // Show subsequent pairs every 2 seconds, alternating columns
+        const timeouts = [];
+        for (let i = 1; i < maxPairs; i++) {
+            const delay = 500 + i * 2000;
+
+            // Add to Trusted By if index exists
+            if (i < trustedByPartners.length) {
+                timeouts.push(setTimeout(() => {
+                    setVisibleTrustedBy(prev => [...prev, i]);
+                }, delay));
+            }
+
+            // Add to Certified By if index exists
+            if (i < certifiedByPartners.length) {
+                timeouts.push(setTimeout(() => {
+                    setVisibleCertifiedBy(prev => [...prev, i]);
+                }, delay));
+            }
+        }
+
+        // Show headers after all animations
         const headerTimeout = setTimeout(() => {
-            setShowHeader(true);
-        }, 7000);
+            setShowHeaders(true);
+        }, 500 + maxPairs * 2000 + 1000);
 
         return () => {
             clearTimeout(initialTimeout);
             clearTimeout(headerTimeout);
-            intervals.forEach(clearTimeout);
+            timeouts.forEach(clearTimeout);
         };
     }, []);
 
@@ -143,31 +191,58 @@ const Partnerships = () => {
                             </button>
                         </div>
 
-                        {/* Right Side - Animated Partner Logos */}
+                        {/* Right Side - Two Columns of Partner Logos */}
                         <div className={styles.logosSection}>
-                            {/* Header that fades in after 7 seconds */}
-                            <div className={`${styles.logosHeader} ${showHeader ? styles.headerVisible : ''}`}>
-                                <span>Our Trusted Partners</span>
+                            {/* Trusted By Column */}
+                            <div className={styles.logoColumn}>
+                                <div className={`${styles.columnHeader} ${showHeaders ? styles.headerVisible : ''}`}>
+                                    <span>Trusted By</span>
+                                </div>
+                                <div className={styles.logosGrid}>
+                                    {trustedByPartners.map((partner, index) => {
+                                        const isVisible = visibleTrustedBy.includes(index);
+                                        const anim = trustedByAnimations[index];
+
+                                        return (
+                                            <div
+                                                key={partner.name}
+                                                className={`${styles.logoItem} ${isVisible ? styles.logoVisible : ''}`}
+                                                style={{
+                                                    '--start-x': `${anim.startX}%`,
+                                                    '--start-y': `${anim.startY}%`,
+                                                }}
+                                            >
+                                                <img src={partner.logo} alt={partner.name} />
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
 
-                            <div className={styles.logosGrid}>
-                                {partnerLogos.map((partner, index) => {
-                                    const isVisible = visibleLogos.includes(index);
-                                    const anim = logoAnimations[index];
+                            {/* Certified By Column */}
+                            <div className={styles.logoColumn}>
+                                <div className={`${styles.columnHeader} ${showHeaders ? styles.headerVisible : ''}`}>
+                                    <span>Certified By</span>
+                                </div>
+                                <div className={styles.logosGrid}>
+                                    {certifiedByPartners.map((partner, index) => {
+                                        const isVisible = visibleCertifiedBy.includes(index);
+                                        const anim = certifiedByAnimations[index];
 
-                                    return (
-                                        <div
-                                            key={partner.name}
-                                            className={`${styles.logoItem} ${isVisible ? styles.logoVisible : ''}`}
-                                            style={{
-                                                '--start-x': `${anim.startX}%`,
-                                                '--start-y': `${anim.startY}%`,
-                                            }}
-                                        >
-                                            <img src={partner.logo} alt={partner.name} />
-                                        </div>
-                                    );
-                                })}
+                                        return (
+                                            <div
+                                                key={partner.name}
+                                                className={`${styles.logoItem} ${isVisible ? styles.logoVisible : ''}`}
+                                                style={{
+                                                    '--start-x': `${anim.startX}%`,
+                                                    '--start-y': `${anim.startY}%`,
+                                                }}
+                                            >
+                                                <img src={partner.logo} alt={partner.name} />
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
                     </div>
