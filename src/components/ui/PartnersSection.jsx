@@ -6,7 +6,7 @@ import arMays from '../../assets/Partners/AR Mays.webp';
 import carlisle from '../../assets/Partners/Carlisle.webp';
 import qxo from '../../assets/Partners/QXO.webp';
 import rAndO from '../../assets/Partners/R and O.webp';
-import saladAndGo from '../../assets/Partners/Salad and go.webp';
+import lusardi from '../../assets/Partners/Lusardi.png';
 import homeDepot from '../../assets/Partners/the-home-depot-1-logo-black-and-white.webp';
 import certainteed from '../../assets/Partners/Certainteed.webp';
 import eagleTile from '../../assets/Partners/Eagle tile.webp';
@@ -23,7 +23,7 @@ const partners = [
     { name: 'EOS Fitness', logo: eosFitness, url: 'https://www.eosfitness.com/' },
     { name: 'QXO', logo: qxo, url: 'https://www.qxo.com/' },
     { name: 'R and O', logo: rAndO, url: 'https://www.randoco.com/' },
-    { name: 'Salad and Go', logo: saladAndGo, url: 'https://www.saladandgo.com/' },
+    { name: 'Lusardi Construction', logo: lusardi, url: 'https://www.lusardi.com/' },
     { name: 'Home Depot', logo: homeDepot, url: 'https://www.homedepot.com/' },
 ];
 
