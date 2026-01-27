@@ -93,9 +93,9 @@
     border-radius: 0;
     padding: 0;
     position: relative;
-    min-height: 500px;
+    min-height: 400px;
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 /* Individual Logo Column */
@@ -110,7 +110,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0 0 2rem 0;
+    padding: 0 0 1.5rem 0;
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 1s ease, transform 1s ease;
@@ -136,11 +136,12 @@
     color: var(--color-dark-brown);
 }
 
-/* Logos Grid within each column */
+/* Logos Grid within each column - Multi-column grid */
 .logosGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 2rem;
+    align-items: center;
 }
 
 /* Logo Items with fly-in animation */
@@ -148,7 +149,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 1.5rem 0;
+    padding: 0.75rem 0;
     background: transparent;
     opacity: 0;
     transform: translate(var(--start-x), var(--start-y));
@@ -163,7 +164,7 @@
 
 .logoItem img {
     max-width: 100%;
-    max-height: 55px;
+    max-height: 45px;
     object-fit: contain;
     opacity: 0.85;
     transition: all 0.3s ease;
@@ -317,16 +318,17 @@
 @media (max-width: 767px) {
     .logosSection {
         flex-direction: column;
-        gap: 3rem;
+        gap: 2.5rem;
         min-height: auto;
     }
 
     .logoColumn {
-        min-height: 300px;
+        min-height: auto;
     }
 
     .logosGrid {
-        gap: 3rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .modal {
