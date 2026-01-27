@@ -1,0 +1,193 @@
+.container {
+    width: 100%;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.mapWrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Topographic contour lines */
+.contour {
+    fill: none;
+    stroke: #b87333;
+    stroke-width: 1.5;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 0 2px rgba(184, 115, 51, 0.3));
+}
+
+/* Region grouping */
+.region {
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+.region:hover .contour {
+    stroke: #d4924d;
+    filter: drop-shadow(0 0 8px rgba(184, 115, 51, 0.6));
+}
+
+.regionActive .contour {
+    stroke: #d4924d;
+    stroke-width: 2;
+    filter: drop-shadow(0 0 12px rgba(184, 115, 51, 0.8));
+}
+
+/* Hit area for interaction */
+.hitArea {
+    cursor: pointer;
+}
+
+/* State labels */
+.label {
+    font-size: 2rem;
+    font-weight: 700;
+    fill: #b87333;
+    opacity: 0.6;
+    pointer-events: none;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.regionActive .label {
+    opacity: 1;
+    fill: #d4924d;
+    filter: drop-shadow(0 0 4px rgba(184, 115, 51, 0.6));
+}
+
+/* Detail card */
+.detailCard {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.cardContent {
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid #b87333;
+    border-radius: 8px;
+    padding: 2rem;
+    min-width: 300px;
+    max-width: 350px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(184, 115, 51, 0.3);
+}
+
+.cardTitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.cardTagline {
+    display: block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #b87333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.cardDescription {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #d1d5db;
+    margin-bottom: 1.25rem;
+}
+
+.cardCoverage {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: rgba(184, 115, 51, 0.1);
+    border-radius: 4px;
+}
+
+.coverageIcon {
+    color: #b87333;
+    font-size: 1rem;
+}
+
+.cardHq {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(184, 115, 51, 0.2);
+}
+
+.cardHq strong {
+    color: #b87333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        min-height: 60vh;
+        padding: 2rem 1rem;
+    }
+
+    .label {
+        font-size: 1.5rem;
+    }
+
+    .cardContent {
+        min-width: 250px;
+        padding: 1.5rem;
+    }
+
+    .cardTitle {
+        font-size: 1.5rem;
+    }
+
+    .detailCard {
+        position: fixed;
+        left: 50% !important;
+        bottom: 2rem !important;
+        top: auto !important;
+        transform: translateX(-50%);
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+}
