@@ -143,8 +143,8 @@ const About = () => {
             <section className={styles.ctaSection}>
                 <div className="container">
                     <div className={styles.ctaContent}>
-                        <h2>Ready to Build Something Great?</h2>
-                        <p>Let's talk about your next project.</p>
+                        <h2>Sick of subcontractor headaches?</h2>
+                        <p>Let us fix that</p>
                         <a href="/contact" className={styles.ctaButton}>Get in Touch</a>
                     </div>
                 </div>
