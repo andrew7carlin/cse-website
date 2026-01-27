@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Layout from './components/layout/Layout';
 import MouseGlow from './components/ui/MouseGlow';
+import ScrollToTop from './components/common/ScrollToTop';
 
 // Eagerly load Home for fast initial paint
 import Home from './pages/Home';
@@ -45,6 +46,7 @@ const PageLoader = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <MouseGlow />
       <Suspense fallback={<PageLoader />}>
         <Routes>
