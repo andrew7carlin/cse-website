@@ -12,21 +12,47 @@ import certainteed from '../assets/Partners/Certainteed.webp';
 import eagleTile from '../assets/Partners/Eagle tile.webp';
 import eosFitness from '../assets/Partners/EOS Fitness.webp';
 
-// Trusted By - Client Partners
+// Certification partner logos
+import firestone from '../assets/Partners/Firestone-Building-Products.jpg';
+import gaf from '../assets/Partners/GAF.avif';
+import karnak from '../assets/Partners/Karnak.png';
+import mbci from '../assets/Partners/MBCI.png';
+import triAlliance from '../assets/Partners/TRI-alliance.jpg';
+import taylorMetal from '../assets/Partners/Taylor metal products.png';
+import carlisleSyntec from '../assets/Partners/carlisle_syntec.png';
+import dryvit from '../assets/Partners/dryvit.png';
+import eagleRoofing from '../assets/Partners/eagle_roofing.jpeg';
+import omega from '../assets/Partners/omega.png';
+import petersenAluminum from '../assets/Partners/petersen_aluminum_corporation_logo.jpg';
+import versico from '../assets/Partners/versico-certified-contractor.jpg';
+
+// Trusted By - Client Partners with URLs
 const trustedByPartners = [
-    { name: 'EOS Fitness', logo: eosFitness },
-    { name: 'Salad and Go', logo: saladAndGo },
-    { name: 'Home Depot', logo: homeDepot },
-    { name: 'AR Mays', logo: arMays },
-    { name: 'R and O', logo: rAndO },
+    { name: 'EOS Fitness', logo: eosFitness, url: 'https://www.eosfitness.com/' },
+    { name: 'Salad and Go', logo: saladAndGo, url: 'https://www.saladandgo.com/' },
+    { name: 'Home Depot', logo: homeDepot, url: 'https://www.homedepot.com/' },
+    { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },
+    { name: 'R and O', logo: rAndO, url: 'https://www.randoconstruction.com/' },
 ];
 
-// Certified By - Industry Certifications/Partners
+// Certified By - Industry Certifications/Partners with URLs
 const certifiedByPartners = [
-    { name: 'QXO', logo: qxo },
-    { name: 'Carlisle', logo: carlisle },
-    { name: 'Certainteed', logo: certainteed },
-    { name: 'Eagle Tile', logo: eagleTile },
+    { name: 'QXO', logo: qxo, url: 'https://www.qxo.com/' },
+    { name: 'Carlisle', logo: carlisle, url: 'https://www.carlislesyntec.com/' },
+    { name: 'Certainteed', logo: certainteed, url: 'https://www.certainteed.com/' },
+    { name: 'Eagle Tile', logo: eagleTile, url: 'https://eagleroofing.com/' },
+    { name: 'Firestone', logo: firestone, url: 'https://www.firestonebpco.com/' },
+    { name: 'GAF', logo: gaf, url: 'https://www.gaf.com/' },
+    { name: 'Karnak', logo: karnak, url: 'https://www.karnak.com/' },
+    { name: 'MBCI', logo: mbci, url: 'https://www.mbci.com/' },
+    { name: 'TRI Alliance', logo: triAlliance, url: 'https://www.tri-alliance.com/' },
+    { name: 'Taylor Metal Products', logo: taylorMetal, url: 'https://www.taylormetalproducts.com/' },
+    { name: 'Carlisle Syntec', logo: carlisleSyntec, url: 'https://www.carlislesyntec.com/' },
+    { name: 'Dryvit', logo: dryvit, url: 'https://www.dryvit.com/' },
+    { name: 'Eagle Roofing', logo: eagleRoofing, url: 'https://eagleroofing.com/' },
+    { name: 'Omega Flex', logo: omega, url: 'https://www.omegaflex.com/' },
+    { name: 'Petersen Aluminum', logo: petersenAluminum, url: 'https://www.pac-clad.com/' },
+    { name: 'Versico', logo: versico, url: 'https://www.versico.com/' },
 ];
 
 const Partnerships = () => {
@@ -212,7 +238,9 @@ const Partnerships = () => {
                                                     '--start-y': `${anim.startY}%`,
                                                 }}
                                             >
-                                                <img src={partner.logo} alt={partner.name} />
+                                                <a href={partner.url} target="_blank" rel="noopener noreferrer">
+                                                    <img src={partner.logo} alt={partner.name} />
+                                                </a>
                                             </div>
                                         );
                                     })}
@@ -238,7 +266,9 @@ const Partnerships = () => {
                                                     '--start-y': `${anim.startY}%`,
                                                 }}
                                             >
-                                                <img src={partner.logo} alt={partner.name} />
+                                                <a href={partner.url} target="_blank" rel="noopener noreferrer">
+                                                    <img src={partner.logo} alt={partner.name} />
+                                                </a>
                                             </div>
                                         );
                                     })}
