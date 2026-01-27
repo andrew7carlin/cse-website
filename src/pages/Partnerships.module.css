@@ -175,6 +175,16 @@
     opacity: 1;
 }
 
+/* Make Certified By logos transparent regardless of image format */
+.logoColumn:last-child .logoItem img {
+    mix-blend-mode: multiply;
+    background: transparent;
+}
+
+.logoColumn:last-child .logoItem:hover img {
+    mix-blend-mode: normal;
+}
+
 /* Modal Overlay */
 .modalOverlay {
     position: fixed;
