@@ -12,6 +12,13 @@ import certainteed from '../assets/Partners/Certainteed.webp';
 import eagleTile from '../assets/Partners/Eagle tile.webp';
 import eosFitness from '../assets/Partners/EOS Fitness.webp';
 import lusardi from '../assets/Partners/Lusardi.png';
+import willmeng from '../assets/Partners/Willmeng.png';
+import kitchell from '../assets/Partners/Kitchell.png';
+import pathConstruction from '../assets/Partners/Path Construction.png';
+import canyonBuilding from '../assets/Partners/Canyon Building.png';
+import pacificap from '../assets/Partners/Pacificap.jpg';
+import overland from '../assets/Partners/Overland.jpg';
+import wadman from '../assets/Partners/Wadman.jpg';
 
 // Certification partner logos
 import firestone from '../assets/Partners/Firestone-Building-Products.jpg';
@@ -35,6 +42,13 @@ const trustedByPartners = [
     { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },
     { name: 'R and O', logo: rAndO, url: 'https://www.randoconstruction.com/' },
     { name: 'Lusardi Construction', logo: lusardi, url: 'https://www.lusardi.com/' },
+    { name: 'Willmeng Construction', logo: willmeng, url: 'https://www.willmeng.com/' },
+    { name: 'Kitchell', logo: kitchell, url: 'https://www.kitchell.com/' },
+    { name: 'Path Construction', logo: pathConstruction, url: 'https://www.pathcc.com/' },
+    { name: 'Canyon Building & Design', logo: canyonBuilding, url: 'https://www.canyonbd.com/' },
+    { name: 'Pacificap Construction', logo: pacificap, url: 'https://www.pacificapconstruction.com/' },
+    { name: 'Overland Construction', logo: overland, url: 'https://www.overlandconstruction.com/' },
+    { name: 'Wadman Construction', logo: wadman, url: 'https://www.wadman.com/' },
 ];
 
 // Certified By - Industry Certifications/Partners with URLs

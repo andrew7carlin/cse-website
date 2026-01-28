@@ -59,42 +59,55 @@
     color: var(--color-text-main);
 }
 
-/* Partner Logos Grid */
-.logosGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+/* Auto-scrolling Carousel Container */
+.carouselContainer {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent);
 }
 
-@media (min-width: 992px) {
-    .logosGrid {
-        grid-template-columns: repeat(3, 1fr);
+.carouselTrack {
+    display: flex;
+    gap: 4rem;
+    animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
     }
 }
 
+.carouselTrack:hover {
+    animation-play-state: paused;
+}
+
 .logoItem {
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
-    background: transparent;
+    padding: 1.5rem 2rem;
     transition: all 0.3s ease;
 }
 
-.logoItem:nth-child(3n) {
-    border-right: none;
-}
-
-.logoItem:nth-last-child(-n+3) {
-    border-bottom: none;
-}
-
 .logoItem img {
-    width: 100%;
-    max-width: 210px;
-    height: 68px;
+    width: auto;
+    height: 50px;
     object-fit: contain;
     filter: grayscale(100%) brightness(0.3);
     opacity: 0.8;
@@ -102,13 +115,10 @@
     mix-blend-mode: multiply;
 }
 
-.logoItem:hover {
-    background: rgba(0, 0, 0, 0.02);
-}
-
 .logoItem:hover img {
     filter: grayscale(0%) brightness(1);
     opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Mobile adjustments */
@@ -121,24 +131,16 @@
         text-align: center;
     }
 
-    .logosGrid {
-        grid-template-columns: repeat(2, 1fr);
+    .carouselTrack {
+        gap: 2rem;
+        animation: scroll 30s linear infinite;
     }
 
     .logoItem {
-        padding: 1.5rem 1rem;
-    }
-
-    .logoItem:nth-child(3n) {
-        border-right: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .logoItem:nth-child(2n) {
-        border-right: none;
+        padding: 1rem 1.5rem;
     }
 
     .logoItem img {
-        max-width: 100px;
         height: 35px;
     }
 }
