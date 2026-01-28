@@ -11,6 +11,14 @@ import homeDepot from '../../assets/Partners/the-home-depot-1-logo-black-and-whi
 import certainteed from '../../assets/Partners/Certainteed.webp';
 import eagleTile from '../../assets/Partners/Eagle tile.webp';
 import eosFitness from '../../assets/Partners/EOS Fitness.webp';
+import saladAndGo from '../../assets/Partners/Salad and go.webp';
+import willmeng from '../../assets/Partners/Willmeng.png';
+import kitchell from '../../assets/Partners/Kitchell.png';
+import pathConstruction from '../../assets/Partners/Path Construction.png';
+import canyonBuilding from '../../assets/Partners/Canyon Building.png';
+import pacificap from '../../assets/Partners/Pacificap.jpg';
+import overland from '../../assets/Partners/Overland.jpg';
+import wadman from '../../assets/Partners/Wadman.jpg';
 
 // Watermark logo
 import iconDark from '../../assets/logos/icon-dark.png';
@@ -25,11 +33,18 @@ const partners = [
     { name: 'R and O', logo: rAndO, url: 'https://www.randoco.com/' },
     { name: 'Lusardi Construction', logo: lusardi, url: 'https://www.lusardi.com/' },
     { name: 'Home Depot', logo: homeDepot, url: 'https://www.homedepot.com/' },
+    { name: 'Salad and Go', logo: saladAndGo, url: 'https://www.saladandgo.com/' },
+    { name: 'Willmeng Construction', logo: willmeng, url: 'https://www.willmeng.com/' },
+    { name: 'Kitchell', logo: kitchell, url: 'https://www.kitchell.com/' },
+    { name: 'Path Construction', logo: pathConstruction, url: 'https://www.pathcc.com/' },
+    { name: 'Canyon Building & Design', logo: canyonBuilding, url: 'https://www.canyonbd.com/' },
+    { name: 'Pacificap Construction', logo: pacificap, url: 'https://www.pacificapconstruction.com/' },
+    { name: 'Overland Construction', logo: overland, url: 'https://www.overlandconstruction.com/' },
+    { name: 'Wadman Construction', logo: wadman, url: 'https://www.wadman.com/' },
 ];
 
 const PartnersSection = () => {
     const { ref: headingRef, isVisible: headingVisible } = useScrollReveal({ threshold: 0.2 });
-    const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
 
     return (
         <section className={styles.section}>
@@ -47,22 +62,34 @@ const PartnersSection = () => {
                     <h2>We Are<br />Trusted by</h2>
                 </div>
 
-                {/* Partner Logos Grid */}
-                <div
-                    ref={gridRef}
-                    className={`${styles.logosGrid} reveal-stagger ${gridVisible ? 'visible' : ''}`}
-                >
-                    {partners.map((partner, index) => (
-                        <a
-                            key={index}
-                            href={partner.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.logoItem}
-                        >
-                            <img src={partner.logo} alt={partner.name} loading="lazy" />
-                        </a>
-                    ))}
+                {/* Auto-scrolling Partner Logos Carousel */}
+                <div className={styles.carouselContainer}>
+                    <div className={styles.carouselTrack}>
+                        {/* First set of logos */}
+                        {partners.map((partner, index) => (
+                            <a
+                                key={`first-${index}`}
+                                href={partner.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.logoItem}
+                            >
+                                <img src={partner.logo} alt={partner.name} loading="lazy" />
+                            </a>
+                        ))}
+                        {/* Duplicate set for seamless loop */}
+                        {partners.map((partner, index) => (
+                            <a
+                                key={`second-${index}`}
+                                href={partner.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.logoItem}
+                            >
+                                <img src={partner.logo} alt={partner.name} loading="lazy" />
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
