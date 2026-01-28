@@ -19,6 +19,7 @@ import canyonBuilding from '../assets/Partners/Canyon Building.png';
 import pacificap from '../assets/Partners/Pacificap.jpg';
 import overland from '../assets/Partners/Overland.jpg';
 import wadman from '../assets/Partners/Wadman.jpg';
+import opportunityVillage from '../assets/Partners/Opportunity Village.jpg';
 
 // Certification partner logos
 import firestone from '../assets/Partners/Firestone-Building-Products.jpg';
@@ -49,6 +50,7 @@ const trustedByPartners = [
     { name: 'Pacificap Construction', logo: pacificap, url: 'https://www.pacificapconstruction.com/' },
     { name: 'Overland Construction', logo: overland, url: 'https://www.overlandconstruction.com/' },
     { name: 'Wadman Construction', logo: wadman, url: 'https://www.wadman.com/' },
+    { name: 'Opportunity Village', logo: opportunityVillage, url: 'https://www.opportunityvillage.org/' },
 ];
 
 // Certified By - Industry Certifications/Partners with URLs
