@@ -79,6 +79,69 @@
     filter: drop-shadow(0 0 4px rgba(184, 115, 51, 0.6));
 }
 
+/* Headquarters Marker */
+.hqMarker {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hqPulse {
+    fill: rgba(74, 155, 155, 0.15);
+    stroke: none;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+.hqMarkerActive .hqPulse {
+    animation: pulseFast 1s ease-in-out infinite;
+}
+
+@keyframes pulseFast {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1.1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.4);
+    }
+}
+
+.hqCircle {
+    fill: #4a9b9b;
+    stroke: #5ac5c5;
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 4px rgba(74, 155, 155, 0.6));
+    transition: all 0.3s ease;
+}
+
+.hqMarkerActive .hqCircle {
+    fill: #5ac5c5;
+    stroke: #6dd5d5;
+    filter: drop-shadow(0 0 12px rgba(74, 155, 155, 0.9));
+}
+
+.hqDot {
+    fill: #ffffff;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+}
+
 /* Detail card */
 .detailCard {
     position: absolute;
@@ -111,6 +174,13 @@
         0 0 20px rgba(184, 115, 51, 0.3);
 }
 
+/* Headquarters card - turquoise accent */
+.hqCard .cardContent {
+    border: 1px solid #4a9b9b;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(74, 155, 155, 0.3);
+}
+
 .cardTitle {
     font-size: 1.75rem;
     font-weight: 600;
@@ -126,6 +196,10 @@
     color: #b87333;
     margin-bottom: 1rem;
     font-weight: 600;
+}
+
+.hqCard .cardTagline {
+    color: #4a9b9b;
 }
 
 .cardDescription {
@@ -162,6 +236,21 @@
 
 .cardHq strong {
     color: #b87333;
+}
+
+/* HQ Address styling */
+.hqAddress {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #d1d5db;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(74, 155, 155, 0.08);
+    border-radius: 4px;
+    border: 1px solid rgba(74, 155, 155, 0.15);
 }
 
 /* Responsive */

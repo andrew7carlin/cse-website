@@ -3,6 +3,17 @@ import styles from './TopoMap.module.css';
 
 const TopoMap = ({ data }) => {
     const [hoveredRegion, setHoveredRegion] = useState(null);
+    const [hoveredHQ, setHoveredHQ] = useState(false);
+
+    // Kingman headquarters coordinates (northwest Arizona)
+    const hqMarker = {
+        cx: 220,
+        cy: 280,
+        title: 'Headquarters',
+        city: 'Kingman, AZ',
+        address: '2959 Rhoades Ave',
+        zip: 'Kingman, AZ 86409',
+    };
 
     const regions = {
         arizona: {
@@ -102,6 +113,35 @@ const TopoMap = ({ data }) => {
                             </text>
                         </g>
                     ))}
+
+                    {/* Headquarters Marker */}
+                    <g
+                        className={`${styles.hqMarker} ${hoveredHQ ? styles.hqMarkerActive : ''}`}
+                        onMouseEnter={() => setHoveredHQ(true)}
+                        onMouseLeave={() => setHoveredHQ(false)}
+                    >
+                        {/* Pulsing outer ring */}
+                        <circle
+                            cx={hqMarker.cx}
+                            cy={hqMarker.cy}
+                            r="10"
+                            className={styles.hqPulse}
+                        />
+                        {/* Main marker circle */}
+                        <circle
+                            cx={hqMarker.cx}
+                            cy={hqMarker.cy}
+                            r="6"
+                            className={styles.hqCircle}
+                        />
+                        {/* Center dot */}
+                        <circle
+                            cx={hqMarker.cx}
+                            cy={hqMarker.cy}
+                            r="2"
+                            className={styles.hqDot}
+                        />
+                    </g>
                 </svg>
 
                 {/* Detail cards */}
@@ -132,6 +172,26 @@ const TopoMap = ({ data }) => {
                                     <strong>HQ:</strong> {getRegionData(hoveredRegion).hq.city}
                                 </div>
                             )}
+                        </div>
+                    </div>
+                )}
+
+                {/* Headquarters Detail Card */}
+                {hoveredHQ && (
+                    <div
+                        className={`${styles.detailCard} ${styles.hqCard}`}
+                        style={{
+                            left: `${(hqMarker.cx / 600) * 100}%`,
+                            top: `${(hqMarker.cy / 500) * 100}%`,
+                        }}
+                    >
+                        <div className={styles.cardContent}>
+                            <h3 className={styles.cardTitle}>{hqMarker.title}</h3>
+                            <span className={styles.cardTagline}>{hqMarker.city}</span>
+                            <div className={styles.hqAddress}>
+                                <span>{hqMarker.address}</span>
+                                <span>{hqMarker.zip}</span>
+                            </div>
                         </div>
                     </div>
                 )}
