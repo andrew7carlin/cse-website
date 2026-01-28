@@ -7,11 +7,11 @@ const ProjectsShowcase = () => {
     const sectionRef = useRef(null);
     const [visibleItems, setVisibleItems] = useState(new Set());
 
-    // Load and shuffle projects
+    // Load and shuffle projects - increased for denser mosaic
     const projects = useMemo(() => {
         const allProjects = loadProjectAssets();
         const shuffled = [...allProjects].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, 12); // Show 12 projects for better masonry variety
+        return shuffled.slice(0, 20); // Increased from 12 to 20 for better mosaic density
     }, []);
 
     // Scroll-triggered reveal effect
@@ -46,6 +46,12 @@ const ProjectsShowcase = () => {
         return sizes[index % sizes.length];
     };
 
+    // Rotating accent colors: copper, turquoise, tan, brown
+    const getAccentColor = (index) => {
+        const colors = ['copper', 'turquoise', 'tan', 'brown'];
+        return colors[index % 4];
+    };
+
     return (
         <section className={styles.section} ref={sectionRef}>
             <div className={styles.container}>
@@ -61,6 +67,7 @@ const ProjectsShowcase = () => {
                 <div className={styles.masonryGrid}>
                     {projects.map((project, index) => {
                         const sizeClass = getSizeClass(index);
+                        const accentColor = getAccentColor(index);
                         const isVisible = visibleItems.has(index);
                         const delay = (index % 4) * 0.1; // Staggered animation
 
@@ -68,6 +75,7 @@ const ProjectsShowcase = () => {
                             <div
                                 key={project.id}
                                 data-index={index}
+                                data-accent={accentColor}
                                 className={`${styles.gridItem} ${styles[sizeClass]} ${isVisible ? styles.visible : ''}`}
                                 style={{ transitionDelay: `${delay}s` }}
                             >

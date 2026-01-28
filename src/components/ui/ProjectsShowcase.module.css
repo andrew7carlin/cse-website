@@ -44,12 +44,15 @@
     box-shadow: 0 4px 12px rgba(184, 115, 51, 0.3);
 }
 
-/* Masonry Grid - More Dramatic Layout */
+/* Masonry Grid - Dense Mosaic Layout */
 .masonryGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 100px;
-    gap: 1rem;
+    gap: 0.5rem;
+    /* Reduced from 1rem for denser packing */
+    grid-auto-flow: dense;
+    /* Pack items tightly */
 }
 
 @media (max-width: 1200px) {
@@ -144,18 +147,43 @@
     transform: scale(1.08);
 }
 
-/* Copper Overlay */
+/* Rotating Accent Color Overlays */
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg,
-            rgba(184, 115, 51, 0.6) 0%,
-            rgba(138, 61, 27, 0.65) 100%);
     opacity: 0;
     transition: opacity 0.4s ease;
     display: flex;
     align-items: flex-end;
     padding: 1.5rem;
+}
+
+/* Copper - 1st, 5th, 9th, etc. */
+.gridItem[data-accent="copper"] .overlay {
+    background: linear-gradient(135deg,
+            rgba(184, 115, 51, 0.6) 0%,
+            rgba(138, 61, 27, 0.65) 100%);
+}
+
+/* Turquoise - 2nd, 6th, 10th, etc. */
+.gridItem[data-accent="turquoise"] .overlay {
+    background: linear-gradient(135deg,
+            rgba(74, 155, 155, 0.6) 0%,
+            rgba(45, 110, 110, 0.65) 100%);
+}
+
+/* Tan - 3rd, 7th, 11th, etc. */
+.gridItem[data-accent="tan"] .overlay {
+    background: linear-gradient(135deg,
+            rgba(210, 180, 140, 0.6) 0%,
+            rgba(170, 140, 100, 0.65) 100%);
+}
+
+/* Brown - 4th, 8th, 12th, etc. */
+.gridItem[data-accent="brown"] .overlay {
+    background: linear-gradient(135deg,
+            rgba(139, 69, 19, 0.6) 0%,
+            rgba(90, 40, 10, 0.65) 100%);
 }
 
 .gridItem:hover .overlay {
