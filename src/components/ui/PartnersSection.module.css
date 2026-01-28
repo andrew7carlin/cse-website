@@ -109,14 +109,11 @@
     width: auto;
     height: 50px;
     object-fit: contain;
-    filter: grayscale(100%) brightness(0.3);
-    opacity: 0.8;
+    opacity: 0.9;
     transition: all 0.3s ease;
-    mix-blend-mode: multiply;
 }
 
 .logoItem:hover img {
-    filter: grayscale(0%) brightness(1);
     opacity: 1;
     transform: scale(1.1);
 }
