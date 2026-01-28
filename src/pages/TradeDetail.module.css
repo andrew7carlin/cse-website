@@ -68,16 +68,58 @@
     color: var(--color-text-muted);
 }
 
-.list {
-    list-style: none;
-    padding: 0;
+/* Auto-scrolling Expertise List */
+.expertiseScroller {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin: 2rem 0;
+    padding: 1rem 0;
 }
 
-.list li {
-    padding: 1rem 0;
-    border-bottom: 1px solid #eee;
-    font-size: 1.125rem;
+.expertiseList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    animation: autoScroll 30s linear infinite;
+    width: max-content;
+}
+
+.expertiseList li {
+    flex-shrink: 0;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(184, 115, 51, 0.08) 0%, rgba(74, 155, 155, 0.06) 100%);
+    border: 1px solid rgba(184, 115, 51, 0.2);
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--color-text-main);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.expertiseList li:hover {
+    background: linear-gradient(135deg, rgba(184, 115, 51, 0.15) 0%, rgba(74, 155, 155, 0.12) 100%);
+    border-color: rgba(184, 115, 51, 0.4);
+    transform: translateY(-2px);
+    cursor: default;
+}
+
+@keyframes autoScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover */
+.expertiseScroller:hover .expertiseList {
+    animation-play-state: paused;
 }
 
 .ctaCard {
