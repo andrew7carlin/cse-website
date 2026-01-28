@@ -5,72 +5,26 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Files to update
-const filesToUpdate = [
-    'src/pages/TradeDetail.jsx',
-    'src/pages/Services.jsx',
-    'src/pages/Partnerships.jsx',
-    'src/pages/About.jsx',
-    'src/components/projects/ProjectCard.jsx',
-    'src/components/ui/LeadershipSection.jsx',
-    'src/components/ui/Accordion.jsx',
-    'src/components/ui/SocialSection.jsx',
-    'src/components/ui/PartnersSection.jsx',
-    'src/utils/assetLoader.js',
-];
+const PARTNERSHIPS_FILE = path.join(__dirname, '../src/pages/Partnerships.jsx');
+const PARTNERS_SECTION_FILE = path.join(__dirname, '../src/components/ui/PartnersSection.jsx');
 
-// Extensions to replace
-const extensionMap = {
-    '.jpg': '.webp',
-    '.jpeg': '.webp',
-    '.png': '.webp',
-    '.JPG': '.webp',
-    '.JPEG': '.webp',
-    '.PNG': '.webp',
-};
+// Read the files
+let partnershipsContent = fs.readFileSync(PARTNERSHIPS_FILE, 'utf8');
+let partnersSectionContent = fs.readFileSync(PARTNERS_SECTION_FILE, 'utf8');
 
-let updatedCount = 0;
+// Replace all image extensions with .webp in imports
+const extensionsToReplace = ['.jpg', '.jpeg', '.png', '.avif'];
 
-function updateImports(filePath) {
-    const fullPath = path.join(__dirname, '..', filePath);
+extensionsToReplace.forEach(ext => {
+    const regex = new RegExp(`from\\s+['"]([^'"]+)${ext.replace('.', '\\.')}['"]`, 'g');
+    partnershipsContent = partnershipsContent.replace(regex, `from '$1.webp'`);
+    partnersSectionContent = partnersSectionContent.replace(regex, `from '$1.webp'`);
+});
 
-    if (!fs.existsSync(fullPath)) {
-        console.log(`Skipping ${filePath} (not found)`);
-        return;
-    }
+// Write the updated files
+fs.writeFileSync(PARTNERSHIPS_FILE, partnershipsContent);
+fs.writeFileSync(PARTNERS_SECTION_FILE, partnersSectionContent);
 
-    let content = fs.readFileSync(fullPath, 'utf8');
-    let modified = false;
-
-    for (const [oldExt, newExt] of Object.entries(extensionMap)) {
-        const regex = new RegExp(`(from\\s+['"][^'"]*\\${oldExt})(['"])`, 'g');
-        const newContent = content.replace(regex, (match, p1, p2) => {
-            modified = true;
-            return p1.replace(oldExt, newExt) + p2;
-        });
-        content = newContent;
-
-        // Also handle require() statements
-        const requireRegex = new RegExp(`(require\\(['"][^'"]*\\${oldExt})(['"]\\))`, 'g');
-        content = content.replace(requireRegex, (match, p1, p2) => {
-            modified = true;
-            return p1.replace(oldExt, newExt) + p2;
-        });
-    }
-
-    if (modified) {
-        fs.writeFileSync(fullPath, content);
-        console.log(`✓ Updated: ${filePath}`);
-        updatedCount++;
-    } else {
-        console.log(`  No changes: ${filePath}`);
-    }
-}
-
-console.log('🔄 Updating import statements to .webp\n');
-
-for (const file of filesToUpdate) {
-    updateImports(file);
-}
-
-console.log(`\n✅ Updated ${updatedCount} files`);
+console.log('✓ Updated Partnerships.jsx');
+console.log('✓ Updated PartnersSection.jsx');
+console.log('\nAll imports now use .webp extensions');

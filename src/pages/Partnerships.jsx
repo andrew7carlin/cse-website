@@ -11,29 +11,29 @@ import homeDepot from '../assets/Partners/the-home-depot-1-logo-black-and-white.
 import certainteed from '../assets/Partners/Certainteed.webp';
 import eagleTile from '../assets/Partners/Eagle tile.webp';
 import eosFitness from '../assets/Partners/EOS Fitness.webp';
-import lusardi from '../assets/Partners/Lusardi.png';
-import willmeng from '../assets/Partners/Willmeng.png';
-import kitchell from '../assets/Partners/Kitchell.png';
-import pathConstruction from '../assets/Partners/Path Construction.png';
-import canyonBuilding from '../assets/Partners/Canyon Building.png';
-import pacificap from '../assets/Partners/Pacificap.jpg';
-import overland from '../assets/Partners/Overland.jpg';
-import wadman from '../assets/Partners/Wadman.jpg';
-import opportunityVillage from '../assets/Partners/Opportunity Village.jpg';
+import lusardi from '../assets/Partners/Lusardi.webp';
+import willmeng from '../assets/Partners/Willmeng.webp';
+import kitchell from '../assets/Partners/Kitchell.webp';
+import pathConstruction from '../assets/Partners/Path Construction.webp';
+import canyonBuilding from '../assets/Partners/Canyon Building.webp';
+import pacificap from '../assets/Partners/Pacificap.webp';
+import overland from '../assets/Partners/Overland.webp';
+import wadman from '../assets/Partners/Wadman.webp';
+import opportunityVillage from '../assets/Partners/Opportunity Village.webp';
 
 // Certification partner logos
-import firestone from '../assets/Partners/Firestone-Building-Products.jpg';
-import gaf from '../assets/Partners/GAF.avif';
-import karnak from '../assets/Partners/Karnak.png';
-import mbci from '../assets/Partners/MBCI.png';
-import triAlliance from '../assets/Partners/TRI-alliance.jpg';
-import taylorMetal from '../assets/Partners/Taylor metal products.png';
-import carlisleSyntec from '../assets/Partners/carlisle_syntec.png';
-import dryvit from '../assets/Partners/dryvit.png';
-import eagleRoofing from '../assets/Partners/eagle_roofing.jpeg';
-import omega from '../assets/Partners/omega.png';
-import petersenAluminum from '../assets/Partners/petersen_aluminum_corporation_logo.jpg';
-import versico from '../assets/Partners/versico-certified-contractor.jpg';
+import firestone from '../assets/Partners/Firestone-Building-Products.webp';
+import gaf from '../assets/Partners/GAF.webp';
+import karnak from '../assets/Partners/Karnak.webp';
+import mbci from '../assets/Partners/MBCI.webp';
+import triAlliance from '../assets/Partners/TRI-alliance.webp';
+import taylorMetal from '../assets/Partners/Taylor metal products.webp';
+import carlisleSyntec from '../assets/Partners/carlisle_syntec.webp';
+import dryvit from '../assets/Partners/dryvit.webp';
+import eagleRoofing from '../assets/Partners/eagle_roofing.webp';
+import omega from '../assets/Partners/omega.webp';
+import petersenAluminum from '../assets/Partners/petersen_aluminum_corporation_logo.webp';
+import versico from '../assets/Partners/versico-certified-contractor.webp';
 
 // Trusted By - Client Partners with URLs
 const trustedByPartners = [
