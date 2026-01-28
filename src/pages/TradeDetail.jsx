@@ -9,23 +9,26 @@ import stuccoImage from '../assets/projects/Greenprint Apartments_Phoenix AZ.web
 // Data Mock - In a real app this might come from a CMS or config file
 const tradeData = {
     roofing: {
-        title: "Commercial & Residential Roofing",
-        description: "Experts in tile, single ply, foam, metal, and shingle roofing systems. We provide comprehensive roof asset management, repairs, and new installation.",
+        title: "Roofing",
+        description: "We've been putting roofs over people's heads for years—tile, single-ply, foam, metal, you name it. Whether you need a brand new roof, a repair, or just someone to take a look and tell it to you straight, we've got you covered.",
         image: roofingImage,
-        capabilities: ["Tile", "New Construction", "Re-roofing", "Repairs & Maintenance", "Coatings", "Inspections"]
+        expertise: ["Tile Roofing", "Single-Ply Systems", "Foam Roofing", "Metal Roofing", "Shingle Systems", "New Construction", "Re-roofing", "Repairs & Maintenance", "Roof Coatings", "Inspections & Assessments"],
+        cta: "Let's Talk About Your Roof"
     },
     stucco: {
         title: "Stucco & EIFS",
-        description: "Precision stucco application for durability and aesthetic appeal. We handle everything from traditional 3-coat systems to modern EIFS.",
+        description: "Stucco isn't just about slapping some plaster on a wall—it's a craft. We do everything from old-school 3-coat systems to modern EIFS, and we make sure it's done right so it lasts.",
         image: stuccoImage,
-        capabilities: ["Traditional Stucco", "EIFS Systems", "Lath & Plaster", "Repair & Patching"]
+        expertise: ["Traditional 3-Coat Stucco", "EIFS Systems", "Synthetic Stucco", "Lath & Plaster", "Texture Matching", "Repair & Patching", "Color Matching", "Waterproofing"],
+        cta: "Get a Stucco Quote"
     },
     // Default fallback for others
     default: {
         title: "Specialized Construction Service",
-        description: "Canyon State delivers high-quality execution in this trade. Contact us for specific capabilities and past performance.",
+        description: "Whatever you need built, fixed, or maintained—we've probably done it before. Let's talk about your project.",
         image: "https://images.unsplash.com/photo-1535732820275-9ffd998cac22?auto=format&fit=crop&q=80&w=2670",
-        capabilities: ["Commercial", "Residential", "Industrial"]
+        expertise: ["Commercial Projects", "Residential Work", "Industrial Construction"],
+        cta: "Start a Conversation"
     }
 };
 
@@ -50,19 +53,22 @@ const TradeDetail = () => {
                         <h2 className="text-h2">Overview</h2>
                         <p className={styles.description}>{data.description}</p>
 
-                        <h3 className="text-h3" style={{ marginTop: '3rem', marginBottom: '1rem' }}>Capabilities</h3>
-                        <ul className={styles.list}>
-                            {data.capabilities.map((cap, i) => (
-                                <li key={i}>{cap}</li>
-                            ))}
-                        </ul>
+                        <h3 className="text-h3" style={{ marginTop: '3rem', marginBottom: '1rem' }}>Our Expertise</h3>
+                        <div className={styles.expertiseScroller}>
+                            <ul className={styles.expertiseList}>
+                                {/* Duplicate items for seamless infinite scroll */}
+                                {[...data.expertise, ...data.expertise].map((item, i) => (
+                                    <li key={i}>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
                     <div className={styles.sidebar}>
                         <div className={styles.ctaCard}>
-                            <h3>Need {data.title}?</h3>
-                            <p>Get a quote for your project today.</p>
-                            <Link to="/contact" className={styles.btn}>Request Quote</Link>
+                            <h3>Ready to Get Started?</h3>
+                            <p>Let's talk about what you need. No sales pitch—just honest advice.</p>
+                            <Link to="/contact" className={styles.btn}>{data.cta}</Link>
                         </div>
                     </div>
                 </div>
