@@ -204,26 +204,17 @@ const Partnerships = () => {
                         {/* Left Side - Text Content */}
                         <div className={styles.textContent}>
                             <span className={styles.eyebrow}>Partnerships</span>
-                            <h1 className={styles.heading}>Building Success Together</h1>
+                            <h1 className={styles.heading}>Great Work Starts With Great Partners</h1>
 
                             <div className={styles.description}>
                                 <p>
-                                    At Canyon State Enterprises, we understand that exceptional results are born from
-                                    exceptional partnerships. Our collaborative approach with industry leaders,
-                                    suppliers, and contractors enables us to deliver comprehensive solutions that
-                                    exceed expectations.
+                                    Here's the thing—we can't do amazing work alone. The best projects happen when we team up with people who care as much about quality as we do.
                                 </p>
                                 <p>
-                                    Strategic partnerships are the cornerstone of our success. By aligning with
-                                    organizations that share our commitment to quality, integrity, and innovation,
-                                    we create synergies that benefit every project we undertake. Whether you're a
-                                    manufacturer, distributor, or fellow contractor, we believe in fostering
-                                    relationships built on mutual respect and shared goals.
+                                    Whether you're a manufacturer, supplier, or contractor, we believe in keeping it real. That means honest conversations, mutual respect, and actually following through on what we say we'll do. No fluff, no BS—just solid partnerships built on trust.
                                 </p>
                                 <p>
-                                    Join our network of trusted partners and discover how collaboration drives
-                                    superior outcomes. Together, we don't just complete projects—we build lasting
-                                    legacies across the Southwest.
+                                    Want to work together? Let's talk. We're always looking to connect with folks who take pride in their craft and aren't afraid to roll up their sleeves.
                                 </p>
                             </div>
 
@@ -231,7 +222,7 @@ const Partnerships = () => {
                                 className={styles.inquireBtn}
                                 onClick={() => setShowForm(true)}
                             >
-                                Inquire About a Partnership
+                                Let's Partner Up
                             </button>
                         </div>
 
