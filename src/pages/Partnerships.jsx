@@ -168,10 +168,10 @@ const Partnerships = () => {
             }
         }
 
-        // Show headers after all animations
+        // Show headers with second row (index 1)
         const headerTimeout = setTimeout(() => {
             setShowHeaders(true);
-        }, 500 + maxPairs * 2000 + 1000);
+        }, 500 + 1 * 2000); // Same timing as second row
 
         return () => {
             clearTimeout(initialTimeout);
