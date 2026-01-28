@@ -62,6 +62,13 @@
     }
 }
 
+.mainContent {
+    min-width: 0;
+    /* Prevent flex/grid items from overflowing */
+    overflow: hidden;
+    /* Contain any overflowing children */
+}
+
 .description {
     font-size: 1.25rem;
     line-height: 1.6;
