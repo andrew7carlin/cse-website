@@ -20,7 +20,7 @@ const tradeData = {
         description: "Stucco isn't just about slapping some plaster on a wall—it's a craft. We do everything from old-school 3-coat systems to modern EIFS, and we make sure it's done right so it lasts.",
         image: stuccoImage,
         expertise: ["Traditional 3-Coat Stucco", "EIFS Systems", "Synthetic Stucco", "Lath & Plaster", "Texture Matching", "Repair & Patching", "Color Matching", "Waterproofing"],
-        cta: "Get a Stucco Quote"
+        cta: "Let's Get Plastered"
     },
     // Default fallback for others
     default: {
