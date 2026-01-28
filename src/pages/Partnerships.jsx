@@ -11,6 +11,7 @@ import homeDepot from '../assets/Partners/the-home-depot-1-logo-black-and-white.
 import certainteed from '../assets/Partners/Certainteed.webp';
 import eagleTile from '../assets/Partners/Eagle tile.webp';
 import eosFitness from '../assets/Partners/EOS Fitness.webp';
+import lusardi from '../assets/Partners/Lusardi.png';
 
 // Certification partner logos
 import firestone from '../assets/Partners/Firestone-Building-Products.jpg';
@@ -33,6 +34,7 @@ const trustedByPartners = [
     { name: 'Home Depot', logo: homeDepot, url: 'https://www.homedepot.com/' },
     { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },
     { name: 'R and O', logo: rAndO, url: 'https://www.randoconstruction.com/' },
+    { name: 'Lusardi Construction', logo: lusardi, url: 'https://www.lusardi.com/' },
 ];
 
 // Certified By - Industry Certifications/Partners with URLs
