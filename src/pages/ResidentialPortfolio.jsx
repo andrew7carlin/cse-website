@@ -2,14 +2,21 @@ import { useEffect, useRef } from 'react';
 import SEO from '../components/common/SEO';
 import styles from '../styles/PortfolioGallery.module.css';
 
-// Placeholder images - user will add their residential project photos
+// Direct Import Sanitization - High-Fidelity Residential Portfolio
+import customHome3 from '../assets/portfolio/residential/Custom_Home_Kingman_Az_3.webp';
+import customHome4 from '../assets/portfolio/residential/Custom_Home_Kingman_Az_4.webp';
+import customHome5 from '../assets/portfolio/residential/Custom_Home_Kingman_Az_5.webp';
+import customHome6 from '../assets/portfolio/residential/Custom_Home_Kingman_Az_6.webp';
+import hospiceHome from '../assets/portfolio/residential/Hospice_Home_Kingman_Az.webp';
+import surpriseHome from '../assets/portfolio/residential/Surprise_Custom_Home_Surprise_Az.webp';
+
 const images = [
-    { id: 1, src: '/placeholder-1.jpg', alt: 'Residential Project 1' },
-    { id: 2, src: '/placeholder-2.jpg', alt: 'Residential Project 2' },
-    { id: 3, src: '/placeholder-3.jpg', alt: 'Residential Project 3' },
-    { id: 4, src: '/placeholder-4.jpg', alt: 'Residential Project 4' },
-    { id: 5, src: '/placeholder-5.jpg', alt: 'Residential Project 5' },
-    { id: 6, src: '/placeholder-6.jpg', alt: 'Residential Project 6' },
+    { id: 1, src: customHome3, alt: 'Custom Home - Kingman, Arizona' },
+    { id: 2, src: customHome4, alt: 'Custom Home - Kingman, Arizona' },
+    { id: 3, src: customHome5, alt: 'Custom Home - Kingman, Arizona' },
+    { id: 4, src: customHome6, alt: 'Custom Home - Kingman, Arizona' },
+    { id: 5, src: hospiceHome, alt: 'Hospice Home - Kingman, Arizona' },
+    { id: 6, src: surpriseHome, alt: 'Custom Home - Surprise, Arizona' },
 ];
 
 const ResidentialPortfolio = () => {

@@ -2,14 +2,45 @@ import { useEffect, useRef } from 'react';
 import SEO from '../components/common/SEO';
 import styles from '../styles/PortfolioGallery.module.css';
 
-// Placeholder images - user will add their commercial project photos
+// Direct Import Sanitization - High-Fidelity Commercial Portfolio
+import andersonChevrolet from '../assets/portfolio/commercial/Anderson_Chevrolet_Kingman_Az.webp';
+import aquilaPlace from '../assets/portfolio/commercial/Aquila_Place_Apache_Junction.webp';
+import arizonaFinancial from '../assets/portfolio/commercial/Arizona_Financial_Kingman_Az.webp';
+import bjBrewhouseQueenCreek from '../assets/portfolio/commercial/BJ_Brewhouse_Queen_Creek_Az.webp';
+import bjBrewhousePhoenix from '../assets/portfolio/commercial/BJ_Brewhouse_Phoenix_Az.webp';
+import freseniusMedical from '../assets/portfolio/commercial/Fresenius_Medical_Care_Kingman_Az.webp';
+import greenprintApartments from '../assets/portfolio/commercial/Greenprint_Apartments_Phoenix_AZ.webp';
+import historicalDowntownBuilding from '../assets/portfolio/commercial/Historical_Downtown_Building_Kingman_Az.webp';
+import historicalDowntown from '../assets/portfolio/commercial/Historical_Downtown_Kingman_Az.webp';
+import hondaDealership from '../assets/portfolio/commercial/Honda_Dealership_Kingman_Az.webp';
+import hyundaiGilbert from '../assets/portfolio/commercial/Hyundai_Gilbert_Gilbert_Az.webp';
+import jimmyJohns from '../assets/portfolio/commercial/Jimmy_Johns_Kingman_Az.webp';
+import kmrcMainCampus from '../assets/portfolio/commercial/KMRC_Medical_Center_Main_Campus_Kingman_Az.webp';
+import krmcHualapaiMountain from '../assets/portfolio/commercial/KRMC_Hualapai_Mountain_Campus_Kingman_Az.webp';
+import krmcMedicalMain from '../assets/portfolio/commercial/KRMC_Medical_Center_Main_Kingman_Az.webp';
+import laQuintaHotel from '../assets/portfolio/commercial/La_Quinta_Hotel_Kingman_Az.webp';
+import ldsChurch from '../assets/portfolio/commercial/LDS_Church_Addition_Litchfield_Park_Az.webp';
+import medicalFacility from '../assets/portfolio/commercial/Medical_Facility_Kingman_Az.webp';
+
 const images = [
-    { id: 1, src: '/placeholder-1.jpg', alt: 'Commercial Project 1' },
-    { id: 2, src: '/placeholder-2.jpg', alt: 'Commercial Project 2' },
-    { id: 3, src: '/placeholder-3.jpg', alt: 'Commercial Project 3' },
-    { id: 4, src: '/placeholder-4.jpg', alt: 'Commercial Project 4' },
-    { id: 5, src: '/placeholder-5.jpg', alt: 'Commercial Project 5' },
-    { id: 6, src: '/placeholder-6.jpg', alt: 'Commercial Project 6' },
+    { id: 1, src: andersonChevrolet, alt: 'Anderson Chevrolet - Kingman, Arizona' },
+    { id: 2, src: aquilaPlace, alt: 'Aquila Place - Apache Junction, Arizona' },
+    { id: 3, src: arizonaFinancial, alt: 'Arizona Financial - Kingman, Arizona' },
+    { id: 4, src: bjBrewhouseQueenCreek, alt: 'BJ Brewhouse - Queen Creek, Arizona' },
+    { id: 5, src: bjBrewhousePhoenix, alt: 'BJ Brewhouse - Phoenix, Arizona' },
+    { id: 6, src: freseniusMedical, alt: 'Fresenius Medical Care - Kingman, Arizona' },
+    { id: 7, src: greenprintApartments, alt: 'Greenprint Apartments - Phoenix, Arizona' },
+    { id: 8, src: historicalDowntownBuilding, alt: 'Historical Downtown Building - Kingman, Arizona' },
+    { id: 9, src: historicalDowntown, alt: 'Historical Downtown - Kingman, Arizona' },
+    { id: 10, src: hondaDealership, alt: 'Honda Dealership - Kingman, Arizona' },
+    { id: 11, src: hyundaiGilbert, alt: 'Hyundai Gilbert - Gilbert, Arizona' },
+    { id: 12, src: jimmyJohns, alt: 'Jimmy Johns - Kingman, Arizona' },
+    { id: 13, src: kmrcMainCampus, alt: 'KMRC Medical Center Main Campus - Kingman, Arizona' },
+    { id: 14, src: krmcHualapaiMountain, alt: 'KRMC Hualapai Mountain Campus - Kingman, Arizona' },
+    { id: 15, src: krmcMedicalMain, alt: 'KRMC Medical Center Main - Kingman, Arizona' },
+    { id: 16, src: laQuintaHotel, alt: 'La Quinta Hotel - Kingman, Arizona' },
+    { id: 17, src: ldsChurch, alt: 'LDS Church Addition - Litchfield Park, Arizona' },
+    { id: 18, src: medicalFacility, alt: 'Medical Facility - Kingman, Arizona' },
 ];
 
 const CommercialPortfolio = () => {
