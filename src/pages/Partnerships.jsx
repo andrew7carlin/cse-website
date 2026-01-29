@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import styles from './Partnerships.module.css';
+import SEO from '../components/common/SEO';
 
 // Partner logos - categorized
 import arMays from '../assets/Partners/AR Mays.webp';
@@ -197,6 +198,11 @@ const Partnerships = () => {
 
     return (
         <main className={styles.page}>
+            <SEO
+                title="Partnerships - Trusted By Industry Leaders"
+                description="Canyon State Enterprises partners with top manufacturers and clients including EOS Fitness, Salad and Go, Home Depot, Carlisle, GAF, and more. No fluff, no BS—just solid partnerships built on trust."
+                canonical="https://canyonstate.netlify.app/partnerships"
+            />
             {/* Main Content Section */}
             <section className={styles.heroSection}>
                 <div className={styles.container}>

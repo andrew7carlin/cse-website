@@ -1,0 +1,10 @@
+# Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://canyonstate.netlify.app/sitemap.xml
+
+# Crawl directives
+Disallow: /api/
+Disallow: /*.json$

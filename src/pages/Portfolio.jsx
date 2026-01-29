@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import { LOBBY_VIDEO_URL, IS_YOUTUBE } from '../constants/media';
+import SEO from '../components/common/SEO';
 
 const Portfolio = () => {
     const [isCover, setIsCover] = useState(true);
 
     return (
         <div className="relative w-full h-screen overflow-hidden bg-black">
+            <SEO
+                title="Portfolio Video - Our Work Showcased"
+                description="A cinematic tour of Canyon State Enterprises craftsmanship. Explore our commercial and residential construction projects across Arizona, Nevada, Utah, and New Mexico."
+                canonical="https://canyonstate.netlify.app/portfolio"
+            />
             {/* Cinematic Video */}
             {IS_YOUTUBE ? (
                 <div className="absolute inset-0 w-full h-full">

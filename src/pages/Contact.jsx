@@ -1,9 +1,15 @@
 import React from 'react';
 import ContactForm from '../components/ui/ContactForm';
+import SEO from '../components/common/SEO';
 
 const Contact = () => {
     return (
         <div style={{ paddingTop: 'var(--header-height)' }}>
+            <SEO
+                title="Contact Us - Get a Free Quote"
+                description="Get in touch with Canyon State Enterprises. Request a free quote for roofing, stucco, HVAC, or full construction services. Serving AZ, NV, NM, UT. ROC licensed and insured."
+                canonical="https://canyonstate.netlify.app/contact"
+            />
             {/* Reusing the robust form module as the main page content */}
             <ContactForm />
 
