@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../components/common/SEO';
 
 const faqs = [
     { q: "Do you handle residential and commercial projects?", a: "Yes, we have dedicated divisions for both. Our residential team handles everything from custom homes to repairs, while our commercial team takes on large-scale tenant improvements and ground-up builds." },
@@ -10,6 +11,11 @@ const faqs = [
 const FAQ = () => {
     return (
         <div style={{ paddingTop: 'var(--header-height)' }} className="section">
+            <SEO
+                title="FAQ - Frequently Asked Questions"
+                description="Common questions about Canyon State Enterprises construction services. Learn about our licensing, service areas, project types, and how to get a quote."
+                canonical="https://canyonstate.netlify.app/faq"
+            />
             <div className="container">
                 <h1 className="text-h1" style={{ marginBottom: '3rem' }}>Frequently Asked Questions</h1>
 

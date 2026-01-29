@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Timeline from '../components/ui/Timeline';
 import LeadershipSection from '../components/ui/LeadershipSection';
 import { loadProjectAssets } from '../utils/assetLoader';
+import SEO from '../components/common/SEO';
 import styles from './About.module.css';
 
 // Timeline placeholder images
@@ -69,6 +70,11 @@ const About = () => {
 
     return (
         <div className="about-page">
+            <SEO
+                title="About Us - Our Story, Values & Leadership"
+                description="Nearly 20 years building the Southwest. Canyon State Enterprises is a multi-trade construction powerhouse with 12+ self-performed trades, serving Arizona, Nevada, Utah, and New Mexico."
+                canonical="https://canyonstate.netlify.app/about"
+            />
             {/* Full-Bleed Hero */}
             <section className={styles.fullHero}>
                 <div className={styles.heroBg} style={{ backgroundImage: `url(${heroImage})` }}></div>

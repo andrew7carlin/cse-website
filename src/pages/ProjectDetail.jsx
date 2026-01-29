@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { loadProjectAssets } from '../utils/assetLoader';
+import SEO from '../components/common/SEO';
 
 const ProjectDetail = () => {
     const { projectId } = useParams();
@@ -24,6 +25,11 @@ const ProjectDetail = () => {
 
     return (
         <div className="bg-black min-h-screen">
+            <SEO
+                title={project ? `${project.title} - ${project.location}` : 'Project Not Found'}
+                description={project ? `View our ${project.title} project located in ${project.location}. Professional construction and renovation work by Canyon State Enterprises.` : 'Project not found'}
+                canonical={`https://canyonstate.netlify.app/projects/${projectId}`}
+            />
             {/* Header Image (First one) */}
             <div className="relative h-[60vh] w-full border-b-4 border-[#b87333]">
                 {project.media[0].type === 'video' ? (

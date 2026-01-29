@@ -1,6 +1,7 @@
 import Hero from '../components/ui/Hero';
 import TradeGrid from '../components/ui/TradeGrid';
 import Accordion from '../components/ui/Accordion';
+import SEO from '../components/common/SEO';
 
 // Hero image
 import heroImage from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
@@ -9,6 +10,11 @@ const Services = () => {
 
     return (
         <div>
+            <SEO
+                title="Our Trades & Services - Full-Service Construction"
+                description="12+ self-performed trades under one roof: roofing, stucco, HVAC, plumbing, masonry, metals, residential & commercial construction. Complete construction services from pre-construction to closeout."
+                canonical="https://canyonstate.netlify.app/services"
+            />
             <Hero
                 headline="Complete Construction Services."
                 subheadline="From pre-construction to closeout, we handle every phase with precision."

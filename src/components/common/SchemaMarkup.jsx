@@ -1,0 +1,108 @@
+import { Helmet } from 'react-helmet-async';
+
+/**
+ * Schema.org structured data component for LocalBusiness + Organization
+ * This helps search engines understand our business entity and improves rich results
+ */
+const SchemaMarkup = () => {
+    const schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "GeneralContractor",
+                "@id": "https://canyonstate.netlify.app/#organization",
+                "name": "Canyon State Enterprises",
+                "url": "https://canyonstate.netlify.app",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://canyonstate.netlify.app/logo-full.png",
+                    "width": 300,
+                    "height": 60
+                },
+                "image": "https://canyonstate.netlify.app/og-image.jpg",
+                "description": "Arizona's trusted multi-trade construction company. Roofing, stucco, HVAC, plumbing, and more across the Southwest.",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "2959 Rhoades Ave",
+                    "addressLocality": "Kingman",
+                    "addressRegion": "AZ",
+                    "postalCode": "86409",
+                    "addressCountry": "US"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 35.1894,
+                    "longitude": -114.0531
+                },
+                "telephone": "+1-928-757-8254",
+                "email": "info@canyonstateaz.com",
+                "priceRange": "$$-$$$",
+                "areaServed": [
+                    {
+                        "@type": "State",
+                        "name": "Arizona"
+                    },
+                    {
+                        "@type": "State",
+                        "name": "Nevada"
+                    },
+                    {
+                        "@type": "State",
+                        "name": "Utah"
+                    },
+                    {
+                        "@type": "State",
+                        "name": "New Mexico"
+                    }
+                ],
+                "serviceType": [
+                    "Roofing",
+                    "Stucco & EIFS",
+                    "HVAC",
+                    "Plumbing",
+                    "Residential Construction",
+                    "Commercial Construction",
+                    "Specialty Metals",
+                    "Masonry",
+                    "Fencing",
+                    "Seamless Gutters",
+                    "Land Development"
+                ],
+                "foundingDate": "2005",
+                "numberOfEmployees": {
+                    "@type": "QuantitativeValue",
+                    "value": "50-200"
+                },
+                "slogan": "One Team. Multiple Trades. Zero Excuses.",
+                "sameAs": [
+                    "https://www.facebook.com/canyonstateaz",
+                    "https://www.linkedin.com/company/canyon-state-enterprises"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://canyonstate.netlify.app/#website",
+                "url": "https://canyonstate.netlify.app",
+                "name": "Canyon State Enterprises",
+                "publisher": {
+                    "@id": "https://canyonstate.netlify.app/#organization"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://canyonstate.netlify.app/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            }
+        ]
+    };
+
+    return (
+        <Helmet>
+            <script type="application/ld+json">
+                {JSON.stringify(schema)}
+            </script>
+        </Helmet>
+    );
+};
+
+export default SchemaMarkup;
