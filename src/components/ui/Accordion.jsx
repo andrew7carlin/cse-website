@@ -6,12 +6,12 @@ import styles from './Accordion.module.css';
 import sideImage from '../../assets/projects/Fresenius Medical Care_ KIngman Az.webp';
 
 const items = [
-    { id: 1, title: 'Market Segments', content: 'Serving commercial, industrial, and residential sectors with specialized teams for every scale.' },
-    { id: 2, title: 'Preconstruction Services', content: 'Detailed planning, clear budgeting, and feasibility analysis to clear the path before breaking ground.' },
-    { id: 3, title: 'Construction Services', content: 'End-to-end execution across 12 trades. We self-perform key scopes to control quality and schedule.' },
-    { id: 4, title: 'Technology & Innovation', content: 'Using modern project management tools and digital workflows to keep owners informed.' },
-    { id: 5, title: 'Safety', content: 'A rigorous safety culture that protects our team, our partners, and your property.' },
-    { id: 6, title: 'Sustainability', content: 'Building for the long term with energy-efficient materials and responsible waste management.' },
+    { id: 1, title: 'Who We Serve', content: 'Commercial, industrial, and high-end residential. We bring institutional rigor to every project, regardless of scale.' },
+    { id: 2, title: 'Smart Planning', content: 'No surprises. We map out the budget, schedule, and logistics before a single shovel hits the dirt.' },
+    { id: 3, title: 'Self-Performed Power', content: 'We aren\'t just paper contractors. We self-perform 12+ trades, giving us—and you—total control over quality and timelines.' },
+    { id: 4, title: 'Modern Process', content: 'Old school work ethic met with modern efficiency. We use the best tools to keep projects moving and owners informed.' },
+    { id: 5, title: 'Uncompromised Safety', content: 'Our safety record isn\'t just a stat; it\'s a promise. We protect our people and your liability with relentless standards.' },
+    { id: 6, title: 'Built to Last', content: 'We build for the long haul. Quality materials and expert craftsmanship mean structures that stand the test of time.' },
 ];
 
 const Accordion = () => {
@@ -39,7 +39,7 @@ const Accordion = () => {
                     ref={contentRef}
                     className={`${styles.contentCol} reveal ${contentVisible ? 'visible' : ''}`}
                 >
-                    <h2 className="text-h2" style={{ marginBottom: '3rem' }}>What We Offer</h2>
+                    <h2 className="text-h2" style={{ marginBottom: '3rem' }}>The Canyon State Approach</h2>
                     <div className={styles.list}>
                         {items.map((item, index) => (
                             <div key={item.id} className={`${styles.item} ${activeIndex === index ? styles.active : ''}`}>
