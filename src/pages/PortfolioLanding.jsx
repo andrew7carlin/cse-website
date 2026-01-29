@@ -4,7 +4,7 @@ import styles from '../styles/PortfolioLanding.module.css';
 
 // Portfolio card images
 import commercialImage from '../assets/portfolio/commercial/28th_Sunrise_Las_Vegas_Nv_6.webp';
-import residentialImage from '../assets/portfolio/residential/Custom_Home_Kingman_Az_5.webp';
+import residentialImage from '../assets/portfolio/residential/Surprise_Custom_Home_Surprise_Az.webp';
 
 const PortfolioLanding = () => {
     return (
