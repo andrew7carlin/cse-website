@@ -13,6 +13,7 @@ const trades = [
     { id: 'masonry', label: 'Masonry' },
     { id: 'fencing', label: 'Fencing' },
     { id: 'gutters', label: 'Seamless Gutters' },
+    { id: 'land-dev', label: 'Land Development' },
     { id: 'auto', label: 'Car & Truck Sales' },
 ];
 
