@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import styles from '../styles/PortfolioLanding.module.css';
 
-// Placeholder images - user will replace these
-import commercialPlaceholder from '../assets/portfolio/commercial-placeholder.jpg';
-import residentialPlaceholder from '../assets/portfolio/residential-placeholder.jpg';
+// Portfolio card images
+import commercialImage from '../assets/portfolio/commercial/28th_Sunrise_Las_Vegas_Nv_6.webp';
+import residentialImage from '../assets/portfolio/residential/Custom_Home_Kingman_Az_5.webp';
 
 const PortfolioLanding = () => {
     return (
@@ -20,7 +20,7 @@ const PortfolioLanding = () => {
                     <Link to="/portfolio/commercial" className={styles.card}>
                         <div className={styles.imageWrapper}>
                             <img
-                                src={commercialPlaceholder}
+                                src={commercialImage}
                                 alt="Commercial Projects"
                                 className={styles.image}
                             />
@@ -31,7 +31,7 @@ const PortfolioLanding = () => {
                     <Link to="/portfolio/residential" className={styles.card}>
                         <div className={styles.imageWrapper}>
                             <img
-                                src={residentialPlaceholder}
+                                src={residentialImage}
                                 alt="Residential Projects"
                                 className={styles.image}
                             />

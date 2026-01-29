@@ -11,12 +11,12 @@ import hospiceHome from '../assets/portfolio/residential/Hospice_Home_Kingman_Az
 import surpriseHome from '../assets/portfolio/residential/Surprise_Custom_Home_Surprise_Az.webp';
 
 const images = [
-    { id: 1, src: customHome3, alt: 'Custom Home - Kingman, Arizona' },
-    { id: 2, src: customHome4, alt: 'Custom Home - Kingman, Arizona' },
-    { id: 3, src: customHome5, alt: 'Custom Home - Kingman, Arizona' },
-    { id: 4, src: customHome6, alt: 'Custom Home - Kingman, Arizona' },
-    { id: 5, src: hospiceHome, alt: 'Hospice Home - Kingman, Arizona' },
-    { id: 6, src: surpriseHome, alt: 'Custom Home - Surprise, Arizona' },
+    { id: 1, src: customHome3, name: 'Custom Home', location: 'Kingman, Arizona', alt: 'Custom Home - Kingman, Arizona' },
+    { id: 2, src: customHome4, name: 'Custom Home', location: 'Kingman, Arizona', alt: 'Custom Home - Kingman, Arizona' },
+    { id: 3, src: customHome5, name: 'Custom Home', location: 'Kingman, Arizona', alt: 'Custom Home - Kingman, Arizona' },
+    { id: 4, src: customHome6, name: 'Custom Home', location: 'Kingman, Arizona', alt: 'Custom Home - Kingman, Arizona' },
+    { id: 5, src: hospiceHome, name: 'Hospice Home', location: 'Kingman, Arizona', alt: 'Hospice Home - Kingman, Arizona' },
+    { id: 6, src: surpriseHome, name: 'Surprise Custom Home', location: 'Surprise, Arizona', alt: 'Custom Home - Surprise, Arizona' },
 ];
 
 const ResidentialPortfolio = () => {
@@ -63,6 +63,10 @@ const ResidentialPortfolio = () => {
                                 className={styles.image}
                                 loading="lazy"
                             />
+                            <div className={styles.caption}>
+                                <h3 className={styles.projectName}>{image.name}</h3>
+                                <p className={styles.projectLocation}>{image.location}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
