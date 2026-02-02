@@ -1,21 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 
 /**
- * Whisper Dot Cursor
- * Ultra-minimal, hyper-premium cursor effect.
- * A barely-visible ghost dot that follows the mouse.
+ * Brand Glow Cursor
+ * Soft radial glow that subtly transitions between Copper and Turquoise
  */
 const BrandCursor = () => {
-    const dotRef = useRef(null);
+    const glowRef = useRef(null);
     const requestRef = useRef(null);
 
     const mousePos = useRef({ x: -100, y: -100 });
-    const dotPos = useRef({ x: -100, y: -100 });
+    const glowPos = useRef({ x: -100, y: -100 });
 
     const [isVisible, setIsVisible] = useState(false);
 
-    // Smooth, weighted physics
-    const LERP = 0.12;
+    // Smooth physics
+    const LERP = 0.08;
 
     useEffect(() => {
         const onMove = (e) => {
@@ -26,12 +25,12 @@ const BrandCursor = () => {
         const onLeave = () => setIsVisible(false);
 
         const animate = () => {
-            dotPos.current.x += (mousePos.current.x - dotPos.current.x) * LERP;
-            dotPos.current.y += (mousePos.current.y - dotPos.current.y) * LERP;
+            glowPos.current.x += (mousePos.current.x - glowPos.current.x) * LERP;
+            glowPos.current.y += (mousePos.current.y - glowPos.current.y) * LERP;
 
-            if (dotRef.current) {
-                dotRef.current.style.transform =
-                    `translate(${dotPos.current.x}px, ${dotPos.current.y}px) translate(-50%, -50%)`;
+            if (glowRef.current) {
+                glowRef.current.style.left = `${glowPos.current.x}px`;
+                glowRef.current.style.top = `${glowPos.current.y}px`;
             }
 
             requestRef.current = requestAnimationFrame(animate);
@@ -54,23 +53,49 @@ const BrandCursor = () => {
     }
 
     return (
-        <div
-            ref={dotRef}
-            style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '6px',
-                height: '6px',
-                backgroundColor: 'var(--color-copper, #A04921)',
-                borderRadius: '50%',
-                pointerEvents: 'none',
-                zIndex: 9999,
-                opacity: isVisible ? 0.15 : 0,
-                transition: 'opacity 0.4s ease',
-                willChange: 'transform',
-            }}
-        />
+        <>
+            <style>{`
+                @keyframes glowShift {
+                    0%, 100% {
+                        background: radial-gradient(
+                            circle,
+                            rgba(160, 73, 33, 0.12) 0%,
+                            rgba(160, 73, 33, 0.04) 35%,
+                            transparent 70%
+                        );
+                    }
+                    50% {
+                        background: radial-gradient(
+                            circle,
+                            rgba(0, 128, 128, 0.10) 0%,
+                            rgba(0, 128, 128, 0.03) 35%,
+                            transparent 70%
+                        );
+                    }
+                }
+                
+                .brand-glow {
+                    position: fixed;
+                    width: 500px;
+                    height: 500px;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    transform: translate(-50%, -50%);
+                    animation: glowShift 8s ease-in-out infinite;
+                    transition: opacity 0.4s ease;
+                    will-change: left, top;
+                }
+            `}</style>
+
+            <div
+                ref={glowRef}
+                className="brand-glow"
+                style={{
+                    opacity: isVisible ? 1 : 0
+                }}
+            />
+        </>
     );
 };
 
