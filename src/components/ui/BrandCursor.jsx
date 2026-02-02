@@ -1,33 +1,30 @@
 import { useEffect, useRef, useState } from 'react';
 
 const BrandCursor = () => {
-    // Refs for current positions (for smooth animation loop)
-    const cursorRef = useRef(null);
+    // Refs for physics loop
     const ringRef = useRef(null);
     const requestRef = useRef(null);
 
-    // Position state management
-    const mousePos = useRef({ x: -100, y: -100 }); // Start off-screen
+    // Position state
+    const mousePos = useRef({ x: -100, y: -100 });
     const ringPos = useRef({ x: -100, y: -100 });
 
     // Interaction state
     const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
-    // Configuration
-    const LERP_FACTOR = 0.15; // Lower = smoother/slower delay
+    // Physics Config
+    // Slightly tighter follow for the dot feeling (0.2) vs the floaty ring (0.15)
+    const LERP_FACTOR = 0.2;
 
     useEffect(() => {
-        // Track mouse movement
         const handleMouseMove = (e) => {
             mousePos.current = { x: e.clientX, y: e.clientY };
             if (!isVisible) setIsVisible(true);
         };
 
-        // Track hover states for interactive elements
         const handleMouseOver = (e) => {
             const target = e.target;
-            // Check if hovering over clickable elements
             if (
                 target.tagName === 'A' ||
                 target.tagName === 'BUTTON' ||
@@ -46,13 +43,10 @@ const BrandCursor = () => {
             setIsHovering(false);
         };
 
-        // Animation loop
         const animate = () => {
-            // Linear interpolation for smooth following
             ringPos.current.x += (mousePos.current.x - ringPos.current.x) * LERP_FACTOR;
             ringPos.current.y += (mousePos.current.y - ringPos.current.y) * LERP_FACTOR;
 
-            // Update DOM directly for performance (bypassing React render cycle)
             if (ringRef.current) {
                 const x = ringPos.current.x;
                 const y = ringPos.current.y;
@@ -62,13 +56,11 @@ const BrandCursor = () => {
             requestRef.current = requestAnimationFrame(animate);
         };
 
-        // Start listeners and loop
         window.addEventListener('mousemove', handleMouseMove);
-        document.body.addEventListener('mouseover', handleMouseOver); // Delegate for dynamic elements
+        document.body.addEventListener('mouseover', handleMouseOver);
         document.body.addEventListener('mouseleave', handleMouseLeave);
         requestRef.current = requestAnimationFrame(animate);
 
-        // Cleanup
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
             document.body.removeEventListener('mouseover', handleMouseOver);
@@ -77,71 +69,50 @@ const BrandCursor = () => {
         };
     }, [isVisible]);
 
-    // Don't render on mobile/touch devices (simplified check)
-    // In a production app, you might want a robust media query check
     if (typeof window !== 'undefined' && 'ontouchstart' in window) {
         return null;
     }
 
     return (
         <>
-            {/* Styles are inline to be self-contained, but could move to CSS module */}
             <style>{`
-                /* Hide default cursor only if we were doing a full replacement, 
-                   but we are keeping the system cursor for usability per plan. 
-                   Uncomment below if you want to hide system cursor:
-                   body { cursor: none; } 
-                   a, button { cursor: none; }
-                */
-                
-                .brand-cursor-ring {
+                .brand-cursor-dot {
                     position: fixed;
                     top: 0;
                     left: 0;
-                    width: 32px;
-                    height: 32px;
-                    border: 1.5px solid var(--color-copper, #A04921);
+                    width: 10px;
+                    height: 10px;
+                    background-color: var(--color-copper, #A04921);
+                    border: 0px solid transparent; /* Start with no border */
                     border-radius: 50%;
                     pointer-events: none;
                     z-index: 9999;
-                    will-change: transform;
-                    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
-                    mix-blend-mode: difference; /* Optional: Cool effect over images */
+                    will-change: transform, width, height, border;
+                    transition: width 0.3s ease, 
+                                height 0.3s ease, 
+                                background-color 0.3s ease,
+                                border-width 0.3s ease,
+                                opacity 0.3s ease;
+                    /* Subtle blend can nice, but normal is safer for visibility */
+                    /* mix-blend-mode: difference; */
                 }
                 
-                .brand-cursor-ring.hovering {
-                    width: 48px;
-                    height: 48px;
-                    background-color: rgba(160, 73, 33, 0.1);
-                    border-color: transparent;
-                }
-                
-                .brand-cursor-glow {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 400px;
-                    height: 400px;
-                    background: radial-gradient(circle, rgba(160, 73, 33, 0.08) 0%, transparent 70%);
-                    border-radius: 50%;
-                    pointer-events: none;
-                    z-index: 9998;
-                    transform: translate(-50%, -50%); /* Always centered on ring */
-                    opacity: 0.6;
+                /* HOVER STATE: Transform into a ring */
+                .brand-cursor-dot.hovering {
+                    width: 44px;
+                    height: 44px;
+                    background-color: transparent; /* Center becomes see-through */
+                    border: 1.5px solid var(--color-copper, #A04921);
                 }
             `}</style>
 
-            {/* The Follower Ring */}
             <div
                 ref={ringRef}
-                className={`brand-cursor-ring ${isHovering ? 'hovering' : ''}`}
+                className={`brand-cursor-dot ${isHovering ? 'hovering' : ''}`}
                 style={{
                     opacity: isVisible ? 1 : 0
                 }}
-            >
-                {/* Optional Subtle Glow child attached to the ring */}
-                <div className="brand-cursor-glow" />
-            </div>
+            />
         </>
     );
 };
