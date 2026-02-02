@@ -85,7 +85,7 @@ const BrandCursor = () => {
                     left: 0;
                     width: 20px;
                     height: 20px;
-                    background-color: white; /* White + Exclusion = Inversion */
+                    background-color: #008080; /* Teal cursor for branded blend */
                     border-radius: 50%;
                     pointer-events: none;
                     z-index: 9999;
