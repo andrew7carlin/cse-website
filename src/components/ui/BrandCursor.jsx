@@ -1,21 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 
 const BrandCursor = () => {
-    // Refs for physics loop
-    const ringRef = useRef(null);
+    const cursorRef = useRef(null);
     const requestRef = useRef(null);
 
     // Position state
     const mousePos = useRef({ x: -100, y: -100 });
-    const ringPos = useRef({ x: -100, y: -100 });
+    const cursorPos = useRef({ x: -100, y: -100 });
 
     // Interaction state
     const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
     // Physics Config
-    // Slightly tighter follow for the dot feeling (0.2) vs the floaty ring (0.15)
-    const LERP_FACTOR = 0.2;
+    // 0.1 = Very heavy/luxurious delay. The "expensive" feel.
+    const LERP_FACTOR = 0.1;
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -25,11 +24,14 @@ const BrandCursor = () => {
 
         const handleMouseOver = (e) => {
             const target = e.target;
+            // Expanded interactive list for premium feel
             if (
                 target.tagName === 'A' ||
                 target.tagName === 'BUTTON' ||
                 target.closest('a') ||
                 target.closest('button') ||
+                target.tagName === 'INPUT' ||
+                target.tagName === 'TEXTAREA' ||
                 target.classList.contains('interactive')
             ) {
                 setIsHovering(true);
@@ -44,13 +46,13 @@ const BrandCursor = () => {
         };
 
         const animate = () => {
-            ringPos.current.x += (mousePos.current.x - ringPos.current.x) * LERP_FACTOR;
-            ringPos.current.y += (mousePos.current.y - ringPos.current.y) * LERP_FACTOR;
+            cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * LERP_FACTOR;
+            cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * LERP_FACTOR;
 
-            if (ringRef.current) {
-                const x = ringPos.current.x;
-                const y = ringPos.current.y;
-                ringRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+            if (cursorRef.current) {
+                const x = cursorPos.current.x;
+                const y = cursorPos.current.y;
+                cursorRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
             }
 
             requestRef.current = requestAnimationFrame(animate);
@@ -69,6 +71,7 @@ const BrandCursor = () => {
         };
     }, [isVisible]);
 
+    // Disable on touch devices
     if (typeof window !== 'undefined' && 'ontouchstart' in window) {
         return null;
     }
@@ -76,39 +79,34 @@ const BrandCursor = () => {
     return (
         <>
             <style>{`
-                .brand-cursor-dot {
+                .premium-cursor {
                     position: fixed;
                     top: 0;
                     left: 0;
-                    width: 10px;
-                    height: 10px;
-                    background-color: var(--color-copper, #A04921);
-                    border: 0px solid transparent; /* Start with no border */
+                    width: 20px;
+                    height: 20px;
+                    background-color: white; /* White + Exclusion = Inversion */
                     border-radius: 50%;
                     pointer-events: none;
                     z-index: 9999;
-                    will-change: transform, width, height, border;
-                    transition: width 0.3s ease, 
-                                height 0.3s ease, 
-                                background-color 0.3s ease,
-                                border-width 0.3s ease,
-                                opacity 0.3s ease;
-                    /* Subtle blend can nice, but normal is safer for visibility */
-                    /* mix-blend-mode: difference; */
+                    mix-blend-mode: exclusion; /* THE key to the premium look */
+                    will-change: transform, width, height, opacity;
+                    transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
+                                height 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+                                opacity 0.4s ease;
                 }
                 
-                /* HOVER STATE: Transform into a ring */
-                .brand-cursor-dot.hovering {
-                    width: 44px;
-                    height: 44px;
-                    background-color: transparent; /* Center becomes see-through */
-                    border: 1.5px solid var(--color-copper, #A04921);
+                /* HOVER STATE: Smooth expansion */
+                .premium-cursor.hovering {
+                    width: 64px;
+                    height: 64px;
+                    opacity: 0.5; /* Slight transparency on hover */
                 }
             `}</style>
 
             <div
-                ref={ringRef}
-                className={`brand-cursor-dot ${isHovering ? 'hovering' : ''}`}
+                ref={cursorRef}
+                className={`premium-cursor ${isHovering ? 'hovering' : ''}`}
                 style={{
                     opacity: isVisible ? 1 : 0
                 }}
