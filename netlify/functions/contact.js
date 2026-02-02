@@ -62,7 +62,7 @@ export const handler = async (event) => {
 
         // Send email via Resend SDK
         const { data: emailData, error } = await resend.emails.send({
-            from: 'Canyon State Contact <onboarding@resend.dev>',
+            from: 'Canyon State Website <noreply@canyonstateaz.com>',
             to: [recipient],
             replyTo: email,
             subject: `New Inquiry from ${name} - ${projectType}`,

@@ -14,7 +14,7 @@ const SEO = ({
     canonical,
     image = '/og-image.jpg'
 }) => {
-    const siteUrl = 'https://canyonstate.netlify.app';
+    const siteUrl = 'https://canyonstateaz.com';
     const fullTitle = title === 'Canyon State Enterprises'
         ? title
         : `${title} | Canyon State Enterprises`;
