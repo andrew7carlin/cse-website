@@ -45,6 +45,18 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    <url>
+        <loc>https://canyonstateaz.com/privacy</loc>
+        <lastmod>2026-02-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://canyonstateaz.com/terms</loc>
+        <lastmod>2026-02-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
     
     <!-- Portfolio -->
     <url>

@@ -34,7 +34,7 @@ const SchemaMarkup = () => {
                     "latitude": 35.1894,
                     "longitude": -114.0531
                 },
-                "telephone": "+1-928-757-8254",
+                "telephone": "+1-928-757-9003",
                 "email": "info@canyonstateaz.com",
                 "priceRange": "$$-$$$",
                 "areaServed": [
@@ -86,11 +86,6 @@ const SchemaMarkup = () => {
                 "name": "Canyon State Enterprises",
                 "publisher": {
                     "@id": "https://canyonstateaz.com/#organization"
-                },
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "https://canyonstateaz.com/search?q={search_term_string}",
-                    "query-input": "required name=search_term_string"
                 }
             }
         ]

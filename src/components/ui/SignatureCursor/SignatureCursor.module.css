@@ -1,0 +1,180 @@
+/* Signature Cursor Styles */
+
+.cursorContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+/* Main cursor ring */
+.cursorRing {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid rgba(160, 73, 33, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.35s ease,
+        background-color 0.35s ease,
+        opacity 0.3s ease;
+    will-change: transform, width, height;
+    mix-blend-mode: normal;
+}
+
+.cursorRing.hovering {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(160, 73, 33, 0.9);
+    background-color: rgba(160, 73, 33, 0.08);
+}
+
+.cursorRing.cta {
+    width: 80px;
+    height: 80px;
+    border-color: rgba(160, 73, 33, 1);
+    background-color: rgba(160, 73, 33, 0.12);
+    mix-blend-mode: difference;
+}
+
+.cursorRing.card {
+    width: 52px;
+    height: 52px;
+    border-color: rgba(160, 73, 33, 0.7);
+    background-color: rgba(160, 73, 33, 0.05);
+}
+
+.cursorRing.link {
+    width: 32px;
+    height: 32px;
+    border-color: rgba(0, 128, 128, 0.8);
+}
+
+.cursorRing.image {
+    width: 64px;
+    height: 64px;
+    border-color: rgba(160, 73, 33, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+.cursorRing.hide {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+/* Center dot */
+.cursorDot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(160, 73, 33, 1);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.25s ease,
+        height 0.25s ease,
+        opacity 0.25s ease;
+    will-change: transform;
+}
+
+.cursorDot.hovering {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+/* Ambient glow layer */
+.cursorGlow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle,
+            rgba(160, 73, 33, 0.08) 0%,
+            rgba(160, 73, 33, 0.03) 40%,
+            transparent 70%);
+    transition: opacity 0.4s ease;
+    will-change: transform;
+    animation: glowPulse 8s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        background: radial-gradient(circle,
+                rgba(160, 73, 33, 0.08) 0%,
+                rgba(160, 73, 33, 0.03) 40%,
+                transparent 70%);
+    }
+
+    50% {
+        background: radial-gradient(circle,
+                rgba(0, 128, 128, 0.06) 0%,
+                rgba(0, 128, 128, 0.02) 40%,
+                transparent 70%);
+    }
+}
+
+/* Glass blur effect layer */
+.cursorBlur {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    will-change: transform;
+}
+
+.cursorBlur.active {
+    opacity: 1;
+}
+
+/* Magnetic target highlight */
+.magneticHighlight {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 8px;
+    border: 1px solid rgba(160, 73, 33, 0.3);
+    background: rgba(160, 73, 33, 0.02);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.magneticHighlight.active {
+    opacity: 1;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .cursorRing,
+    .cursorDot,
+    .cursorGlow,
+    .cursorBlur {
+        transition: none;
+        animation: none;
+    }
+}
