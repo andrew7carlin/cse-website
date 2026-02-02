@@ -56,7 +56,13 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className={styles.bottom}>
                     <span>&copy; {new Date().getFullYear()} Canyon State Enterprises. All rights reserved.</span>
-                    <span>ROC #353683 | Bonded & Insured</span>
+                    <div className={styles.legalLinks}>
+                        <Link to="/privacy" className={styles.legalLink}>Privacy Policy</Link>
+                        <span className={styles.legalDivider}>|</span>
+                        <Link to="/terms" className={styles.legalLink}>Terms of Service</Link>
+                        <span className={styles.legalDivider}>|</span>
+                        <span>ROC #353683 | Bonded &amp; Insured</span>
+                    </div>
                 </div>
             </div>
         </footer>

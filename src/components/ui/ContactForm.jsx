@@ -77,7 +77,7 @@ const ContactForm = () => {
                             </div>
                             <div className={styles.detailItem}>
                                 <h4>Phone</h4>
-                                <p>(928) 757-5380</p>
+                                <p>(928) 757-9003</p>
                             </div>
                             <div className={styles.detailItem}>
                                 <h4>Email</h4>

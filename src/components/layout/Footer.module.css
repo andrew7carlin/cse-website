@@ -128,3 +128,31 @@
         text-align: left;
     }
 }
+
+.legalLinks {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .legalLinks {
+        justify-content: flex-end;
+    }
+}
+
+.legalLink {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.legalLink:hover {
+    color: var(--color-copper);
+}
+
+.legalDivider {
+    color: #444;
+}

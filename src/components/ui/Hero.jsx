@@ -47,10 +47,10 @@ const Hero = ({
 
                         <div className={styles.ctaGroup}>
                             {primaryCtaText && (
-                                <Link to={primaryCtaLink} className={styles.btnPrimary}>{primaryCtaText}</Link>
+                                <Link to={primaryCtaLink} className={styles.btnPrimary} data-magnetic data-cursor="cta">{primaryCtaText}</Link>
                             )}
                             {secondaryCtaText && (
-                                <Link to={secondaryCtaLink} className={styles.btnSecondary}>{secondaryCtaText}</Link>
+                                <Link to={secondaryCtaLink} className={styles.btnSecondary} data-magnetic data-cursor="cta">{secondaryCtaText}</Link>
                             )}
                         </div>
                     </div>
@@ -71,9 +71,9 @@ const Hero = ({
                     <p className={styles.subheadline}>{subheadline}</p>
 
                     <div className={styles.ctaGroup}>
-                        <Link to={primaryCtaLink} className={styles.btnPrimary}>{primaryCtaText}</Link>
+                        <Link to={primaryCtaLink} className={styles.btnPrimary} data-magnetic data-cursor="cta">{primaryCtaText}</Link>
                         {secondaryCtaText && (
-                            <Link to={secondaryCtaLink} className={styles.btnSecondary}>{secondaryCtaText}</Link>
+                            <Link to={secondaryCtaLink} className={styles.btnSecondary} data-magnetic data-cursor="cta">{secondaryCtaText}</Link>
                         )}
                     </div>
                 </div>

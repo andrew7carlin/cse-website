@@ -53,27 +53,27 @@ const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <nav className={styles.navLinks}>
-                    <Link to="/services" className={styles.navLink}>
+                    <Link to="/services" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Trades</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <Link to="/portfolio" className={styles.navLink}>
+                    <Link to="/portfolio" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Portfolio</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <Link to="/about" className={styles.navLink}>
+                    <Link to="/about" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>About</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <Link to="/where" className={styles.navLink}>
+                    <Link to="/where" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Where</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <Link to="/partnerships" className={styles.navLink}>
+                    <Link to="/partnerships" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Partnerships</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <Link to="/contact" className={styles.navLink}>
+                    <Link to="/contact" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Contact</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
