@@ -1,117 +1,76 @@
 import { useEffect, useRef, useState } from 'react';
 
+/**
+ * Whisper Dot Cursor
+ * Ultra-minimal, hyper-premium cursor effect.
+ * A barely-visible ghost dot that follows the mouse.
+ */
 const BrandCursor = () => {
-    const cursorRef = useRef(null);
+    const dotRef = useRef(null);
     const requestRef = useRef(null);
 
-    // Position state
     const mousePos = useRef({ x: -100, y: -100 });
-    const cursorPos = useRef({ x: -100, y: -100 });
+    const dotPos = useRef({ x: -100, y: -100 });
 
-    // Interaction state
-    const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
-    // Physics Config
-    // 0.1 = Very heavy/luxurious delay. The "expensive" feel.
-    const LERP_FACTOR = 0.1;
+    // Smooth, weighted physics
+    const LERP = 0.12;
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
+        const onMove = (e) => {
             mousePos.current = { x: e.clientX, y: e.clientY };
             if (!isVisible) setIsVisible(true);
         };
 
-        const handleMouseOver = (e) => {
-            const target = e.target;
-            // Expanded interactive list for premium feel
-            if (
-                target.tagName === 'A' ||
-                target.tagName === 'BUTTON' ||
-                target.closest('a') ||
-                target.closest('button') ||
-                target.tagName === 'INPUT' ||
-                target.tagName === 'TEXTAREA' ||
-                target.classList.contains('interactive')
-            ) {
-                setIsHovering(true);
-            } else {
-                setIsHovering(false);
-            }
-        };
-
-        const handleMouseLeave = () => {
-            setIsVisible(false);
-            setIsHovering(false);
-        };
+        const onLeave = () => setIsVisible(false);
 
         const animate = () => {
-            cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * LERP_FACTOR;
-            cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * LERP_FACTOR;
+            dotPos.current.x += (mousePos.current.x - dotPos.current.x) * LERP;
+            dotPos.current.y += (mousePos.current.y - dotPos.current.y) * LERP;
 
-            if (cursorRef.current) {
-                const x = cursorPos.current.x;
-                const y = cursorPos.current.y;
-                cursorRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+            if (dotRef.current) {
+                dotRef.current.style.transform =
+                    `translate(${dotPos.current.x}px, ${dotPos.current.y}px) translate(-50%, -50%)`;
             }
 
             requestRef.current = requestAnimationFrame(animate);
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
-        document.body.addEventListener('mouseover', handleMouseOver);
-        document.body.addEventListener('mouseleave', handleMouseLeave);
+        window.addEventListener('mousemove', onMove);
+        document.body.addEventListener('mouseleave', onLeave);
         requestRef.current = requestAnimationFrame(animate);
 
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            document.body.removeEventListener('mouseover', handleMouseOver);
-            document.body.removeEventListener('mouseleave', handleMouseLeave);
+            window.removeEventListener('mousemove', onMove);
+            document.body.removeEventListener('mouseleave', onLeave);
             cancelAnimationFrame(requestRef.current);
         };
     }, [isVisible]);
 
-    // Disable on touch devices
+    // Disable on touch
     if (typeof window !== 'undefined' && 'ontouchstart' in window) {
         return null;
     }
 
     return (
-        <>
-            <style>{`
-                .premium-cursor {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 20px;
-                    height: 20px;
-                    background-color: #008080; /* Teal cursor for branded blend */
-                    border-radius: 50%;
-                    pointer-events: none;
-                    z-index: 9999;
-                    mix-blend-mode: exclusion; /* THE key to the premium look */
-                    will-change: transform, width, height, opacity;
-                    transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
-                                height 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-                                opacity 0.4s ease;
-                }
-                
-                /* HOVER STATE: Smooth expansion */
-                .premium-cursor.hovering {
-                    width: 64px;
-                    height: 64px;
-                    opacity: 0.5; /* Slight transparency on hover */
-                }
-            `}</style>
-
-            <div
-                ref={cursorRef}
-                className={`premium-cursor ${isHovering ? 'hovering' : ''}`}
-                style={{
-                    opacity: isVisible ? 1 : 0
-                }}
-            />
-        </>
+        <div
+            ref={dotRef}
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '6px',
+                height: '6px',
+                backgroundColor: 'var(--color-copper, #A04921)',
+                borderRadius: '50%',
+                pointerEvents: 'none',
+                zIndex: 9999,
+                opacity: isVisible ? 0.15 : 0,
+                transition: 'opacity 0.4s ease',
+                willChange: 'transform',
+            }}
+        />
     );
 };
 
