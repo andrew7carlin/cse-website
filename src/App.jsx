@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Layout from './components/layout/Layout';
-import MouseGlow from './components/ui/MouseGlow';
+import BrandCursor from './components/ui/BrandCursor';
 import ScrollToTop from './components/common/ScrollToTop';
 
 // Eagerly load Home for fast initial paint
@@ -19,6 +19,7 @@ const Where = lazy(() => import('./pages/Where'));
 const Partnerships = lazy(() => import('./pages/Partnerships'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 const FAQ = lazy(() => import('./pages/FAQ'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -49,7 +50,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <MouseGlow />
+      <BrandCursor />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -65,6 +66,7 @@ function App() {
             <Route path="partnerships" element={<Partnerships />} />
             <Route path="faq" element={<FAQ />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Suspense>

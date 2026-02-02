@@ -10,16 +10,16 @@ const SchemaMarkup = () => {
         "@graph": [
             {
                 "@type": "GeneralContractor",
-                "@id": "https://canyonstate.netlify.app/#organization",
+                "@id": "https://canyonstateaz.com/#organization",
                 "name": "Canyon State Enterprises",
-                "url": "https://canyonstate.netlify.app",
+                "url": "https://canyonstateaz.com",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://canyonstate.netlify.app/logo-full.png",
+                    "url": "https://canyonstateaz.com/logo-full.png",
                     "width": 300,
                     "height": 60
                 },
-                "image": "https://canyonstate.netlify.app/og-image.jpg",
+                "image": "https://canyonstateaz.com/og-image.jpg",
                 "description": "Arizona's trusted multi-trade construction company. Roofing, stucco, HVAC, plumbing, and more across the Southwest.",
                 "address": {
                     "@type": "PostalAddress",
@@ -81,15 +81,15 @@ const SchemaMarkup = () => {
             },
             {
                 "@type": "WebSite",
-                "@id": "https://canyonstate.netlify.app/#website",
-                "url": "https://canyonstate.netlify.app",
+                "@id": "https://canyonstateaz.com/#website",
+                "url": "https://canyonstateaz.com",
                 "name": "Canyon State Enterprises",
                 "publisher": {
-                    "@id": "https://canyonstate.netlify.app/#organization"
+                    "@id": "https://canyonstateaz.com/#organization"
                 },
                 "potentialAction": {
                     "@type": "SearchAction",
-                    "target": "https://canyonstate.netlify.app/search?q={search_term_string}",
+                    "target": "https://canyonstateaz.com/search?q={search_term_string}",
                     "query-input": "required name=search_term_string"
                 }
             }

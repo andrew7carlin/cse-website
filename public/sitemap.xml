@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- Homepage -->
     <url>
-        <loc>https://canyonstate.netlify.app/</loc>
+        <loc>https://canyonstateaz.com/</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
@@ -10,37 +10,37 @@
     
     <!-- Main Pages -->
     <url>
-        <loc>https://canyonstate.netlify.app/about</loc>
+        <loc>https://canyonstateaz.com/about</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services</loc>
+        <loc>https://canyonstateaz.com/services</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/partnerships</loc>
+        <loc>https://canyonstateaz.com/partnerships</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/where</loc>
+        <loc>https://canyonstateaz.com/where</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/contact</loc>
+        <loc>https://canyonstateaz.com/contact</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/faq</loc>
+        <loc>https://canyonstateaz.com/faq</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -48,25 +48,25 @@
     
     <!-- Portfolio -->
     <url>
-        <loc>https://canyonstate.netlify.app/portfolio</loc>
+        <loc>https://canyonstateaz.com/portfolio</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/portfolio/landing</loc>
+        <loc>https://canyonstateaz.com/portfolio/landing</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/portfolio/commercial</loc>
+        <loc>https://canyonstateaz.com/portfolio/commercial</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/portfolio/residential</loc>
+        <loc>https://canyonstateaz.com/portfolio/residential</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -74,73 +74,73 @@
     
     <!-- Trade/Service Pages -->
     <url>
-        <loc>https://canyonstate.netlify.app/services/roofing</loc>
+        <loc>https://canyonstateaz.com/services/roofing</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/stucco</loc>
+        <loc>https://canyonstateaz.com/services/stucco</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/hvac</loc>
+        <loc>https://canyonstateaz.com/services/hvac</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/plumbing</loc>
+        <loc>https://canyonstateaz.com/services/plumbing</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/res-const</loc>
+        <loc>https://canyonstateaz.com/services/res-const</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/com-const</loc>
+        <loc>https://canyonstateaz.com/services/com-const</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/metals</loc>
+        <loc>https://canyonstateaz.com/services/metals</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/masonry</loc>
+        <loc>https://canyonstateaz.com/services/masonry</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/fencing</loc>
+        <loc>https://canyonstateaz.com/services/fencing</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/gutters</loc>
+        <loc>https://canyonstateaz.com/services/gutters</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/land-dev</loc>
+        <loc>https://canyonstateaz.com/services/land-dev</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>https://canyonstate.netlify.app/services/auto</loc>
+        <loc>https://canyonstateaz.com/services/auto</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

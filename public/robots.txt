@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://canyonstate.netlify.app/sitemap.xml
+Sitemap: https://canyonstateaz.com/sitemap.xml
 
 # Crawl directives
 Disallow: /api/
