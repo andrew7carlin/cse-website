@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Timeline from '../components/ui/Timeline';
 import LeadershipSection from '../components/ui/LeadershipSection';
+import TeamSection from '../components/ui/TeamSection';
 import { loadProjectAssets } from '../utils/assetLoader';
 import SEO from '../components/common/SEO';
 import styles from './About.module.css';
@@ -144,6 +145,9 @@ const About = () => {
 
             {/* Leadership Section */}
             <LeadershipSection />
+
+            {/* Team Section */}
+            <TeamSection />
 
             {/* CTA Section */}
             <section className={styles.ctaSection}>
