@@ -1,0 +1,120 @@
+/* Team Section Styles */
+
+.section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-alt);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding: 0 var(--container-padding);
+}
+
+.header h2 {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-xs);
+}
+
+.header p {
+    font-size: var(--font-size-body-lg);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--spacing-md);
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.grid.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease var(--delay, 0ms),
+        transform 0.5s ease var(--delay, 0ms);
+}
+
+.grid.visible .card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photoContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 8px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: var(--spacing-sm);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover .photoContainer {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.photoContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.info {
+    text-align: center;
+    padding: 0 var(--spacing-xs);
+}
+
+.info h3 {
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-main);
+    margin-bottom: 4px;
+}
+
+.info p {
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    .info h3 {
+        font-size: 0.9rem;
+    }
+
+    .info p {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
