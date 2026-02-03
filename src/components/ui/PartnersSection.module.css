@@ -79,7 +79,7 @@
 .carouselTrack {
     display: flex;
     gap: 4rem;
-    animation: scroll 10s linear infinite;
+    animation: scroll 5s linear infinite;
 }
 
 @keyframes scroll {
@@ -130,7 +130,7 @@
 
     .carouselTrack {
         gap: 2rem;
-        animation: scroll 8s linear infinite;
+        animation: scroll 4s linear infinite;
     }
 
     .logoItem {
