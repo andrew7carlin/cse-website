@@ -6,6 +6,7 @@ import SEO from '../components/common/SEO';
 // Import project images for service headers
 import roofingImage from '../assets/projects/La Quinta Hotel_ KIngman Az.webp';
 import stuccoImage from '../assets/projects/Greenprint Apartments_Phoenix AZ.webp';
+import hvacImage from '../assets/projects/HVAC.webp';
 
 // Data Mock - In a real app this might come from a CMS or config file
 const tradeData = {
@@ -26,7 +27,7 @@ const tradeData = {
     hvac: {
         title: "HVAC",
         description: "Nobody thinks about their HVAC until it stops working. We keep the air moving, the temps right, and your energy bills from getting out of hand. Installs, repairs, maintenance—we do it all.",
-        image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=2670",
+        image: hvacImage,
         expertise: ["AC Installation", "Heating Systems", "Ductwork", "Preventive Maintenance", "Energy Audits", "Zone Control", "Commercial HVAC", "Emergency Repairs", "Smart Thermostats", "Indoor Air Quality"],
         cta: "Fix My Climate"
     },
