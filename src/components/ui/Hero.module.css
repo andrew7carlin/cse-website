@@ -124,6 +124,17 @@
     object-fit: cover;
 }
 
+/* Blurred background video - hidden on desktop */
+.videoBlurBg {
+    display: none;
+}
+
+.videoBlurElement {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .overlay {
     position: absolute;
     inset: 0;
@@ -205,23 +216,43 @@
         min-height: 100svh;
     }
 
+    /* Blurred background layer - fills the screen */
+    .videoBlurBg {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .videoBlurElement {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.2);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        filter: blur(25px) brightness(0.6);
+    }
+
+    /* Main video - show full frame, contained */
     .videoBg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        z-index: 1;
     }
 
     .videoElement {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     .overlay {

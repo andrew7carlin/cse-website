@@ -17,6 +17,20 @@ const Hero = ({
     if (variant === 'video' && videoUrl) {
         return (
             <section className={`${styles.hero} ${styles.video}`}>
+                {/* Blurred background video - visible only on mobile */}
+                {!isYouTube && (
+                    <div className={styles.videoBlurBg}>
+                        <video
+                            src={videoUrl}
+                            className={styles.videoBlurElement}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                    </div>
+                )}
+
                 <div className={styles.videoBg}>
                     {isYouTube ? (
                         <iframe
