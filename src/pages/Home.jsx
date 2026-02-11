@@ -7,7 +7,7 @@ import SafetyStats from '../components/ui/SafetyStats';
 import SocialSection from '../components/ui/SocialSection';
 import QuoteCTA from '../components/ui/QuoteCTA';
 import SEO from '../components/common/SEO';
-import { LOBBY_VIDEO_URL, IS_YOUTUBE } from '../constants/media';
+import { LOBBY_VIDEO_URL, LOBBY_VIDEO_MOBILE_URL, IS_YOUTUBE } from '../constants/media';
 
 const Home = () => {
     return (
@@ -21,6 +21,7 @@ const Home = () => {
                 subheadline=""
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}
+                mobileVideoUrl={LOBBY_VIDEO_MOBILE_URL}
                 isYouTube={IS_YOUTUBE}
                 primaryCtaText=""
             />

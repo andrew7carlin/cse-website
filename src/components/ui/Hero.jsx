@@ -11,6 +11,7 @@ const Hero = ({
     secondaryCtaLink = "/portfolio",
     imageUrl,
     videoUrl,
+    mobileVideoUrl,
     isYouTube = false,
     variant = "split" // 'split', 'full', or 'video'
 }) => {
@@ -21,7 +22,7 @@ const Hero = ({
                 {!isYouTube && (
                     <div className={styles.videoBlurBg}>
                         <video
-                            src={videoUrl}
+                            src={mobileVideoUrl || videoUrl}
                             className={styles.videoBlurElement}
                             autoPlay
                             loop
@@ -42,14 +43,28 @@ const Hero = ({
                             title="Background Video"
                         />
                     ) : (
-                        <video
-                            src={videoUrl}
-                            className={styles.videoElement}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                        />
+                        <>
+                            {/* Desktop video (16:9) */}
+                            <video
+                                src={videoUrl}
+                                className={`${styles.videoElement} ${styles.desktopVideo}`}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            />
+                            {/* Mobile video (1:1) - only rendered if provided */}
+                            {mobileVideoUrl && (
+                                <video
+                                    src={mobileVideoUrl}
+                                    className={`${styles.videoElement} ${styles.mobileVideo}`}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                />
+                            )}
+                        </>
                     )}
                     <div className={styles.overlay}></div>
                 </div>
