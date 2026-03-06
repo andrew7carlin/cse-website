@@ -1,0 +1,318 @@
+/* ── Page Wrapper ─────────────────────────────────────────────────────────── */
+
+.page {
+    background: var(--color-bg-base);
+    min-height: 100vh;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+
+.hero {
+    background: var(--color-dark-brown);
+    padding: calc(var(--header-height) + 4rem) var(--container-padding) 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 0%, rgba(160, 73, 33, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.heroContent {
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+}
+
+.eyebrow {
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 1.25rem;
+}
+
+.headline {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: var(--font-weight-light);
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: var(--line-height-heading);
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.subheadline {
+    font-size: var(--font-size-body-lg);
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+}
+
+.heroLink {
+    color: var(--color-tan);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.heroLink:hover {
+    color: var(--color-copper);
+}
+
+/* ── Category Tabs ─────────────────────────────────────────────────────────── */
+
+.tabsWrap {
+    background: var(--color-dark-brown);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0 var(--container-padding);
+    position: sticky;
+    top: var(--header-height);
+    z-index: 10;
+}
+
+.tabs {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 900px;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab {
+    padding: 1rem 1.5rem;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.tab:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tabActive {
+    color: var(--color-tan) !important;
+    border-bottom-color: var(--color-copper);
+}
+
+/* ── Body / Accordion Area ────────────────────────────────────────────────── */
+
+.body {
+    padding: var(--spacing-xl) 0 var(--spacing-xxl);
+}
+
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.accordionList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ── Accordion Item ───────────────────────────────────────────────────────── */
+
+.item {
+    border-bottom: 1px solid var(--color-divider);
+    transition: background 0.2s ease;
+}
+
+.item:first-child {
+    border-top: 1px solid var(--color-divider);
+}
+
+.itemOpen {
+    background: rgba(160, 73, 33, 0.04);
+}
+
+.trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.trigger:hover .question {
+    color: var(--color-copper);
+}
+
+.question {
+    font-size: 1.0625rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-main);
+    line-height: 1.5;
+    flex: 1;
+    transition: color 0.2s ease;
+}
+
+.chevron {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.itemOpen .chevron {
+    transform: rotate(180deg);
+    color: var(--color-copper);
+}
+
+.itemOpen .question {
+    color: var(--color-copper);
+}
+
+/* ── Animated Panel ───────────────────────────────────────────────────────── */
+
+.panel {
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.panelInner {
+    padding-bottom: 1.5rem;
+}
+
+.panelInner p {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-muted);
+}
+
+/* ── CTA Card ─────────────────────────────────────────────────────────────── */
+
+.cta {
+    margin-top: 4rem;
+    background: var(--color-dark-brown);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.ctaContent h3 {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-semibold);
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.ctaContent p {
+    font-size: var(--font-size-body);
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.ctaActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.ctaBtn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--color-copper);
+    color: white;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+}
+
+.ctaBtn:hover {
+    background: #8a3c1a;
+    transform: translateY(-1px);
+}
+
+.ctaBtnSecondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ctaBtnSecondary:hover {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+    .hero {
+        padding-top: calc(var(--header-height) + 2.5rem);
+        padding-bottom: 3.5rem;
+    }
+
+    .headlines {
+        font-size: 2.25rem;
+    }
+
+    .tab {
+        padding: 0.875rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .trigger {
+        padding: 1.25rem 0;
+    }
+
+    .cta {
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ctaActions {
+        width: 100%;
+    }
+
+    .ctaBtn,
+    .ctaBtnSecondary {
+        flex: 1;
+        text-align: center;
+    }
+}
