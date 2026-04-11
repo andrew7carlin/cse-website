@@ -17,6 +17,8 @@ export default defineConfig({
           'react-vendor': ['react', 'react-dom'],
           // Router in separate chunk
           'router': ['react-router-dom'],
+          // GSAP animation library in its own chunk
+          'gsap': ['gsap'],
         },
         // Optimize chunk file names
         chunkFileNames: 'assets/js/[name]-[hash].js',
@@ -28,8 +30,8 @@ export default defineConfig({
     // Target modern browsers for smaller bundle
     target: 'es2020',
 
-    // Increase chunk size warning limit (images are heavy)
-    chunkSizeWarningLimit: 1000,
+    // Chunk size warning threshold
+    chunkSizeWarningLimit: 500,
 
     // Minification settings
     minify: 'esbuild',

@@ -1,103 +1,91 @@
-import { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { loadProjectAssets } from '../utils/assetLoader';
 import SEO from '../components/common/SEO';
 
-const ProjectDetail = () => {
-    const { projectId } = useParams();
+export default function ProjectDetail() {
+  const { projectId } = useParams();
+  const projects = loadProjectAssets();
+  const project = projects.find(p => p.id === projectId);
 
-    // Load all projects and find the matching one
-    // Note: In a larger app, we'd pass this via context or state, but for <30 projects, re-scanning is instant
-    const projects = useMemo(() => loadProjectAssets(), []);
-
-    const project = projects.find(p => p.id === projectId);
-
-    if (!project) {
-        return (
-            <div className="flex h-screen items-center justify-center bg-black text-white">
-                <div className="text-center">
-                    <h2 className="mb-4 text-2xl font-bold">Project Not Found</h2>
-                    <Link to="/portfolio" className="text-orange-500 hover:text-orange-400">Back to Portfolio</Link>
-                </div>
-            </div>
-        );
-    }
-
+  if (!project) {
     return (
-        <div className="bg-black min-h-screen">
-            <SEO
-                title={project ? `${project.title} - ${project.location}` : 'Project Not Found'}
-                description={project ? `View our ${project.title} project located in ${project.location}. Professional construction and renovation work by Canyon State Enterprises.` : 'Project not found'}
-                canonical={`https://canyonstate.netlify.app/projects/${projectId}`}
-            />
-            {/* Header Image (First one) */}
-            <div className="relative h-[60vh] w-full border-b-4 border-[#b87333]">
-                {project.media[0].type === 'video' ? (
-                    <video src={project.media[0].src} className="h-full w-full object-cover" controls />
-                ) : (
-                    <img
-                        src={project.media[0].src}
-                        alt={project.title}
-                        className="h-full w-full object-cover"
-                    />
-                )}
-                {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16">
-                    <div className="container mx-auto">
-                        <span className="text-sm md:text-base text-[#b87333] font-bold tracking-[0.3em] uppercase block mb-2">
-                            Project Overview
-                        </span>
-                        <h1 className="text-4xl md:text-7xl font-bold text-white mb-2 font-outfit uppercase tracking-wide">
-                            {project.title}
-                        </h1>
-                        <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wider uppercase border-l-4 border-[#b87333] pl-4 mt-4">
-                            {project.location}
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="container mx-auto px-4 py-12">
-                <Link to="/portfolio" className="inline-block mb-8 text-[#b87333] hover:text-white transition-colors uppercase tracking-widest text-xs font-bold">
-                    &larr; Back to Portfolio
-                </Link>
-
-                {/* Gallery Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {project.media.map((item, index) => (
-                        <div key={index} className="group relative rounded-lg overflow-hidden bg-gray-900 border-2 border-[#b87333] shadow-2xl hover:shadow-[0_0_20px_rgba(184,115,51,0.2)] transition-shadow duration-300">
-
-                            {item.type === 'video' ? (
-                                <video
-                                    src={item.src}
-                                    className="w-full h-auto"
-                                    controls
-                                    playsInline
-                                />
-                            ) : (
-                                <img
-                                    src={item.src}
-                                    alt={`${project.title} ${index + 1}`}
-                                    className="w-full h-auto hover:scale-105 transition-transform duration-700 cursor-pointer"
-                                    loading="lazy"
-                                />
-                            )}
-                            <div className="bg-[#1a1a1a] p-3 border-t border-[#b87333]/30 flex justify-between items-center">
-                                <span className="text-[10px] text-gray-400 font-mono uppercase tracking-wider">
-                                    img_0{index + 1}
-                                </span>
-                                <span className="text-[10px] text-[#b87333] uppercase tracking-widest font-bold">
-                                    Canyon State
-                                </span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+      <div style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', background: '#000', color: '#fff' }}>
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.5rem', fontWeight: 600 }}>Project not found</h2>
+          <Link to="/portfolio" style={{ color: '#b87333' }}>← Back to Portfolio</Link>
         </div>
+      </div>
     );
-};
+  }
 
-export default ProjectDetail;
+  const hero = project.media[0];
+
+  return (
+    <div style={{ background: '#000', minHeight: '100vh' }}>
+      <SEO
+        title={`${project.title} | Canyon State Enterprises`}
+        description={`View the ${project.title} project by Canyon State Enterprises in ${project.location}.`}
+        canonical={`https://canyonstateaz.com/portfolio/${project.id}`}
+      />
+
+      <div style={{ position: 'relative', height: '60vh', width: '100%', borderBottom: '4px solid #b87333', overflow: 'hidden' }}>
+        {hero?.type === 'video' ? (
+          <video
+            src={hero.src}
+            autoPlay loop muted playsInline
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        ) : (
+          <img
+            src={hero?.src}
+            alt={project.title}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        )}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #000 0%, rgba(0,0,0,0.4) 50%, transparent 100%)' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', padding: 'clamp(2rem, 5vw, 4rem)' }}>
+          <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
+            <span style={{ display: 'block', fontSize: '0.75rem', color: '#b87333', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+              Project Overview
+            </span>
+            <h1 style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)', fontWeight: 700, color: '#fff', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              {project.title}
+            </h1>
+            <p style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#d1d5db', fontWeight: 300, letterSpacing: '0.1em', textTransform: 'uppercase', borderLeft: '4px solid #b87333', paddingLeft: '1rem', marginTop: '1rem' }}>
+              {project.location}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '3rem var(--container-padding)' }}>
+        <Link
+          to="/portfolio"
+          style={{ display: 'inline-block', marginBottom: '2rem', color: '#b87333', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', fontWeight: 700, textDecoration: 'none' }}
+        >
+          ← Back to Portfolio
+        </Link>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
+          {project.media.map((item, index) => (
+            <div key={index} style={{ borderRadius: '8px', overflow: 'hidden', background: '#111', border: '2px solid #b87333' }}>
+              {item.type === 'video' ? (
+                <video src={item.src} controls style={{ width: '100%', height: 'auto' }} />
+              ) : (
+                <img src={item.src} alt={`${project.title} ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+              )}
+              <div style={{ background: '#1a1a1a', padding: '0.75rem', borderTop: '1px solid rgba(184,115,51,0.3)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '10px', color: '#9ca3af', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span style={{ fontSize: '10px', color: '#b87333', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 700 }}>
+                  Canyon State
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

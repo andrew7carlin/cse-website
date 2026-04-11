@@ -8,8 +8,12 @@ const Contact = () => {
             <SEO
                 title="Contact Us - Get a Free Quote"
                 description="Get in touch with Canyon State Enterprises. Request a free quote for roofing, stucco, HVAC, or full construction services. Serving AZ, NV, NM, UT. ROC licensed and insured."
-                canonical="https://canyonstate.netlify.app/contact"
+                canonical="https://canyonstateaz.com/contact"
             />
+            {/* Visually hidden h1 — present for SEO and screen readers */}
+            <h1 style={{ position: 'absolute', width: '1px', height: '1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap' }}>
+                Contact Canyon State Enterprises
+            </h1>
             {/* Reusing the robust form module as the main page content */}
             <ContactForm />
 

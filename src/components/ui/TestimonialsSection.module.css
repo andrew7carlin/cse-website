@@ -1,0 +1,119 @@
+.section {
+  padding: var(--spacing-xxl) 0;
+  background: var(--color-bg-base);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.heading h2 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-main);
+  margin-bottom: 0.75rem;
+}
+
+.subheading {
+  font-size: 1.125rem;
+  color: var(--color-text-muted, #6b7280);
+  font-weight: 400;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--color-bg-surface, #ffffff);
+  border: 1px solid rgba(184, 115, 51, 0.2);
+  border-radius: 4px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease var(--delay, 0s),
+              transform 0.5s ease var(--delay, 0s);
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quoteIcon {
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-copper);
+  font-family: Georgia, serif;
+  margin-bottom: 0.5rem;
+  margin-top: -0.5rem;
+}
+
+.quoteText {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-main);
+  font-weight: 400;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.cardFooter {
+  border-top: 1px solid rgba(184, 115, 51, 0.15);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: var(--color-copper);
+  font-size: 0.875rem;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.authorName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.projectType {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

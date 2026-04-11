@@ -201,7 +201,7 @@ const Partnerships = () => {
             <SEO
                 title="Partnerships - Trusted By Industry Leaders"
                 description="Canyon State Enterprises partners with top manufacturers and clients including EOS Fitness, Salad and Go, Home Depot, Carlisle, GAF, and more. No fluff, no BS—just solid partnerships built on trust."
-                canonical="https://canyonstate.netlify.app/partnerships"
+                canonical="https://canyonstateaz.com/partnerships"
             />
             {/* Main Content Section */}
             <section className={styles.heroSection}>

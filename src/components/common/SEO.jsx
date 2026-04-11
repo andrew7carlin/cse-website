@@ -16,7 +16,7 @@ const SEO = ({
 }) => {
     const siteUrl = 'https://canyonstateaz.com';
     const fullTitle = title === 'Canyon State Enterprises'
-        ? title
+        ? 'Canyon State Enterprises | Multi-Trade Contractor AZ, NV, UT'
         : `${title} | Canyon State Enterprises`;
 
     return (
@@ -32,16 +32,19 @@ const SEO = ({
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={`${siteUrl}${image}`} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta property="og:site_name" content="Canyon State Enterprises" />
 
             {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content={canonical || siteUrl} />
-            <meta property="twitter:title" content={fullTitle} />
-            <meta property="twitter:description" content={description} />
-            <meta property="twitter:image" content={`${siteUrl}${image}`} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:url" content={canonical || siteUrl} />
+            <meta name="twitter:title" content={fullTitle} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={`${siteUrl}${image}`} />
 
             {/* Canonical */}
-            {canonical && <link rel="canonical" href={canonical} />}
+            <link rel="canonical" href={canonical || siteUrl} />
         </Helmet>
     );
 };

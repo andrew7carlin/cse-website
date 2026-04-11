@@ -1,11 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Suspense, lazy, useEffect } from 'react';
 import Layout from './components/layout/Layout';
 import SignatureCursor from './components/ui/SignatureCursor';
 import ScrollToTop from './components/common/ScrollToTop';
 
 // Eagerly load Home for fast initial paint
 import Home from './pages/Home';
+import GoogleAnalytics, { trackPageView } from './components/common/GoogleAnalytics';
 
 // Lazy load all other pages for code splitting
 const TradeDetail = lazy(() => import('./pages/TradeDetail'));
@@ -48,11 +49,22 @@ const PageLoader = () => (
   </div>
 );
 
+// Tracks page views on every SPA route change
+function RouteTracker() {
+  const location = useLocation();
+  useEffect(() => {
+    trackPageView(location.pathname, document.title);
+  }, [location]);
+  return null;
+}
+
 function App() {
   return (
     <Router>
       <ScrollToTop />
       <SignatureCursor />
+      <GoogleAnalytics />
+      <RouteTracker />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Layout />}>

@@ -24,6 +24,7 @@ const Hero = ({
                         <video
                             src={mobileVideoUrl || videoUrl}
                             className={styles.videoBlurElement}
+                            poster="/images/hero-poster.jpg"
                             autoPlay
                             loop
                             muted
@@ -48,6 +49,7 @@ const Hero = ({
                             <video
                                 src={videoUrl}
                                 className={`${styles.videoElement} ${styles.desktopVideo}`}
+                                poster="/images/hero-poster.jpg"
                                 autoPlay
                                 loop
                                 muted
@@ -58,6 +60,7 @@ const Hero = ({
                                 <video
                                     src={mobileVideoUrl}
                                     className={`${styles.videoElement} ${styles.mobileVideo}`}
+                                    poster="/images/hero-poster.jpg"
                                     autoPlay
                                     loop
                                     muted

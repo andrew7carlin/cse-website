@@ -71,7 +71,8 @@ const SchemaMarkup = () => {
                 "foundingDate": "2005",
                 "numberOfEmployees": {
                     "@type": "QuantitativeValue",
-                    "value": "50-200"
+                    "minValue": 50,
+                    "maxValue": 200
                 },
                 "slogan": "One Team. Multiple Trades. Zero Excuses.",
                 "sameAs": [

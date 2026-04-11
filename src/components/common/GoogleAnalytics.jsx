@@ -7,7 +7,7 @@ import { useEffect } from 'react';
  * Usage: Add <GoogleAnalytics /> to your app root (main.jsx or App.jsx)
  */
 
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with your GA4 Measurement ID
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID || 'G-XXXXXXXXXX';
 
 const GoogleAnalytics = () => {
     useEffect(() => {

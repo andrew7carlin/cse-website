@@ -2,27 +2,24 @@ import React, { useEffect, useRef } from 'react';
 import styles from './TeamSection.module.css';
 
 // Team photos
-import aaronPuskarov from '../../assets/team/Aaron-Puskarov.png';
-import andyJoseph from '../../assets/team/Andy-Joseph.png';
-import carlosRuiz from '../../assets/team/Carlos-Ruiz.png';
-import cooperKay from '../../assets/team/Cooper-Kay.png';
-import donObanion from '../../assets/team/Don-OBanion.png';
-import fabianArvizo from '../../assets/team/Fabian-Arvizo.png';
-import grantGollis from '../../assets/team/Grant-Gollis.png';
-import jarrettDoheny from '../../assets/team/Jarrett-Doheny.png';
-import jayGilbertson from '../../assets/team/Jay-Gilbertson.png';
-import joshTurner from '../../assets/team/Josh-Turner.png';
-import keithRainey from '../../assets/team/Keith-Rainey.png';
-import kemerReinhardt from '../../assets/team/Kemer-Reinhardt.png';
-import leonMitchell from '../../assets/team/Leon-Mitchell.png';
-import orinCunningham from '../../assets/team/Orin-Cunningham.png';
-import patrickBlake from '../../assets/team/Patrick-Blake.png';
-import ramonGallegos from '../../assets/team/Ramon-Gallegos.png';
-import travisCrouch from '../../assets/team/Travis-Crouch.png';
-import tylerLogas from '../../assets/team/Tyler-Logas.png';
-
-// Background for consistent styling
-import copperBg from '../../assets/leadership/copper-bg.webp';
+import aaronPuskarov from '../../assets/team/Aaron-Puskarov.webp';
+import andyJoseph from '../../assets/team/Andy-Joseph.webp';
+import carlosRuiz from '../../assets/team/Carlos-Ruiz.webp';
+import cooperKay from '../../assets/team/Cooper-Kay.webp';
+import donObanion from '../../assets/team/Don-OBanion.webp';
+import fabianArvizo from '../../assets/team/Fabian-Arvizo.webp';
+import grantGollis from '../../assets/team/Grant-Gollis.webp';
+import jarrettDoheny from '../../assets/team/Jarrett-Doheny.webp';
+import jayGilbertson from '../../assets/team/Jay-Gilbertson.webp';
+import joshTurner from '../../assets/team/Josh-Turner.webp';
+import keithRainey from '../../assets/team/Keith-Rainey.webp';
+import kemerReinhardt from '../../assets/team/Kemer-Reinhardt.webp';
+import leonMitchell from '../../assets/team/Leon-Mitchell.webp';
+import orinCunningham from '../../assets/team/Orin-Cunningham.webp';
+import patrickBlake from '../../assets/team/Patrick-Blake.webp';
+import ramonGallegos from '../../assets/team/Ramon-Gallegos.webp';
+import travisCrouch from '../../assets/team/Travis-Crouch.webp';
+import tylerLogas from '../../assets/team/Tyler-Logas.webp';
 
 const team = [
     // Supervisors & Project Managers
@@ -89,10 +86,7 @@ const TeamSection = () => {
                         className={styles.card}
                         style={{ '--delay': `${index * 50}ms` }}
                     >
-                        <div
-                            className={styles.photoContainer}
-                            style={{ backgroundImage: `url(${copperBg})` }}
-                        >
+                        <div className={styles.photoContainer}>
                             <img
                                 src={member.photo}
                                 alt={member.name}

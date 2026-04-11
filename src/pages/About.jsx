@@ -74,7 +74,7 @@ const About = () => {
             <SEO
                 title="About Us - Our Story, Values & Leadership"
                 description="Nearly 20 years building the Southwest. Canyon State Enterprises is a multi-trade construction powerhouse with 12+ self-performed trades, serving Arizona, Nevada, Utah, and New Mexico."
-                canonical="https://canyonstate.netlify.app/about"
+                canonical="https://canyonstateaz.com/about"
             />
             {/* Full-Bleed Hero */}
             <section className={styles.fullHero}>

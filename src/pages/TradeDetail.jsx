@@ -113,7 +113,7 @@ const TradeDetail = () => {
             <SEO
                 title={`${data.title} Services - Expert ${data.title} Contractors`}
                 description={data.description}
-                canonical={`https://canyonstate.netlify.app/services/${tradeId}`}
+                canonical={`https://canyonstateaz.com/services/${tradeId}`}
             />
             <div className={styles.hero} style={{ backgroundImage: `url(${data.image})` }}>
                 <div className={styles.heroOverlay}>

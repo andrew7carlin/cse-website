@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ContactForm.module.css';
+import { trackEvent } from '../common/GoogleAnalytics';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -39,6 +40,11 @@ const ContactForm = () => {
 
             if (response.ok) {
                 setSubmitStatus('success');
+                trackEvent('form_submit', {
+                    form_name: 'contact_quote',
+                    office: formData.closestOffice,
+                    project_type: formData.projectType
+                });
                 setFormData({
                     name: '',
                     company: '',
@@ -54,8 +60,7 @@ const ContactForm = () => {
             } else {
                 setSubmitStatus('error');
             }
-        } catch (error) {
-            console.error('Submit error:', error);
+        } catch {
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);

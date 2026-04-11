@@ -2,6 +2,7 @@ import Hero from '../components/ui/Hero';
 import TradeGrid from '../components/ui/TradeGrid';
 import Accordion from '../components/ui/Accordion';
 import SEO from '../components/common/SEO';
+import { Link } from 'react-router-dom';
 
 // Hero image
 import heroImage from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
@@ -13,7 +14,7 @@ const Services = () => {
             <SEO
                 title="Our Trades & Services - Full-Service Construction"
                 description="12+ self-performed trades under one roof: roofing, stucco, HVAC, plumbing, masonry, metals, residential & commercial construction. Complete construction services from pre-construction to closeout."
-                canonical="https://canyonstate.netlify.app/services"
+                canonical="https://canyonstateaz.com/services"
             />
             <Hero
                 headline="Complete Construction Services."
@@ -30,13 +31,13 @@ const Services = () => {
 
             <div className="container section" style={{ textAlign: 'center' }}>
                 <h2 className="text-h2" style={{ marginBottom: '2rem' }}>Ready to start?</h2>
-                <a href="/contact" className="btn-primary" style={{
+                <Link to="/contact" className="btn-primary" style={{
                     background: 'var(--color-copper)',
                     color: 'white',
                     padding: '1rem 3rem',
                     display: 'inline-block',
                     fontWeight: 600
-                }}>Contact Us</a>
+                }}>Contact Us</Link>
             </div>
         </div>
     );

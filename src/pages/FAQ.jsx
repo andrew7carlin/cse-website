@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import SEO from '../components/common/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import styles from './FAQ.module.css';
@@ -134,6 +135,25 @@ const FAQ = () => {
                 description="Get answers to common questions about Canyon State Enterprises — services, licensing, service areas, how to get a quote, and what to expect when working with us."
                 canonical="https://canyonstateaz.com/faq"
             />
+
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": categories.flatMap(cat =>
+                            cat.questions.map(item => ({
+                                "@type": "Question",
+                                "name": item.q,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": item.a
+                                }
+                            }))
+                        )
+                    })}
+                </script>
+            </Helmet>
 
             {/* ── Hero ─────────────────────────────────────────────────── */}
             <section className={styles.hero}>

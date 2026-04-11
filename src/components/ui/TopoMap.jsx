@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import styles from './TopoMap.module.css';
 
 const TopoMap = ({ data }) => {
@@ -164,7 +164,7 @@ const TopoMap = ({ data }) => {
                                 {getRegionData(hoveredRegion)?.description}
                             </p>
                             <div className={styles.cardCoverage}>
-                                <span className={styles.coverageIcon}>◉</span>
+                                <span className={styles.coverageIcon}>Γùë</span>
                                 <span>{getRegionData(hoveredRegion)?.coverage}</span>
                             </div>
                             {getRegionData(hoveredRegion)?.hq && (

@@ -44,8 +44,9 @@ const ResidentialPortfolio = () => {
     return (
         <>
             <SEO
-                title="Residential Portfolio"
-                description="Explore our residential construction projects across Arizona"
+                title="Residential Projects | Canyon State Enterprises"
+                description="View Canyon State Enterprises' residential construction projects — custom homes, roofing, stucco, and full-service builds across Arizona and the Southwest."
+                canonical="https://canyonstateaz.com/portfolio/residential"
             />
             <div className={styles.container}>
                 <h1 className={styles.title}>Residential Projects</h1>

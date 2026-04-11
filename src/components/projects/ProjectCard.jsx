@@ -30,7 +30,7 @@ const ProjectCard = ({ project, onClick }) => {
 
             {/* Watermark Logo (Top Right) */}
             <div className={styles.watermark}>
-                <img src={watermarkLogo} alt="" />
+                <img src={watermarkLogo} alt="" aria-hidden="true" />
             </div>
 
             {/* Overlay Gradient */}

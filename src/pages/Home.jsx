@@ -8,6 +8,7 @@ import SocialSection from '../components/ui/SocialSection';
 import QuoteCTA from '../components/ui/QuoteCTA';
 import SEO from '../components/common/SEO';
 import { LOBBY_VIDEO_URL, LOBBY_VIDEO_MOBILE_URL, IS_YOUTUBE } from '../constants/media';
+import TestimonialsSection from '../components/ui/TestimonialsSection';
 
 const Home = () => {
     return (
@@ -15,15 +16,16 @@ const Home = () => {
             <SEO
                 title="Canyon State Enterprises"
                 description="Arizona's trusted multi-trade construction company. Roofing, stucco, HVAC, plumbing, masonry and more across Arizona, Nevada, and the Southwest."
+                canonical="https://canyonstateaz.com/"
             />
             <Hero
                 headline="One Team, Multiple Trades."
-                subheadline=""
+                subheadline="Arizona's multi-trade construction partner — roofing, stucco, HVAC & more across AZ, NV, UT."
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}
                 mobileVideoUrl={LOBBY_VIDEO_MOBILE_URL}
                 isYouTube={IS_YOUTUBE}
-                primaryCtaText=""
+                primaryCtaText="Get a Free Quote"
             />
 
             <TradeGrid />
@@ -35,6 +37,8 @@ const Home = () => {
             <ProjectsShowcase />
 
             <SafetyStats />
+
+            <TestimonialsSection />
 
             <SocialSection />
 
