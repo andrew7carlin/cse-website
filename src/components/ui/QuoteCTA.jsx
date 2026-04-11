@@ -19,7 +19,7 @@ const QuoteCTA = () => {
                 <h2 className={styles.heading}>Sick of subcontractor headaches?</h2>
                 <p className={styles.subheading}>Let us fix that</p>
                 <Link to="/contact" className={styles.button} data-magnetic data-cursor="cta">
-                    Get Started
+                    Let's Chat
                 </Link>
             </div>
 

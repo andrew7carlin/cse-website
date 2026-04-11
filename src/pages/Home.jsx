@@ -20,12 +20,12 @@ const Home = () => {
             />
             <Hero
                 headline="One Team, Multiple Trades."
-                subheadline="Arizona's multi-trade construction partner — roofing, stucco, HVAC & more across AZ, NV, UT."
+                subheadline="Your trusted construction partner across Arizona, Nevada & Utah — roofing, stucco, HVAC, and more."
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}
                 mobileVideoUrl={LOBBY_VIDEO_MOBILE_URL}
                 isYouTube={IS_YOUTUBE}
-                primaryCtaText="Get a Free Quote"
+                primaryCtaText="Let's Chat"
             />
 
             <TradeGrid />
