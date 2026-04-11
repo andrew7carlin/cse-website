@@ -79,10 +79,10 @@
 .carouselTrack {
     display: flex;
     gap: 4rem;
-    animation: scroll 30s linear infinite;
+    animation: marquee 25s linear infinite;
 }
 
-@keyframes scroll {
+@keyframes marquee {
     0% {
         transform: translateX(0);
     }
@@ -97,21 +97,20 @@
 }
 
 .logoItem {
-    flex: 0 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 1.5rem 2rem;
-    transition: all 0.3s ease;
+    padding: 1rem 2rem;
+    flex-shrink: 0;
 }
 
 .logoItem img {
-    height: 50px;
-    width: 160px;
+    height: 56px;
+    width: auto;
+    max-width: 140px;
     object-fit: contain;
-    opacity: 0.7;
+    opacity: 0.75;
     transition: opacity 0.3s ease;
-    filter: grayscale(100%);
+    filter: none;
 }
 
 .logoItem:hover img {
@@ -131,7 +130,7 @@
 
     .carouselTrack {
         gap: 2rem;
-        animation: scroll 20s linear infinite;
+        animation: marquee 15s linear infinite;
     }
 
     .logoItem {

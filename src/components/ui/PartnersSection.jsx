@@ -95,7 +95,7 @@ const PartnersSection = () => {
 
                 {/* Auto-scrolling Partner Logos Carousel */}
                 <div className={styles.carouselContainer}>
-                    <div className={styles.carouselTrack}>
+                    <div className={styles.carouselTrack} style={{ width: 'max-content' }}>
                         {[...partners, ...partners].map((partner, index) => (
                             <a
                                 key={index}
