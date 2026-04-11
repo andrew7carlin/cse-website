@@ -79,7 +79,7 @@
 .carouselTrack {
     display: flex;
     gap: 4rem;
-    animation: marquee 35s linear infinite;
+    animation: marquee 28s linear infinite;
 }
 
 @keyframes marquee {
@@ -130,7 +130,7 @@
 
     .carouselTrack {
         gap: 2rem;
-        animation: marquee 22s linear infinite;
+        animation: marquee 18s linear infinite;
     }
 
     .logoItem {
