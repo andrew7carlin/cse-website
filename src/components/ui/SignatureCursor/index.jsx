@@ -26,6 +26,7 @@ const SignatureCursor = () => {
     const glowRef = useRef(null);
     const blurRef = useRef(null);
     const rafRef = useRef(null);
+    const enabledRef = useRef(false); // true once a mouse pointermove is confirmed
 
     // State
     const [isVisible, setIsVisible] = useState(false);
@@ -45,10 +46,10 @@ const SignatureCursor = () => {
     const frameCount = useRef(0);
     const lowPerfMode = useRef(false);
 
-    // Check if should render (touch devices, reduced motion)
+    // Check if should render (reduced motion only — touch vs. mouse is handled
+    // dynamically via pointermove so touch laptops with a mouse still work)
     const shouldRender = useCallback(() => {
         if (typeof window === 'undefined') return false;
-        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return false;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
         return true;
     }, []);
@@ -119,6 +120,7 @@ const SignatureCursor = () => {
 
     // Mouse move handler
     const handleMouseMove = useCallback((e) => {
+        if (!enabledRef.current) return; // wait for confirmed mouse pointermove
         mousePos.current = { x: e.clientX, y: e.clientY };
         physics.updateMouse(e.clientX, e.clientY);
 
@@ -149,6 +151,20 @@ const SignatureCursor = () => {
     useEffect(() => {
         if (!shouldRender()) return;
 
+        // Dynamically detect pointer type so touch laptops with a mouse
+        // get the cursor, while pure touch devices do not
+        enabledRef.current = false;
+        const handlePointerType = (e) => {
+            if (e.pointerType === 'mouse') {
+                enabledRef.current = true;
+                window.removeEventListener('pointermove', handlePointerType);
+            } else if (e.pointerType === 'touch') {
+                enabledRef.current = false;
+                window.removeEventListener('pointermove', handlePointerType);
+            }
+        };
+        window.addEventListener('pointermove', handlePointerType);
+
         // Cache magnetic elements
         magnetic.cacheElements();
 
@@ -171,6 +187,7 @@ const SignatureCursor = () => {
 
         // Cleanup
         return () => {
+            window.removeEventListener('pointermove', handlePointerType);
             window.removeEventListener('mousemove', handleMouseMove);
             document.body.removeEventListener('mouseleave', handleMouseLeave);
             document.body.removeEventListener('mouseenter', handleMouseEnter);
