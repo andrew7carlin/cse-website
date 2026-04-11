@@ -1,3 +1,13 @@
+/* Self-hosted Inter variable font — eliminates render-blocking Google Fonts request */
+/* Single variable woff2 covers weights 300–600 via wght axis (47 KB total) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('/fonts/inter-variable.woff2') format('woff2');
+}
+
 /* Global Resets */
 :root {
   /* Brand Colors */
