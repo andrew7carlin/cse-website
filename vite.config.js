@@ -12,13 +12,16 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Manual chunk splitting for better caching
-        manualChunks: {
-          // Vendor chunk for React core
-          'react-vendor': ['react', 'react-dom'],
-          // Router in separate chunk
-          'router': ['react-router-dom'],
-          // GSAP animation library in its own chunk
-          'gsap': ['gsap'],
+        manualChunks(id) {
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react-dom-client/')) {
+            return 'react-vendor';
+          }
+          if (id.includes('node_modules/react-router-dom/') || id.includes('node_modules/react-router/') || id.includes('node_modules/@remix-run/')) {
+            return 'router';
+          }
+          if (id.includes('node_modules/gsap/')) {
+            return 'gsap';
+          }
         },
         // Optimize chunk file names
         chunkFileNames: 'assets/js/[name]-[hash].js',
