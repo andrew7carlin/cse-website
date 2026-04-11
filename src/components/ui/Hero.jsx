@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Hero.module.css';
 
@@ -15,11 +15,20 @@ const Hero = ({
     isYouTube = false,
     variant = "split" // 'split', 'full', or 'video'
 }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+
     if (variant === 'video' && videoUrl) {
         return (
             <section className={`${styles.hero} ${styles.video}`}>
                 {/* Blurred background video - visible only on mobile */}
-                {!isYouTube && (
+                {!isYouTube && !isMobile && (
                     <div className={styles.videoBlurBg}>
                         <video
                             src={mobileVideoUrl || videoUrl}
@@ -46,17 +55,19 @@ const Hero = ({
                     ) : (
                         <>
                             {/* Desktop video (16:9) */}
-                            <video
-                                src={videoUrl}
-                                className={`${styles.videoElement} ${styles.desktopVideo}`}
-                                poster="/hero-poster.webp"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                            />
-                            {/* Mobile video (1:1) - only rendered if provided */}
-                            {mobileVideoUrl && (
+                            {!isMobile && (
+                                <video
+                                    src={videoUrl}
+                                    className={`${styles.videoElement} ${styles.desktopVideo}`}
+                                    poster="/hero-poster.webp"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                />
+                            )}
+                            {/* Mobile video (9:16) - only rendered if provided */}
+                            {!isMobile && mobileVideoUrl && (
                                 <video
                                     src={mobileVideoUrl}
                                     className={`${styles.videoElement} ${styles.mobileVideo}`}
@@ -65,6 +76,21 @@ const Hero = ({
                                     loop
                                     muted
                                     playsInline
+                                />
+                            )}
+                            {/* Static poster fallback for mobile — no video bandwidth */}
+                            {isMobile && (
+                                <img
+                                    src="/hero-poster.webp"
+                                    alt="Canyon State Enterprises"
+                                    style={{
+                                        position: 'absolute',
+                                        inset: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
                                 />
                             )}
                         </>
