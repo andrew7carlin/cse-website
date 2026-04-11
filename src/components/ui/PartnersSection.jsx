@@ -96,28 +96,15 @@ const PartnersSection = () => {
                 {/* Auto-scrolling Partner Logos Carousel */}
                 <div className={styles.carouselContainer}>
                     <div className={styles.carouselTrack}>
-                        {/* First set of logos */}
-                        {partners.map((partner, index) => (
+                        {[...partners, ...partners].map((partner, index) => (
                             <a
-                                key={`first-${index}`}
+                                key={index}
                                 href={partner.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.logoItem}
                             >
-                                <img src={partner.logo} alt={partner.name} loading="lazy" />
-                            </a>
-                        ))}
-                        {/* Duplicate set for seamless loop */}
-                        {partners.map((partner, index) => (
-                            <a
-                                key={`second-${index}`}
-                                href={partner.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.logoItem}
-                            >
-                                <img src={partner.logo} alt={partner.name} loading="lazy" />
+                                <img src={partner.logo} alt={partner.name} />
                             </a>
                         ))}
                     </div>
