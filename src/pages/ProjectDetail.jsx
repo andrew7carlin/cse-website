@@ -58,7 +58,7 @@ export default function ProjectDetail() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '3rem var(--container-padding)' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem var(--container-padding, 2rem)' }}>
         <Link
           to={project.category && ['custom-home', 'development', 'model-home'].includes(project.category)
             ? '/portfolio/residential'
@@ -70,25 +70,85 @@ export default function ProjectDetail() {
           ← Back to Portfolio
         </Link>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
-          {project.media.map((item, index) => (
-            <div key={index} style={{ borderRadius: '8px', overflow: 'hidden', background: '#111', border: '2px solid #b87333' }}>
-              {item.type === 'video' ? (
-                <video src={item.src} controls style={{ width: '100%', height: 'auto' }} />
-              ) : (
-                <img src={item.src} alt={`${project.title} ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
-              )}
-              <div style={{ background: '#1a1a1a', padding: '0.75rem', borderTop: '1px solid rgba(184,115,51,0.3)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '10px', color: '#9ca3af', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span style={{ fontSize: '10px', color: '#b87333', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 700 }}>
-                  Canyon State
-                </span>
-              </div>
-            </div>
-          ))}
+        <div style={{ marginBottom: '2rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(184,115,51,0.2)' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+            {project.trade && (
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase',
+                letterSpacing: '0.15em', color: '#b87333', background: 'rgba(184,115,51,0.1)',
+                padding: '0.375rem 0.875rem', borderRadius: '2px', border: '1px solid rgba(184,115,51,0.3)' }}>
+                {project.trade}
+              </span>
+            )}
+            {project.location && (
+              <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: 400 }}>
+                {project.location}
+              </span>
+            )}
+          </div>
         </div>
+
+        {project.media.length > 1 ? (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
+            {project.media.map((item, index) => (
+              <div key={index} style={{ borderRadius: '4px', overflow: 'hidden', background: '#111', border: '1px solid rgba(184,115,51,0.25)' }}>
+                <img
+                  src={item.src}
+                  alt={`${project.title} — view ${index + 1}`}
+                  style={{ width: '100%', height: 'auto', display: 'block', aspectRatio: '16/9', objectFit: 'cover' }}
+                />
+                <div style={{ background: '#1a1a1a', padding: '0.625rem 0.875rem', borderTop: '1px solid rgba(184,115,51,0.2)',
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '10px', color: '#9ca3af', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span style={{ fontSize: '10px', color: '#b87333', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 700 }}>
+                    Canyon State
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+            <div style={{ borderRadius: '4px', overflow: 'hidden', background: '#111', border: '1px solid rgba(184,115,51,0.25)' }}>
+              <img
+                src={project.media[0].src}
+                alt={project.title}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '1.5rem', padding: '1rem 0' }}>
+              <div>
+                <p style={{ fontSize: '0.75rem', color: '#b87333', fontWeight: 700, textTransform: 'uppercase',
+                  letterSpacing: '0.2em', marginBottom: '0.5rem' }}>Project</p>
+                <p style={{ fontSize: '1.25rem', fontWeight: 500, color: '#fff', margin: 0 }}>{project.title}</p>
+              </div>
+              <div>
+                <p style={{ fontSize: '0.75rem', color: '#b87333', fontWeight: 700, textTransform: 'uppercase',
+                  letterSpacing: '0.2em', marginBottom: '0.5rem' }}>Location</p>
+                <p style={{ fontSize: '1rem', color: '#d1d5db', margin: 0 }}>{project.location}</p>
+              </div>
+              {project.trade && (
+                <div>
+                  <p style={{ fontSize: '0.75rem', color: '#b87333', fontWeight: 700, textTransform: 'uppercase',
+                    letterSpacing: '0.2em', marginBottom: '0.5rem' }}>Trade</p>
+                  <p style={{ fontSize: '1rem', color: '#d1d5db', margin: 0 }}>{project.trade}</p>
+                </div>
+              )}
+              <Link
+                to={project.category && ['custom-home', 'development', 'model-home'].includes(project.category)
+                  ? '/portfolio/residential' : '/portfolio/commercial'}
+                style={{ display: 'inline-block', marginTop: '1rem', padding: '0.75rem 1.5rem',
+                  background: 'transparent', border: '1px solid #b87333', color: '#b87333',
+                  textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '0.75rem',
+                  fontWeight: 700, textDecoration: 'none', borderRadius: '2px',
+                  transition: 'all 0.2s ease', width: 'fit-content' }}
+              >
+                View More Projects →
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

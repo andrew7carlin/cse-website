@@ -78,6 +78,11 @@ import townHomeBullhead from '../assets/portfolio/residential/Town_Home_Bullhead
 import canyonPalmsKingman from '../assets/portfolio/residential/Canyon_Palms_Kingman.webp';
 import centuryCompleteParhrump from '../assets/portfolio/residential/Century_Complete_Pahrump.webp';
 import northpointCommunity from '../assets/portfolio/residential/Northpoint_Community.webp';
+import aquilaPlace2 from '../assets/projects/Aquila Place_ Apache Junction_(2).webp';
+import lasVegas28th2 from '../assets/projects/28th & Sunrise_Las Vegas Nev.webp';
+import lasVegas28th3 from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
+import krmcHualapai2 from '../assets/projects/KRMC Hualapai Mountain Campus_ Kingman Az.webp';
+import krmcMedicalMain2 from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
 
 export const COMMERCIAL_CATEGORIES = [
   { id: 'all', label: 'All' },
@@ -126,9 +131,9 @@ export const commercialProjects = [
   { id: 'best-western-kingman', name: 'Best Western Plus', location: 'Kingman, AZ', category: 'hospitality', trade: 'Roofing', src: bestWesternKingman },
   { id: 'la-quinta-kingman', name: 'La Quinta Hotel', location: 'Kingman, AZ', category: 'hospitality', trade: 'Roofing', src: laQuintaHotel },
   { id: 'spirit-mountain-casino', name: 'Spirit Mountain Casino', location: 'Fort Mohave, AZ', category: 'hospitality', trade: 'Roofing', src: spiritMountainCasino },
-  { id: 'aquila-place', name: 'Aquila Place', location: 'Apache Junction, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: aquilaPlace },
+  { id: 'aquila-place', name: 'Aquila Place', location: 'Apache Junction, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: aquilaPlace, gallery: [aquilaPlace, aquilaPlace2] },
   { id: 'greenprint-apartments', name: 'Greenprint Apartments', location: 'Phoenix, AZ', category: 'multi-family', trade: 'Stucco', src: greenprintApartments },
-  { id: '28th-sunrise-las-vegas', name: '28th & Sunrise', location: 'Las Vegas, NV', category: 'multi-family', trade: 'Stucco', src: lasVegas28th },
+  { id: '28th-sunrise-las-vegas', name: '28th & Sunrise', location: 'Las Vegas, NV', category: 'multi-family', trade: 'Stucco', src: lasVegas28th, gallery: [lasVegas28th, lasVegas28th2, lasVegas28th3] },
   { id: 'sun-river-townhomes', name: 'Sun River Townhomes', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: sunRiverTownhomes },
   { id: 'silver-cliffs-apartments', name: 'Silver Cliffs Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: silverCliffsApartments },
   { id: 'sienna-villas', name: 'Sienna Villas', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: siennaVillas },
@@ -138,8 +143,8 @@ export const commercialProjects = [
   { id: 'rivyve-behavioral-health', name: 'Rivyve Behavioral Health', location: 'Bullhead City, AZ', category: 'medical', trade: 'Roofing', src: rivyveBehavioralHealth },
   { id: 'mohave-eye-center', name: 'Mohave Eye Center', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: mohaveEyeCenter },
   { id: 'kmrc-main-campus', name: 'KMRC Medical Center', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: kmrcMainCampus },
-  { id: 'krmc-hualapai', name: 'KRMC Hualapai Mountain Campus', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: krmcHualapaiMountain },
-  { id: 'krmc-medical-main', name: 'KRMC Medical Center', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: krmcMedicalMain },
+  { id: 'krmc-hualapai', name: 'KRMC Hualapai Mountain Campus', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: krmcHualapaiMountain, gallery: [krmcHualapaiMountain, krmcHualapai2] },
+  { id: 'krmc-medical-main', name: 'KRMC Medical Center', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: krmcMedicalMain, gallery: [krmcMedicalMain, krmcMedicalMain2] },
   { id: 'fresenius-medical', name: 'Fresenius Medical Care', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: freseniusMedical },
   { id: 'medical-facility-kingman', name: 'Medical Facility', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: medicalFacility },
   { id: 'hualapai-mountain-campus', name: 'Hualapai Mountain Campus', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: hualapaiMountainCampus },
