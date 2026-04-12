@@ -1,79 +1,60 @@
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
+import { residentialProjects, RESIDENTIAL_CATEGORIES } from '../data/projects';
 import styles from '../styles/PortfolioGallery.module.css';
 
-// Direct Import Sanitization - High-Fidelity Residential Portfolio
-import customHome3 from '../assets/portfolio/residential/Custom_Home_Kingman_Az_3.webp';
-import customHome4 from '../assets/portfolio/residential/Custom_Home_Kingman_Az_4.webp';
-import customHome5 from '../assets/portfolio/residential/Custom_Home_Kingman_Az_5.webp';
-import customHome6 from '../assets/portfolio/residential/Custom_Home_Kingman_Az_6.webp';
-import hospiceHome from '../assets/portfolio/residential/Hospice_Home_Kingman_Az.webp';
-import surpriseHome from '../assets/portfolio/residential/Surprise_Custom_Home_Surprise_Az.webp';
+export default function ResidentialPortfolio() {
+  const [activeCategory, setActiveCategory] = useState('all');
 
-const images = [
-    { id: 1, src: customHome3, name: 'Custom Home', location: 'Kingman, Arizona', alt: 'Custom Home - Kingman, Arizona' },
-    { id: 2, src: customHome4, name: 'Custom Home', location: 'Kingman, Arizona', alt: 'Custom Home - Kingman, Arizona' },
-    { id: 3, src: customHome5, name: 'Custom Home', location: 'Kingman, Arizona', alt: 'Custom Home - Kingman, Arizona' },
-    { id: 4, src: customHome6, name: 'Custom Home', location: 'Kingman, Arizona', alt: 'Custom Home - Kingman, Arizona' },
-    { id: 5, src: hospiceHome, name: 'Hospice Home', location: 'Kingman, Arizona', alt: 'Hospice Home - Kingman, Arizona' },
-    { id: 6, src: surpriseHome, name: 'Surprise Custom Home', location: 'Surprise, Arizona', alt: 'Custom Home - Surprise, Arizona' },
-];
+  const filtered = activeCategory === 'all'
+    ? residentialProjects
+    : residentialProjects.filter(p => p.category === activeCategory);
 
-const ResidentialPortfolio = () => {
-    const imageRefs = useRef([]);
+  return (
+    <>
+      <SEO
+        title="Residential Projects | Canyon State Enterprises"
+        description="View Canyon State Enterprises' residential construction projects — custom homes, roofing, stucco, and full-service builds across Arizona and the Southwest."
+        canonical="https://canyonstateaz.com/portfolio/residential"
+      />
+      <div className={styles.container}>
+        <h1 className={styles.title}>Residential Projects</h1>
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add(styles.visible);
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
+        <div className={styles.filterBar}>
+          {RESIDENTIAL_CATEGORIES.map(cat => (
+            <button
+              key={cat.id}
+              className={`${styles.filterBtn} ${activeCategory === cat.id ? styles.filterActive : ''}`}
+              onClick={() => setActiveCategory(cat.id)}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
 
-        imageRefs.current.forEach((img) => {
-            if (img) observer.observe(img);
-        });
-
-        return () => observer.disconnect();
-    }, []);
-
-    return (
-        <>
-            <SEO
-                title="Residential Projects | Canyon State Enterprises"
-                description="View Canyon State Enterprises' residential construction projects — custom homes, roofing, stucco, and full-service builds across Arizona and the Southwest."
-                canonical="https://canyonstateaz.com/portfolio/residential"
-            />
-            <div className={styles.container}>
-                <h1 className={styles.title}>Residential Projects</h1>
-
-                <div className={styles.gallery}>
-                    {images.map((image, index) => (
-                        <div
-                            key={image.id}
-                            ref={(el) => (imageRefs.current[index] = el)}
-                            className={`${styles.imageItem} ${index % 2 === 0 ? styles.left : styles.right}`}
-                        >
-                            <img
-                                src={image.src}
-                                alt={image.alt}
-                                className={styles.image}
-                                loading="lazy"
-                            />
-                            <div className={styles.caption}>
-                                <h3 className={styles.projectName}>{image.name}</h3>
-                                <p className={styles.projectLocation}>{image.location}</p>
-                            </div>
-                        </div>
-                    ))}
+        <div className={styles.grid}>
+          {filtered.map(project => (
+            <Link key={project.id} to={`/portfolio/${project.id}`} className={styles.card}>
+              <div className={styles.cardImageWrap}>
+                <img
+                  src={project.src}
+                  alt={`${project.name} — ${project.location}`}
+                  className={styles.cardImage}
+                  loading="lazy"
+                />
+                <div className={styles.cardOverlay}>
+                  <span className={styles.cardTrade}>{project.trade}</span>
                 </div>
-            </div>
-        </>
-    );
-};
-
-export default ResidentialPortfolio;
+              </div>
+              <div className={styles.cardCaption}>
+                <h3 className={styles.cardName}>{project.name}</h3>
+                <p className={styles.cardLocation}>{project.location}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}

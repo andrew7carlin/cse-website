@@ -60,8 +60,12 @@ export default function ProjectDetail() {
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '3rem var(--container-padding)' }}>
         <Link
-          to="/portfolio"
-          style={{ display: 'inline-block', marginBottom: '2rem', color: '#b87333', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', fontWeight: 700, textDecoration: 'none' }}
+          to={project.category && ['custom-home', 'development', 'model-home'].includes(project.category)
+            ? '/portfolio/residential'
+            : '/portfolio/commercial'}
+          style={{ display: 'inline-block', marginBottom: '2rem', color: '#b87333',
+            textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem',
+            fontWeight: 700, textDecoration: 'none' }}
         >
           ← Back to Portfolio
         </Link>

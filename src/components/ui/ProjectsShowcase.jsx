@@ -72,12 +72,13 @@ const ProjectsShowcase = () => {
                         const delay = (index % 4) * 0.1; // Staggered animation
 
                         return (
-                            <div
+                            <Link
                                 key={project.id}
+                                to={`/portfolio/${project.id}`}
                                 data-index={index}
                                 data-accent={accentColor}
                                 className={`${styles.gridItem} ${styles[sizeClass]} ${isVisible ? styles.visible : ''}`}
-                                style={{ transitionDelay: `${delay}s` }}
+                                style={{ transitionDelay: `${delay}s`, textDecoration: 'none' }}
                             >
                                 <div className={styles.imageWrapper}>
                                     <img
@@ -93,7 +94,7 @@ const ProjectsShowcase = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })}
                 </div>
