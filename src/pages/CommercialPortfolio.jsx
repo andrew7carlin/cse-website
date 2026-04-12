@@ -43,9 +43,7 @@ export default function CommercialPortfolio() {
                   className={styles.cardImage}
                   loading="lazy"
                 />
-                <div className={styles.cardOverlay}>
-                  <span className={styles.cardTrade}>{project.trade}</span>
-                </div>
+              
               </div>
               <div className={styles.cardCaption}>
                 <h3 className={styles.cardName}>{project.name}</h3>
