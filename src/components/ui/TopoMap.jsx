@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import styles from './TopoMap.module.css';
 
 const TopoMap = ({ data }) => {
@@ -164,7 +164,14 @@ const TopoMap = ({ data }) => {
                                 {getRegionData(hoveredRegion)?.description}
                             </p>
                             <div className={styles.cardCoverage}>
-                                <span className={styles.coverageIcon}>Γùë</span>
+                                <span className={styles.coverageIcon}>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" style={{display:'inline-block',verticalAlign:'middle',marginRight:'4px'}}>
+                                        <circle cx="12" cy="12" r="4" fill="#b87333"/>
+                                        <circle cx="12" cy="12" r="8" stroke="#b87333" strokeWidth="1.5" fill="none" opacity="0.4"/>
+                                        <circle cx="12" cy="12" r="11" stroke="#b87333" strokeWidth="1" fill="none" opacity="0.2"/>
+                                    </svg>
+                                </span>
                                 <span>{getRegionData(hoveredRegion)?.coverage}</span>
                             </div>
                             {getRegionData(hoveredRegion)?.hq && (

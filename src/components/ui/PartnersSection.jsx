@@ -81,7 +81,7 @@ const PartnersSection = () => {
         <section className={styles.section}>
             {/* Watermark Logo */}
             <div className={styles.watermark}>
-                <img src={iconDark} alt="" aria-hidden="true" />
+                <img src={iconDark} alt="" aria-hidden="true" width="32" height="32" />
             </div>
 
             <div className={styles.container}>
@@ -104,7 +104,7 @@ const PartnersSection = () => {
                                 rel="noopener noreferrer"
                                 className={styles.logoItem}
                             >
-                                <img src={partner.logo} alt={partner.name} />
+                                <img src={partner.logo} alt={partner.name} width="160" height="62" />
                             </a>
                         ))}
                     </div>

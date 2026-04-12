@@ -40,6 +40,8 @@ export default function ProjectDetail() {
             src={hero?.src}
             alt={project.title}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            width="1024"
+            height="576"
           />
         )}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #000 0%, rgba(0,0,0,0.4) 50%, transparent 100%)' }} />
@@ -95,6 +97,8 @@ export default function ProjectDetail() {
                   src={item.src}
                   alt={`${project.title} — view ${index + 1}`}
                   style={{ width: '100%', height: 'auto', display: 'block', aspectRatio: '16/9', objectFit: 'cover' }}
+                  width="1024"
+                  height="576"
                 />
                 <div style={{ background: '#1a1a1a', padding: '0.625rem 0.875rem', borderTop: '1px solid rgba(184,115,51,0.2)',
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -115,6 +119,8 @@ export default function ProjectDetail() {
                 src={project.media[0].src}
                 alt={project.title}
                 style={{ width: '100%', height: 'auto', display: 'block' }}
+                width="1024"
+                height="576"
               />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '1.5rem', padding: '1rem 0' }}>

@@ -86,6 +86,8 @@ const ProjectsShowcase = () => {
                                         alt={project.title}
                                         className={styles.projectImage}
                                         loading="lazy"
+                                        width="1024"
+                                        height="576"
                                     />
                                     <div className={styles.overlay}>
                                         <div className={styles.projectInfo}>
