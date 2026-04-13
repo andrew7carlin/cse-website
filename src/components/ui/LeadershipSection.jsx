@@ -23,7 +23,7 @@ import randyPerry from '../../assets/leadership/Randy-Perry.webp';
 import copperBg from '../../assets/leadership/copper-bg.webp';
 
 const leaders = [
-    { name: 'Keven Ott', title: 'Owner', photo: kevenOtt },
+    { name: 'Kevin Ott', title: 'Owner', photo: kevenOtt },
     { name: 'Joe Juelfs', title: 'Owner', photo: joeJuelfs },
     { name: 'Jessica Gonzalez', title: 'Owner - Stucco', photo: jessicaGonzalez },
     { name: 'Anthony Gonzalez', title: 'Owner - Stucco', photo: anthonyGonzalez },
