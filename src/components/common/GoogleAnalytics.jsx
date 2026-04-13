@@ -23,6 +23,9 @@ const GoogleAnalytics = () => {
             return;
         }
 
+        // Don't load without cookie consent
+        if (localStorage.getItem('cookie_consent') !== 'accepted') return;
+
         // Load gtag.js script
         const script = document.createElement('script');
         script.async = true;
