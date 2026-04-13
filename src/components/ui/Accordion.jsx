@@ -3,7 +3,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './Accordion.module.css';
 
 // Direct import for reliable image loading
-import sideImage from '../../assets/projects/Fresenius Medical Care_ KIngman Az.webp';
+import sideImage from '../../assets/portfolio/commercial/Hualapai_Mountain_Campus.webp';
 
 const items = [
     { id: 1, title: 'Who We Serve', content: 'Commercial, industrial, and high-end residential. We bring institutional rigor to every project, regardless of scale.' },
