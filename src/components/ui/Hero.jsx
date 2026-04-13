@@ -83,6 +83,10 @@ const Hero = ({
                                 <img
                                     src="/hero-poster.webp"
                                     alt="Canyon State Enterprises"
+                                    fetchPriority="high"
+                                    loading="eager"
+                                    width="1920"
+                                    height="1080"
                                     style={{
                                         position: 'absolute',
                                         inset: 0,
