@@ -42,6 +42,8 @@ export default function ResidentialPortfolio() {
                   alt={`${project.name} — ${project.location}`}
                   className={styles.cardImage}
                   loading="lazy"
+                  width="1024"
+                  height="576"
                 />
               
               </div>
