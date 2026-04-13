@@ -7,6 +7,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 // Eagerly load Home for fast initial paint
 import Home from './pages/Home';
 import GoogleAnalytics, { trackPageView } from './components/common/GoogleAnalytics';
+import SchemaMarkup from './components/common/SchemaMarkup';
 
 // Lazy load all other pages for code splitting
 const TradeDetail = lazy(() => import('./pages/TradeDetail'));
@@ -64,6 +65,7 @@ function App() {
       <ScrollToTop />
       <SignatureCursor />
       <GoogleAnalytics />
+      <SchemaMarkup />
       <RouteTracker />
       <Suspense fallback={<PageLoader />}>
         <Routes>

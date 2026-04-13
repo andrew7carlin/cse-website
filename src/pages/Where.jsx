@@ -55,7 +55,7 @@ const Where = () => {
         <main className={styles.page}>
             <SEO
                 title="Where We Work - Service Areas"
-                description="Canyon State Enterprises serves Arizona, Nevada, New Mexico, and Utah with comprehensive construction services"
+                description="Canyon State Enterprises serves Arizona, Nevada, New Mexico, and Utah with roofing, stucco, HVAC, plumbing, and full-service commercial and residential construction."
                 canonical="https://canyonstateaz.com/where"
             />
 
