@@ -15,6 +15,7 @@ import timeline2024 from '../assets/projects/Aquila Place_ Apache Junction_(2).w
 
 // Hero image
 import heroImage from '../assets/projects/Hyundai Gilbert_Gilbert Az.webp';
+import droneTeamImg from '../assets/about/drone-team.webp';
 
 const About = () => {
     const values = [
@@ -158,6 +159,19 @@ const About = () => {
                         <a href="/contact" className={styles.ctaButton}>Get in Touch</a>
                     </div>
                 </div>
+            </section>
+
+            {/* Drone Team Photo */}
+            <section className={styles.droneSection}>
+                <div className={styles.droneHeader}>
+                    <h2>The Canyon State Team</h2>
+                </div>
+                <img
+                    src={droneTeamImg}
+                    alt="The Canyon State Enterprises team"
+                    className={styles.droneImg}
+                    loading="lazy"
+                />
             </section>
         </div>
     );

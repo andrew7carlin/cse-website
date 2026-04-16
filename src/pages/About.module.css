@@ -285,3 +285,28 @@
     background: var(--color-dark-brown);
     color: white;
 }
+
+/* Drone Team Photo Section */
+.droneSection {
+    background: var(--color-bg-base);
+    padding-bottom: 0;
+}
+
+.droneHeader {
+    text-align: center;
+    padding: var(--spacing-xxl) 0 var(--spacing-lg);
+}
+
+.droneHeader h2 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-main);
+}
+
+.droneImg {
+    display: block;
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
