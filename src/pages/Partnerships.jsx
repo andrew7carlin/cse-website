@@ -139,46 +139,15 @@ const Partnerships = () => {
         });
     }, []);
 
-    // Alternating logo fly-in effect - one from each column every 2 seconds
+    // All logos fly in at the same time
     useEffect(() => {
-        const maxPairs = Math.max(trustedByPartners.length, certifiedByPartners.length);
-
-        // Show first pair immediately
-        const initialTimeout = setTimeout(() => {
-            if (trustedByPartners.length > 0) setVisibleTrustedBy([0]);
-            if (certifiedByPartners.length > 0) setVisibleCertifiedBy([0]);
+        const timeout = setTimeout(() => {
+            setVisibleTrustedBy(trustedByPartners.map((_, i) => i));
+            setVisibleCertifiedBy(certifiedByPartners.map((_, i) => i));
+            setShowHeaders(true);
         }, 500);
 
-        // Show subsequent pairs every 2 seconds, alternating columns
-        const timeouts = [];
-        for (let i = 1; i < maxPairs; i++) {
-            const delay = 500 + i * 2000;
-
-            // Add to Trusted By if index exists
-            if (i < trustedByPartners.length) {
-                timeouts.push(setTimeout(() => {
-                    setVisibleTrustedBy(prev => [...prev, i]);
-                }, delay));
-            }
-
-            // Add to Certified By if index exists
-            if (i < certifiedByPartners.length) {
-                timeouts.push(setTimeout(() => {
-                    setVisibleCertifiedBy(prev => [...prev, i]);
-                }, delay));
-            }
-        }
-
-        // Show headers with second row (index 1)
-        const headerTimeout = setTimeout(() => {
-            setShowHeaders(true);
-        }, 500 + 1 * 2000); // Same timing as second row
-
-        return () => {
-            clearTimeout(initialTimeout);
-            clearTimeout(headerTimeout);
-            timeouts.forEach(clearTimeout);
-        };
+        return () => clearTimeout(timeout);
     }, []);
 
     const handleSubmit = async (e) => {
