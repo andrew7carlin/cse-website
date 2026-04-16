@@ -28,7 +28,7 @@ const tradeData = {
     },
     stucco: {
         title: "Stucco & EIFS",
-        description: "Stucco isn't just about slapping some plaster on a wall—it's a craft. We do everything from old-school 3-coat systems to modern EIFS, and we make sure it's done right so it lasts.",
+        description: "Roofing built our foundation. Stucco built our reputation. Canyon State brought the same relentless standards to stucco that made us one of the most trusted roofing crews in the Southwest — and the results speak for themselves. From traditional 3-coat systems to modern EIFS, we finish at volume without sacrificing the craft. We also specialize in custom texture and finish work that most crews won't attempt — if you can imagine it, we can put it on a wall.",
         image: stuccoImage,
         expertise: ["Traditional 3-Coat Stucco", "EIFS Systems", "Synthetic Stucco", "Lath & Plaster", "Texture Matching", "Repair & Patching", "Color Matching", "Waterproofing"],
         cta: "Let's Get Plastered"
