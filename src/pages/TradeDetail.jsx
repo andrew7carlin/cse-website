@@ -103,13 +103,6 @@ const tradeData = {
         expertise: ["Site Grading", "Excavation", "Utilities Installation", "Drainage Systems", "Pad Preparation", "Demolition", "Erosion Control", "Retaining Walls", "Rough Grading", "Site Access"],
         cta: "Prep My Site"
     },
-    auto: {
-        title: "Car & Truck Sales",
-        description: "Quality commercial trucks and work vehicles at fair prices. We know what contractors need because we ARE contractors. No games, no gimmicks—just solid trucks for solid work.",
-        image: autoImage,
-        expertise: ["Work Trucks", "Commercial Vehicles", "Fleet Sales", "Used Trucks", "Service Bodies", "Utility Beds", "Upfitting", "Financing Available", "Trade-Ins Welcome", "Delivery Available"],
-        cta: "Find My Truck"
-    },
     // Default fallback for others
     default: {
         title: "Specialized Construction Service",
