@@ -12,7 +12,7 @@ import plumbingImage from '../assets/projects/KRMC Medical Center Main_ Kingman 
 import resConstImage from '../assets/portfolio/residential/Northpoint_Custom_Home.webp';
 import comConstImage from '../assets/projects/BJ Brewhouse_  Queen Creek Az.webp';
 import metalsImage from '../assets/projects/Historical Downtown Building_  Kingman Az.webp';
-import masonryImage from '../assets/projects/Arizona Financial_Kingman Az.webp';
+import masonryImage from '../assets/trades/masonry-hero.webp';
 import fencingImage from '../assets/portfolio/residential/Ranch_Model_Kingman.webp';
 import guttersImage from '../assets/portfolio/residential/Laughlin_Ranch_1.webp';
 import landDevImage from '../assets/projects/KMRC Medical Center Main Campus_ Kingman Az.webp';
