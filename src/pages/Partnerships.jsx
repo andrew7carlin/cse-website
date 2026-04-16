@@ -36,6 +36,11 @@ import omega from '../assets/Partners/omega.webp';
 import petersenAluminum from '../assets/Partners/petersen_aluminum_corporation_logo.webp';
 import versico from '../assets/Partners/versico-certified-contractor.webp';
 
+// Supplied By - Distributor logos
+import srsLogo from '../assets/Partners/srs.webp';
+import abcSupplyLogo from '../assets/Partners/abc-supply.webp';
+import gulfEagleLogo from '../assets/Partners/gulf-eagle.webp';
+
 // Trusted By - Client Partners with URLs
 const trustedByPartners = [
     { name: 'EOS Fitness', logo: eosFitness, url: 'https://www.eosfitness.com/' },
@@ -56,7 +61,6 @@ const trustedByPartners = [
 
 // Certified By - Industry Certifications/Partners with URLs
 const certifiedByPartners = [
-    { name: 'QXO', logo: qxo, url: 'https://www.qxo.com/' },
     { name: 'Carlisle', logo: carlisle, url: 'https://www.carlislesyntec.com/' },
     { name: 'Certainteed', logo: certainteed, url: 'https://www.certainteed.com/' },
     { name: 'Eagle Tile', logo: eagleTile, url: 'https://eagleroofing.com/' },
@@ -74,12 +78,21 @@ const certifiedByPartners = [
     { name: 'Versico', logo: versico, url: 'https://www.versico.com/' },
 ];
 
+// Supplied By - Material Distributors with URLs
+const suppliedByPartners = [
+    { name: 'SRS Distribution', logo: srsLogo, url: 'https://www.srsdistribution.com/' },
+    { name: 'ABC Supply', logo: abcSupplyLogo, url: 'https://www.abcsupply.com/' },
+    { name: 'Gulf Eagle Supply', logo: gulfEagleLogo, url: 'https://www.gulfeaglesupply.com/' },
+    { name: 'QXO', logo: qxo, url: 'https://www.qxo.com/' },
+];
+
 const Partnerships = () => {
     const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({ subject: '', message: '' });
     const [formStatus, setFormStatus] = useState('');
     const [visibleTrustedBy, setVisibleTrustedBy] = useState([]);
     const [visibleCertifiedBy, setVisibleCertifiedBy] = useState([]);
+    const [visibleSuppliedBy, setVisibleSuppliedBy] = useState([]);
     const [showHeaders, setShowHeaders] = useState(false);
 
     // Random starting positions for each logo
@@ -139,11 +152,40 @@ const Partnerships = () => {
         });
     }, []);
 
+    const suppliedByAnimations = useMemo(() => {
+        return suppliedByPartners.map(() => {
+            const edges = ['top', 'right', 'bottom', 'left'];
+            const edge = edges[Math.floor(Math.random() * edges.length)];
+            let startX = 0, startY = 0;
+
+            switch (edge) {
+                case 'top':
+                    startX = Math.random() * 100 - 50;
+                    startY = -150;
+                    break;
+                case 'right':
+                    startX = 150;
+                    startY = Math.random() * 100 - 50;
+                    break;
+                case 'bottom':
+                    startX = Math.random() * 100 - 50;
+                    startY = 150;
+                    break;
+                case 'left':
+                    startX = -150;
+                    startY = Math.random() * 100 - 50;
+                    break;
+            }
+            return { startX, startY };
+        });
+    }, []);
+
     // All logos fly in at the same time
     useEffect(() => {
         const timeout = setTimeout(() => {
             setVisibleTrustedBy(trustedByPartners.map((_, i) => i));
             setVisibleCertifiedBy(certifiedByPartners.map((_, i) => i));
+            setVisibleSuppliedBy(suppliedByPartners.map((_, i) => i));
             setShowHeaders(true);
         }, 500);
 
@@ -240,6 +282,34 @@ const Partnerships = () => {
                                     {certifiedByPartners.map((partner, index) => {
                                         const isVisible = visibleCertifiedBy.includes(index);
                                         const anim = certifiedByAnimations[index];
+
+                                        return (
+                                            <div
+                                                key={partner.name}
+                                                className={`${styles.logoItem} ${isVisible ? styles.logoVisible : ''}`}
+                                                style={{
+                                                    '--start-x': `${anim.startX}%`,
+                                                    '--start-y': `${anim.startY}%`,
+                                                }}
+                                            >
+                                                <a href={partner.url} target="_blank" rel="noopener noreferrer">
+                                                    <img src={partner.logo} alt={partner.name} />
+                                                </a>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+
+                            {/* Supplied By Column */}
+                            <div className={styles.logoColumn}>
+                                <div className={`${styles.columnHeader} ${showHeaders ? styles.headerVisible : ''}`}>
+                                    <span>Supplied By</span>
+                                </div>
+                                <div className={styles.logosGrid}>
+                                    {suppliedByPartners.map((partner, index) => {
+                                        const isVisible = visibleSuppliedBy.includes(index);
+                                        const anim = suppliedByAnimations[index];
 
                                         return (
                                             <div
