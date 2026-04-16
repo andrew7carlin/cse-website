@@ -53,6 +53,10 @@ const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <nav className={styles.navLinks}>
+                    <Link to="/" className={styles.navLink} data-cursor="link">
+                        <span className={styles.navLinkText}>Home</span>
+                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    </Link>
                     <Link to="/services" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Trades</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
@@ -83,6 +87,7 @@ const Navbar = () => {
             {/* Mobile Menu Overlay */}
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
                 <nav className={styles.mobileNav}>
+                    <Link to="/" className={styles.mobileNavLink}>Home</Link>
                     <Link to="/services" className={styles.mobileNavLink}>Services</Link>
                     <Link to="/portfolio" className={styles.mobileNavLink}>Portfolio</Link>
                     <Link to="/about" className={styles.mobileNavLink}>About</Link>
