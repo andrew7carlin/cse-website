@@ -58,14 +58,22 @@
     letter-spacing: 0.05em;
 }
 
-/* Ensure owners stay on one line on desktop */
+/* Force owners into exactly 2 columns: Kevin|Joe on row 1, Jessica|Anthony on row 2 */
 .ownersLevel .gridContainer {
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 340px));
+    justify-content: center;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 768px) {
     .ownersLevel .gridContainer {
-        flex-wrap: wrap;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .ownersLevel .gridContainer {
+        grid-template-columns: 1fr;
     }
 }
 
