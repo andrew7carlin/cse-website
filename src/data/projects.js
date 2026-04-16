@@ -84,6 +84,12 @@ import lasVegas28th3 from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp
 import krmcHualapai2 from '../assets/projects/KRMC Hualapai Mountain Campus_ Kingman Az.webp';
 import krmcMedicalMain2 from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
 
+import bettysVillage2 from '../assets/trades/bettys-village-site.webp';
+import canyonPalms2 from '../assets/trades/canyon-state-subdivision.webp';
+import chilisKingman from '../assets/trades/chilis.webp';
+import homeDepotKingman from '../assets/trades/the-home-depot.webp';
+import customHomeScottsdale from '../assets/trades/custom-home-scottsdale-az.webp';
+
 export const COMMERCIAL_CATEGORIES = [
   { id: 'all', label: 'All' },
   { id: 'hospitality', label: 'Hospitality' },
@@ -165,6 +171,8 @@ export const commercialProjects = [
   { id: 'honda-dealership', name: 'Honda Dealership', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: hondaDealership },
   { id: 'historical-downtown-building', name: 'Historical Downtown Building', location: 'Kingman, AZ', category: 'industrial', trade: 'Roofing', src: historicalDowntownBuilding },
   { id: 'historical-downtown', name: 'Historical Downtown', location: 'Kingman, AZ', category: 'industrial', trade: 'Roofing', src: historicalDowntown },
+  { id: 'chilis-kingman', name: "Chili's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: chilisKingman },
+  { id: 'home-depot-kingman', name: 'The Home Depot', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: homeDepotKingman },
 ];
 
 export const residentialProjects = [
@@ -184,9 +192,10 @@ export const residentialProjects = [
   { id: 'northpoint-custom-home', name: 'Northpoint Custom Home', location: 'Lake Havasu City, AZ', category: 'custom-home', trade: 'Roofing', src: northpointCustomHome },
   { id: 'ranch-model-kingman', name: 'Ranch Model', location: 'Kingman, AZ', category: 'model-home', trade: 'Roofing', src: ranchModelKingman },
   { id: 'town-home-bullhead', name: 'Town Home', location: 'Bullhead City, AZ', category: 'development', trade: 'Roofing & Stucco', src: townHomeBullhead },
-  { id: 'canyon-palms-kingman', name: 'Canyon Palms Development', location: 'Kingman, AZ', category: 'development', trade: 'Roofing & Stucco', src: canyonPalmsKingman },
+  { id: 'canyon-palms-kingman', name: 'Canyon Palms Development', location: 'Kingman, AZ', category: 'development', trade: 'Roofing & Stucco', src: canyonPalms2 },
   { id: 'century-complete-pahrump', name: 'Century Complete Development', location: 'Pahrump, NV', category: 'development', trade: 'Roofing & Stucco', src: centuryCompleteParhrump },
   { id: 'northpoint-community', name: 'Northpoint Community', location: 'Lake Havasu City, AZ', category: 'development', trade: 'Roofing & Stucco', src: northpointCommunity },
+  { id: 'custom-home-scottsdale', name: 'Custom Home', location: 'Scottsdale, AZ', category: 'custom-home', trade: 'Roofing & Stucco', src: customHomeScottsdale },
 ];
 
 export const allProjects = [...commercialProjects, ...residentialProjects];
