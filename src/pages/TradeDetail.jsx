@@ -16,7 +16,6 @@ import masonryImage from '../assets/projects/Arizona Financial_Kingman Az.webp';
 import fencingImage from '../assets/portfolio/residential/Ranch_Model_Kingman.webp';
 import guttersImage from '../assets/portfolio/residential/Laughlin_Ranch_1.webp';
 import landDevImage from '../assets/projects/KMRC Medical Center Main Campus_ Kingman Az.webp';
-import autoImage from '../assets/projects/Anderson Chevrolet_Kingman, Az.webp';
 
 // Data Mock - In a real app this might come from a CMS or config file
 const tradeData = {
@@ -33,6 +32,13 @@ const tradeData = {
         image: stuccoImage,
         expertise: ["Traditional 3-Coat Stucco", "EIFS Systems", "Synthetic Stucco", "Lath & Plaster", "Texture Matching", "Repair & Patching", "Color Matching", "Waterproofing"],
         cta: "Let's Get Plastered"
+    },
+    "general-contracting": {
+        title: "General Contracting",
+        description: "From concept to completion, we manage every phase of construction with precision and accountability. Our experienced team coordinates trades, schedules, and subcontractors so your project runs on time and on budget—no surprises.",
+        image: stuccoImage,
+        expertise: ["Pre-Construction Planning", "Project Management", "Trade Coordination", "Budget Management", "Scheduling", "Quality Control", "Subcontractor Management", "Owner Representation", "Value Engineering", "Project Closeout"],
+        cta: "Let's Build Together"
     },
     hvac: {
         title: "HVAC",
@@ -130,7 +136,7 @@ const TradeDetail = () => {
         'fencing':   ['development'],
         'gutters':   ['custom-home', 'development'],
         'land-dev':  ['development'],
-        'auto':      ['dealerships'],
+        'general-contracting': null,
     };
 
     const categories = tradeCategoryMap[tradeId];

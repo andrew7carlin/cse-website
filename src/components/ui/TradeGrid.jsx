@@ -5,6 +5,7 @@ import styles from './TradeGrid.module.css';
 const trades = [
     { id: 'roofing', label: 'Roofing' },
     { id: 'stucco', label: 'Stucco' },
+    { id: 'general-contracting', label: 'General Contracting' },
     { id: 'hvac', label: 'Heating & Cooling' },
     { id: 'plumbing', label: 'Plumbing' },
     { id: 'res-const', label: 'Residential Construction' },
@@ -14,7 +15,6 @@ const trades = [
     { id: 'fencing', label: 'Fencing' },
     { id: 'gutters', label: 'Seamless Gutters' },
     { id: 'land-dev', label: 'Land Development' },
-    { id: 'auto', label: 'Car & Truck Sales' },
 ];
 
 const TradeGrid = () => {
