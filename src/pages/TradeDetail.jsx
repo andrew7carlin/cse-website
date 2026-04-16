@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './TradeDetail.module.css';
 import SEO from '../components/common/SEO';
+import { allProjects } from '../data/projects';
 
 // Import project images for service headers
 import roofingImage from '../assets/projects/La Quinta Hotel_ KIngman Az.webp';
@@ -117,6 +118,26 @@ const TradeDetail = () => {
     const { tradeId } = useParams();
     const data = tradeData[tradeId] || tradeData.default;
 
+    const tradeCategoryMap = {
+        'roofing':   null,
+        'stucco':    null,
+        'hvac':      null,
+        'plumbing':  null,
+        'res-const': ['custom-home', 'development', 'model-home'],
+        'com-const': ['hospitality', 'multi-family', 'industrial'],
+        'metals':    ['industrial'],
+        'masonry':   ['government', 'medical'],
+        'fencing':   ['development'],
+        'gutters':   ['custom-home', 'development'],
+        'land-dev':  ['development'],
+        'auto':      ['dealerships'],
+    };
+
+    const categories = tradeCategoryMap[tradeId];
+    const relatedProjects = categories
+        ? allProjects.filter(p => categories.includes(p.category)).slice(0, 6)
+        : allProjects.filter(p => p.src).slice(0, 6);
+
     return (
         <div className={styles.page}>
             <SEO
@@ -159,6 +180,70 @@ const TradeDetail = () => {
                     </div>
                 </div>
             </div>
+
+            {relatedProjects.length > 0 && (
+                <section style={{
+                    padding: '4rem 2rem',
+                    background: 'var(--color-bg-base)',
+                    borderTop: '1px solid rgba(184,115,51,0.15)'
+                }}>
+                    <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
+                            <h2 style={{ fontSize: 'var(--font-size-h2, 1.75rem)', fontWeight: 'var(--font-weight-light)', color: 'var(--color-text-main)', margin: 0 }}>
+                                Related Projects
+                            </h2>
+                            <Link
+                                to={categories && ['custom-home', 'development', 'model-home'].some(c => categories.includes(c))
+                                    ? '/portfolio/residential'
+                                    : '/portfolio/commercial'}
+                                style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase',
+                                    letterSpacing: '0.15em', color: '#b87333', textDecoration: 'none' }}
+                            >
+                                View All Projects →
+                            </Link>
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+                            {relatedProjects.map(project => (
+                                <Link
+                                    key={project.id}
+                                    to={`/portfolio/${project.id}`}
+                                    style={{ display: 'block', textDecoration: 'none', borderRadius: '4px',
+                                        overflow: 'hidden', background: '#111',
+                                        border: '1px solid rgba(184,115,51,0.15)',
+                                        transition: 'border-color 0.3s ease, transform 0.3s ease' }}
+                                    onMouseEnter={e => {
+                                        e.currentTarget.style.borderColor = '#00b4b4';
+                                        e.currentTarget.style.transform = 'translateY(-4px)';
+                                    }}
+                                    onMouseLeave={e => {
+                                        e.currentTarget.style.borderColor = 'rgba(184,115,51,0.15)';
+                                        e.currentTarget.style.transform = 'translateY(0)';
+                                    }}
+                                >
+                                    <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
+                                        <img
+                                            src={project.src}
+                                            alt={`${project.name} — ${project.location}`}
+                                            width="1024"
+                                            height="576"
+                                            loading="lazy"
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover',
+                                                transition: 'transform 0.5s ease' }}
+                                        />
+                                    </div>
+                                    <div style={{ padding: '0.875rem 1rem', background: '#0d0d0d' }}>
+                                        <p style={{ margin: '0 0 0.25rem', fontSize: '0.9375rem',
+                                            fontWeight: 600, color: '#b87333' }}>{project.name}</p>
+                                        <p style={{ margin: 0, fontSize: '0.8125rem', color: '#6b7280' }}>
+                                            {project.location}
+                                        </p>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
         </div>
     );
 };
