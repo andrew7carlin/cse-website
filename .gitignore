@@ -30,3 +30,7 @@ public/videos/
 
 # Image import tool — keep processed originals local only
 incoming/processed/
+incoming/*.jpg
+incoming/*.jpeg
+incoming/*.png
+incoming/*.heic
