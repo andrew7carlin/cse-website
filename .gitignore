@@ -27,3 +27,6 @@ dist-ssr
 # Large video files — upload directly to BunnyCDN, do not commit
 src/assets/videos/*.mp4
 public/videos/
+
+# Image import tool — keep processed originals local only
+incoming/processed/
