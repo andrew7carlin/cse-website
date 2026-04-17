@@ -4,9 +4,9 @@ import styles from './SocialSection.module.css';
 import logoTan from '../../assets/logos/logo-tan.png';
 
 // Import a few project images for the collage
-import img1 from '../../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
-import img2 from '../../assets/projects/Fresenius Medical Care_ KIngman Az.webp';
-import img3 from '../../assets/projects/Hospice Home_ Kingman Az.webp';
+import img1 from '../../assets/portfolio/commercial/Aloft Hotel_Ashville NC.webp';
+import img2 from '../../assets/portfolio/residential/Canyon_Palms_Kingman.webp';
+import img3 from '../../assets/trades/chilis.webp';
 
 const SocialSection = () => {
     return (
