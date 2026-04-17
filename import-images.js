@@ -50,6 +50,19 @@ async function convertImage(srcBuffer, destPath) {
         .toFile(destPath);
 }
 
+// Returns a non-colliding path: if foo.webp exists → foo_2.webp → foo_3.webp ...
+function uniqueDestPath(dir, filename) {
+    const ext  = path.extname(filename);          // '.webp'
+    const base = path.basename(filename, ext);    // 'Betty's Village_Las Vegas NV'
+    let   candidate = path.join(dir, filename);
+    let   counter   = 2;
+    while (fs.existsSync(candidate)) {
+        candidate = path.join(dir, `${base}_${counter}${ext}`);
+        counter++;
+    }
+    return candidate;
+}
+
 // ─── Core: process one image ──────────────────────────────────────────────────
 
 async function processImage(filePath, rl) {
@@ -154,7 +167,7 @@ async function processImage(filePath, rl) {
     const savedPaths = [];
     for (const dir of destinations) {
         fs.mkdirSync(dir, { recursive: true });
-        const destPath = path.join(dir, finalFilename);
+        const destPath = uniqueDestPath(dir, finalFilename);
         await convertImage(srcBuffer, destPath);
         savedPaths.push(destPath);
     }

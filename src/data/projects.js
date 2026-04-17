@@ -84,7 +84,16 @@ import lasVegas28th3 from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp
 import krmcHualapai2 from '../assets/projects/KRMC Hualapai Mountain Campus_ Kingman Az.webp';
 import krmcMedicalMain2 from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
 
+import bettysVillage1 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV.webp';
 import bettysVillage2 from '../assets/trades/bettys-village-site.webp';
+import bettysVillage3 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_2.webp';
+import bettysVillage4 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_3.webp';
+import bettysVillage5 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_4.webp';
+import bettysVillage6 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_5.webp';
+import bettysVillage7 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_6.webp';
+import bettysVillage8 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_7.webp';
+import bettysVillage9 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_8.webp';
+import bettysVillage10 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_9.webp';
 import canyonPalms2 from '../assets/trades/canyon-state-subdivision.webp';
 import chilisKingman from '../assets/trades/chilis.webp';
 import homeDepotKingman from '../assets/trades/the-home-depot.webp';
@@ -173,7 +182,32 @@ export const commercialProjects = [
   { id: 'historical-downtown', name: 'Historical Downtown', location: 'Kingman, AZ', category: 'industrial', trade: 'Roofing', src: historicalDowntown },
   { id: 'chilis-kingman', name: "Chili's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: chilisKingman },
   { id: 'home-depot-kingman', name: 'The Home Depot', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: homeDepotKingman },
-  { id: 'bettys-village', name: "Betty's Village", location: 'Las Vegas, NV', category: 'multi-family', trade: 'Roofing & Stucco', src: bettysVillage2, featured: true, videos: [] },
+  {
+    id: 'bettys-village',
+    name: "Betty's Village",
+    location: 'Las Vegas, NV',
+    category: 'multi-family',
+    trade: 'Roofing & Stucco',
+    src: bettysVillage1,
+    featured: true,
+    blurb: '',
+    gallery: [
+      bettysVillage1,
+      bettysVillage3,
+      bettysVillage4,
+      bettysVillage5,
+      bettysVillage6,
+      bettysVillage7,
+      bettysVillage8,
+      bettysVillage9,
+      bettysVillage10,
+      bettysVillage2,
+    ],
+    videos: [
+      '/src/assets/videos/Bettys_Village_LV_10.mp4',
+      '/src/assets/videos/Bettys_Village_LV_11.mp4',
+    ],
+  },
 ];
 
 export const residentialProjects = [
