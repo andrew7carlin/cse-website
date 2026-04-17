@@ -121,7 +121,6 @@ import planetFitnessPhoenix from '../assets/portfolio/commercial/Planet Fitness_
 import saladAndGoTucson from '../assets/portfolio/commercial/Salad and Go_Tucson AZ.webp';
 import take5BullheadCity from '../assets/portfolio/commercial/Take 5_Bullhead City.webp';
 import take5KingmanAz from '../assets/portfolio/commercial/Take 5_Kingman AZ.webp';
-import usDeptGovtAffairs from '../assets/portfolio/commercial/US Department of Government Affairs_Kingman AZ.webp';
 import usDeptVeteranAffairs from '../assets/portfolio/commercial/US Department of Veteran Affairs_Kingman AZ.webp';
 import whataburgerTolleson from '../assets/portfolio/commercial/Whataburger_Tolleson AZ.webp';
 import customHomeKingman7 from '../assets/portfolio/residential/Custom Home_Kingman AZ.webp';
@@ -260,7 +259,6 @@ export const commercialProjects = [
   { id: 'salad-and-go-tucson', name: 'Salad and Go', location: 'Tucson, AZ', category: 'restaurants', trade: 'Roofing', src: saladAndGoTucson },
   { id: 'take-5-bullhead', name: 'Take 5 Oil Change', location: 'Bullhead City, AZ', category: 'retail', trade: 'Roofing', src: take5BullheadCity },
   { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: take5KingmanAz },
-  { id: 'us-dept-govt-affairs-kingman', name: 'US Dept of Government Affairs', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: usDeptGovtAffairs },
   { id: 'us-dept-veteran-affairs-kingman', name: 'US Dept of Veteran Affairs', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: usDeptVeteranAffairs },
   { id: 'whataburger-tolleson', name: 'Whataburger', location: 'Tolleson, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: whataburgerTolleson },
 ];
