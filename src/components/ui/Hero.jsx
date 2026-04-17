@@ -66,8 +66,8 @@ const Hero = ({
                                     playsInline
                                 />
                             )}
-                            {/* Mobile video (9:16) - only rendered if provided */}
-                            {!isMobile && mobileVideoUrl && (
+                            {/* Mobile video (9:16) — shown on mobile devices */}
+                            {isMobile && mobileVideoUrl && (
                                 <video
                                     src={mobileVideoUrl}
                                     className={`${styles.videoElement} ${styles.mobileVideo}`}
@@ -78,8 +78,8 @@ const Hero = ({
                                     playsInline
                                 />
                             )}
-                            {/* Static poster fallback for mobile — no video bandwidth */}
-                            {isMobile && (
+                            {/* Static poster fallback — only if no mobile video provided */}
+                            {isMobile && !mobileVideoUrl && (
                                 <img
                                     src="/hero-poster.webp"
                                     alt="Canyon State Enterprises"
