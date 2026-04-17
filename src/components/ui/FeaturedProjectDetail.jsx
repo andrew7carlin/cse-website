@@ -23,8 +23,8 @@ export default function FeaturedProjectDetail({ project }) {
     return () => observer.disconnect();
   }, []);
 
-  const hero = project.media[0];
-  const total = project.media.length;
+  const heroSrc = project.cover ?? project.media[0]?.src;
+  const total    = project.media.length;
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function FeaturedProjectDetail({ project }) {
       {/* ── Hero ────────────────────────────────────────── */}
       <section className={styles.hero}>
         <img
-          src={hero.src}
+          src={heroSrc}
           alt={project.title}
           className={styles.heroImg}
           width="1920"

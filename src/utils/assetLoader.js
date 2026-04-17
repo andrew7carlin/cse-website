@@ -10,6 +10,7 @@ export const loadProjectAssets = () => {
     featured: project.featured ?? false,
     blurb: project.blurb ?? '',
     videos: project.videos ?? [],
+    cover: project.src ?? null,
     media: project.gallery
       ? project.gallery.map((item, i) => {
           // gallery items can be plain imports OR {src, caption} objects
