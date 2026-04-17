@@ -100,7 +100,7 @@ const tradeData = {
     "land-dev": {
         title: "Land Development",
         description: "From dirt to destination. We handle site work, grading, utilities, and everything in between to get your land ready for whatever comes next.",
-        image: landDevImage,
+        image: canyonPalmsImage,
         expertise: ["Site Grading", "Excavation", "Utilities Installation", "Drainage Systems", "Pad Preparation", "Demolition", "Erosion Control", "Retaining Walls", "Rough Grading", "Site Access"],
         cta: "Prep My Site"
     },
