@@ -2,8 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ServiceAreaMap.module.css';
+import usStates from '../../assets/maps/us-states-10m.json';
 
-const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
+
 
 const ACTIVE_STATES = ['Arizona', 'Nevada', 'Utah', 'Colorado'];
 
@@ -80,10 +81,10 @@ const ServiceAreaMap = () => {
     <div className={styles.wrapper} ref={wrapperRef}>
       <ComposableMap
         projection="geoAlbersUsa"
-        projectionConfig={{ scale: 2800, center: [-111, 36] }}
+        projectionConfig={{ scale: 1800, center: [-105, 36] }}
         className={styles.map}
       >
-        <Geographies geography={GEO_URL}>
+        <Geographies geography={usStates}>
           {({ geographies }) =>
             geographies.map((geo) => {
               const isActive = ACTIVE_STATES.includes(geo.properties.name);
