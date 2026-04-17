@@ -84,7 +84,7 @@ const ServiceAreaMap = () => {
     <div className={styles.wrapper} ref={wrapperRef}>
       <ComposableMap
         projection="geoMercator"
-        projectionConfig={{ scale: 2800, center: [-111.5, 36.5] }}
+        projectionConfig={{ scale: 900, center: [-109, 36] }}
         width={800}
         height={500}
         className={styles.map}
