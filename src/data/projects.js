@@ -204,8 +204,8 @@ export const commercialProjects = [
       { src: bettysVillage2, caption: "A broad view of Betty's Village taking shape. Check back here for updates as this project progresses." },
     ],
     videos: [
-      '/src/assets/videos/Bettys_Village_LV_10.mp4',
-      '/src/assets/videos/Bettys_Village_LV_11.mp4',
+      '/videos/Bettys_Village_LV_10.mp4',
+      '/videos/Bettys_Village_LV_11.mp4',
     ],
   },
 ];
