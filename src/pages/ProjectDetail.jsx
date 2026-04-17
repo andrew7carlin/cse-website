@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { loadProjectAssets } from '../utils/assetLoader';
 import SEO from '../components/common/SEO';
+import FeaturedProjectDetail from '../components/ui/FeaturedProjectDetail';
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
@@ -16,6 +17,11 @@ export default function ProjectDetail() {
         </div>
       </div>
     );
+  }
+
+  // Featured projects get the premium layout
+  if (project.featured) {
+    return <FeaturedProjectDetail project={project} />;
   }
 
   const hero = project.media[0];

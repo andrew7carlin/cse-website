@@ -190,7 +190,7 @@ export const commercialProjects = [
     trade: 'Roofing & Stucco',
     src: bettysVillage1,
     featured: true,
-    blurb: '',
+    blurb: "Betty's Village is a one-of-a-kind residential community designed for adults with disabilities — part of Opportunity Village, one of Las Vegas's most beloved nonprofits. Betty's Village North is the second location of its kind, comprising 22 residential dwellings and three commercial buildings that will provide employment for the very residents who call it home.\n\nCanyon State was honored to bring our full capabilities to this project — TPO roofing, tile roofing, metal roofing, flush panels, and three-coat stucco, all delivered on a development that is making a real difference in the Las Vegas community.",
     gallery: [
       bettysVillage1,
       bettysVillage3,

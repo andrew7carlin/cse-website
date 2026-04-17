@@ -1,0 +1,236 @@
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 72vh;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);
+}
+
+.heroMeta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.heroText h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.5rem;
+}
+
+.heroText p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-left: 3px solid #b87333;
+  padding-left: 0.75rem;
+  margin: 0;
+}
+
+.tradeBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #b87333;
+  border: 1px solid #b87333;
+  padding: 0.35rem 0.8rem;
+  border-radius: 2px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+/* ── Back button ─────────────────────────────────────────── */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #b87333;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 2rem clamp(1.5rem, 5vw, 4rem);
+  transition: opacity 0.2s;
+}
+.backBtn:hover { opacity: 0.7; }
+
+/* ── Intro blurb ─────────────────────────────────────────── */
+.intro {
+  padding: 4rem clamp(1.5rem, 5vw, 4rem) 5rem;
+  background: #fff;
+}
+
+.introInner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.introLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #b87333;
+  margin-bottom: 1.5rem;
+}
+
+.introText {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.85;
+  color: #2d2d2d;
+  white-space: pre-line;
+}
+
+.introDivider {
+  width: 48px;
+  height: 2px;
+  background: #b87333;
+  margin: 2rem 0;
+}
+
+/* ── Alternating rows ────────────────────────────────────── */
+.rowSection {
+  padding: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.row.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rowReverse {
+  direction: rtl;
+}
+.rowReverse > * {
+  direction: ltr;
+}
+
+.rowImg {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem clamp(2rem, 5vw, 5rem);
+  background: #0d0d0d;
+}
+
+.rowText:nth-child(odd) {
+  background: #111;
+}
+
+.rowCaption {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #b87333;
+  margin-bottom: 1rem;
+}
+
+.rowIdx {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 200;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.rowCaptionText {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── Video section ───────────────────────────────────────── */
+.videoSection {
+  padding: 5rem clamp(1.5rem, 5vw, 4rem);
+  background: #080808;
+  text-align: center;
+}
+
+.videoHeading {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.videoHeadingLine {
+  width: 48px;
+  height: 2px;
+  background: #b87333;
+  margin: 0 auto 3rem;
+}
+
+.videoWrap {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(184,115,51,0.2);
+}
+
+.videoWrap video {
+  width: 100%;
+  display: block;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .heroMeta { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .tradeBadge { align-self: flex-start; }
+
+  .row,
+  .rowReverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  .rowImg { min-height: 260px; }
+  .rowText { padding: 2.5rem 1.5rem; }
+}
