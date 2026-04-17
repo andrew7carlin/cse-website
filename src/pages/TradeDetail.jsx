@@ -160,14 +160,41 @@ const TradeDetail = () => {
                         <h2 className="text-h2">Overview</h2>
                         <p className={styles.description}>{data.description}</p>
 
-                        <h3 className="text-h3" style={{ marginTop: '3rem', marginBottom: '1rem' }}>Our Expertise</h3>
-                        <div className={styles.expertiseScroller}>
-                            <ul className={styles.expertiseList}>
-                                {/* Duplicate items for seamless infinite scroll */}
-                                {[...data.expertise, ...data.expertise].map((item, i) => (
-                                    <li key={i}>{item}</li>
-                                ))}
-                            </ul>
+                        <h3 className="text-h3" style={{ marginTop: '3rem', marginBottom: '1.25rem' }}>Our Expertise</h3>
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                            gap: '0',
+                            border: '1px solid rgba(184,115,51,0.18)',
+                            borderRadius: '4px',
+                            overflow: 'hidden',
+                        }}>
+                            {data.expertise.map((item, i) => (
+                                <div key={i} style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.75rem',
+                                    padding: '0.875rem 1rem',
+                                    borderBottom: '1px solid rgba(184,115,51,0.1)',
+                                    borderRight: '1px solid rgba(184,115,51,0.1)',
+                                    background: i % 2 === 0 ? 'rgba(184,115,51,0.03)' : 'transparent',
+                                }}>
+                                    <span style={{
+                                        width: '6px',
+                                        height: '6px',
+                                        borderRadius: '50%',
+                                        background: '#b87333',
+                                        flexShrink: 0,
+                                    }} />
+                                    <span style={{
+                                        fontSize: '0.8rem',
+                                        fontWeight: '600',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.08em',
+                                        color: 'var(--color-text-main, #1a1a1a)',
+                                    }}>{item}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
