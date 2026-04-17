@@ -85,6 +85,7 @@ import krmcHualapai2 from '../assets/projects/KRMC Hualapai Mountain Campus_ Kin
 import krmcMedicalMain2 from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
 
 import bettysVillage1 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV.webp';
+import bettysVillageCover from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
 import bettysVillage2 from '../assets/trades/bettys-village-site.webp';
 import bettysVillage3 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_2.webp';
 import bettysVillage4 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_3.webp';
@@ -188,13 +189,13 @@ export const commercialProjects = [
     location: 'Las Vegas, NV',
     category: 'multi-family',
     trade: 'Roofing & Stucco',
-    src: bettysVillage1,
+    src: bettysVillageCover,
     featured: true,
     blurb: "Betty's Village is a one-of-a-kind residential community designed for adults with disabilities — part of Opportunity Village, one of Las Vegas's most beloved nonprofits. Betty's Village North is the second location of its kind, comprising 22 residential dwellings and three commercial buildings that will provide employment for the very residents who call it home.\n\nCanyon State was honored to bring our full capabilities to this project — TPO roofing, tile roofing, metal roofing, flush panels, and three-coat stucco, all delivered on a development that is making a real difference in the Las Vegas community.",
     gallery: [
       { src: bettysVillage1, caption: "First residential buildings under construction. Large communities with tight timelines often face scaffolding delays — Canyon State owns extensive scaffolding inventory, keeping our clients on schedule." },
       { src: bettysVillage3, caption: "Residential buildings coming together across a 30-building site built in under 18 months. Managing congestion, trade coordination, and multiple exterior finishes — including dissimilar materials — is where Canyon State earns its keep." },
-      { src: bettysVillage1, caption: "A broad aerial view of Betty's Village taking shape — the clubhouse standing seam waterfall roof front and center, surrounded by 22 residential dwellings and three commercial buildings all under construction simultaneously." },
+      { src: bettysVillageCover, caption: "A broad aerial view of Betty's Village taking shape — the clubhouse standing seam waterfall roof front and center, surrounded by 22 residential dwellings and three commercial buildings all under construction simultaneously." },
       { src: bettysVillage5, caption: "Neat material staging, proper safety equipment, and owned heavy machinery — we solve problems before they become problems." },
       { src: bettysVillage6, caption: "Clean layouts and precise finishes, even with concrete cement board fascia making rake installation difficult. Constraints never compromise our standards." },
       { src: bettysVillage7, caption: "The centerpiece of Betty's Village — the clubhouse — features a striking standing seam waterfall roof. This complex application required a roll former, multiple telehandlers, and experienced applicators managing 70-foot continuous panels. Canyon State completed the 3-coat stucco, coping metal, cap metal, standing seam metal, 80-mil TPO, and all custom flashings." },
