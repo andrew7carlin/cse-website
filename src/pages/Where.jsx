@@ -118,7 +118,7 @@ const Where = () => {
         </div>
         <ServiceAreaMap />
         <p className={styles.mapSubtitle}>
-          Pins represent Canyon State projects. Office locations marked in teal.
+          Pins represent Canyon State projects. Office locations marked in turquoise.
         </p>
       </section>
 
