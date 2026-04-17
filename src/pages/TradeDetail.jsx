@@ -5,7 +5,7 @@ import SEO from '../components/common/SEO';
 import { allProjects } from '../data/projects';
 
 // Import project images for service headers
-import roofingImage from '../assets/projects/La Quinta Hotel_ KIngman Az.webp';
+import roofingImage from '../assets/projects/Abbot Apartments_Bullhead City AZ.webp';
 import stuccoImage from '../assets/projects/Greenprint Apartments_Phoenix AZ.webp';
 import hvacImage from '../assets/projects/Aquila Place_ Apache Junction_(2).webp';
 import plumbingImage from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
