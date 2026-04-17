@@ -165,10 +165,6 @@ export const commercialProjects = [
 
   // ── Remaining projects ─────────────────────────────────────────────────────
   { id: 'aquila-place', name: 'Aquila Place', location: 'Apache Junction, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: aquilaPlace, gallery: [aquilaPlace, aquilaPlace2] },
-  { id: 'sun-river-townhomes', name: 'Sun River Townhomes', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: sunRiverTownhomes },
-  { id: 'silver-cliffs-apartments', name: 'Silver Cliffs Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: silverCliffsApartments },
-  { id: 'sienna-villas', name: 'Sienna Villas', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: siennaVillas },
-  { id: 'schiffer-court-apartments', name: 'Shiffer Court Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: schifferCourtApartments },
   { id: 'legacy-senior-center', name: 'Legacy Senior Center', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: legacySeniorCenter },
   { id: 'hilltop-villas', name: 'Hilltop Villas', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: hilltopVillas },
   { id: 'rivyve-behavioral-health', name: 'Rivyve Behavioral Health', location: 'Bullhead City, AZ', category: 'medical', trade: 'Roofing', src: rivyveBehavioralHealth },
@@ -214,6 +210,10 @@ export const commercialProjects = [
   { id: 'clarion-inn-kingman', name: 'Clarion Inn', location: 'Kingman, AZ', category: 'hospitality', trade: 'Roofing', src: clarionInnKingman },
   { id: 'best-western-kingman', name: 'Best Western Plus', location: 'Kingman, AZ', category: 'hospitality', trade: 'Roofing', src: bestWesternKingman },
   { id: 'la-quinta-kingman', name: 'La Quinta Hotel', location: 'Kingman, AZ', category: 'hospitality', trade: 'Roofing', src: laQuintaHotel },
+  { id: 'sun-river-townhomes', name: 'Sun River Townhomes', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: sunRiverTownhomes },
+  { id: 'silver-cliffs-apartments', name: 'Silver Cliffs Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: silverCliffsApartments },
+  { id: 'sienna-villas', name: 'Sienna Villas', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: siennaVillas },
+  { id: 'schiffer-court-apartments', name: 'Shiffer Court Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: schifferCourtApartments },
 ];
 
 
