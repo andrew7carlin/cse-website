@@ -40,6 +40,7 @@ import motel6Kingman from '../assets/portfolio/commercial/Motel_6_Kingman.webp';
 import echoSuitesChandler from '../assets/portfolio/commercial/Echo_Suites_Chandler.webp';
 import avidHiltonKingman from '../assets/portfolio/commercial/Avid_Hilton_Kingman.webp';
 import aloftNorthCarolina from '../assets/portfolio/commercial/Aloft_North_Carolina.webp';
+import aloftAsheville from '../assets/portfolio/commercial/Aloft Hotel_Ashville NC.webp';
 import springhillSuitesKingman from '../assets/portfolio/commercial/Springhill_Suites_Kingman.webp';
 import silverQueenKingman from '../assets/portfolio/commercial/Silver_Queen_Kingman.webp';
 import hamptonInnKingman from '../assets/portfolio/commercial/Hampton_Inn_Kingman.webp';
@@ -159,6 +160,7 @@ export const commercialProjects = [
   { id: 'echo-suites-chandler', name: 'Echo Suites', location: 'Chandler, AZ', category: 'hospitality', trade: 'Roofing', src: echoSuitesChandler },
   { id: 'marriott-townplace-hesperia', name: 'Marriott Townplace Suites', location: 'Hesperia, CA', category: 'hospitality', trade: 'Roofing', src: marriottTownplaceHesperia },
   { id: 'marriott-studio-phoenix', name: 'Marriott Studio Res', location: 'Phoenix, AZ', category: 'hospitality', trade: 'Roofing', src: marriottStudioPhoenix },
+  { id: 'aloft-asheville', name: 'Aloft Hotel', location: 'Asheville, NC', category: 'hospitality', trade: 'Roofing', src: aloftAsheville },
   { id: 'embassy-suites-houston', name: 'Embassy Suites by Hilton', location: 'Houston, TX', category: 'hospitality', trade: 'Roofing', src: embassySuitesHouston },
 
   // ── Remaining projects ─────────────────────────────────────────────────────
