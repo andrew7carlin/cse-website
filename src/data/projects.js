@@ -101,6 +101,34 @@ import chilisKingman from '../assets/trades/chilis.webp';
 import homeDepotKingman from '../assets/trades/the-home-depot.webp';
 import customHomeScottsdale from '../assets/trades/custom-home-scottsdale-az.webp';
 
+// ── Newly imported images ──────────────────────────────────────────────────
+import abbotApartmentsBullhead from '../assets/portfolio/commercial/Abbot Apartments_Bullhead City AZ.webp';
+import abbotApartmentsBullhead2 from '../assets/portfolio/commercial/Abbot Apartments_Bullhead City AZ_2.webp';
+import andersonFordKingman from '../assets/portfolio/commercial/Anderson Ford_Kingman AZ.webp';
+import betterBuzzCoffeeTempe from '../assets/portfolio/commercial/Better Buzz Coffee_Tempe AZ.webp';
+import bistroKingman from '../assets/portfolio/commercial/Bistro_Kingman, AZ.webp';
+import bullheadFireDept7 from '../assets/portfolio/commercial/Bullhead City Fire Department 7_Bullhead City AZ.webp';
+import bureauLandManagement from '../assets/portfolio/commercial/1_Bureau of Land Management.webp';
+import costcoHenderson from '../assets/portfolio/commercial/Costco Henderson_Henderson, NV.webp';
+import gordonFireStationKingman from '../assets/portfolio/commercial/Gordon Fire Station_Kingman AZ.webp';
+import holidayInnExpressBullhead from '../assets/portfolio/commercial/Holiday Inn Express_Bullhead City AZ.webp';
+import hyundaiPhoenix from '../assets/portfolio/commercial/Hyundai_Phoenix AZ.webp';
+import jimmyJohnsKingman2 from '../assets/portfolio/commercial/Jimmy Johns_Kingman AZ.webp';
+import medicalSuitesKingman from '../assets/portfolio/commercial/Medical Suites_Kingman AZ.webp';
+import mohaveCountyReachOut from '../assets/portfolio/commercial/Mohave County Reach Out_Kingman AZ.webp';
+import mountainShadowsMedical from '../assets/portfolio/commercial/Mountain Shadows Medical Plaze_Kingman AZ.webp';
+import planetFitnessPhoenix from '../assets/portfolio/commercial/Planet Fitness_Phoenix AZ.webp';
+import saladAndGoTucson from '../assets/portfolio/commercial/Salad and Go_Tucson AZ.webp';
+import take5BullheadCity from '../assets/portfolio/commercial/Take 5_Bullhead City.webp';
+import take5KingmanAz from '../assets/portfolio/commercial/Take 5_Kingman AZ.webp';
+import usDeptGovtAffairs from '../assets/portfolio/commercial/US Department of Government Affairs_Kingman AZ.webp';
+import usDeptVeteranAffairs from '../assets/portfolio/commercial/US Department of Veteran Affairs_Kingman AZ.webp';
+import whataburgerTolleson from '../assets/portfolio/commercial/Whataburger_Tolleson AZ.webp';
+import customHomeKingman7 from '../assets/portfolio/residential/Custom Home_Kingman AZ.webp';
+import ranchHomeKingman from '../assets/portfolio/residential/Ranch Home_Kingman AZ.webp';
+import reroofKingman from '../assets/portfolio/residential/Reroof_Kingman AZ.webp';
+import veteransVillasKingman from '../assets/portfolio/residential/Veterans Villas_Kingman AZ.webp';
+
 export const COMMERCIAL_CATEGORIES = [
   { id: 'all', label: 'All' },
   { id: 'hospitality', label: 'Hospitality' },
@@ -177,7 +205,7 @@ export const commercialProjects = [
   { id: 'lds-church-concho', name: 'LDS Church', location: 'Concho, AZ', category: 'government', trade: 'Roofing', src: ldsChurchConcho },
   { id: 'texas-roadhouse-mesa', name: 'Texas Roadhouse', location: 'Mesa, AZ', category: 'restaurants', trade: 'Roofing', src: texasRoadhouseMesa },
   { id: 'bj-brewhouse-queen-creek', name: "BJ's Brewhouse", location: 'Queen Creek, AZ', category: 'restaurants', trade: 'Roofing', src: bjBrewhouseQueenCreek },
-  { id: 'jimmy-johns-kingman', name: "Jimmy John's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: jimmyJohns },
+  { id: 'jimmy-johns-kingman', name: "Jimmy John's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: jimmyJohns, gallery: [jimmyJohns, jimmyJohnsKingman2] },
   { id: 'dunkin-donut-kingman', name: 'Dunkin Donut Plaza', location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: dunkinDonut },
   { id: 'chilis-kingman', name: "Chili's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: chilisKingman },
   { id: 'eos-fitness-tempe', name: 'EOS Fitness', location: 'Tempe, AZ', category: 'retail', trade: 'Roofing', src: eosFitness },
@@ -214,6 +242,27 @@ export const commercialProjects = [
   { id: 'silver-cliffs-apartments', name: 'Silver Cliffs Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: silverCliffsApartments },
   { id: 'sienna-villas', name: 'Sienna Villas', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: siennaVillas },
   { id: 'schiffer-court-apartments', name: 'Shiffer Court Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: schifferCourtApartments },
+  // ── New commercial imports ───────────────────────────────────────────────
+  { id: 'abbot-apartments-bullhead', name: 'Abbot Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: abbotApartmentsBullhead, gallery: [abbotApartmentsBullhead, abbotApartmentsBullhead2] },
+  { id: 'anderson-ford-kingman', name: 'Anderson Ford', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: andersonFordKingman },
+  { id: 'better-buzz-coffee-tempe', name: 'Better Buzz Coffee', location: 'Tempe, AZ', category: 'restaurants', trade: 'Roofing', src: betterBuzzCoffeeTempe },
+  { id: 'bistro-kingman', name: 'Bistro', location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: bistroKingman },
+  { id: 'bullhead-fire-dept-7', name: 'Bullhead City Fire Dept #7', location: 'Bullhead City, AZ', category: 'government', trade: 'Roofing', src: bullheadFireDept7 },
+  { id: 'bureau-land-management', name: 'Bureau of Land Management', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: bureauLandManagement },
+  { id: 'costco-henderson', name: 'Costco', location: 'Henderson, NV', category: 'retail', trade: 'Roofing', src: costcoHenderson },
+  { id: 'gordon-fire-station-kingman', name: 'Gordon Fire Station', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: gordonFireStationKingman },
+  { id: 'holiday-inn-express-bullhead', name: 'Holiday Inn Express', location: 'Bullhead City, AZ', category: 'hospitality', trade: 'Roofing', src: holidayInnExpressBullhead },
+  { id: 'hyundai-phoenix', name: 'Hyundai', location: 'Phoenix, AZ', category: 'dealerships', trade: 'Roofing', src: hyundaiPhoenix },
+  { id: 'medical-suites-kingman', name: 'Medical Suites', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: medicalSuitesKingman },
+  { id: 'mohave-county-reach-out', name: 'Mohave County Reach Out', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: mohaveCountyReachOut },
+  { id: 'mountain-shadows-medical', name: 'Mountain Shadows Medical Plaza', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: mountainShadowsMedical },
+  { id: 'planet-fitness-phoenix', name: 'Planet Fitness', location: 'Phoenix, AZ', category: 'retail', trade: 'Roofing', src: planetFitnessPhoenix },
+  { id: 'salad-and-go-tucson', name: 'Salad and Go', location: 'Tucson, AZ', category: 'restaurants', trade: 'Roofing', src: saladAndGoTucson },
+  { id: 'take-5-bullhead', name: 'Take 5 Oil Change', location: 'Bullhead City, AZ', category: 'retail', trade: 'Roofing', src: take5BullheadCity },
+  { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: take5KingmanAz },
+  { id: 'us-dept-govt-affairs-kingman', name: 'US Dept of Government Affairs', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: usDeptGovtAffairs },
+  { id: 'us-dept-veteran-affairs-kingman', name: 'US Dept of Veteran Affairs', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: usDeptVeteranAffairs },
+  { id: 'whataburger-tolleson', name: 'Whataburger', location: 'Tolleson, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: whataburgerTolleson },
 ];
 
 
@@ -238,6 +287,10 @@ export const residentialProjects = [
   { id: 'century-complete-pahrump', name: 'Century Complete Development', location: 'Pahrump, NV', category: 'development', trade: 'Roofing & Stucco', src: centuryCompleteParhrump },
   { id: 'northpoint-community', name: 'Northpoint Community', location: 'Lake Havasu City, AZ', category: 'development', trade: 'Roofing & Stucco', src: northpointCommunity },
   { id: 'custom-home-scottsdale', name: 'Custom Home', location: 'Scottsdale, AZ', category: 'custom-home', trade: 'Roofing & Stucco', src: customHomeScottsdale },
+  { id: 'custom-home-kingman-7', name: 'Custom Home', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing & Stucco', src: customHomeKingman7 },
+  { id: 'ranch-home-kingman', name: 'Ranch Home', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing', src: ranchHomeKingman },
+  { id: 'reroof-kingman', name: 'Reroof', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing', src: reroofKingman },
+  { id: 'veterans-villas-kingman', name: 'Veterans Villas', location: 'Kingman, AZ', category: 'development', trade: 'Roofing & Stucco', src: veteransVillasKingman },
 ];
 
 export const allProjects = [...commercialProjects, ...residentialProjects];
