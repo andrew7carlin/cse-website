@@ -38,8 +38,8 @@ import versico from '../assets/Partners/versico-certified-contractor.webp';
 
 // Supplied By - Distributor logos
 import srsLogo from '../assets/Partners/srs.webp';
-import abcSupplyLogo from '../assets/Partners/abc-supply.webp';
-import gulfEagleLogo from '../assets/Partners/gulf-eagle.webp';
+import abcSupplyLogo from '../assets/Partners/abc-supply.svg';
+import gulfEagleLogo from '../assets/Partners/gulf-eagle.svg';
 
 // Trusted By - Client Partners with URLs
 const trustedByPartners = [
