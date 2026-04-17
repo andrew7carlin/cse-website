@@ -173,7 +173,7 @@ export const commercialProjects = [
   { id: 'historical-downtown', name: 'Historical Downtown', location: 'Kingman, AZ', category: 'industrial', trade: 'Roofing', src: historicalDowntown },
   { id: 'chilis-kingman', name: "Chili's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: chilisKingman },
   { id: 'home-depot-kingman', name: 'The Home Depot', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: homeDepotKingman },
-  { id: 'bettys-village', name: "Betty's Village", location: 'Kingman, AZ', category: 'multi-family', trade: 'Roofing & Stucco', src: bettysVillage2, featured: true, videos: [] },
+  { id: 'bettys-village', name: "Betty's Village", location: 'Las Vegas, NV', category: 'multi-family', trade: 'Roofing & Stucco', src: bettysVillage2, featured: true, videos: [] },
 ];
 
 export const residentialProjects = [
