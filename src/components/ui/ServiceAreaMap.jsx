@@ -113,7 +113,7 @@ const cities = [
 ];
 
 // Merge offices + project pins for rendering
-const allMarkers = [...offices, ...cities];
+const allMarkers = [...cities, ...offices];
 
 // ── Component ───────────────────────────────────────────────────────────────
 const ServiceAreaMap = () => {
