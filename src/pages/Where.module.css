@@ -163,6 +163,86 @@
   margin: 0;
 }
 
+/* ── Beyond the Southwest ────────────────────────────────────────────────── */
+.beyondSection {
+  background: #0f0f0f;
+  padding: 60px var(--container-padding);
+  border-top: 1px solid #1f1f1f;
+}
+
+.beyondHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.beyondTitle {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.beyondSubtext {
+  font-size: 0.9375rem;
+  color: #6b7280;
+}
+
+.beyondGrid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.beyondCard {
+  background: #151515;
+  border-top: 2px solid #b87333;
+  border-radius: 8px;
+  padding: 1.75rem;
+}
+
+.beyondRegion {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #b87333;
+  margin-bottom: 1.25rem;
+}
+
+.beyondMarket {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.beyondMarket:last-child {
+  margin-bottom: 0;
+}
+
+.beyondState {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.beyondCities {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .beyondGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* ── Stats Row ────────────────────────────────────────────────────────────── */
 .statsRow {
   background: #0a0a0a;

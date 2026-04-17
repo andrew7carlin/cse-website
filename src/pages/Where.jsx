@@ -118,7 +118,7 @@ const Where = () => {
         </div>
         <ServiceAreaMap />
         <p className={styles.mapSubtitle}>
-          Hover any pin to see the city. Pins represent active project markets.
+          Pins represent Canyon State projects. Office locations marked in teal.
         </p>
       </section>
 
@@ -138,6 +138,34 @@ const Where = () => {
               <p className={styles.cityList}>{s.cities.join(', ')}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Beyond the Southwest ──────────────────────────────────────── */}
+      <section className={styles.beyondSection}>
+        <div className={styles.beyondHeader}>
+          <h2 className={styles.beyondTitle}>Beyond the Southwest</h2>
+          <p className={styles.beyondSubtext}>Canyon State has completed projects across the country.</p>
+        </div>
+        <div className={styles.beyondGrid}>
+          <div className={styles.beyondCard}>
+            <span className={styles.beyondRegion}>Southeast</span>
+            <div className={styles.beyondMarket}>
+              <span className={styles.beyondState}>North Carolina</span>
+              <span className={styles.beyondCities}>Asheville</span>
+            </div>
+            <div className={styles.beyondMarket}>
+              <span className={styles.beyondState}>Tennessee</span>
+              <span className={styles.beyondCities}>Memphis</span>
+            </div>
+          </div>
+          <div className={styles.beyondCard}>
+            <span className={styles.beyondRegion}>Other Markets</span>
+            <div className={styles.beyondMarket}>
+              <span className={styles.beyondState}>Texas</span>
+              <span className={styles.beyondCities}>Austin, Houston, Galveston, Del Rio, El Paso</span>
+            </div>
+          </div>
         </div>
       </section>
 
