@@ -1,4 +1,4 @@
-﻿.timeline {
+.timeline {
     position: relative;
     padding: 2rem 0;
 }
@@ -72,7 +72,7 @@
 
 .event:hover .eventBgImage,
 .event.active .eventBgImage {
-    opacity: 0.5;
+    opacity: 0.82;
 }
 
 .event:hover,
