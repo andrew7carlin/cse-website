@@ -16,6 +16,7 @@ const Hero = ({
     variant = "split" // 'split', 'full', or 'video'
 }) => {
     const [isMobile, setIsMobile] = useState(false);
+    const [videoReady, setVideoReady] = useState(false);
 
     useEffect(() => {
         const check = () => setIsMobile(window.innerWidth < 768);
@@ -24,16 +25,26 @@ const Hero = ({
         return () => window.removeEventListener('resize', check);
     }, []);
 
+    // Defer video load until after page is interactive — fixes LCP regression
+    useEffect(() => {
+        const onLoad = () => setVideoReady(true);
+        if (document.readyState === 'complete') {
+            setTimeout(() => setVideoReady(true), 100);
+        } else {
+            window.addEventListener('load', onLoad);
+            return () => window.removeEventListener('load', onLoad);
+        }
+    }, []);
+
     if (variant === 'video' && videoUrl) {
         return (
             <section className={`${styles.hero} ${styles.video}`}>
-                {/* Blurred background video - visible only on mobile */}
-                {!isYouTube && !isMobile && (
+                {/* Blurred background — decorative, deferred until after load */}
+                {!isYouTube && !isMobile && videoReady && (
                     <div className={styles.videoBlurBg}>
                         <video
                             src={mobileVideoUrl || videoUrl}
                             className={styles.videoBlurElement}
-                            poster="/hero-poster.webp"
                             autoPlay
                             loop
                             muted
@@ -54,8 +65,27 @@ const Hero = ({
                         />
                     ) : (
                         <>
-                            {/* Desktop video (16:9) */}
-                            {!isMobile && (
+                            {/* Poster — shown immediately, is the fast LCP element */}
+                            {!videoReady && (
+                                <img
+                                    src="/hero-poster.webp"
+                                    alt="Canyon State Enterprises"
+                                    fetchPriority="high"
+                                    loading="eager"
+                                    width="1920"
+                                    height="1080"
+                                    style={{
+                                        position: 'absolute',
+                                        inset: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
+                                />
+                            )}
+                            {/* Desktop video (16:9) — deferred until after window.load */}
+                            {videoReady && !isMobile && (
                                 <video
                                     src={videoUrl}
                                     className={`${styles.videoElement} ${styles.desktopVideo}`}
@@ -66,8 +96,8 @@ const Hero = ({
                                     playsInline
                                 />
                             )}
-                            {/* Mobile video (9:16) — shown on mobile devices */}
-                            {isMobile && mobileVideoUrl && (
+                            {/* Mobile video (9:16) — deferred until after window.load */}
+                            {videoReady && isMobile && mobileVideoUrl && (
                                 <video
                                     src={mobileVideoUrl}
                                     className={`${styles.videoElement} ${styles.mobileVideo}`}
