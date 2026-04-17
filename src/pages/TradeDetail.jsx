@@ -7,7 +7,7 @@ import { allProjects } from '../data/projects';
 // Import project images for service headers
 import roofingImage from '../assets/projects/La Quinta Hotel_ KIngman Az.webp';
 import stuccoImage from '../assets/projects/Greenprint Apartments_Phoenix AZ.webp';
-import hvacImage from '../assets/projects/HVAC.webp';
+import hvacImage from '../assets/projects/Aquila Place_ Apache Junction_(2).webp';
 import plumbingImage from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
 import resConstImage from '../assets/portfolio/residential/Northpoint_Custom_Home.webp';
 import comConstImage from '../assets/projects/BJ Brewhouse_  Queen Creek Az.webp';
