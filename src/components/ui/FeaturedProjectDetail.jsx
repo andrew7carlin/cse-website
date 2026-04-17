@@ -76,7 +76,7 @@ export default function FeaturedProjectDetail({ project }) {
       {/* ── Alternating Photo / Text Rows ───────────────── */}
       <section className={styles.rowSection}>
         {project.media.map((item, index) => {
-          const isEven = index % 2 === 1; // even rows flip
+          const isEven = index % 2 === 1;
           return (
             <div
               key={index}
@@ -97,7 +97,7 @@ export default function FeaturedProjectDetail({ project }) {
                   {String(index + 1).padStart(2, '0')}
                 </div>
                 <p className={styles.rowCaptionText}>
-                  Photography {index + 1} of {total}
+                  {item.caption || `Photo ${index + 1} of ${total}`}
                 </p>
               </div>
             </div>

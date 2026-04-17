@@ -11,7 +11,12 @@ export const loadProjectAssets = () => {
     blurb: project.blurb ?? '',
     videos: project.videos ?? [],
     media: project.gallery
-      ? project.gallery.map((src, i) => ({ type: 'image', src, fileName: `${project.id}-${i+1}` }))
-      : [{ type: 'image', src: project.src, fileName: project.id }]
+      ? project.gallery.map((item, i) => {
+          // gallery items can be plain imports OR {src, caption} objects
+          const src     = item?.src ?? item;
+          const caption = item?.caption ?? '';
+          return { type: 'image', src, caption, fileName: `${project.id}-${i+1}` };
+        })
+      : [{ type: 'image', src: project.src, caption: '', fileName: project.id }]
   }));
 };
