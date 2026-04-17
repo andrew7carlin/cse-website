@@ -55,6 +55,8 @@ const cities = [
   // Nevada
   { name: 'Las Vegas',        state: 'NV', coordinates: [-115.1398, 36.1699] },
   { name: 'Henderson',        state: 'NV', coordinates: [-114.9817, 36.0395] },
+  { name: 'North Las Vegas',  state: 'NV', coordinates: [-115.1175, 36.1989] },
+  { name: 'Summerlin',        state: 'NV', coordinates: [-115.3247, 36.1540] },
   { name: 'Laughlin',         state: 'NV', coordinates: [-114.5719, 35.1678] },
   { name: 'Pahrump',          state: 'NV', coordinates: [-115.9846, 36.2083] },
   { name: 'Mesquite',         state: 'NV', coordinates: [-114.0672, 36.8054] },
