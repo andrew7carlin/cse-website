@@ -9,9 +9,32 @@ const ProjectsShowcase = () => {
 
     // Load and shuffle projects - increased for denser mosaic
     const projects = useMemo(() => {
-        const allProjects = loadProjectAssets();
-        const shuffled = [...allProjects].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, 20); // Increased from 12 to 20 for better mosaic density
+    // Curated showcase — fixed order, no shuffle
+    const allProjects = loadProjectAssets();
+    const curatedIds = [
+        'spirit-mountain-casino',
+        'kmrc-main-campus',
+        'bettys-village',
+        'greenprint-apartments',
+        'embassy-suites-houston',
+        'chilis-kingman',
+        'good-gather-phoenix',
+        '28th-sunrise-las-vegas',
+        'aquila-place',
+        'mohave-eye-center',
+        'surprise-custom-home',
+        'canyon-palms-kingman',
+        'town-home-bullhead',
+        'century-complete-pahrump',
+        'laughlin-ranch-1',
+        'golf-home-kingman',
+        'farm-crest-home-kingman',
+        'laughlin-ranch-2',
+        'custom-home-scottsdale',
+    ];
+    return curatedIds
+        .map(id => allProjects.find(p => p.id === id))
+        .filter(Boolean);
     }, []);
 
     // Scroll-triggered reveal effect

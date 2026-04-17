@@ -21,6 +21,7 @@ export default function ResidentialPortfolio() {
       <div className={styles.container}>
         <h1 className={styles.title}>Residential Projects</h1>
 
+        {/* Filter hidden — show all residential projects
         <div className={styles.filterBar}>
           {RESIDENTIAL_CATEGORIES.map(cat => (
             <button
@@ -32,6 +33,7 @@ export default function ResidentialPortfolio() {
             </button>
           ))}
         </div>
+        */}
 
         <div className={styles.grid}>
           {filtered.map(project => (
