@@ -37,7 +37,7 @@ import petersenAluminum from '../assets/Partners/petersen_aluminum_corporation_l
 import versico from '../assets/Partners/versico-certified-contractor.webp';
 
 // Supplied By - Distributor logos
-import srsLogo from '../assets/Partners/srs.webp';
+import srsLogo from '../assets/Partners/srs.png';
 import abcSupplyLogo from '../assets/Partners/abc-supply.svg';
 import gulfEagleLogo from '../assets/Partners/gulf-eagle.svg';
 
