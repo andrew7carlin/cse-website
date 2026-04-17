@@ -192,7 +192,7 @@ const ServiceAreaMap = () => {
           </Geographies>
 
           {allMarkers.map((marker, i) => {
-            const pinRadius = Math.max(3, 6 / zoom);
+            const pinRadius = Math.max(1.5, 3 / zoom);
             const isOffice  = marker.type === 'office';
 
             return (
