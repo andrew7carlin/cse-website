@@ -105,7 +105,7 @@ const ProjectsShowcase = () => {
                             >
                                 <div className={styles.imageWrapper}>
                                     <img
-                                        src={project.media[0]?.src}
+                                        src={project.cover ?? project.media[0]?.src}
                                         alt={project.title}
                                         className={styles.projectImage}
                                         loading="lazy"
