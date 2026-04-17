@@ -29,7 +29,7 @@ const SafetyStats = () => {
                 <div className={styles.badge}>
                     <div className={styles.badgeInner}>
                         <div className={styles.label}>Experience Modification Rate</div>
-                        <div className={styles.rating}>0.74</div>
+                        <div className={styles.rating}>0.75</div>
                         <div className={styles.subtext}>EMR</div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ const SafetyStats = () => {
                 <div className={styles.info}>
                     <h2 className={styles.headline}>Safety First, Always</h2>
                     <p className={styles.description}>
-                        Our 0.74 EMR means we've experienced <strong>26% fewer safety incidents</strong> than the average contractor.
+                        Our 0.75 EMR means we've experienced <strong>26% fewer safety incidents</strong> than the average contractor.
                         This exceptional rating qualifies us for projects others can't bid on and saves our clients thousands in insurance costs.
                     </p>
                     <div className={styles.comparison}>
