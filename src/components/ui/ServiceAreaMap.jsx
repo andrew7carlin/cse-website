@@ -6,7 +6,10 @@ import usStates from '../../assets/maps/us-states-10m.json';
 
 
 
-const ACTIVE_STATES = ['Arizona', 'Nevada', 'Utah', 'Colorado'];
+// FIPS codes — states shown on map (active + surrounding context)
+const VISIBLE_FIPS = new Set(['04','32','49','08','35','06','48','16','56','41']);
+// FIPS codes — copper highlight (our service states)
+const ACTIVE_FIPS  = new Set(['04','32','49','08']);
 
 const cities = [
   // Arizona — Mohave County
@@ -80,32 +83,36 @@ const ServiceAreaMap = () => {
   return (
     <div className={styles.wrapper} ref={wrapperRef}>
       <ComposableMap
-        projection="geoAlbersUsa"
-        projectionConfig={{ scale: 1800, center: [-105, 36] }}
+        projection="geoMercator"
+        projectionConfig={{ scale: 2800, center: [-111.5, 36.5] }}
+        width={800}
+        height={500}
         className={styles.map}
       >
         <Geographies geography={usStates}>
           {({ geographies }) =>
-            geographies.map((geo) => {
-              const isActive = ACTIVE_STATES.includes(geo.properties.name);
-              return (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  style={{
-                    default: {
-                      fill:         isActive ? '#222222' : '#161616',
-                      stroke:       isActive ? '#b87333' : '#2a2a2a',
-                      strokeWidth:  isActive ? 0.8 : 0.4,
-                      strokeOpacity: isActive ? 0.6 : 1,
-                      outline: 'none',
-                    },
-                    hover:   { fill: isActive ? '#2a2a2a' : '#161616', outline: 'none' },
-                    pressed: { fill: isActive ? '#2a2a2a' : '#161616', outline: 'none' },
-                  }}
-                />
-              );
-            })
+            geographies
+              .filter((geo) => VISIBLE_FIPS.has(geo.id))
+              .map((geo) => {
+                const isActive = ACTIVE_FIPS.has(geo.id);
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    style={{
+                      default: {
+                        fill:          isActive ? '#222222' : '#161616',
+                        stroke:        isActive ? '#b87333' : '#2a2a2a',
+                        strokeWidth:   isActive ? 0.8 : 0.4,
+                        strokeOpacity: isActive ? 0.6 : 1,
+                        outline: 'none',
+                      },
+                      hover:   { fill: isActive ? '#2a2a2a' : '#161616', outline: 'none' },
+                      pressed: { fill: isActive ? '#2a2a2a' : '#161616', outline: 'none' },
+                    }}
+                  />
+                );
+              })
           }
         </Geographies>
 
