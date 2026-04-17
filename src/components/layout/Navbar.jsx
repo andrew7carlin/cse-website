@@ -5,9 +5,25 @@ import styles from './Navbar.module.css';
 import logoWhite from '../../assets/logos/logo-white.png';
 import cactusImg from '../../assets/logos/cactus.png';
 
+const TRADES = [
+    { label: 'Roofing',                  path: '/services/roofing' },
+    { label: 'Stucco & EIFS',            path: '/services/stucco' },
+    { label: 'General Contracting',      path: '/services/general-contracting' },
+    { label: 'HVAC',                     path: '/services/hvac' },
+    { label: 'Plumbing',                 path: '/services/plumbing' },
+    { label: 'Residential Construction', path: '/services/res-const' },
+    { label: 'Commercial Construction',  path: '/services/com-const' },
+    { label: 'Specialty Metals',         path: '/services/metals' },
+    { label: 'Masonry',                  path: '/services/masonry' },
+    { label: 'Fencing',                  path: '/services/fencing' },
+    { label: 'Seamless Gutters',         path: '/services/gutters' },
+    { label: 'Land Development',         path: '/services/land-dev' },
+];
+
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMobileTradesOpen, setIsMobileTradesOpen] = useState(false);
     const location = useLocation();
     const isHome = location.pathname === '/';
 
@@ -57,10 +73,22 @@ const Navbar = () => {
                         <span className={styles.navLinkText}>Home</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <Link to="/services" className={styles.navLink} data-cursor="link">
-                        <span className={styles.navLinkText}>Trades</span>
-                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
-                    </Link>
+                    <div className={styles.navItem}>
+                        <Link to="/services" className={styles.navLink} data-cursor="link">
+                            <span className={styles.navLinkText}>Trades</span>
+                            <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                        </Link>
+                        <div className={styles.dropdown}>
+                            <div className={styles.dropdownHeader}>Our Trades</div>
+                            <div className={styles.dropdownGrid}>
+                                {TRADES.map(t => (
+                                    <Link key={t.path} to={t.path} className={styles.dropdownLink}>
+                                        <span className={styles.dropdownDot} />{t.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                     <Link to="/portfolio" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Portfolio</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
@@ -88,7 +116,22 @@ const Navbar = () => {
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
                 <nav className={styles.mobileNav}>
                     <Link to="/" className={styles.mobileNavLink}>Home</Link>
-                    <Link to="/services" className={styles.mobileNavLink}>Services</Link>
+                    <div className={styles.mobileTradesGroup}>
+                        <button
+                            className={styles.mobileNavLink}
+                            onClick={() => setIsMobileTradesOpen(o => !o)}
+                            aria-expanded={isMobileTradesOpen}
+                        >
+                            Trades <span className={styles.mobileTradesChevron}>{isMobileTradesOpen ? '▲' : '▼'}</span>
+                        </button>
+                        {isMobileTradesOpen && (
+                            <div className={styles.mobileTradesList}>
+                                {TRADES.map(t => (
+                                    <Link key={t.path} to={t.path} className={styles.mobileTradeLink}>{t.label}</Link>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                     <Link to="/portfolio" className={styles.mobileNavLink}>Portfolio</Link>
                     <Link to="/about" className={styles.mobileNavLink}>About</Link>
                     <Link to="/where" className={styles.mobileNavLink}>Where</Link>

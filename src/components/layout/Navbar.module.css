@@ -107,37 +107,78 @@
 
 .dropdown {
     position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--color-white);
-    min-width: 200px;
-    padding: 1rem 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(14, 14, 14, 0.97);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    min-width: 480px;
+    padding: 1rem;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(184, 115, 51, 0.18);
+    border-radius: 8px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.2s ease;
-    color: var(--color-text-main);
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    color: white;
+    z-index: 999;
 }
 
 .navItem:hover .dropdown {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
-.dropdown a {
-    display: block;
-    padding: 0.5rem 1.5rem;
-    font-size: 0.9rem;
-    color: var(--color-text-main);
-    transition: background 0.2s;
+.dropdownHeader {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b87333;
+    padding: 0 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(184, 115, 51, 0.18);
+    margin-bottom: 0.5rem;
 }
 
-.dropdown a:hover {
-    background: var(--color-light-gray);
-    color: var(--color-copper);
+.dropdownGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.dropdownLink {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.82);
+    border-radius: 4px;
+    transition: background 0.15s ease, color 0.15s ease;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.dropdownLink:hover {
+    background: rgba(184, 115, 51, 0.12);
+    color: #b87333;
+}
+
+.dropdownDot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #b87333;
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: opacity 0.15s ease;
+}
+
+.dropdownLink:hover .dropdownDot {
+    opacity: 1;
 }
 
 .actions {
@@ -270,4 +311,45 @@
 
 .mobileCta:hover {
     background: #c9843e;
+}
+
+/* Mobile trades accordion */
+.mobileTradesGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+.mobileTradesChevron {
+    font-size: 0.6em;
+    margin-left: 0.4rem;
+    opacity: 0.6;
+}
+
+.mobileTradesList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 1rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(184, 115, 51, 0.06);
+    border: 1px solid rgba(184, 115, 51, 0.15);
+    border-radius: 6px;
+}
+
+.mobileTradeLink {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+    padding: 0.4rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.2s ease, background 0.2s ease;
+    text-align: center;
+}
+
+.mobileTradeLink:hover {
+    color: #b87333;
+    background: rgba(184, 115, 51, 0.08);
 }
