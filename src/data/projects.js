@@ -194,7 +194,7 @@ export const commercialProjects = [
     gallery: [
       { src: bettysVillage1, caption: "First residential buildings under construction. Large communities with tight timelines often face scaffolding delays — Canyon State owns extensive scaffolding inventory, keeping our clients on schedule." },
       { src: bettysVillage3, caption: "Residential buildings coming together across a 30-building site built in under 18 months. Managing congestion, trade coordination, and multiple exterior finishes — including dissimilar materials — is where Canyon State earns its keep." },
-      { src: bettysVillage4, caption: "Simultaneous work across residential and commercial buildings demanded 15 unique Canyon State crews working in coordination. On peak days, 12 of those crews were on site at the same time." },
+      { src: bettysVillage1, caption: "A broad aerial view of Betty's Village taking shape — the clubhouse standing seam waterfall roof front and center, surrounded by 22 residential dwellings and three commercial buildings all under construction simultaneously." },
       { src: bettysVillage5, caption: "Neat material staging, proper safety equipment, and owned heavy machinery — we solve problems before they become problems." },
       { src: bettysVillage6, caption: "Clean layouts and precise finishes, even with concrete cement board fascia making rake installation difficult. Constraints never compromise our standards." },
       { src: bettysVillage7, caption: "The centerpiece of Betty's Village — the clubhouse — features a striking standing seam waterfall roof. This complex application required a roll former, multiple telehandlers, and experienced applicators managing 70-foot continuous panels. Canyon State completed the 3-coat stucco, coping metal, cap metal, standing seam metal, 80-mil TPO, and all custom flashings." },
@@ -204,8 +204,8 @@ export const commercialProjects = [
       { src: bettysVillage2, caption: "A broad view of Betty's Village taking shape. Check back here for updates as this project progresses." },
     ],
     videos: [
-      '/videos/Bettys_Village_LV_10.mp4',
-      '/videos/Bettys_Village_LV_11.mp4',
+      'https://cse-media.b-cdn.net/Bettys_Village_LV_10.mp4',
+      'https://cse-media.b-cdn.net/Bettys_Village_LV_11.mp4',
     ],
   },
 ];
