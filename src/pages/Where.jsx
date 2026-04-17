@@ -1,97 +1,168 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Where.module.css';
-import TopoMap from '../components/ui/TopoMap';
 import SEO from '../components/common/SEO';
+import ServiceAreaMap from '../components/ui/ServiceAreaMap';
 
-const serviceAreas = [
-    {
-        id: 'arizona',
-        state: 'Arizona',
-        abbrev: 'AZ',
-        tagline: 'Home Base',
-        description: 'Full-service coverage across the entire state. From Phoenix metro to Flagstaff, Tucson to Kingman — we\'re your local partner.',
-        coverage: 'Statewide',
-        hq: {
-            city: 'Kingman',
-            address: '2959 Rhoades Ave',
-            zip: 'Kingman, AZ 86409',
-        },
-        satellite: 'Phoenix office by appointment',
-    },
-    {
-        id: 'nevada',
-        state: 'Nevada',
-        abbrev: 'NV',
-        tagline: 'Full Coverage',
-        description: 'Complete service throughout Nevada. Las Vegas, Reno, Henderson, and everywhere in between.',
-        coverage: 'Statewide',
-        hq: null,
-        satellite: 'Las Vegas office by appointment',
-    },
-    {
-        id: 'newmexico',
-        state: 'New Mexico',
-        abbrev: 'NM',
-        tagline: 'By Appointment',
-        description: 'Serving New Mexico clients with scheduled project consultations. Contact us to arrange a site visit.',
-        coverage: 'By Appointment',
-        hq: null,
-        satellite: null,
-    },
-    {
-        id: 'utah',
-        state: 'Utah',
-        abbrev: 'UT',
-        tagline: 'By Appointment',
-        description: 'Serving Utah clients with scheduled project consultations. Contact us to arrange a site visit.',
-        coverage: 'By Appointment',
-        hq: null,
-        satellite: null,
-    },
+// ── State coverage data ────────────────────────────────────────────────────
+const states = [
+  {
+    id: 'arizona',
+    state: 'Arizona',
+    abbrev: 'AZ',
+    tagline: 'Home Base',
+    badge: 'Full Coverage',
+    badgeFull: true,
+    cities: [
+      'Kingman', 'Bullhead City', 'Lake Havasu City', 'Flagstaff',
+      'Phoenix', 'Mesa', 'Glendale', 'Scottsdale', 'Tempe',
+      'Chandler', 'Gilbert', 'Peoria', 'Apache Junction', 'Queen Creek',
+      'Tucson', 'Marana', 'Oro Valley', 'Sahuarita', 'Show Low',
+    ],
+  },
+  {
+    id: 'nevada',
+    state: 'Nevada',
+    abbrev: 'NV',
+    tagline: 'Full Coverage',
+    badge: 'Full Coverage',
+    badgeFull: true,
+    cities: ['Las Vegas', 'Henderson', 'Laughlin', 'Pahrump', 'Mesquite', 'Reno'],
+  },
+  {
+    id: 'utah',
+    state: 'Utah',
+    abbrev: 'UT',
+    tagline: 'Active Projects',
+    badge: 'Active Projects',
+    badgeFull: false,
+    cities: ['St. George', 'Hurricane', 'Salt Lake City', 'Spanish Fork'],
+  },
+  {
+    id: 'colorado',
+    state: 'Colorado',
+    abbrev: 'CO',
+    tagline: 'Expanding Now',
+    badge: 'Expanding Now',
+    badgeFull: false,
+    cities: ['Denver', 'Colorado Springs', 'Grand Junction'],
+  },
 ];
 
+const stats = [
+  { number: '4',   label: 'States' },
+  { number: '30+', label: 'Cities' },
+  { number: '1',   label: 'Standard' },
+  { number: '25',  label: 'Years' },
+];
+
+// ── JSON-LD LocalBusiness schema ───────────────────────────────────────────
+const schemaMarkup = {
+  '@context': 'https://schema.org',
+  '@type': 'RoofingContractor',
+  name: 'Canyon State Enterprises',
+  url: 'https://canyonstateaz.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '2959 Rhoades Ave',
+    addressLocality: 'Kingman',
+    addressRegion: 'AZ',
+    postalCode: '86409',
+    addressCountry: 'US',
+  },
+  areaServed: [
+    'Kingman, AZ', 'Bullhead City, AZ', 'Lake Havasu City, AZ',
+    'Phoenix, AZ', 'Mesa, AZ', 'Glendale, AZ', 'Scottsdale, AZ',
+    'Tempe, AZ', 'Chandler, AZ', 'Gilbert, AZ', 'Peoria, AZ',
+    'Apache Junction, AZ', 'Queen Creek, AZ', 'Flagstaff, AZ',
+    'Tucson, AZ', 'Marana, AZ', 'Oro Valley, AZ', 'Sahuarita, AZ',
+    'Show Low, AZ', 'Las Vegas, NV', 'Henderson, NV', 'Laughlin, NV',
+    'Pahrump, NV', 'Mesquite, NV', 'Reno, NV', 'St. George, UT',
+    'Hurricane, UT', 'Salt Lake City, UT', 'Spanish Fork, UT',
+    'Denver, CO', 'Colorado Springs, CO', 'Grand Junction, CO',
+  ],
+};
+
+// ── Component ──────────────────────────────────────────────────────────────
 const Where = () => {
-    return (
-        <main className={styles.page}>
-            <SEO
-                title="Where We Work - Service Areas"
-                description="Canyon State Enterprises serves Arizona, Nevada, New Mexico, and Utah with roofing, stucco, HVAC, plumbing, and full-service commercial and residential construction."
-                canonical="https://canyonstateaz.com/where"
-            />
+  return (
+    <main className={styles.page}>
+      <SEO
+        title="Where We Work | Canyon State Enterprises"
+        description="Canyon State Enterprises serves roofing, stucco, and construction across Arizona, Nevada, Utah, and Colorado. Active projects in 30+ cities across the Southwest."
+        canonical="https://canyonstateaz.com/where"
+      />
 
-            {/* Hero Header */}
-            <section className={styles.hero}>
-                <div className={styles.heroContent}>
-                    <span className={styles.eyebrow}>Service Areas</span>
-                    <h1 className={styles.title}>Where We Work</h1>
-                    <p className={styles.subtitle}>
-                        Four states. One standard of excellence.
-                    </p>
-                </div>
-            </section>
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+      />
 
-            {/* Topographic Map */}
-            <TopoMap data={serviceAreas} />
+      {/* ── Hero ──────────────────────────────────────────────────────── */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <span className={styles.eyebrow}>Service Areas</span>
+          <h1 className={styles.title}>Building the Southwest</h1>
+          <p className={styles.subtitle}>
+            Active projects across Arizona, Nevada, Utah, and Colorado —<br />
+            with more on the way.
+          </p>
+        </div>
+      </section>
 
-            {/* Quick Reference Grid */}
-            <section className={styles.gridSection}>
-                <div className={styles.gridContainer}>
-                    <h3 className={styles.gridTitle}>At a Glance</h3>
-                    <div className={styles.grid}>
-                        {serviceAreas.map((area) => (
-                            <div key={area.id} className={styles.gridCard}>
-                                <span className={styles.gridAbbrev}>{area.abbrev}</span>
-                                <span className={styles.gridState}>{area.state}</span>
-                                <span className={`${styles.gridBadge} ${area.coverage === 'Statewide' ? styles.gridBadgeFull : ''}`}>
-                                    {area.coverage}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        </main>
-    );
+      {/* ── Map ───────────────────────────────────────────────────────── */}
+      <section className={styles.mapSection}>
+        <div className={styles.mapEyebrow}>
+          <span className={styles.eyebrow}>Where We Work</span>
+        </div>
+        <ServiceAreaMap />
+        <p className={styles.mapSubtitle}>
+          Hover any pin to see the city. Pins represent active project markets.
+        </p>
+      </section>
+
+      {/* ── State Cards ───────────────────────────────────────────────── */}
+      <section className={styles.stateSection}>
+        <div className={styles.stateGrid}>
+          {states.map((s) => (
+            <div key={s.id} className={styles.stateCard}>
+              <div className={styles.stateCardTop}>
+                <span className={styles.stateAbbrev}>{s.abbrev}</span>
+                <span className={`${styles.stateBadge} ${s.badgeFull ? styles.stateBadgeFull : ''}`}>
+                  {s.badge}
+                </span>
+              </div>
+              <h3 className={styles.stateName}>{s.state}</h3>
+              <span className={styles.stateTagline}>{s.tagline}</span>
+              <p className={styles.cityList}>{s.cities.join(', ')}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Stats ─────────────────────────────────────────────────────── */}
+      <section className={styles.statsRow}>
+        {stats.map((s) => (
+          <div key={s.label} className={styles.statItem}>
+            <span className={styles.statNumber}>{s.number}</span>
+            <span className={styles.statLabel}>{s.label}</span>
+          </div>
+        ))}
+      </section>
+
+      {/* ── CTA ───────────────────────────────────────────────────────── */}
+      <section className={styles.ctaSection}>
+        <h2 className={styles.ctaTitle}>Working in your area?</h2>
+        <p className={styles.ctaSubtext}>
+          Get a free estimate from the team that's already there.
+        </p>
+        <Link to="/quote" className={styles.ctaButton}>
+          Get a Quote
+        </Link>
+      </section>
+    </main>
+  );
 };
 
 export default Where;

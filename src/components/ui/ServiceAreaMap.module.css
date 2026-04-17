@@ -1,0 +1,70 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  overflow: visible;
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Pin group hover cursor */
+.pinGroup {
+  cursor: pointer;
+}
+
+/* Hover card */
+.card {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 18px));
+  pointer-events: none;
+  z-index: 20;
+}
+
+.cardInner {
+  background: rgba(10, 10, 10, 0.96);
+  border: 1px solid #b87333;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  min-width: 140px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 16px rgba(184, 115, 51, 0.25);
+  white-space: nowrap;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.cardCity {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.cardState {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #b87333;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hqBadge {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4a9b9b;
+  border: 1px solid rgba(74, 155, 155, 0.5);
+  border-radius: 3px;
+  padding: 0.15rem 0.45rem;
+}
