@@ -16,6 +16,7 @@ import masonryImage from '../assets/trades/fencing-hero.webp';
 import fencingImage from '../assets/trades/fencing-hero.webp';
 import guttersImage from '../assets/portfolio/residential/Laughlin_Ranch_1.webp';
 import landDevImage from '../assets/projects/KMRC Medical Center Main Campus_ Kingman Az.webp';
+import canyonPalmsImage from '../assets/portfolio/residential/Canyon_Palms_Kingman.webp';
 
 // Data Mock - In a real app this might come from a CMS or config file
 const tradeData = {
@@ -36,7 +37,7 @@ const tradeData = {
     "general-contracting": {
         title: "General Contracting",
         description: "From concept to completion, we manage every phase of construction with precision and accountability. Our experienced team coordinates trades, schedules, and subcontractors so your project runs on time and on budget—no surprises.",
-        image: stuccoImage,
+        image: canyonPalmsImage,
         expertise: ["Pre-Construction Planning", "Project Management", "Trade Coordination", "Budget Management", "Scheduling", "Quality Control", "Subcontractor Management", "Owner Representation", "Value Engineering", "Project Closeout"],
         cta: "Let's Build Together"
     },
