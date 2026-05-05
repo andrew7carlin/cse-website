@@ -27,7 +27,6 @@ const states = [
     tagline: 'Full Coverage',
     badge: 'Full Coverage',
     badgeFull: true,
-    url: 'https://canyonstatenv.com',
     cities: ['Las Vegas', 'Henderson', 'Laughlin', 'Pahrump', 'Mesquite', 'Reno'],
   },
   {
@@ -137,16 +136,6 @@ const Where = () => {
               <h3 className={styles.stateName}>{s.state}</h3>
               <span className={styles.stateTagline}>{s.tagline}</span>
               <p className={styles.cityList}>{s.cities.join(', ')}</p>
-              {s.url && (
-                <a
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.stateUrl}
-                >
-                  {s.url.replace('https://', '')}
-                </a>
-              )}
             </div>
           ))}
         </div>
