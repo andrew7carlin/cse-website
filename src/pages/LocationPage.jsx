@@ -4,6 +4,21 @@ import { getLocation } from '../data/locations';
 import SEO from '../components/common/SEO';
 import styles from './LocationPage.module.css';
 
+// Hero images per location
+import heroKingman      from '../assets/portfolio/commercial/Hualapai_Mountain_Campus.webp';
+import heroPhoenix      from '../assets/portfolio/commercial/Greenprint_Apartments_Phoenix_AZ.webp';
+import heroBullhead     from '../assets/portfolio/commercial/Spirit_Mountain_Casino.webp';
+import heroLasVegas     from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
+import heroHavasu       from '../assets/portfolio/residential/Northpoint_Community.webp';
+
+const HERO_IMAGES = {
+  kingman:  heroKingman,
+  phoenix:  heroPhoenix,
+  bullhead: heroBullhead,
+  lasvegas: heroLasVegas,
+  havasu:   heroHavasu,
+};
+
 const LocationPage = () => {
   const { locationId } = useParams();
   const loc = getLocation(locationId);
@@ -26,7 +41,14 @@ const LocationPage = () => {
       />
 
       {/* ── Hero ── */}
-      <section className={styles.hero}>
+      <section
+        className={styles.hero}
+        style={HERO_IMAGES[loc.heroImage] ? {
+          backgroundImage: `url(${HERO_IMAGES[loc.heroImage]})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        } : {}}
+      >
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <span className={styles.eyebrow}>Canyon State Enterprises</span>

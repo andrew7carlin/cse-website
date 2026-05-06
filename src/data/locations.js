@@ -1,5 +1,6 @@
 export const locations = [
   {
+    heroImage: 'kingman',
     id: 'kingman-az',
     city: 'Kingman',
     state: 'Arizona',
@@ -14,6 +15,7 @@ export const locations = [
     coverage: ['Kingman', 'Golden Valley', 'Wikieup', 'Chloride', 'Hackberry', 'Valentine', 'Mohave Valley'],
   },
   {
+    heroImage: 'phoenix',
     id: 'phoenix-az',
     city: 'Phoenix',
     state: 'Arizona',
@@ -28,6 +30,7 @@ export const locations = [
     coverage: ['Phoenix', 'Scottsdale', 'Mesa', 'Tempe', 'Gilbert', 'Chandler', 'Glendale', 'Peoria', 'Surprise', 'Goodyear', 'Avondale', 'Queen Creek'],
   },
   {
+    heroImage: 'bullhead',
     id: 'bullhead-city-az',
     city: 'Bullhead City',
     state: 'Arizona',
@@ -42,6 +45,7 @@ export const locations = [
     coverage: ['Bullhead City', 'Fort Mohave', 'Mohave Valley', 'Laughlin NV', 'Needles CA', 'Katherine Landing'],
   },
   {
+    heroImage: 'lasvegas',
     id: 'las-vegas-nv',
     city: 'Las Vegas',
     state: 'Nevada',
@@ -52,10 +56,11 @@ export const locations = [
     region: 'Southern Nevada — Las Vegas, Henderson, North Las Vegas, Pahrump, Mesquite',
     description:
       'Canyon State\'s Nevada operations are headquartered in Las Vegas. The market is large, fast-moving, and unforgiving — and it fits us perfectly. From large multi-family communities like Betty\'s Village to hospitality projects on the Strip corridor, our Nevada crews bring the same relentless standards that define Canyon State everywhere we work.',
-    services: ['Roofing', 'Stucco & EIFS', 'General Contracting', 'Commercial Construction', 'Specialty Metals', 'HVAC'],
+    services: ['Roofing', 'Stucco & EIFS', 'Commercial Construction', 'Specialty Metals'],
     coverage: ['Las Vegas', 'Henderson', 'North Las Vegas', 'Summerlin', 'Boulder City', 'Pahrump', 'Mesquite', 'Laughlin'],
   },
   {
+    heroImage: 'havasu',
     id: 'lake-havasu-city-az',
     city: 'Lake Havasu City',
     state: 'Arizona',
