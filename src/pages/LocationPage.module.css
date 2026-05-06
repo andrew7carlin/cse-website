@@ -1,15 +1,15 @@
 .page {
   min-height: 100vh;
-  background: var(--color-bg-base, #0f0f0f);
-  color: var(--color-text-main, #f0f0f0);
+  background: var(--color-bg-base);
+  color: var(--color-text-main);
 }
 
-/* ── Hero ── */
+/* ── Hero (stays dark — photo/gradient background with overlay) ── */
 .hero {
   position: relative;
   height: 42vh;
-  min-height: 320px;
-  background: linear-gradient(135deg, #111 0%, #1a1209 50%, #0f0f0f 100%);
+  min-height: 300px;
+  background: linear-gradient(135deg, #1a1209 0%, #2a1f0e 50%, #111 100%);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -19,13 +19,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 60%, rgba(184, 115, 51, 0.12) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 30% 60%, rgba(160, 73, 33, 0.18) 0%, transparent 60%);
 }
 
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 15, 15, 0.9) 0%, rgba(15, 15, 15, 0.3) 100%);
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.25) 100%);
 }
 
 .heroContent {
@@ -43,29 +43,29 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #b87333;
+  color: var(--color-copper);
   margin-bottom: 0.5rem;
 }
 
 .city {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 200;
   letter-spacing: -0.01em;
-  color: #fff;
+  color: #ffffff;
   margin: 0 0 0.5rem;
   line-height: 1.1;
 }
 
 .role {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.65);
 }
 
-/* ── Content ── */
+/* ── Content (light theme) ── */
 .content {
   padding: 4rem 0 6rem;
 }
@@ -78,7 +78,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 340px;
+  grid-template-columns: 1fr 320px;
   gap: 4rem;
   align-items: start;
 }
@@ -94,27 +94,30 @@
 .sectionTitle {
   font-size: 1.5rem;
   font-weight: 300;
-  color: #fff;
+  color: var(--color-text-main);
   margin: 0 0 1rem;
   letter-spacing: -0.01em;
 }
 
 .subTitle {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #b87333;
+  color: var(--color-copper);
   margin: 2rem 0 0.75rem;
+  border-bottom: 1px solid rgba(160, 73, 33, 0.18);
+  padding-bottom: 0.5rem;
 }
 
 .description {
   font-size: 1rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
+/* Coverage tags */
 .tagList {
   display: flex;
   flex-wrap: wrap;
@@ -124,34 +127,44 @@
 .tag {
   font-size: 0.75rem;
   font-weight: 500;
-  padding: 0.35rem 0.75rem;
-  background: rgba(184, 115, 51, 0.08);
-  border: 1px solid rgba(184, 115, 51, 0.2);
+  padding: 0.35rem 0.8rem;
+  background: var(--color-bg-alt);
+  border: 1px solid rgba(160, 73, 33, 0.2);
   border-radius: 3px;
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 0.03em;
+  color: var(--color-text-main);
+  letter-spacing: 0.02em;
 }
 
+/* Services grid */
 .serviceGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.4rem;
+  gap: 0;
+  border: 1px solid rgba(160, 73, 33, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .serviceItem {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.78);
-  padding: 0.4rem 0;
+  gap: 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-main);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(160, 73, 33, 0.08);
+  border-right: 1px solid rgba(160, 73, 33, 0.08);
+  background: var(--color-white);
 }
 
 .dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #b87333;
+  background: var(--color-copper);
   flex-shrink: 0;
 }
 
@@ -164,22 +177,24 @@
   top: calc(var(--header-height, 72px) + 2rem);
 }
 
+/* Info card */
 .infoCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(184, 115, 51, 0.15);
+  background: var(--color-white);
+  border: 1px solid rgba(160, 73, 33, 0.18);
   border-radius: 6px;
   overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .infoCardHeader {
-  background: rgba(184, 115, 51, 0.1);
-  border-bottom: 1px solid rgba(184, 115, 51, 0.15);
+  background: rgba(160, 73, 33, 0.07);
+  border-bottom: 1px solid rgba(160, 73, 33, 0.15);
   padding: 0.75rem 1.25rem;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #b87333;
+  color: var(--color-copper);
 }
 
 .infoRow {
@@ -187,7 +202,7 @@
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .infoRow:last-child {
@@ -195,51 +210,53 @@
 }
 
 .infoLabel {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+  color: #999;
 }
 
 .infoValue {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--color-text-main);
   line-height: 1.5;
 }
 
 .infoLink {
   font-size: 0.875rem;
-  color: #b87333;
+  font-weight: 600;
+  color: var(--color-copper);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: opacity 0.2s;
 }
 
 .infoLink:hover {
-  color: #d4944a;
+  opacity: 0.75;
 }
 
-/* ── CTA Card ── */
+/* CTA card */
 .ctaCard {
-  background: rgba(184, 115, 51, 0.06);
-  border: 1px solid rgba(184, 115, 51, 0.2);
+  background: var(--color-white);
+  border: 1px solid rgba(160, 73, 33, 0.2);
   border-radius: 6px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .ctaTitle {
   font-size: 1rem;
-  font-weight: 500;
-  color: #fff;
+  font-weight: 600;
+  color: var(--color-text-main);
   margin: 0;
 }
 
 .ctaText {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
   line-height: 1.6;
   margin: 0;
 }
@@ -247,34 +264,34 @@
 .ctaBtn {
   display: block;
   text-align: center;
-  background: #b87333;
+  background: var(--color-copper);
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.85rem 1.5rem;
   border-radius: 4px;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .ctaBtn:hover {
-  background: #d4944a;
+  opacity: 0.85;
 }
 
 .backLink {
   display: block;
   text-align: center;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-text-muted);
   text-decoration: none;
   transition: color 0.2s;
   letter-spacing: 0.05em;
 }
 
 .backLink:hover {
-  color: #b87333;
+  color: var(--color-copper);
 }
 
 /* ── Not Found ── */
@@ -285,5 +302,5 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  color: #fff;
+  color: var(--color-text-main);
 }
