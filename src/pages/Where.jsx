@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Where.module.css';
 import SEO from '../components/common/SEO';
 import ServiceAreaMap from '../components/ui/ServiceAreaMap';
+import { locations } from '../data/locations';
 
 // ── State coverage data ────────────────────────────────────────────────────
 const states = [
@@ -136,6 +137,16 @@ const Where = () => {
               <h3 className={styles.stateName}>{s.state}</h3>
               <span className={styles.stateTagline}>{s.tagline}</span>
               <p className={styles.cityList}>{s.cities.join(', ')}</p>
+              {/* Office page links for states that have offices */}
+              {locations.filter(l => l.abbrev === s.abbrev).length > 0 && (
+                <div className={styles.officeLinks}>
+                  {locations.filter(l => l.abbrev === s.abbrev).map(l => (
+                    <Link key={l.id} to={`/locations/${l.id}`} className={styles.officeLink}>
+                      {l.city} →
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>

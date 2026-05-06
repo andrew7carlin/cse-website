@@ -11,7 +11,6 @@ import saladAndGo from '../../assets/Partners/Salad and go.webp';
 import willmeng from '../../assets/Partners/Willmeng.webp';
 import kitchell from '../../assets/Partners/Kitchell.webp';
 import pathConstruction from '../../assets/Partners/Path Construction.webp';
-import canyonBuilding from '../../assets/Partners/Canyon Building.webp';
 import pacificap from '../../assets/Partners/Pacificap.webp';
 import overland from '../../assets/Partners/Overland.webp';
 import wadman from '../../assets/Partners/Wadman.webp';
@@ -50,7 +49,6 @@ const partners = [
     { name: 'Willmeng Construction', logo: willmeng, url: 'https://www.willmeng.com/' },
     { name: 'Kitchell', logo: kitchell, url: 'https://www.kitchell.com/' },
     { name: 'Path Construction', logo: pathConstruction, url: 'https://www.pathcc.com/' },
-    { name: 'Canyon Building & Design', logo: canyonBuilding, url: 'https://www.canyonbd.com/' },
     { name: 'Pacificap Construction', logo: pacificap, url: 'https://www.pacificapconstruction.com/' },
     { name: 'Overland Construction', logo: overland, url: 'https://www.overlandconstruction.com/' },
     { name: 'Wadman Construction', logo: wadman, url: 'https://www.wadman.com/' },

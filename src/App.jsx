@@ -24,6 +24,7 @@ const FAQ = lazy(() => import('./pages/FAQ'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Terms = lazy(() => import('./pages/Terms'));
+const LocationPage = lazy(() => import('./pages/LocationPage'));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -79,6 +80,7 @@ function App() {
             <Route path="portfolio/:projectId" element={<ProjectDetail />} />
             <Route path="about" element={<About />} />
             <Route path="where" element={<Where />} />
+            <Route path="locations/:locationId" element={<LocationPage />} />
             <Route path="partnerships" element={<Partnerships />} />
             <Route path="faq" element={<FAQ />} />
             <Route path="contact" element={<Contact />} />
