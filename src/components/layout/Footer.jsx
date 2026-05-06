@@ -56,6 +56,14 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className={styles.bottom}>
                     <span>&copy; {new Date().getFullYear()} Canyon State Enterprises. All rights reserved.</span>
+                    <a
+                        href="https://pithstrategies.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.attribution}
+                    >
+                        A Pith Strategies Design
+                    </a>
                     <div className={styles.legalLinks}>
                         <Link to="/privacy" className={styles.legalLink}>Privacy Policy</Link>
                         <span className={styles.legalDivider}>|</span>

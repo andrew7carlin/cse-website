@@ -156,3 +156,16 @@
 .legalDivider {
     color: #444;
 }
+
+.attribution {
+    font-size: 0.75rem;
+    color: #555;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.attribution:hover {
+    color: var(--color-copper);
+}
