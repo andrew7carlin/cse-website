@@ -46,7 +46,7 @@ const LocationPage = () => {
         style={HERO_IMAGES[loc.heroImage] ? {
           backgroundImage: `url(${HERO_IMAGES[loc.heroImage]})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: loc.heroPosition || 'center center',
         } : {}}
       >
         <div className={styles.heroOverlay} />

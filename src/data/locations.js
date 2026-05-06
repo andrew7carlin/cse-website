@@ -1,6 +1,7 @@
 export const locations = [
   {
     heroImage: 'kingman',
+    heroPosition: 'center 40%',
     id: 'kingman-az',
     city: 'Kingman',
     state: 'Arizona',
@@ -16,6 +17,7 @@ export const locations = [
   },
   {
     heroImage: 'phoenix',
+    heroPosition: 'center center',
     id: 'phoenix-az',
     city: 'Phoenix',
     state: 'Arizona',
@@ -31,6 +33,7 @@ export const locations = [
   },
   {
     heroImage: 'bullhead',
+    heroPosition: 'center 30%',
     id: 'bullhead-city-az',
     city: 'Bullhead City',
     state: 'Arizona',
@@ -46,6 +49,7 @@ export const locations = [
   },
   {
     heroImage: 'lasvegas',
+    heroPosition: 'center 35%',
     id: 'las-vegas-nv',
     city: 'Las Vegas',
     state: 'Nevada',
@@ -61,6 +65,7 @@ export const locations = [
   },
   {
     heroImage: 'havasu',
+    heroPosition: 'center center',
     id: 'lake-havasu-city-az',
     city: 'Lake Havasu City',
     state: 'Arizona',

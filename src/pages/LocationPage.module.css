@@ -7,11 +7,9 @@
 /* ── Hero (stays dark — photo/gradient background with overlay) ── */
 .hero {
   position: relative;
-  height: 42vh;
-  min-height: 300px;
+  height: 58vh;
+  min-height: 420px;
   background: linear-gradient(135deg, #1a1209 0%, #2a1f0e 50%, #111 100%);
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
