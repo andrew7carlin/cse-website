@@ -127,10 +127,6 @@ const Navbar = () => {
                         <span className={styles.navLinkText}>Partnerships</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <Link to="/careers" className={styles.navLink} data-cursor="link">
-                        <span className={styles.navLinkText}>Careers</span>
-                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
-                    </Link>
                     <Link to="/contact" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Contact</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
@@ -162,7 +158,6 @@ const Navbar = () => {
                     <Link to="/about" className={styles.mobileNavLink}>About</Link>
                     <Link to="/where" className={styles.mobileNavLink}>Where</Link>
                     <Link to="/partnerships" className={styles.mobileNavLink}>Partnerships</Link>
-                    <Link to="/careers" className={styles.mobileNavLink}>Careers</Link>
                     <Link to="/contact" className={styles.mobileNavLink}>Contact</Link>
                     <Link to="/contact" className={styles.mobileCta}>Let's Talk</Link>
                 </nav>

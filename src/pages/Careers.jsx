@@ -18,9 +18,8 @@ const OFFICE_ROLES = [
 
 const BENEFITS = [
     { title: 'Competitive Pay', desc: 'Compensation aligned with experience and trade, plus performance bonuses on qualifying projects.' },
-    { title: 'Medical, Dental & Vision', desc: 'Health coverage for you and your family, available after a short waiting period.' },
+    { title: 'Medical Insurance', desc: 'Health coverage for you and your family, available after a short waiting period.' },
     { title: 'Paid Time Off & Holidays', desc: 'Time to rest, time with family, time to take care of life outside of work.' },
-    { title: 'Retirement Plan', desc: 'Plan for the long haul — retirement savings options for eligible employees.' },
     { title: 'Cross-Trade Training', desc: 'We self-perform 12 trades. Learn a second or third skill and earn more on the truck.' },
     { title: 'Steady Work, Year-Round', desc: '5 offices across 4 states means crews stay busy when one market slows down.' },
     { title: 'Safety You Can Feel', desc: 'EMR 0.75 — top 15% nationally. We mean it when we say everyone goes home safe.' },
