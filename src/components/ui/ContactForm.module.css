@@ -3,6 +3,15 @@
     background: var(--color-light-gray);
 }
 
+.honeypot {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .container {
     max-width: var(--container-width);
     margin: 0 auto;

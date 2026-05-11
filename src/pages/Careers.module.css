@@ -1,0 +1,436 @@
+.page {
+    padding-top: var(--header-height);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    padding: 5rem 0 4rem;
+    background: linear-gradient(180deg, var(--color-bg-base) 0%, var(--color-bg-alt) 100%);
+    overflow: hidden;
+}
+
+.heroContainer {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 1rem;
+}
+
+.heroTitle {
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.5rem;
+    max-width: 900px;
+    color: var(--color-text-main);
+}
+
+.heroTitle em {
+    font-style: normal;
+    color: var(--color-copper);
+}
+
+.heroSub {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin: 0 0 2rem;
+}
+
+.heroCtas {
+    display: flex;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.btnPrimary {
+    background: var(--color-copper);
+    color: var(--color-white);
+}
+
+.btnPrimary:hover {
+    background: var(--color-bronze);
+}
+
+.btnSecondary {
+    background: transparent;
+    border-color: rgba(184, 115, 51, 0.5);
+    color: var(--color-copper);
+}
+
+.btnSecondary:hover {
+    background: rgba(184, 115, 51, 0.08);
+    border-color: var(--color-copper);
+}
+
+/* ── Why Us Strip ────────────────────────────────────────────────────── */
+.statsStrip {
+    background: var(--color-dark-brown);
+    padding: 2.5rem 0;
+    color: var(--color-white);
+}
+
+.statsGrid {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.statValue {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-copper);
+    line-height: 1;
+    margin: 0 0 0.4rem;
+}
+
+.statLabel {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Paths Section ───────────────────────────────────────────────────── */
+.paths {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-bg-base);
+}
+
+.pathsContainer {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--color-text-main);
+    margin: 0 0 1rem;
+}
+
+.sectionSub {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.pathsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .pathsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.pathCard {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-divider);
+    border-radius: 4px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pathCard:hover {
+    border-color: var(--color-copper);
+    transform: translateY(-2px);
+}
+
+.pathBadge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 1rem;
+}
+
+.pathTitle {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 1rem;
+    color: var(--color-text-main);
+}
+
+.pathBlurb {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+}
+
+.pathList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.pathList li {
+    font-size: 0.9375rem;
+    color: var(--color-text-main);
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.pathList li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    background: var(--color-copper);
+    border-radius: 50%;
+}
+
+.pathFooter {
+    margin-top: auto;
+    padding-top: 1.25rem;
+}
+
+/* ── Benefits ────────────────────────────────────────────────────────── */
+.benefits {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-bg-alt);
+}
+
+.benefitsContainer {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.benefitCard {
+    background: var(--color-bg-base);
+    border: 1px solid var(--color-divider);
+    border-radius: 4px;
+    padding: 1.5rem;
+}
+
+.benefitTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin: 0 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.benefitTitle::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--color-copper);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.benefitDesc {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Apply Section ───────────────────────────────────────────────────── */
+.apply {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-bg-base);
+}
+
+.applyContainer {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.applyForm {
+    background: var(--color-bg-alt);
+    padding: 2.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-divider);
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+    .formRow {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--color-divider);
+    border-radius: 2px;
+    background: var(--color-bg-base);
+    font-size: 0.9375rem;
+    font-family: inherit;
+    color: var(--color-text-main);
+    transition: border-color 0.15s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: var(--color-copper);
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submitBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    background: var(--color-copper);
+    color: var(--color-white);
+    border: none;
+    border-radius: 2px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+    background: var(--color-bronze);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.successMessage,
+.errorMessage {
+    padding: 1rem 1.25rem;
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+    font-size: 0.9375rem;
+}
+
+.successMessage {
+    background: rgba(20, 130, 80, 0.1);
+    border: 1px solid rgba(20, 130, 80, 0.3);
+    color: rgb(20, 100, 60);
+}
+
+.errorMessage {
+    background: rgba(180, 50, 50, 0.08);
+    border: 1px solid rgba(180, 50, 50, 0.3);
+    color: rgb(150, 40, 40);
+}
+
+.resumeNote {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--color-copper);
+    background: rgba(184, 115, 51, 0.06);
+    font-size: 0.9375rem;
+    color: var(--color-text-main);
+    line-height: 1.5;
+}
+
+.resumeNote a {
+    color: var(--color-copper);
+    font-weight: 600;
+}
+
+.honeypot {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

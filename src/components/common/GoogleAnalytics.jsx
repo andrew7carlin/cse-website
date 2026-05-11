@@ -1,29 +1,15 @@
 import { useEffect } from 'react';
 
 /**
- * Google Analytics 4 component
- * Add your GA4 Measurement ID to enable tracking
- * 
- * Usage: Add <GoogleAnalytics /> to your app root (main.jsx or App.jsx)
+ * Google Analytics 4 — only loads in production, after the user accepts cookies.
+ * The Measurement ID is public (it's embedded in the gtag.js URL on every page),
+ * so committing it is fine. VITE_GA_ID can still override in CI / staging.
  */
-
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID || 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID || 'G-1JMQS8GK6G';
 
 const GoogleAnalytics = () => {
     useEffect(() => {
-        // Don't load analytics in development
-        if (import.meta.env.DEV) {
-            console.log('[GA4] Analytics disabled in development');
-            return;
-        }
-
-        // Don't load if measurement ID is not set
-        if (GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
-            console.warn('[GA4] Please set your GA4 Measurement ID in GoogleAnalytics.jsx');
-            return;
-        }
-
-        // Don't load without cookie consent
+        if (import.meta.env.DEV) return;
         if (localStorage.getItem('cookie_consent') !== 'accepted') return;
 
         // Load gtag.js script
@@ -51,30 +37,6 @@ const GoogleAnalytics = () => {
     }, []);
 
     return null; // This component doesn't render anything
-};
-
-/**
- * Track page views on route change
- * Call this in your route change handler or useEffect
- */
-export const trackPageView = (path, title) => {
-    if (typeof window.gtag === 'function') {
-        window.gtag('event', 'page_view', {
-            page_path: path,
-            page_title: title,
-        });
-    }
-};
-
-/**
- * Track custom events
- * @param {string} eventName - Name of the event
- * @param {object} params - Event parameters
- */
-export const trackEvent = (eventName, params = {}) => {
-    if (typeof window.gtag === 'function') {
-        window.gtag('event', eventName, params);
-    }
 };
 
 export default GoogleAnalytics;

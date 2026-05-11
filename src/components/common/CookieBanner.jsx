@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem('cookie_consent');
-    if (!consent) setVisible(true);
-  }, []);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return !localStorage.getItem('cookie_consent');
+  });
 
   const accept = () => {
     localStorage.setItem('cookie_consent', 'accepted');
@@ -30,8 +28,12 @@ export default function CookieBanner() {
     }}>
       <p style={{ margin: 0, fontSize: '0.875rem', color: '#d1d5db', maxWidth: '600px', lineHeight: 1.5 }}>
         We use cookies to analyze site traffic and improve your experience.{' '}
-        <Link to="/privacy" style={{ color: '#b87333', textDecoration: 'underline' }}>
-          Learn more
+        <Link
+          to="/privacy"
+          aria-label="Learn more about our cookie and privacy policy"
+          style={{ color: '#b87333', textDecoration: 'underline' }}
+        >
+          Read our privacy policy
         </Link>
       </p>
       <div style={{ display: 'flex', gap: '0.75rem', flexShrink: 0 }}>

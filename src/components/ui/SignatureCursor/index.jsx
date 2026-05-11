@@ -41,8 +41,9 @@ const SignatureCursor = () => {
     // Mouse position for magnetic calculation
     const mousePos = useRef({ x: -100, y: -100 });
 
-    // Performance tracking
-    const lastFrameTime = useRef(performance.now());
+    // Performance tracking — initialized lazily inside the setup effect so the
+    // render stays pure (no performance.now() calls).
+    const lastFrameTime = useRef(0);
     const frameCount = useRef(0);
     const lowPerfMode = useRef(false);
 
@@ -53,70 +54,6 @@ const SignatureCursor = () => {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
         return true;
     }, []);
-
-    // Animation loop
-    const animate = useCallback(() => {
-        // Performance monitoring
-        const now = performance.now();
-        const delta = now - lastFrameTime.current;
-        lastFrameTime.current = now;
-
-        // Check for low performance
-        frameCount.current++;
-        if (frameCount.current % 60 === 0) {
-            const fps = 1000 / delta;
-            lowPerfMode.current = fps < CURSOR_CONFIG.performance.minFPS;
-        }
-
-        // Run physics tick
-        const pos = physics.tick();
-
-        // Get magnetic offset
-        const magneticOffset = magnetic.getMagneticOffset(mousePos.current.x, mousePos.current.y);
-
-        // Apply magnetic offset to position
-        const finalX = pos.x + magneticOffset.offsetX;
-        const finalY = pos.y + magneticOffset.offsetY;
-
-        // Update cursor ring with GSAP for butter-smooth animation
-        if (ringRef.current) {
-            gsap.set(ringRef.current, {
-                x: finalX,
-                y: finalY,
-                force3D: true,
-            });
-        }
-
-        // Update dot (follows more directly)
-        if (dotRef.current) {
-            gsap.set(dotRef.current, {
-                x: pos.x,
-                y: pos.y,
-                force3D: true,
-            });
-        }
-
-        // Update glow (larger, more lag)
-        if (glowRef.current) {
-            gsap.set(glowRef.current, {
-                x: pos.x,
-                y: pos.y,
-                force3D: true,
-            });
-        }
-
-        // Update blur layer
-        if (blurRef.current && CURSOR_CONFIG.performance.enableBlur) {
-            gsap.set(blurRef.current, {
-                x: finalX,
-                y: finalY,
-                force3D: true,
-            });
-        }
-
-        // Continue animation loop
-        rafRef.current = requestAnimationFrame(animate);
-    }, [physics, magnetic]);
 
     // Mouse move handler
     const handleMouseMove = useCallback((e) => {
@@ -147,9 +84,44 @@ const SignatureCursor = () => {
         setIsVisible(true);
     }, []);
 
-    // Setup effect
+    // Setup effect — owns the animation loop so `animate` can reference itself
+    // (a useCallback can't reference its own identity without a forward ref).
     useEffect(() => {
         if (!shouldRender()) return;
+
+        lastFrameTime.current = performance.now();
+
+        const animate = () => {
+            const now = performance.now();
+            const delta = now - lastFrameTime.current;
+            lastFrameTime.current = now;
+
+            frameCount.current++;
+            if (frameCount.current % 60 === 0) {
+                const fps = 1000 / delta;
+                lowPerfMode.current = fps < CURSOR_CONFIG.performance.minFPS;
+            }
+
+            const pos = physics.tick();
+            const magneticOffset = magnetic.getMagneticOffset(mousePos.current.x, mousePos.current.y);
+            const finalX = pos.x + magneticOffset.offsetX;
+            const finalY = pos.y + magneticOffset.offsetY;
+
+            if (ringRef.current) {
+                gsap.set(ringRef.current, { x: finalX, y: finalY, force3D: true });
+            }
+            if (dotRef.current) {
+                gsap.set(dotRef.current, { x: pos.x, y: pos.y, force3D: true });
+            }
+            if (glowRef.current) {
+                gsap.set(glowRef.current, { x: pos.x, y: pos.y, force3D: true });
+            }
+            if (blurRef.current && CURSOR_CONFIG.performance.enableBlur) {
+                gsap.set(blurRef.current, { x: finalX, y: finalY, force3D: true });
+            }
+
+            rafRef.current = requestAnimationFrame(animate);
+        };
 
         // Dynamically detect pointer type so touch laptops with a mouse
         // get the cursor, while pure touch devices do not
@@ -185,7 +157,6 @@ const SignatureCursor = () => {
 
         observer.observe(document.body, { childList: true, subtree: true });
 
-        // Cleanup
         return () => {
             window.removeEventListener('pointermove', handlePointerType);
             window.removeEventListener('mousemove', handleMouseMove);
@@ -195,7 +166,7 @@ const SignatureCursor = () => {
             observer.disconnect();
             clearTimeout(cacheTimeout);
         };
-    }, [shouldRender, handleMouseMove, handleMouseLeave, handleMouseEnter, animate, magnetic]);
+    }, [shouldRender, handleMouseMove, handleMouseLeave, handleMouseEnter, physics, magnetic]);
 
     // Don't render on touch devices
     if (!shouldRender()) return null;

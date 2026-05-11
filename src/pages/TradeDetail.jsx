@@ -15,7 +15,6 @@ import metalsImage from '../assets/projects/Historical Downtown Building_  Kingm
 import masonryImage from '../assets/trades/fencing-hero.webp';
 import fencingImage from '../assets/trades/fencing-hero.webp';
 import guttersImage from '../assets/portfolio/residential/Laughlin_Ranch_1.webp';
-import landDevImage from '../assets/projects/KMRC Medical Center Main Campus_ Kingman Az.webp';
 import canyonPalmsImage from '../assets/portfolio/residential/Canyon_Palms_Kingman.webp';
 
 // Data Mock - In a real app this might come from a CMS or config file

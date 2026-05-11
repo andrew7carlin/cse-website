@@ -1,4 +1,5 @@
 import Hero from '../components/ui/Hero';
+import ScaleStats from '../components/ui/ScaleStats';
 import TradeGrid from '../components/ui/TradeGrid';
 import PartnersSection from '../components/ui/PartnersSection';
 import Accordion from '../components/ui/Accordion';
@@ -27,6 +28,8 @@ const Home = () => {
                 isYouTube={IS_YOUTUBE}
                 primaryCtaText="Let's Chat"
             />
+
+            <ScaleStats />
 
             <TradeGrid />
 

@@ -1,6 +1,21 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Partnerships.module.css';
 import SEO from '../components/common/SEO';
+
+// Random off-screen entry position for a logo's mount animation.
+// Defined outside render so the useState lazy initializer is the only place it runs.
+const ENTRY_EDGES = ['top', 'right', 'bottom', 'left'];
+const randomEntryPosition = () => {
+    const edge = ENTRY_EDGES[Math.floor(Math.random() * ENTRY_EDGES.length)];
+    const jitter = () => Math.random() * 100 - 50;
+    switch (edge) {
+        case 'top':    return { startX: jitter(), startY: -150 };
+        case 'right':  return { startX: 150, startY: jitter() };
+        case 'bottom': return { startX: jitter(), startY: 150 };
+        case 'left':   return { startX: -150, startY: jitter() };
+        default:       return { startX: 0, startY: 0 };
+    }
+};
 
 // Partner logos - categorized
 import arMays from '../assets/Partners/AR Mays.webp';
@@ -93,90 +108,10 @@ const Partnerships = () => {
     const [visibleSuppliedBy, setVisibleSuppliedBy] = useState([]);
     const [showHeaders, setShowHeaders] = useState(false);
 
-    // Random starting positions for each logo
-    const trustedByAnimations = useMemo(() => {
-        return trustedByPartners.map(() => {
-            const edges = ['top', 'right', 'bottom', 'left'];
-            const edge = edges[Math.floor(Math.random() * edges.length)];
-            let startX = 0, startY = 0;
-
-            switch (edge) {
-                case 'top':
-                    startX = Math.random() * 100 - 50;
-                    startY = -150;
-                    break;
-                case 'right':
-                    startX = 150;
-                    startY = Math.random() * 100 - 50;
-                    break;
-                case 'bottom':
-                    startX = Math.random() * 100 - 50;
-                    startY = 150;
-                    break;
-                case 'left':
-                    startX = -150;
-                    startY = Math.random() * 100 - 50;
-                    break;
-            }
-            return { startX, startY };
-        });
-    }, []);
-
-    const certifiedByAnimations = useMemo(() => {
-        return certifiedByPartners.map(() => {
-            const edges = ['top', 'right', 'bottom', 'left'];
-            const edge = edges[Math.floor(Math.random() * edges.length)];
-            let startX = 0, startY = 0;
-
-            switch (edge) {
-                case 'top':
-                    startX = Math.random() * 100 - 50;
-                    startY = -150;
-                    break;
-                case 'right':
-                    startX = 150;
-                    startY = Math.random() * 100 - 50;
-                    break;
-                case 'bottom':
-                    startX = Math.random() * 100 - 50;
-                    startY = 150;
-                    break;
-                case 'left':
-                    startX = -150;
-                    startY = Math.random() * 100 - 50;
-                    break;
-            }
-            return { startX, startY };
-        });
-    }, []);
-
-    const suppliedByAnimations = useMemo(() => {
-        return suppliedByPartners.map(() => {
-            const edges = ['top', 'right', 'bottom', 'left'];
-            const edge = edges[Math.floor(Math.random() * edges.length)];
-            let startX = 0, startY = 0;
-
-            switch (edge) {
-                case 'top':
-                    startX = Math.random() * 100 - 50;
-                    startY = -150;
-                    break;
-                case 'right':
-                    startX = 150;
-                    startY = Math.random() * 100 - 50;
-                    break;
-                case 'bottom':
-                    startX = Math.random() * 100 - 50;
-                    startY = 150;
-                    break;
-                case 'left':
-                    startX = -150;
-                    startY = Math.random() * 100 - 50;
-                    break;
-            }
-            return { startX, startY };
-        });
-    }, []);
+    // Random starting positions for each logo — computed once per mount.
+    const [trustedByAnimations] = useState(() => trustedByPartners.map(randomEntryPosition));
+    const [certifiedByAnimations] = useState(() => certifiedByPartners.map(randomEntryPosition));
+    const [suppliedByAnimations] = useState(() => suppliedByPartners.map(randomEntryPosition));
 
     // All logos fly in at the same time
     useEffect(() => {
@@ -200,7 +135,7 @@ const Partnerships = () => {
             setFormStatus('success');
             setFormData({ subject: '', message: '' });
             setTimeout(() => setFormStatus(''), 3000);
-        } catch (error) {
+        } catch {
             setFormStatus('error');
         }
     };

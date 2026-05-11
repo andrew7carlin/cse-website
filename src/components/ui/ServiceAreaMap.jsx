@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import styles from './ServiceAreaMap.module.css';
 import usStates from '../../assets/maps/us-states-10m.json';
 

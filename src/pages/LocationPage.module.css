@@ -32,7 +32,7 @@
 
 .eyebrow {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -51,7 +51,7 @@
 
 .role {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -93,7 +93,7 @@
 }
 
 .subTitle {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -183,7 +183,7 @@
   background: rgba(160, 73, 33, 0.07);
   border-bottom: 1px solid rgba(160, 73, 33, 0.15);
   padding: 0.75rem 1.25rem;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -203,7 +203,7 @@
 }
 
 .infoLabel {
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;

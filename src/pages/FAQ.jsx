@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import SEO from '../components/common/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import styles from './FAQ.module.css';
@@ -16,7 +15,7 @@ const categories = [
             },
             {
                 q: 'How long has Canyon State Enterprises been in business?',
-                a: 'Canyon State Enterprises has over 20 years of operation and a deep history in the Southwest. We\'ve built a strong reputation with general contractors, property managers, and developers across Arizona, Nevada, and Utah.',
+                a: 'Canyon State Enterprises has been in business since 2001 — over 25 years building across the Southwest. We\'ve built a strong reputation with general contractors, property managers, and developers across Arizona, Nevada, and Utah.',
             },
             {
                 q: 'Are you licensed and insured?',
@@ -136,9 +135,10 @@ const FAQ = () => {
                 canonical="https://canyonstateaz.com/faq"
             />
 
-            <Helmet>
-                <script type="application/ld+json">
-                    {JSON.stringify({
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "FAQPage",
                         "mainEntity": categories.flatMap(cat =>
@@ -151,9 +151,9 @@ const FAQ = () => {
                                 }
                             }))
                         )
-                    })}
-                </script>
-            </Helmet>
+                    })
+                }}
+            />
 
             {/* ── Hero ─────────────────────────────────────────────────── */}
             <section className={styles.hero}>

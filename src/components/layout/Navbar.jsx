@@ -36,8 +36,11 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Close mobile menu on route change
+    // Close mobile menu on route change.
+    // React docs endorse useEffect for "resetting state when a prop changes"; the
+    // alternative (keying the Navbar on pathname) would remount and drop scroll state.
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsMobileMenuOpen(false);
     }, [location]);
 
@@ -124,6 +127,10 @@ const Navbar = () => {
                         <span className={styles.navLinkText}>Partnerships</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
+                    <Link to="/careers" className={styles.navLink} data-cursor="link">
+                        <span className={styles.navLinkText}>Careers</span>
+                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    </Link>
                     <Link to="/contact" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Contact</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
@@ -155,6 +162,7 @@ const Navbar = () => {
                     <Link to="/about" className={styles.mobileNavLink}>About</Link>
                     <Link to="/where" className={styles.mobileNavLink}>Where</Link>
                     <Link to="/partnerships" className={styles.mobileNavLink}>Partnerships</Link>
+                    <Link to="/careers" className={styles.mobileNavLink}>Careers</Link>
                     <Link to="/contact" className={styles.mobileNavLink}>Contact</Link>
                     <Link to="/contact" className={styles.mobileCta}>Let's Talk</Link>
                 </nav>

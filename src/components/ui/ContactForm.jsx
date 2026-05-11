@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ContactForm.module.css';
-import { trackEvent } from '../common/GoogleAnalytics';
+import { trackEvent } from '../common/analytics';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -13,7 +13,8 @@ const ContactForm = () => {
         closestOffice: '',
         projectType: 'Commercial',
         timeline: 'ASAP',
-        message: ''
+        message: '',
+        website: ''
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -55,7 +56,8 @@ const ContactForm = () => {
                     closestOffice: '',
                     projectType: 'Commercial',
                     timeline: 'ASAP',
-                    message: ''
+                    message: '',
+                    website: ''
                 });
             } else {
                 setSubmitStatus('error');
@@ -92,6 +94,20 @@ const ContactForm = () => {
                     </div>
 
                     <form className={styles.formCol} onSubmit={handleSubmit}>
+                        {/* Honeypot — hidden from real users; bots fill it and we silently drop the submission */}
+                        <div className={styles.honeypot} aria-hidden="true">
+                            <label htmlFor="cf-website">Website (leave blank)</label>
+                            <input
+                                type="text"
+                                id="cf-website"
+                                name="website"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                value={formData.website}
+                                onChange={handleChange}
+                            />
+                        </div>
+
                         {/* Success Message */}
                         {submitStatus === 'success' && (
                             <div className={styles.successMessage}>

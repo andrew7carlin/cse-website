@@ -6,7 +6,8 @@ import ScrollToTop from './components/common/ScrollToTop';
 
 // Eagerly load Home for fast initial paint
 import Home from './pages/Home';
-import GoogleAnalytics, { trackPageView } from './components/common/GoogleAnalytics';
+import GoogleAnalytics from './components/common/GoogleAnalytics';
+import { trackPageView } from './components/common/analytics';
 import SchemaMarkup from './components/common/SchemaMarkup';
 
 // Lazy load all other pages for code splitting
@@ -17,6 +18,7 @@ const CommercialPortfolio = lazy(() => import('./pages/CommercialPortfolio'));
 const ResidentialPortfolio = lazy(() => import('./pages/ResidentialPortfolio'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Careers = lazy(() => import('./pages/Careers'));
 const Where = lazy(() => import('./pages/Where'));
 const Partnerships = lazy(() => import('./pages/Partnerships'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
@@ -84,6 +86,7 @@ function App() {
             <Route path="partnerships" element={<Partnerships />} />
             <Route path="faq" element={<FAQ />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="careers" element={<Careers />} />
             <Route path="privacy" element={<Privacy />} />
             <Route path="terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />

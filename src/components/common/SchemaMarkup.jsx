@@ -1,8 +1,7 @@
-import { Helmet } from 'react-helmet-async';
-
 /**
- * Schema.org structured data component for LocalBusiness + Organization
- * This helps search engines understand our business entity and improves rich results
+ * Schema.org JSON-LD for LocalBusiness + WebSite.
+ * Rendered as a plain <script type="application/ld+json">; React 19 hoists it
+ * into the document <head> automatically.
  */
 const SchemaMarkup = () => {
     const schema = {
@@ -38,22 +37,10 @@ const SchemaMarkup = () => {
                 "email": "info@canyonstateaz.com",
                 "priceRange": "$$-$$$",
                 "areaServed": [
-                    {
-                        "@type": "State",
-                        "name": "Arizona"
-                    },
-                    {
-                        "@type": "State",
-                        "name": "Nevada"
-                    },
-                    {
-                        "@type": "State",
-                        "name": "Utah"
-                    },
-                    {
-                        "@type": "State",
-                        "name": "New Mexico"
-                    }
+                    { "@type": "State", "name": "Arizona" },
+                    { "@type": "State", "name": "Nevada" },
+                    { "@type": "State", "name": "Utah" },
+                    { "@type": "State", "name": "New Mexico" }
                 ],
                 "serviceType": [
                     "Roofing",
@@ -68,7 +55,7 @@ const SchemaMarkup = () => {
                     "Seamless Gutters",
                     "Land Development"
                 ],
-                "foundingDate": "2005",
+                "foundingDate": "2001",
                 "numberOfEmployees": {
                     "@type": "QuantitativeValue",
                     "minValue": 50,
@@ -93,11 +80,10 @@ const SchemaMarkup = () => {
     };
 
     return (
-        <Helmet>
-            <script type="application/ld+json">
-                {JSON.stringify(schema)}
-            </script>
-        </Helmet>
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
     );
 };
 

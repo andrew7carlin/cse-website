@@ -2,7 +2,6 @@ import andersonChevrolet from '../assets/portfolio/commercial/Anderson_Chevrolet
 import aquilaPlace from '../assets/portfolio/commercial/Aquila_Place_Apache_Junction.webp';
 import arizonaFinancial from '../assets/portfolio/commercial/Arizona_Financial_Kingman_Az.webp';
 import bjBrewhouseQueenCreek from '../assets/portfolio/commercial/BJ_Brewhouse_Queen_Creek_Az.webp';
-import bjBrewhousePhoenix from '../assets/portfolio/commercial/BJ_Brewhouse_Phoenix_Az.webp';
 import freseniusMedical from '../assets/portfolio/commercial/Fresenius_Medical_Care_Kingman_Az.webp';
 import greenprintApartments from '../assets/portfolio/commercial/Greenprint_Apartments_Phoenix_AZ.webp';
 import historicalDowntownBuilding from '../assets/portfolio/commercial/Historical_Downtown_Building_Kingman_Az.webp';
@@ -11,7 +10,6 @@ import hondaDealership from '../assets/portfolio/commercial/Honda_Dealership_Kin
 import hyundaiGilbert from '../assets/portfolio/commercial/Hyundai_Gilbert_Gilbert_Az.webp';
 import jimmyJohns from '../assets/portfolio/commercial/Jimmy_Johns_Kingman_Az.webp';
 import kmrcMainCampus from '../assets/portfolio/commercial/KMRC_Medical_Center_Main_Campus_Kingman_Az.webp';
-import krmcHualapaiMountain from '../assets/portfolio/commercial/KRMC_Hualapai_Mountain_Campus_Kingman_Az.webp';
 import krmcMedicalMain from '../assets/portfolio/commercial/KRMC_Medical_Center_Main_Kingman_Az.webp';
 import laQuintaHotel from '../assets/portfolio/commercial/La_Quinta_Hotel_Kingman_Az.webp';
 import ldsChurchLitchfield from '../assets/portfolio/commercial/LDS_Church_Addition_Litchfield_Park_Az.webp';
@@ -76,20 +74,17 @@ import modelHomeKingman from '../assets/portfolio/residential/Model_Home_Kingman
 import northpointCustomHome from '../assets/portfolio/residential/Northpoint_Custom_Home.webp';
 import ranchModelKingman from '../assets/portfolio/residential/Ranch_Model_Kingman.webp';
 import townHomeBullhead from '../assets/portfolio/residential/Town_Home_Bullhead.webp';
-import canyonPalmsKingman from '../assets/portfolio/residential/Canyon_Palms_Kingman.webp';
 import centuryCompleteParhrump from '../assets/portfolio/residential/Century_Complete_Pahrump.webp';
 import northpointCommunity from '../assets/portfolio/residential/Northpoint_Community.webp';
 import aquilaPlace2 from '../assets/projects/Aquila Place_ Apache Junction_(2).webp';
 import lasVegas28th2 from '../assets/projects/28th & Sunrise_Las Vegas Nev.webp';
 import lasVegas28th3 from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
-import krmcHualapai2 from '../assets/projects/KRMC Hualapai Mountain Campus_ Kingman Az.webp';
 import krmcMedicalMain2 from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
 
 import bettysVillage1 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV.webp';
 import bettysVillageCover from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
 import bettysVillage2 from '../assets/trades/bettys-village-site.webp';
 import bettysVillage3 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_2.webp';
-import bettysVillage4 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_3.webp';
 import bettysVillage5 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_4.webp';
 import bettysVillage6 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_5.webp';
 import bettysVillage7 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV_6.webp';

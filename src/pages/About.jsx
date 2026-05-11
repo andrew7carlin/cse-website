@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Timeline from '../components/ui/Timeline';
 import LeadershipSection from '../components/ui/LeadershipSection';
 import TeamSection from '../components/ui/TeamSection';
-import { loadProjectAssets } from '../utils/assetLoader';
 import SEO from '../components/common/SEO';
 import styles from './About.module.css';
 
@@ -39,7 +38,7 @@ const About = () => {
 
     const timelineEvents = [
         {
-            year: "2005",
+            year: "2001",
             title: "Small Beginnings",
             description: "Founded in Arizona with a single roofing crew and a commitment to quality that set us apart from day one.",
             image: timeline2005
@@ -74,7 +73,7 @@ const About = () => {
         <div className="about-page">
             <SEO
                 title="About Us - Our Story, Values & Leadership"
-                description="Nearly 20 years building the Southwest. Canyon State Enterprises is a multi-trade construction powerhouse with 12+ self-performed trades, serving Arizona, Nevada, Utah, and New Mexico."
+                description="Since 2001 — 25 years building the Southwest. Canyon State Enterprises is a multi-trade construction powerhouse with 12+ self-performed trades, serving Arizona, Nevada, Utah, and New Mexico."
                 canonical="https://canyonstateaz.com/about"
             />
             {/* Full-Bleed Hero */}

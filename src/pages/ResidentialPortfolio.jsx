@@ -5,7 +5,7 @@ import { residentialProjects, RESIDENTIAL_CATEGORIES } from '../data/projects';
 import styles from '../styles/PortfolioGallery.module.css';
 
 export default function ResidentialPortfolio() {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory] = useState('all');
 
   const filtered = activeCategory === 'all'
     ? residentialProjects
