@@ -16,6 +16,7 @@ import masonryImage from '../assets/trades/fencing-hero.webp';
 import fencingImage from '../assets/trades/fencing-hero.webp';
 import guttersImage from '../assets/portfolio/residential/Laughlin_Ranch_1.webp';
 import canyonPalmsImage from '../assets/portfolio/residential/Canyon_Palms_Kingman.webp';
+import landDevImage from '../assets/trades/land-dev-hero.webp';
 
 // Data Mock - In a real app this might come from a CMS or config file
 const tradeData = {
@@ -99,7 +100,7 @@ const tradeData = {
     "land-dev": {
         title: "Land Development",
         description: "From dirt to destination. We handle site work, grading, utilities, and everything in between to get your land ready for whatever comes next.",
-        image: canyonPalmsImage,
+        image: landDevImage,
         expertise: ["Site Grading", "Excavation", "Utilities Installation", "Drainage Systems", "Pad Preparation", "Demolition", "Erosion Control", "Retaining Walls", "Rough Grading", "Site Access"],
         cta: "Prep My Site"
     },
