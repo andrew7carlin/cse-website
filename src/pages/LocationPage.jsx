@@ -35,7 +35,7 @@ const LocationPage = () => {
   return (
     <main className={styles.page}>
       <SEO
-        title={`${loc.city}, ${loc.abbrev} — ${loc.role} | Canyon State Enterprises`}
+        title={`${loc.city}, ${loc.abbrev}: ${loc.role} | Canyon State Enterprises`}
         description={loc.description}
         canonical={`https://canyonstateaz.com/locations/${loc.id}`}
       />
@@ -110,7 +110,7 @@ const LocationPage = () => {
               {/* CTA Card */}
               <div className={styles.ctaCard}>
                 <h3 className={styles.ctaTitle}>Ready to get started?</h3>
-                <p className={styles.ctaText}>Our {loc.city} team is standing by. No sales pitch — just straight answers.</p>
+                <p className={styles.ctaText}>Our {loc.city} team is standing by. No sales pitch, just straight answers.</p>
                 <Link to="/contact" className={styles.ctaBtn}>Contact This Office</Link>
                 <Link to="/where" className={styles.backLink}>← All Locations</Link>
               </div>

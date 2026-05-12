@@ -21,7 +21,7 @@ const Home = () => {
             />
             <Hero
                 headline="One Team, Multiple Trades."
-                subheadline="Your trusted construction partner across Arizona, Nevada & Utah — roofing, stucco, HVAC, and more."
+                subheadline="Your trusted construction partner across Arizona, Nevada & Utah. Roofing, stucco, HVAC, and more."
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}
                 mobileVideoUrl={LOBBY_VIDEO_MOBILE_URL}

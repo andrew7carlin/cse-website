@@ -22,7 +22,7 @@ const BENEFITS = [
     { title: 'Paid Time Off & Holidays', desc: 'Time to rest, time with family, time to take care of life outside of work.' },
     { title: 'Cross-Trade Training', desc: 'We self-perform 12 trades. Learn a second or third skill and earn more on the truck.' },
     { title: 'Steady Work, Year-Round', desc: '5 offices across 4 states means crews stay busy when one market slows down.' },
-    { title: 'Safety You Can Feel', desc: 'EMR 0.75 — top 15% nationally. We mean it when we say everyone goes home safe.' },
+    { title: 'Safety You Can Feel', desc: 'EMR 0.75, top 15% nationally. We mean it when we say everyone goes home safe.' },
     { title: 'Real Career Paths', desc: 'Apprentice → journeyman → foreman → superintendent. Office-side, the ladder is just as real.' },
 ];
 
@@ -62,7 +62,7 @@ const Careers = () => {
                     city: '',
                     state: '',
                     closestOffice: 'kingman',
-                    projectType: `Career Inquiry — ${formData.track}${formData.position ? ` (${formData.position})` : ''}`,
+                    projectType: `Career Inquiry: ${formData.track}${formData.position ? ` (${formData.position})` : ''}`,
                     timeline: 'N/A',
                     message: formData.message || 'Interested in joining the team.',
                     website: formData.website,
@@ -103,7 +103,7 @@ const Careers = () => {
                         <em>Not a punch list.</em>
                     </h1>
                     <p className={styles.heroSub}>
-                        We run 12 self-performed trades across the Southwest — roofing torches to roof
+                        We run 12 self-performed trades across the Southwest. Roofing torches to roof
                         decks, project schedules to job sites. If you want to do good work for people
                         who care about doing it right, we want to hear from you.
                     </p>
@@ -119,7 +119,7 @@ const Careers = () => {
                 <div className={styles.statsGrid}>
                     <div>
                         <div className={styles.statValue}>0.75</div>
-                        <div className={styles.statLabel}>EMR — Top 15% Nationally</div>
+                        <div className={styles.statLabel}>EMR · Top 15% Nationally</div>
                     </div>
                     <div>
                         <div className={styles.statValue}>12</div>
@@ -153,7 +153,7 @@ const Careers = () => {
                             <span className={styles.pathBadge}>Field &amp; Trades</span>
                             <h3 className={styles.pathTitle}>If you can build it, we've got the work.</h3>
                             <p className={styles.pathBlurb}>
-                                We hire across all 12 trades — apprentices to journeymen to foremen.
+                                We hire across all 12 trades, from apprentices to journeymen to foremen.
                                 Want to learn a second trade? We pay you to. Our crews don't ride pine
                                 between projects.
                             </p>
@@ -230,7 +230,7 @@ const Careers = () => {
 
                         {submitStatus === 'success' && (
                             <div className={styles.successMessage}>
-                                Thanks — we got it. Someone will be in touch soon.
+                                Thanks. We got it. Someone will be in touch soon.
                             </div>
                         )}
                         {submitStatus === 'error' && (
@@ -301,7 +301,7 @@ const Careers = () => {
 
                         <div className={styles.resumeNote}>
                             <strong>Have a resume?</strong> Email it to{' '}
-                            <a href="mailto:office@canyonstateaz.com?subject=Career%20Inquiry%20—%20Resume">
+                            <a href="mailto:office@canyonstateaz.com?subject=Career%20Inquiry%3A%20Resume">
                                 office@canyonstateaz.com
                             </a>{' '}
                             with your name and the position you're interested in in the subject line.

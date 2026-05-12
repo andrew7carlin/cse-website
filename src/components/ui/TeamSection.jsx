@@ -24,21 +24,21 @@ import tylerLogas from '../../assets/team/Tyler-Logas.webp';
 const team = [
     // Supervisors & Project Managers
     { name: 'Keith Rainey', title: 'Roofing Operations Manager', photo: keithRainey },
-    { name: 'Aaron Puskarov', title: 'Project Manager – HVAC', photo: aaronPuskarov },
-    { name: 'Grant Gollis', title: 'Project Supervisor – Roofing', photo: grantGollis },
-    { name: 'Tyler Logas', title: 'Project Supervisor – Roofing', photo: tylerLogas },
-    { name: 'Jay Gilbertson', title: 'Roofing Supervisor – Lake Havasu', photo: jayGilbertson },
-    { name: 'Andy Joseph', title: 'Project Supervisor – Remodeling', photo: andyJoseph },
+    { name: 'Aaron Puskarov', title: 'Project Manager, HVAC', photo: aaronPuskarov },
+    { name: 'Grant Gollis', title: 'Project Supervisor, Roofing', photo: grantGollis },
+    { name: 'Tyler Logas', title: 'Project Supervisor, Roofing', photo: tylerLogas },
+    { name: 'Jay Gilbertson', title: 'Roofing Supervisor, Lake Havasu', photo: jayGilbertson },
+    { name: 'Andy Joseph', title: 'Project Supervisor, Remodeling', photo: andyJoseph },
     { name: 'Fabian Arvizo', title: 'Project Supervisor', photo: fabianArvizo },
-    { name: 'Patrick Blake', title: 'Project Supervisor – Phoenix', photo: patrickBlake },
+    { name: 'Patrick Blake', title: 'Project Supervisor, Phoenix', photo: patrickBlake },
 
     // Stucco Supervisors
-    { name: 'Don O\'Banion', title: 'Stucco Supervisor – Kingman', photo: donObanion },
-    { name: 'Ramon Gallegos', title: 'Stucco Supervisor – Bullhead City', photo: ramonGallegos },
+    { name: 'Don O\'Banion', title: 'Stucco Supervisor, Kingman', photo: donObanion },
+    { name: 'Ramon Gallegos', title: 'Stucco Supervisor, Bullhead City', photo: ramonGallegos },
 
     // Specialty Supervisors
     { name: 'Carlos Ruiz', title: 'Scaffold Supervisor', photo: carlosRuiz },
-    { name: 'Orin Cunningham', title: 'Manager – Specialties', photo: orinCunningham },
+    { name: 'Orin Cunningham', title: 'Manager, Specialties', photo: orinCunningham },
     { name: 'Leon Mitchell', title: 'Mechanic Shop Manager', photo: leonMitchell },
     { name: 'Cooper Kay', title: 'Logistics Manager', photo: cooperKay },
 

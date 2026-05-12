@@ -15,7 +15,7 @@ export default function ResidentialPortfolio() {
     <>
       <SEO
         title="Residential Projects | Canyon State Enterprises"
-        description="View Canyon State Enterprises' residential construction projects — custom homes, roofing, stucco, and full-service builds across Arizona and the Southwest."
+        description="View Canyon State Enterprises' residential construction projects: custom homes, roofing, stucco, and full-service builds across Arizona and the Southwest."
         canonical="https://canyonstateaz.com/portfolio/residential"
       />
       <div className={styles.container}>

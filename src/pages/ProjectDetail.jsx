@@ -30,7 +30,7 @@ export default function ProjectDetail() {
     <div style={{ background: '#000', minHeight: '100vh' }}>
       <SEO
         title={`${project.title} | Canyon State Enterprises`}
-        description={`${project.title} — a Canyon State Enterprises ${project.trade ? project.trade + ' ' : ''}project in ${project.location}. View project photos and details.`}
+        description={`${project.title}, a Canyon State Enterprises ${project.trade ? project.trade + ' ' : ''}project in ${project.location}. View project photos and details.`}
         canonical={`https://canyonstateaz.com/portfolio/${project.id}`}
       />
 

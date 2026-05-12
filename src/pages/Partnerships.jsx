@@ -144,7 +144,7 @@ const Partnerships = () => {
         <main className={styles.page}>
             <SEO
                 title="Partnerships - Trusted By Industry Leaders"
-                description="Canyon State Enterprises partners with top manufacturers and clients including EOS Fitness, Salad and Go, Home Depot, Carlisle, GAF, and more. No fluff, no BS—just solid partnerships built on trust."
+                description="Canyon State Enterprises partners with top manufacturers and clients including EOS Fitness, Salad and Go, Home Depot, Carlisle, GAF, and more. No fluff, no BS. Just solid partnerships built on trust."
                 canonical="https://canyonstateaz.com/partnerships"
             />
             {/* Main Content Section */}
@@ -158,10 +158,10 @@ const Partnerships = () => {
 
                             <div className={styles.description}>
                                 <p>
-                                    Here's the thing—we can't do amazing work alone. The best projects happen when we team up with people who care as much about quality as we do.
+                                    Here's the thing. We can't do amazing work alone. The best projects happen when we team up with people who care as much about quality as we do.
                                 </p>
                                 <p>
-                                    Whether you're a manufacturer, supplier, or contractor, we believe in keeping it real. That means honest conversations, mutual respect, and actually following through on what we say we'll do. No fluff, no BS—just solid partnerships built on trust.
+                                    Whether you're a manufacturer, supplier, or contractor, we believe in keeping it real. That means honest conversations, mutual respect, and actually following through on what we say we'll do. No fluff, no BS. Just solid partnerships built on trust.
                                 </p>
                                 <p>
                                     Want to work together? Let's talk. We're always looking to connect with folks who take pride in their craft and aren't afraid to roll up their sleeves.

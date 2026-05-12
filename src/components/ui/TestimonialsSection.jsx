@@ -3,7 +3,7 @@ import styles from './TestimonialsSection.module.css';
 
 const testimonials = [
   {
-    quote: "Ashley handled every detail for Canyon State every step of the way. Three homes being built at the same time — she stayed in constant communication on scheduling, styles, colors. Her approach was as if it were her own home being built. If we ever build again, won't consider anyone else.",
+    quote: "Ashley handled every detail for Canyon State every step of the way. Three homes being built at the same time, and she stayed in constant communication on scheduling, styles, colors. Her approach was as if it were her own home being built. If we ever build again, won't consider anyone else.",
     author: "Verified Client",
     project: "Multi-Home New Construction",
     stars: 5
@@ -15,7 +15,7 @@ const testimonials = [
     stars: 5
   },
   {
-    quote: "Canyon State responded incredibly fast when I discovered a leak during a rainstorm — they had someone at my home the very next day, even though they were clearly busy. That kind of responsiveness is rare and really speaks to how much they care.",
+    quote: "Canyon State responded incredibly fast when I discovered a leak during a rainstorm. They had someone at my home the very next day, even though they were clearly busy. That kind of responsiveness is rare and really speaks to how much they care.",
     author: "Verified Google Review",
     project: "Emergency Roof Repair",
     stars: 5

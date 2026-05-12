@@ -21,70 +21,70 @@ import canyonPalmsImage from '../assets/portfolio/residential/Canyon_Palms_Kingm
 const tradeData = {
     roofing: {
         title: "Roofing",
-        description: "We've been putting roofs over people's heads for years—tile, single-ply, foam, metal, you name it. Whether you need a brand new roof, a repair, or just someone to take a look and tell it to you straight, we've got you covered.",
+        description: "We've been putting roofs over people's heads for years. Tile, single-ply, foam, metal, you name it. Whether you need a brand new roof, a repair, or just someone to take a look and tell it to you straight, we've got you covered.",
         image: roofingImage,
         expertise: ["Tile Roofing", "Single-Ply Systems", "Foam Roofing", "Metal Roofing", "Shingle Systems", "New Construction", "Re-roofing", "Repairs & Maintenance", "Roof Coatings", "Inspections & Assessments"],
         cta: "Let's Talk About Your Roof"
     },
     stucco: {
         title: "Stucco & EIFS",
-        description: "Roofing built our foundation. Stucco built our reputation. Canyon State brought the same relentless standards to stucco that made us one of the most trusted roofing crews in the Southwest — and the results speak for themselves. From traditional 3-coat systems to modern EIFS, we finish at volume without sacrificing the craft. We also specialize in custom texture and finish work that most crews won't attempt — if you can imagine it, we can put it on a wall.",
+        description: "Roofing built our foundation. Stucco built our reputation. Canyon State brought the same relentless standards to stucco that made us one of the most trusted roofing crews in the Southwest, and the results speak for themselves. From traditional 3-coat systems to modern EIFS, we finish at volume without sacrificing the craft. We also specialize in custom texture and finish work that most crews won't attempt. If you can imagine it, we can put it on a wall.",
         image: stuccoImage,
         expertise: ["Traditional 3-Coat Stucco", "EIFS Systems", "Synthetic Stucco", "Lath & Plaster", "Texture Matching", "Repair & Patching", "Color Matching", "Waterproofing"],
         cta: "Let's Get Plastered"
     },
     "general-contracting": {
         title: "General Contracting",
-        description: "From concept to completion, we manage every phase of construction with precision and accountability. Our experienced team coordinates trades, schedules, and subcontractors so your project runs on time and on budget—no surprises.",
+        description: "From concept to completion, we manage every phase of construction with precision and accountability. Our experienced team coordinates trades, schedules, and subcontractors so your project runs on time and on budget. No surprises.",
         image: canyonPalmsImage,
         expertise: ["Pre-Construction Planning", "Project Management", "Trade Coordination", "Budget Management", "Scheduling", "Quality Control", "Subcontractor Management", "Owner Representation", "Value Engineering", "Project Closeout"],
         cta: "Let's Build Together"
     },
     hvac: {
         title: "HVAC",
-        description: "Nobody thinks about their HVAC until it stops working. We keep the air moving, the temps right, and your energy bills from getting out of hand. Installs, repairs, maintenance—we do it all.",
+        description: "Nobody thinks about their HVAC until it stops working. We keep the air moving, the temps right, and your energy bills from getting out of hand. Installs, repairs, maintenance. We do it all.",
         image: hvacImage,
         expertise: ["AC Installation", "Heating Systems", "Ductwork", "Preventive Maintenance", "Energy Audits", "Zone Control", "Commercial HVAC", "Emergency Repairs", "Smart Thermostats", "Indoor Air Quality"],
         cta: "Fix My Climate"
     },
     plumbing: {
         title: "Plumbing",
-        description: "From rough-in to finish work, we handle plumbing the way it should be done—code compliant, leak-free, and built to last. No shortcuts, no surprises.",
+        description: "From rough-in to finish work, we handle plumbing the way it should be done. Code compliant, leak-free, and built to last. No shortcuts, no surprises.",
         image: plumbingImage,
         expertise: ["Rough-In Plumbing", "Fixture Installation", "Water Lines", "Drain & Sewer", "Gas Lines", "Backflow Prevention", "Repiping", "Commercial Plumbing", "Leak Detection", "Emergency Service"],
         cta: "Stop the Leaks"
     },
     "res-const": {
         title: "Residential Construction",
-        description: "Custom homes, renovations, additions—we build where you live. Whether it's ground-up or a major remodel, we bring the same detail and accountability to every residential project.",
+        description: "Custom homes, renovations, additions. We build where you live. Whether it's ground-up or a major remodel, we bring the same detail and accountability to every residential project.",
         image: resConstImage,
         expertise: ["Custom Homes", "Home Additions", "Renovations", "Kitchen & Bath Remodels", "Multi-Family Units", "ADUs", "Luxury Homes", "Design-Build", "Finish Carpentry", "Green Building"],
         cta: "Build My Dream"
     },
     "com-const": {
         title: "Commercial Construction",
-        description: "Retail, hospitality, industrial—we build commercial spaces that work. Fast timelines, tight budgets, zero drama. That's the Canyon State difference.",
+        description: "Retail, hospitality, industrial. We build commercial spaces that work. Fast timelines, tight budgets, zero drama. That's the Canyon State difference.",
         image: comConstImage,
         expertise: ["Tenant Improvements", "Ground-Up Construction", "Retail Build-Outs", "Office Spaces", "Hospitality Projects", "Industrial Facilities", "Design-Build", "Fast-Track Delivery", "Value Engineering", "Post-Occupancy Support"],
         cta: "Go Big"
     },
     metals: {
         title: "Specialty Metals",
-        description: "Panel systems, standing seam, coping—we fabricate and install architectural aluminum that looks sharp and lasts. Custom work is our specialty.",
+        description: "Panel systems, standing seam, coping. We fabricate and install architectural aluminum that looks sharp and lasts. Custom work is our specialty.",
         image: metalsImage,
         expertise: ["Standing Seam Panels", "Aluminum Coping", "Panel Systems", "Custom Fabrication", "Fascia & Trim", "Sunshades", "Canopy Systems", "Architectural Metals", "Color Matching", "Commercial Applications"],
         cta: "Work with Aluminum"
     },
     masonry: {
         title: "Masonry",
-        description: "Brick, block, stone—masonry is as much art as it is trade. We lay every unit with precision and pride, building structures that stand the test of time.",
+        description: "Brick, block, stone. Masonry is as much art as it is trade. We lay every unit with precision and pride, building structures that stand the test of time.",
         image: masonryImage,
         expertise: ["Brick Laying", "Block Construction", "Stone Veneer", "Retaining Walls", "CMU Walls", "Pavers & Hardscaping", "Fireplaces", "Restoration", "Tuckpointing", "Decorative Block"],
         cta: "Lay Some Brick"
     },
     fencing: {
         title: "Fencing",
-        description: "Good fences make good neighbors—and we make good fences. Commercial perimeter, residential privacy, or decorative work, we do it clean and we do it fast.",
+        description: "Good fences make good neighbors, and we make good fences. Commercial perimeter, residential privacy, or decorative work, we do it clean and we do it fast.",
         image: fencingImage,
         expertise: ["Chain Link", "Wrought Iron", "Wood Fencing", "Vinyl Fencing", "Privacy Fencing", "Decorative Fencing", "Gates & Operators", "Security Fencing", "Pool Fencing", "Commercial Perimeter"],
         cta: "Fence It In"
@@ -106,7 +106,7 @@ const tradeData = {
     // Default fallback for others
     default: {
         title: "Specialized Construction Service",
-        description: "Whatever you need built, fixed, or maintained—we've probably done it before. Let's talk about your project.",
+        description: "Whatever you need built, fixed, or maintained, we've probably done it before. Let's talk about your project.",
         image: roofingImage,
         expertise: ["Commercial Projects", "Residential Work", "Industrial Construction"],
         cta: "Start a Conversation"
@@ -200,7 +200,7 @@ const TradeDetail = () => {
                     <div className={styles.sidebar}>
                         <div className={styles.ctaCard}>
                             <h3>Ready to Get Started?</h3>
-                            <p>Let's talk about what you need. No sales pitch—just honest advice.</p>
+                            <p>Let's talk about what you need. No sales pitch, just honest advice.</p>
                             <Link to="/contact" className={styles.btn}>{data.cta}</Link>
                         </div>
                     </div>

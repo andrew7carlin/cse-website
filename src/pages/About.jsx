@@ -20,7 +20,7 @@ const About = () => {
     const values = [
         {
             title: "One Team",
-            description: "By self-performing our trades, we control the schedule, quality, and safety of every project. No finger-pointing—just results."
+            description: "By self-performing our trades, we control the schedule, quality, and safety of every project. No finger-pointing, just results."
         },
         {
             title: "Integrity First",
@@ -28,7 +28,7 @@ const About = () => {
         },
         {
             title: "Safety Always",
-            description: "Everyone goes home safe. Our commitment to safety isn't a checkbox—it's woven into everything we do."
+            description: "Everyone goes home safe. Our commitment to safety isn't a checkbox. It's woven into everything we do."
         },
         {
             title: "Quality Obsessed",
@@ -73,7 +73,7 @@ const About = () => {
         <div className="about-page">
             <SEO
                 title="About Us - Our Story, Values & Leadership"
-                description="Since 2001 — 25 years building the Southwest. Canyon State Enterprises is a multi-trade construction powerhouse with 12+ self-performed trades, serving Arizona, Nevada, Utah, and New Mexico."
+                description="Since 2001. 25 years building the Southwest. Canyon State Enterprises is a multi-trade construction powerhouse with 12+ self-performed trades, serving Arizona, Nevada, Utah, and New Mexico."
                 canonical="https://canyonstateaz.com/about"
             />
             {/* Full-Bleed Hero */}
@@ -102,7 +102,7 @@ const About = () => {
                             <p>
                                 We believe in the power of "One Team." By self-performing many of our trades, we control the schedule,
                                 the quality, and the safety of every project. When you work with Canyon State, you're not hiring a
-                                general contractor who subs everything out—you're partnering with craftsmen who take personal pride in their work.
+                                general contractor who subs everything out. You're partnering with craftsmen who take personal pride in their work.
                             </p>
                             <p>
                                 From roofing to stucco, HVAC to full construction services, our integrated approach means fewer delays,
@@ -118,7 +118,7 @@ const About = () => {
                 <div className="container">
                     <div className={styles.valuesHeader}>
                         <h2>What We Stand For</h2>
-                        <p>Our values aren't wall decorations—they're how we make decisions every day.</p>
+                        <p>Our values aren't wall decorations. They're how we make decisions every day.</p>
                     </div>
                     <div className={styles.valuesGrid}>
                         {values.map((value, index) => (

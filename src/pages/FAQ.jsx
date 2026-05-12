@@ -11,11 +11,11 @@ const categories = [
         questions: [
             {
                 q: 'What types of projects does Canyon State Enterprises handle?',
-                a: 'We handle commercial, industrial, and high-end residential construction. Our portfolio spans retail buildouts, tenant improvements, ground-up commercial construction, HOA neighborhoods, custom homes, and large-scale industrial facilities — all self-performed across 12+ trades.',
+                a: 'We handle commercial, industrial, and high-end residential construction. Our portfolio spans retail buildouts, tenant improvements, ground-up commercial construction, HOA neighborhoods, custom homes, and large-scale industrial facilities, all self-performed across 12+ trades.',
             },
             {
                 q: 'How long has Canyon State Enterprises been in business?',
-                a: 'Canyon State Enterprises has been in business since 2001 — over 25 years building across the Southwest. We\'ve built a strong reputation with general contractors, property managers, and developers across Arizona, Nevada, and Utah.',
+                a: 'Canyon State Enterprises has been in business since 2001. Over 25 years building across the Southwest. We\'ve built a strong reputation with general contractors, property managers, and developers across Arizona, Nevada, and Utah.',
             },
             {
                 q: 'Are you licensed and insured?',
@@ -36,7 +36,7 @@ const categories = [
             },
             {
                 q: 'Do you offer design-build services?',
-                a: 'Yes. We offer full design-build and construction management services. Our pre-construction team works with you from concept through permitting, budgeting, and sequencing — ensuring no surprises at groundbreaking.',
+                a: 'Yes. We offer full design-build and construction management services. Our pre-construction team works with you from concept through permitting, budgeting, and sequencing, ensuring no surprises at groundbreaking.',
             },
             {
                 q: 'Can you handle roof repairs as well as full reroof projects?',
@@ -61,7 +61,7 @@ const categories = [
             },
             {
                 q: 'Can you travel for larger projects outside your primary region?',
-                a: 'For larger projects or long-term clients, we frequently travel outside our primary service area. Call us to discuss your project — scope, timeline, and logistics all factor into our ability to commit.',
+                a: 'For larger projects or long-term clients, we frequently travel outside our primary service area. Call us to discuss your project. Scope, timeline, and logistics all factor into our ability to commit.',
             },
         ],
     },
@@ -70,7 +70,7 @@ const categories = [
         questions: [
             {
                 q: 'How do I request a quote?',
-                a: 'The fastest way is to fill out our Contact form with as much detail as possible (location, scope, timeline, project type). Our estimating department typically responds within 1–2 business days.',
+                a: 'The fastest way is to fill out our Contact form with as much detail as possible (location, scope, timeline, project type). Our estimating department typically responds within 1 to 2 business days.',
             },
             {
                 q: 'What information should I have ready when requesting a bid?',
@@ -78,7 +78,7 @@ const categories = [
             },
             {
                 q: 'What is your typical project timeline from quote to start?',
-                a: 'It varies by scope. Small maintenance jobs can often start within days of acceptance. Large commercial projects go through budgeting, permitting, and scheduling — often 4–12 weeks from signed contract to mobilization.',
+                a: 'It varies by scope. Small maintenance jobs can often start within days of acceptance. Large commercial projects go through budgeting, permitting, and scheduling, often 4 to 12 weeks from signed contract to mobilization.',
             },
             {
                 q: 'Do you offer emergency or urgent response services?',
@@ -130,8 +130,8 @@ const FAQ = () => {
     return (
         <div className={styles.page}>
             <SEO
-                title="FAQ – Frequently Asked Questions"
-                description="Get answers to common questions about Canyon State Enterprises — services, licensing, service areas, how to get a quote, and what to expect when working with us."
+                title="FAQ: Frequently Asked Questions"
+                description="Get answers to common questions about Canyon State Enterprises: services, licensing, service areas, how to get a quote, and what to expect when working with us."
                 canonical="https://canyonstateaz.com/faq"
             />
 
@@ -201,7 +201,7 @@ const FAQ = () => {
                     <div className={styles.cta}>
                         <div className={styles.ctaContent}>
                             <h3>Still have questions?</h3>
-                            <p>Our team is available Monday–Friday, 7 AM–5 PM Arizona time.</p>
+                            <p>Our team is available Monday through Friday, 7 AM to 5 PM Arizona time.</p>
                         </div>
                         <div className={styles.ctaActions}>
                             <a href="/contact" className={styles.ctaBtn}>Request a Quote</a>

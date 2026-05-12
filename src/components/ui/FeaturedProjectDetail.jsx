@@ -32,7 +32,7 @@ export default function FeaturedProjectDetail({ project }) {
         title={`${project.title} | Canyon State Enterprises`}
         description={project.blurb
           ? project.blurb.split('\n\n')[0]
-          : `${project.title} — a Canyon State Enterprises ${project.trade} project in ${project.location}.`}
+          : `${project.title}, a Canyon State Enterprises ${project.trade} project in ${project.location}.`}
         canonical={`https://canyonstateaz.com/portfolio/${project.id}`}
       />
 

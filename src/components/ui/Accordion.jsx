@@ -8,7 +8,7 @@ import sideImage from '../../assets/portfolio/commercial/Hualapai_Mountain_Campu
 const items = [
     { id: 1, title: 'Who We Serve', content: 'Commercial, industrial, and high-end residential. We bring institutional rigor to every project, regardless of scale.' },
     { id: 2, title: 'Smart Planning', content: 'No surprises. We map out the budget, schedule, and logistics before a single shovel hits the dirt.' },
-    { id: 3, title: 'Self-Performed Power', content: 'We aren\'t just paper contractors. We self-perform 12+ trades, giving us—and you—total control over quality and timelines.' },
+    { id: 3, title: 'Self-Performed Power', content: 'We aren\'t just paper contractors. We self-perform 12+ trades, giving us (and you) total control over quality and timelines.' },
     { id: 4, title: 'Modern Process', content: 'Old school work ethic met with modern efficiency. We use the best tools to keep projects moving and owners informed.' },
     { id: 5, title: 'Uncompromised Safety', content: 'Our safety record isn\'t just a stat; it\'s a promise. We protect our people and your liability with relentless standards.' },
     { id: 6, title: 'Built to Last', content: 'We build for the long haul. Quality materials and expert craftsmanship mean structures that stand the test of time.' },

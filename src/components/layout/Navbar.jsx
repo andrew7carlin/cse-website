@@ -108,14 +108,14 @@ const Navbar = () => {
                         <div className={styles.dropdown}>
                             <div className={styles.dropdownHeader}>Coverage Areas</div>
                             <div className={styles.dropdownGrid}>
-                                <Link to="/where#arizona" className={styles.dropdownLink}><span className={styles.dropdownDot} />Arizona — Full Coverage</Link>
-                                <Link to="/where#nevada" className={styles.dropdownLink}><span className={styles.dropdownDot} />Nevada — Full Coverage</Link>
-                                <Link to="/where#utah" className={styles.dropdownLink}><span className={styles.dropdownDot} />Utah — Active Projects</Link>
-                                <Link to="/where#colorado" className={styles.dropdownLink}><span className={styles.dropdownDot} />Colorado — Expanding</Link>
+                                <Link to="/where#arizona" className={styles.dropdownLink}><span className={styles.dropdownDot} />Arizona (Full Coverage)</Link>
+                                <Link to="/where#nevada" className={styles.dropdownLink}><span className={styles.dropdownDot} />Nevada (Full Coverage)</Link>
+                                <Link to="/where#utah" className={styles.dropdownLink}><span className={styles.dropdownDot} />Utah (Active Projects)</Link>
+                                <Link to="/where#colorado" className={styles.dropdownLink}><span className={styles.dropdownDot} />Colorado (Expanding)</Link>
                             </div>
                             <div className={styles.dropdownHeader} style={{ marginTop: '0.75rem' }}>Our Offices</div>
                             <div className={styles.dropdownGrid}>
-                                <Link to="/locations/kingman-az" className={styles.dropdownLink}><span className={styles.dropdownDot} />Kingman, AZ — HQ</Link>
+                                <Link to="/locations/kingman-az" className={styles.dropdownLink}><span className={styles.dropdownDot} />Kingman, AZ (HQ)</Link>
                                 <Link to="/locations/phoenix-az" className={styles.dropdownLink}><span className={styles.dropdownDot} />Phoenix, AZ</Link>
                                 <Link to="/locations/bullhead-city-az" className={styles.dropdownLink}><span className={styles.dropdownDot} />Bullhead City, AZ</Link>
                                 <Link to="/locations/las-vegas-nv" className={styles.dropdownLink}><span className={styles.dropdownDot} />Las Vegas, NV</Link>

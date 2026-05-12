@@ -4,7 +4,7 @@ const STATS = [
     { value: '2001', label: 'Founded · 25 Years in Business' },
     { value: '50,000+', label: 'Projects Completed' },
     { value: '12', label: 'Self-Performed Trades' },
-    { value: '32', label: 'Cities Served · 4 States' },
+    { value: '32', label: 'Cities Served in 4 States' },
     { value: '0.75', label: 'EMR · Top 15% Nationally' },
 ];
 

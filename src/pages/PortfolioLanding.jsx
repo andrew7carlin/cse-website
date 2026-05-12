@@ -11,7 +11,7 @@ const PortfolioLanding = () => {
         <>
             <SEO
                 title="Project Portfolio | Canyon State Enterprises"
-                description="Browse Canyon State Enterprises' commercial and residential construction portfolio — roofing, stucco, HVAC, and multi-trade projects across Arizona, Nevada, and Utah."
+                description="Browse Canyon State Enterprises' commercial and residential construction portfolio. Roofing, stucco, HVAC, and multi-trade projects across Arizona, Nevada, and Utah."
                 canonical="https://canyonstateaz.com/portfolio"
             />
             <div className={styles.container}>
