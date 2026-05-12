@@ -9,6 +9,15 @@
 [functions]
   directory = "netlify/functions"
 
+# 301-redirect the Netlify-assigned hostname to the canonical custom domain.
+# Must appear BEFORE the SPA fallback below (Netlify takes the first match).
+# `force = true` is required so the redirect fires even when matching content exists.
+[[redirects]]
+  from = "https://canyonstate.netlify.app/*"
+  to = "https://canyonstateaz.com/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
