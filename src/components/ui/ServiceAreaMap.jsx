@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
+// `motion` is used as a JSX namespace (<motion.g />, <motion.circle />, <motion.div />).
+// ESLint's no-unused-vars rule doesn't connect those JSX uses back to the named import,
+// so it gets falsely flagged as unused — do NOT remove it.
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ServiceAreaMap.module.css';
 import usStates from '../../assets/maps/us-states-10m.json';
