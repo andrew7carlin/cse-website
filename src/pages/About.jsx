@@ -39,33 +39,58 @@ const About = () => {
     const timelineEvents = [
         {
             year: "2001",
-            title: "Small Beginnings",
-            description: "Founded in Arizona with a single roofing crew and a commitment to quality that set us apart from day one.",
+            title: "Canyon State Formed",
+            description: "Founded in Kingman with a single roofing crew and a commitment to quality.",
             image: timeline2005
         },
         {
-            year: "2010",
-            title: "Expanding Trades",
-            description: "Added stucco and HVAC divisions, establishing our multi-trade approach that gives clients a single point of accountability.",
+            year: "2006",
+            title: "Stucco & Stone Veneer Added",
+            description: "Added stucco and stone veneer scopes to the trade lineup.",
             image: timeline2010
         },
         {
-            year: "2015",
-            title: "Regional Growth",
-            description: "Expanded operations across Nevada and the broader Southwest region, completing landmark commercial projects.",
+            year: "2016",
+            title: "HVAC Scope Added",
+            description: "Launched HVAC, expanding into mechanical trades."
+        },
+        {
+            year: "2017",
+            title: "A-2-Z Roofing Acquired",
+            description: "Purchased A-2-Z Roofing Inc., adding capacity and market reach.",
             image: timeline2015
         },
         {
-            year: "2019",
-            title: "Going Vertical",
-            description: "Launched full construction services, becoming a true general contractor while maintaining our trade expertise.",
+            year: "2020",
+            title: "Merger & Kingman Expansion",
+            description: "Canyon State and A-2-Z merge. First Kingman office expansion to accommodate growth."
+        },
+        {
+            year: "2022",
+            title: "Pro Tech Roofing & 66 Auto Sales",
+            description: "Acquired Pro Tech Roofing and 66 Auto Sales.",
             image: timeline2019
         },
         {
-            year: "2024",
-            title: "West Coast Reach",
-            description: "Building the future of the west coast with offices in multiple states and a portfolio spanning commercial, residential, and industrial sectors.",
+            year: "2023",
+            title: "Craftwork Fence & Freedom Auto Sales",
+            description: "Acquired Craftwork Fence and Freedom Auto Sales."
+        },
+        {
+            year: "2023",
+            title: "Phoenix Branch Opens",
+            description: "Opened the Phoenix branch.",
             image: timeline2024
+        },
+        {
+            year: "2024",
+            title: "Las Vegas Branch Opens",
+            description: "Opened the Las Vegas branch, Canyon State's first Nevada office."
+        },
+        {
+            year: "2025",
+            title: "Gonzalez Merger, Plumbing & Expansion",
+            description: "Merged stucco operations with Gonzalez Wall Systems. Second Kingman office expansion. Acquired Kingman Quality Plumbing."
         }
     ];
 

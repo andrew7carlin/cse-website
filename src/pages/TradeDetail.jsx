@@ -11,7 +11,7 @@ import hvacImage from '../assets/trades/hvac-hero.webp';
 import plumbingImage from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
 import resConstImage from '../assets/trades/custom-home-scottsdale-az.webp';
 import comConstImage from '../assets/projects/BJ Brewhouse_  Queen Creek Az.webp';
-import metalsImage from '../assets/projects/Historical Downtown Building_  Kingman Az.webp';
+import metalsImage from '../assets/trades/metals-hero.webp';
 import masonryImage from '../assets/trades/fencing-hero.webp';
 import fencingImage from '../assets/trades/fencing-hero.webp';
 import guttersImage from '../assets/portfolio/residential/Laughlin_Ranch_1.webp';
