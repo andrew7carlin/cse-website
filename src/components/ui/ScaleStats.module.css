@@ -49,7 +49,8 @@
     font-size: clamp(1.875rem, 4vw, 2.75rem);
     font-weight: 800;
     letter-spacing: -0.02em;
-    color: var(--color-copper);
+    /* tan (not copper) on dark brown so contrast clears AA at 9:1; copper here was 2.98:1 */
+    color: var(--color-tan);
     line-height: 1;
     margin: 0 0 0.5rem;
     font-variant-numeric: tabular-nums;

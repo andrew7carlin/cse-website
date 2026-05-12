@@ -114,7 +114,8 @@
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     letter-spacing: -0.02em;
-    color: var(--color-copper);
+    /* tan (not copper) on dark brown for AA contrast (copper was 2.98:1, below the 3:1 threshold for large text) */
+    color: var(--color-tan);
     line-height: 1;
     margin: 0 0 0.4rem;
 }

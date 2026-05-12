@@ -88,7 +88,8 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #666;
+    /* lifted from #666 (3.0:1 on dark footer, fails AA) to #a8a8a8 (~6.5:1, passes AA) */
+    color: #a8a8a8;
     font-weight: 600;
 }
 
