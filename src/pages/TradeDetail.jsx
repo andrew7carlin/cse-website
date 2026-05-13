@@ -14,7 +14,7 @@ import comConstImage from '../assets/projects/BJ Brewhouse_  Queen Creek Az.webp
 import metalsImage from '../assets/trades/metals-hero.webp';
 import masonryImage from '../assets/trades/fencing-hero.webp';
 import fencingImage from '../assets/trades/fencing-hero.webp';
-import guttersImage from '../assets/portfolio/residential/Laughlin_Ranch_1.webp';
+import guttersImage from '../assets/trades/gutters-hero.webp';
 import landDevImage from '../assets/trades/land-dev-hero.webp';
 import generalContractingImage from '../assets/trades/general-contracting-hero.webp';
 
