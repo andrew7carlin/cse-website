@@ -36,14 +36,16 @@ export default function ResidentialPortfolio() {
         */}
 
         <div className={styles.grid}>
-          {filtered.map(project => (
+          {filtered.map((project, idx) => (
             <Link key={project.id} to={`/portfolio/${project.id}`} className={styles.card}>
               <div className={styles.cardImageWrap}>
                 <img
                   src={project.src}
-                  alt={`${project.name} — ${project.location}`}
+                  alt={`${project.name}, ${project.location}`}
                   className={styles.cardImage}
-                  loading="lazy"
+                  // First card is the LCP candidate; load eagerly with high priority
+                  loading={idx === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={idx === 0 ? 'high' : 'auto'}
                   width="1024"
                   height="576"
                 />

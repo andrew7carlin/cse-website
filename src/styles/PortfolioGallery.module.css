@@ -103,7 +103,8 @@
 
 .cardLocation {
   font-size: 0.8125rem;
-  color: var(--color-text-muted, #6b7280);
+  /* lift from --color-text-muted (#666, fails AA on #0d0d0d card bg) */
+  color: #a8a8a8;
   margin: 0;
   font-weight: 400;
 }
@@ -208,7 +209,8 @@
 
 .featuredTrade {
   font-size: 0.75rem;
-  color: var(--color-text-muted, #6b7280);
+  /* lift from --color-text-muted (#666, fails AA on #0d0d0d card bg) */
+  color: #a8a8a8;
   margin: 0.25rem 0 0;
   text-transform: uppercase;
   letter-spacing: 0.06em;

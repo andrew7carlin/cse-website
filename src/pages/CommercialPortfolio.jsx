@@ -41,7 +41,7 @@ export default function CommercialPortfolio() {
           <section className={styles.featuredSection}>
             <h2 className={styles.featuredHeading}>Featured Projects</h2>
             <div className={styles.featuredGrid}>
-              {featuredProjects.map(project => (
+              {featuredProjects.map((project, idx) => (
                 <Link
                   key={project.id}
                   to={`/portfolio/${project.id}`}
@@ -51,9 +51,12 @@ export default function CommercialPortfolio() {
                     <span className={styles.featuredBadge}>Featured</span>
                     <img
                       src={project.src}
-                      alt={`${project.name} — ${project.location}`}
+                      alt={`${project.name}, ${project.location}`}
                       className={styles.cardImage}
-                      loading="lazy"
+                      // First featured tile is the LCP candidate on /portfolio/commercial;
+                      // load eagerly with high priority, lazy-load the rest.
+                      loading={idx === 0 ? 'eager' : 'lazy'}
+                      fetchPriority={idx === 0 ? 'high' : 'auto'}
                       width="1024"
                       height="576"
                     />
@@ -79,7 +82,7 @@ export default function CommercialPortfolio() {
               <div className={styles.cardImageWrap}>
                 <img
                   src={project.src}
-                  alt={`${project.name} — ${project.location}`}
+                  alt={`${project.name}, ${project.location}`}
                   className={styles.cardImage}
                   loading="lazy"
                   width="1024"
