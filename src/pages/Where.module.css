@@ -30,8 +30,19 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--letter-spacing-eyebrow);
   text-transform: uppercase;
+  /* Default copper for normal (dark) sections. Hero overrides below
+     because the hero uses --color-tan as its background and copper
+     only renders at 3.06:1 there (fails AA). */
   color: var(--color-copper);
   margin-bottom: 1.25rem;
+}
+
+.hero .eyebrow {
+  color: var(--color-dark-brown);
+}
+
+.hero .subtitle {
+  color: var(--color-dark-brown);
 }
 
 .title {
@@ -115,7 +126,9 @@
 .stateAbbrev {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #b87333;
+  /* Was #b87333 at 4.46:1 on the dark card bg — fails AA by a hair.
+     Lift to #c8884a for ~5.1:1, same family. */
+  color: #c8884a;
   opacity: 0.9;
   line-height: 1;
   letter-spacing: -0.03em;

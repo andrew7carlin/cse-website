@@ -134,7 +134,7 @@ const Where = () => {
                   {s.badge}
                 </span>
               </div>
-              <h3 className={styles.stateName}>{s.state}</h3>
+              <h2 className={styles.stateName}>{s.state}</h2>
               <span className={styles.stateTagline}>{s.tagline}</span>
               <p className={styles.cityList}>{s.cities.join(', ')}</p>
               {/* Office page links for states that have offices */}

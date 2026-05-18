@@ -79,15 +79,15 @@ const ContactForm = () => {
 
                         <div className={styles.contactDetails}>
                             <div className={styles.detailItem}>
-                                <h4>Headquarters</h4>
+                                <h3>Headquarters</h3>
                                 <p>2959 Rhoades Ave<br />Kingman, AZ 86409</p>
                             </div>
                             <div className={styles.detailItem}>
-                                <h4>Phone</h4>
+                                <h3>Phone</h3>
                                 <p>(928) 757-9003</p>
                             </div>
                             <div className={styles.detailItem}>
-                                <h4>Email</h4>
+                                <h3>Email</h3>
                                 <p>office@canyonstateaz.com</p>
                             </div>
                         </div>

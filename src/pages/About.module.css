@@ -165,7 +165,9 @@
     display: block;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--color-copper);
+    /* Brand copper (#A04921) only hits 2.78:1 on the dark-brown card bg;
+       lift to a brighter copper that clears AA (~5.5:1). */
+    color: #d4936b;
     margin-bottom: 1rem;
     letter-spacing: 0.1em;
 }
