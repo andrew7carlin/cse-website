@@ -7,85 +7,64 @@ import { useContextCursor } from './useContextCursor';
 import { CURSOR_CONFIG } from './config';
 
 /**
- * Signature Cursor System
- * Premium physics-based cursor with magnetic effects and context awareness
- * 
- * Features:
- * - Spring physics for smooth, weighted motion
- * - Magnetic attraction to [data-magnetic] elements
- * - Context-aware states via [data-cursor] attributes
- * - CSS blur glass effect
- * - Performance optimized with GSAP
- * 
- * @author Canyon State Enterprises
+ * Signature Cursor — subtle colored glow that follows the cursor,
+ * plus a soft glass blur that fades in on interactive elements.
+ * The explicit ring + dot were removed for a quieter feel.
+ *
+ * Still respects prefers-reduced-motion and waits for a mouse-type
+ * pointermove before rendering (so touch devices stay clean).
  */
 const SignatureCursor = () => {
-    // Refs for cursor elements
-    const ringRef = useRef(null);
-    const dotRef = useRef(null);
     const glowRef = useRef(null);
     const blurRef = useRef(null);
     const rafRef = useRef(null);
     const enabledRef = useRef(false); // true once a mouse pointermove is confirmed
 
-    // State
     const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
-    const [currentContext, setCurrentContext] = useState('default');
 
-    // Hooks
     const physics = useCursorPhysics();
     const magnetic = useMagnetic();
     const context = useContextCursor();
 
-    // Mouse position for magnetic calculation
     const mousePos = useRef({ x: -100, y: -100 });
 
-    // Performance tracking — initialized lazily inside the setup effect so the
-    // render stays pure (no performance.now() calls).
+    // Performance tracking — initialized lazily inside the setup effect so
+    // the render stays pure (no performance.now() calls).
     const lastFrameTime = useRef(0);
     const frameCount = useRef(0);
     const lowPerfMode = useRef(false);
 
-    // Check if should render (reduced motion only — touch vs. mouse is handled
-    // dynamically via pointermove so touch laptops with a mouse still work)
     const shouldRender = useCallback(() => {
         if (typeof window === 'undefined') return false;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
         return true;
     }, []);
 
-    // Mouse move handler
     const handleMouseMove = useCallback((e) => {
-        if (!enabledRef.current) return; // wait for confirmed mouse pointermove
+        if (!enabledRef.current) return;
         mousePos.current = { x: e.clientX, y: e.clientY };
         physics.updateMouse(e.clientX, e.clientY);
 
         if (!isVisible) setIsVisible(true);
 
-        // Update context based on element under cursor
         const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
         const contextResult = context.updateContext(elementUnderCursor);
 
         if (contextResult.changed) {
-            setCurrentContext(contextResult.context);
             setIsHovering(contextResult.context !== 'default');
         }
     }, [physics, context, isVisible]);
 
-    // Mouse leave handler
     const handleMouseLeave = useCallback(() => {
         setIsVisible(false);
         physics.reset();
     }, [physics]);
 
-    // Mouse enter handler
     const handleMouseEnter = useCallback(() => {
         setIsVisible(true);
     }, []);
 
-    // Setup effect — owns the animation loop so `animate` can reference itself
-    // (a useCallback can't reference its own identity without a forward ref).
     useEffect(() => {
         if (!shouldRender()) return;
 
@@ -107,12 +86,6 @@ const SignatureCursor = () => {
             const finalX = pos.x + magneticOffset.offsetX;
             const finalY = pos.y + magneticOffset.offsetY;
 
-            if (ringRef.current) {
-                gsap.set(ringRef.current, { x: finalX, y: finalY, force3D: true });
-            }
-            if (dotRef.current) {
-                gsap.set(dotRef.current, { x: pos.x, y: pos.y, force3D: true });
-            }
             if (glowRef.current) {
                 gsap.set(glowRef.current, { x: pos.x, y: pos.y, force3D: true });
             }
@@ -124,7 +97,7 @@ const SignatureCursor = () => {
         };
 
         // Dynamically detect pointer type so touch laptops with a mouse
-        // get the cursor, while pure touch devices do not
+        // get the cursor, while pure touch devices do not.
         enabledRef.current = false;
         const handlePointerType = (e) => {
             if (e.pointerType === 'mouse') {
@@ -137,24 +110,19 @@ const SignatureCursor = () => {
         };
         window.addEventListener('pointermove', handlePointerType);
 
-        // Cache magnetic elements
         magnetic.cacheElements();
 
-        // Add event listeners
         window.addEventListener('mousemove', handleMouseMove, { passive: true });
         document.body.addEventListener('mouseleave', handleMouseLeave);
         document.body.addEventListener('mouseenter', handleMouseEnter);
 
-        // Start animation loop
         rafRef.current = requestAnimationFrame(animate);
 
-        // Re-cache magnetic elements on DOM changes (debounced)
         let cacheTimeout;
         const observer = new MutationObserver(() => {
             clearTimeout(cacheTimeout);
             cacheTimeout = setTimeout(() => magnetic.cacheElements(), 100);
         });
-
         observer.observe(document.body, { childList: true, subtree: true });
 
         return () => {
@@ -168,20 +136,7 @@ const SignatureCursor = () => {
         };
     }, [shouldRender, handleMouseMove, handleMouseLeave, handleMouseEnter, physics, magnetic]);
 
-    // Don't render on touch devices
     if (!shouldRender()) return null;
-
-    // Build class names
-    const ringClasses = [
-        styles.cursorRing,
-        isHovering && styles.hovering,
-        currentContext !== 'default' && styles[currentContext],
-    ].filter(Boolean).join(' ');
-
-    const dotClasses = [
-        styles.cursorDot,
-        isHovering && styles.hovering,
-    ].filter(Boolean).join(' ');
 
     const blurClasses = [
         styles.cursorBlur,
@@ -190,7 +145,7 @@ const SignatureCursor = () => {
 
     return (
         <div className={styles.cursorContainer} aria-hidden="true">
-            {/* Ambient glow layer */}
+            {/* Ambient glow — the subtle colored follow */}
             {CURSOR_CONFIG.performance.enableGlow && (
                 <div
                     ref={glowRef}
@@ -199,7 +154,7 @@ const SignatureCursor = () => {
                 />
             )}
 
-            {/* Glass blur layer */}
+            {/* Glass blur — only visible on interactive hover */}
             {CURSOR_CONFIG.performance.enableBlur && (
                 <div
                     ref={blurRef}
@@ -207,20 +162,6 @@ const SignatureCursor = () => {
                     style={{ opacity: isVisible && isHovering ? 1 : 0 }}
                 />
             )}
-
-            {/* Main cursor ring */}
-            <div
-                ref={ringRef}
-                className={ringClasses}
-                style={{ opacity: isVisible ? 1 : 0 }}
-            />
-
-            {/* Center dot */}
-            <div
-                ref={dotRef}
-                className={dotClasses}
-                style={{ opacity: isVisible ? 1 : 0 }}
-            />
         </div>
     );
 };
