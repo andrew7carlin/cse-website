@@ -78,7 +78,17 @@ const About = () => {
             />
             {/* Full-Bleed Hero */}
             <section className={styles.fullHero}>
-                <div className={styles.heroBg} style={{ backgroundImage: `url(${heroImage})` }}></div>
+                {/* Real <img> (not CSS bg) so the preload scanner discovers
+                    the LCP image and prioritizes it. */}
+                <img
+                    className={styles.heroBg}
+                    src={heroImage}
+                    alt=""
+                    aria-hidden="true"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="async"
+                />
                 <div className={styles.heroOverlay}></div>
                 <div className={styles.heroContent}>
                     <span className={styles.heroLabel}>ABOUT US</span>

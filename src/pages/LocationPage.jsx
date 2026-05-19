@@ -41,14 +41,20 @@ const LocationPage = () => {
       />
 
       {/* ── Hero ── */}
-      <section
-        className={styles.hero}
-        style={HERO_IMAGES[loc.heroImage] ? {
-          backgroundImage: `url(${HERO_IMAGES[loc.heroImage]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: loc.heroPosition || 'center center',
-        } : {}}
-      >
+      <section className={styles.hero}>
+        {HERO_IMAGES[loc.heroImage] && (
+          /* Real <img> so the preload scanner discovers the LCP image. */
+          <img
+            className={styles.heroImg}
+            src={HERO_IMAGES[loc.heroImage]}
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            style={{ objectPosition: loc.heroPosition || 'center center' }}
+          />
+        )}
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <span className={styles.eyebrow}>Canyon State Enterprises</span>

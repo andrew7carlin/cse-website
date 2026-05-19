@@ -145,7 +145,17 @@ const TradeDetail = () => {
                 description={data.description}
                 canonical={`https://canyonstateaz.com/services/${tradeId}`}
             />
-            <div className={styles.hero} style={{ backgroundImage: `url(${data.image})` }}>
+            <div className={styles.hero}>
+                {/* Real <img> (not CSS bg) so the preload scanner finds the LCP image. */}
+                <img
+                    className={styles.heroImg}
+                    src={data.image}
+                    alt=""
+                    aria-hidden="true"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="async"
+                />
                 <div className={styles.heroOverlay}>
                     <div className={styles.container}>
                         <span className={styles.eyebrow}>Services / {data.title}</span>
