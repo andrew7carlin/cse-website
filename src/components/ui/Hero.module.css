@@ -18,9 +18,30 @@
 
 .imageCol {
     flex: 1;
-    background-size: cover;
-    background-position: center;
     min-height: 50vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.imageColImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.fullBgImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: -1;
 }
 
 @media (min-width: 992px) {

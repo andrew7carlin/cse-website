@@ -153,8 +153,20 @@ const Hero = ({
 
     return (
         <section className={`${styles.hero} ${styles[variant]}`}>
-            {variant === 'split' && (
-                <div className={styles.imageCol} style={{ backgroundImage: `url(${imageUrl})` }}></div>
+            {variant === 'split' && imageUrl && (
+                <div className={styles.imageCol}>
+                    {/* Real <img> (not CSS bg) so the preload scanner discovers it
+                        and gets the LCP image on screen faster. */}
+                    <img
+                        src={imageUrl}
+                        alt=""
+                        aria-hidden="true"
+                        fetchPriority="high"
+                        loading="eager"
+                        decoding="async"
+                        className={styles.imageColImg}
+                    />
+                </div>
             )}
 
             <div className={styles.contentCol}>
@@ -171,11 +183,19 @@ const Hero = ({
                 </div>
             </div>
 
-            {variant === 'full' && (
-                <div className={styles.overlay}></div>
-            )}
-            {variant === 'full' && (
-                <div className={styles.fullBg} style={{ backgroundImage: `url(${imageUrl})` }}></div>
+            {variant === 'full' && imageUrl && (
+                <>
+                    <img
+                        src={imageUrl}
+                        alt=""
+                        aria-hidden="true"
+                        fetchPriority="high"
+                        loading="eager"
+                        decoding="async"
+                        className={styles.fullBgImg}
+                    />
+                    <div className={styles.overlay}></div>
+                </>
             )}
         </section>
     );
