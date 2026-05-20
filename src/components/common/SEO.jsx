@@ -10,12 +10,14 @@ import { useLocation } from 'react-router-dom';
  * @param {string} props.description - Meta description
  * @param {string} props.canonical - Canonical URL (optional — auto-derived from current route if omitted)
  * @param {string} props.image - OG image path (relative to site root)
+ * @param {boolean} props.noindex - When true, adds <meta name="robots" content="noindex"> so the page is excluded from search indexes (use for /thank-you, /preview, etc.)
  */
 const SEO = ({
     title = 'Canyon State Enterprises',
     description = 'Arizona\'s trusted multi-trade construction company. Roofing, stucco, HVAC, plumbing, and more across the Southwest.',
     canonical,
-    image = '/og-image.jpg'
+    image = '/og-image.jpg',
+    noindex = false
 }) => {
     const location = useLocation();
     const siteUrl = 'https://canyonstateaz.com';
@@ -49,6 +51,8 @@ const SEO = ({
             <meta name="twitter:image" content={ogImage} />
 
             <link rel="canonical" href={resolvedCanonical} />
+
+            {noindex && <meta name="robots" content="noindex, nofollow" />}
         </>
     );
 };

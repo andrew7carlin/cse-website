@@ -15,7 +15,7 @@ const SignatureCursor = lazy(() => import('./components/ui/SignatureCursor'));
 // idle-prefetch them after the home page is interactive (see useIdlePrefetch
 // below), which preserves the LCP fix while keeping the home entry small.
 import Home from './pages/Home';
-import GoogleAnalytics from './components/common/GoogleAnalytics';
+import GoogleTagManager from './components/common/GoogleTagManager';
 import { trackPageView } from './components/common/analytics';
 import SchemaMarkup from './components/common/SchemaMarkup';
 
@@ -37,6 +37,7 @@ const importNotFound             = () => import('./pages/NotFound');
 const importPrivacy              = () => import('./pages/Privacy');
 const importTerms                = () => import('./pages/Terms');
 const importLocationPage         = () => import('./pages/LocationPage');
+const importThankYou             = () => import('./pages/ThankYou');
 
 const About                = lazy(importAbout);
 const Contact              = lazy(importContact);
@@ -54,6 +55,7 @@ const NotFound             = lazy(importNotFound);
 const Privacy              = lazy(importPrivacy);
 const Terms                = lazy(importTerms);
 const LocationPage         = lazy(importLocationPage);
+const ThankYou             = lazy(importThankYou);
 
 // After the page is interactive (during browser idle time), prefetch the
 // chunks for the most-likely next navigation. Click → render feels instant
@@ -133,7 +135,7 @@ function App() {
           <SignatureCursor />
         </Suspense>
       )}
-      <GoogleAnalytics />
+      <GoogleTagManager />
       <SchemaMarkup />
       <RouteTracker />
       <Suspense fallback={<PageLoader />}>
@@ -155,6 +157,7 @@ function App() {
             <Route path="careers" element={<Careers />} />
             <Route path="privacy" element={<Privacy />} />
             <Route path="terms" element={<Terms />} />
+            <Route path="thank-you" element={<ThankYou />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

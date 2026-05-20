@@ -40,28 +40,22 @@ const ContactForm = () => {
             });
 
             if (response.ok) {
-                setSubmitStatus('success');
+                // Push the dataLayer event BEFORE navigation so GTM has a
+                // chance to capture form context (office, project_type) tied
+                // to this conversion.
                 trackEvent('form_submit', {
                     form_name: 'contact_quote',
                     office: formData.closestOffice,
                     project_type: formData.projectType
                 });
-                setFormData({
-                    name: '',
-                    company: '',
-                    email: '',
-                    phone: '',
-                    city: '',
-                    state: 'AZ',
-                    closestOffice: '',
-                    projectType: 'Commercial',
-                    timeline: 'ASAP',
-                    message: '',
-                    website: ''
-                });
-            } else {
-                setSubmitStatus('error');
+                // Full-page navigation (not React Router) so GTM's PAGEVIEW
+                // trigger for /thank-you fires reliably — this is what
+                // activates the three Form Request conversion tags in the
+                // GTM-NDBJ277C container.
+                window.location.assign('/thank-you');
+                return;
             }
+            setSubmitStatus('error');
         } catch {
             setSubmitStatus('error');
         } finally {
@@ -108,12 +102,8 @@ const ContactForm = () => {
                             />
                         </div>
 
-                        {/* Success Message */}
-                        {submitStatus === 'success' && (
-                            <div className={styles.successMessage}>
-                                <span>✓</span> Thank you! We'll be in touch shortly.
-                            </div>
-                        )}
+                        {/* Success path: we redirect to /thank-you (full-page),
+                            so no inline success state to render here. */}
 
                         {/* Error Message */}
                         {submitStatus === 'error' && (
