@@ -380,6 +380,12 @@
         <priority>0.50</priority>
     </url>
     <url>
+        <loc>https://canyonstateaz.com/portfolio/national-bank-kingman</loc>
+        <lastmod>2026-05-20</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
         <loc>https://canyonstateaz.com/portfolio/home-depot-kingman</loc>
         <lastmod>2026-05-20</lastmod>
         <changefreq>yearly</changefreq>
@@ -651,6 +657,12 @@
     </url>
     <url>
         <loc>https://canyonstateaz.com/portfolio/planet-fitness-phoenix</loc>
+        <lastmod>2026-05-20</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>https://canyonstateaz.com/portfolio/planet-fitness-kingman</loc>
         <lastmod>2026-05-20</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.50</priority>

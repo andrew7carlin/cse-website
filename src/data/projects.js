@@ -1,6 +1,7 @@
 import andersonChevrolet from '../assets/portfolio/commercial/Anderson_Chevrolet_Kingman_Az.webp';
 import aquilaPlace from '../assets/portfolio/commercial/Aquila_Place_Apache_Junction.webp';
 import arizonaFinancial from '../assets/portfolio/commercial/Arizona_Financial_Kingman_Az.webp';
+import nationalBankKingman from '../assets/portfolio/commercial/National_Bank_Kingman_Az.webp';
 import bjBrewhouseQueenCreek from '../assets/portfolio/commercial/BJ_Brewhouse_Queen_Creek_Az.webp';
 import freseniusMedical from '../assets/portfolio/commercial/Fresenius_Medical_Care_Kingman_Az.webp';
 import greenprintApartments from '../assets/portfolio/commercial/Greenprint_Apartments_Phoenix_AZ.webp';
@@ -116,6 +117,7 @@ import medicalSuitesKingman from '../assets/portfolio/commercial/Medical Suites_
 import mohaveCountyReachOut from '../assets/portfolio/commercial/Mohave County Reach Out_Kingman AZ.webp';
 import mountainShadowsMedical from '../assets/portfolio/commercial/Mountain Shadows Medical Plaze_Kingman AZ.webp';
 import planetFitnessPhoenix from '../assets/portfolio/commercial/Planet Fitness_Phoenix AZ.webp';
+import planetFitnessKingman from '../assets/portfolio/commercial/Planet_Fitness_Kingman_Az.webp';
 import saladAndGoTucson from '../assets/portfolio/commercial/Salad and Go_Tucson AZ.webp';
 import take5BullheadCity from '../assets/portfolio/commercial/Take 5_Bullhead City.webp';
 import take5KingmanAz from '../assets/portfolio/commercial/Take 5_Kingman AZ.webp';
@@ -209,6 +211,7 @@ export const commercialProjects = [
   { id: 'culvers-kingman', name: "Culver's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: culversKingman },
   { id: 'eos-fitness-tempe', name: 'EOS Fitness', location: 'Tempe, AZ', category: 'retail', trade: 'Roofing', src: eosFitness },
   { id: 'arizona-financial', name: 'Arizona Financial', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: arizonaFinancial },
+  { id: 'national-bank-kingman', name: 'National Bank of Arizona', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: nationalBankKingman },
   { id: 'home-depot-kingman', name: 'The Home Depot', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: homeDepotKingman },
   { id: 'anderson-chevrolet', name: 'Anderson Chevrolet', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: andersonChevrolet },
   { id: 'hyundai-gilbert', name: 'Hyundai Gilbert', location: 'Gilbert, AZ', category: 'dealerships', trade: 'Roofing', src: hyundaiGilbert },
@@ -256,6 +259,7 @@ export const commercialProjects = [
   { id: 'mohave-county-reach-out', name: 'Mohave County Reach Out', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: mohaveCountyReachOut },
   { id: 'mountain-shadows-medical', name: 'Mountain Shadows Medical Plaza', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: mountainShadowsMedical },
   { id: 'planet-fitness-phoenix', name: 'Planet Fitness', location: 'Phoenix, AZ', category: 'retail', trade: 'Roofing', src: planetFitnessPhoenix },
+  { id: 'planet-fitness-kingman', name: 'Planet Fitness', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: planetFitnessKingman },
   { id: 'salad-and-go-tucson', name: 'Salad and Go', location: 'Tucson, AZ', category: 'restaurants', trade: 'Roofing', src: saladAndGoTucson },
   { id: 'take-5-bullhead', name: 'Take 5 Oil Change', location: 'Bullhead City, AZ', category: 'retail', trade: 'Roofing', src: take5BullheadCity },
   { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: take5KingmanAz },
