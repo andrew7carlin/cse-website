@@ -9,7 +9,17 @@ const Footer = () => {
                 <div className={styles.grid}>
                     {/* Brand Column */}
                     <div className={styles.logoCol}>
-                        <img src={logoTan} alt="Canyon State Enterprises" className={styles.logo} />
+                        {/* width/height match intrinsic source (426x169) so the browser
+                            reserves aspect-ratio-correct space — clears Lighthouse unsized-images. */}
+                        <img
+                            src={logoTan}
+                            alt="Canyon State Enterprises"
+                            className={styles.logo}
+                            width={426}
+                            height={169}
+                            loading="lazy"
+                            decoding="async"
+                        />
                         <p className={styles.tagline}>
                             Building the future of the west coast with extensive experience across commercial, residential, and industrial sectors.
                         </p>

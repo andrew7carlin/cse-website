@@ -49,6 +49,8 @@ import northernAzFireDistrict from '../assets/portfolio/commercial/Northern_AZ_F
 import mohaveEyeCenter from '../assets/portfolio/commercial/Mohave_Eye_Center.webp';
 import texasRoadhouseMesa from '../assets/portfolio/commercial/Texas_Roadhouse_Mesa.webp';
 import mohaveCountyAnnex from '../assets/portfolio/commercial/Mohave_County_Annex.webp';
+import kingmanPublicLibrary  from '../assets/portfolio/commercial/Kingman_Public_Library_Kingman_Az.webp';
+import kingmanPublicLibrary2 from '../assets/portfolio/commercial/Kingman_Public_Library_Kingman_Az_2.webp';
 import ldsChurchConcho from '../assets/portfolio/commercial/LDS_Church_Concho.webp';
 import sunRiverTownhomes from '../assets/portfolio/commercial/Sun_River_Townhomes.webp';
 import silverCliffsApartments from '../assets/portfolio/commercial/Silver_Cliffs_Apartments.webp';
@@ -196,6 +198,7 @@ export const commercialProjects = [
   { id: 'medical-facility-kingman', name: 'Medical Facility', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: medicalFacility },
   { id: 'northern-az-fire-district', name: 'Northern Arizona Fire District', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: northernAzFireDistrict },
   { id: 'mohave-county-annex', name: 'Mohave County Annex', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: mohaveCountyAnnex },
+  { id: 'kingman-public-library', name: 'Kingman Public Library', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: kingmanPublicLibrary, gallery: [kingmanPublicLibrary, kingmanPublicLibrary2] },
   { id: 'lds-church-concho', name: 'LDS Church', location: 'Concho, AZ', category: 'government', trade: 'Roofing', src: ldsChurchConcho },
   { id: 'texas-roadhouse-mesa', name: 'Texas Roadhouse', location: 'Mesa, AZ', category: 'restaurants', trade: 'Roofing', src: texasRoadhouseMesa },
   { id: 'bj-brewhouse-queen-creek', name: "BJ's Brewhouse", location: 'Queen Creek, AZ', category: 'restaurants', trade: 'Roofing', src: bjBrewhouseQueenCreek },

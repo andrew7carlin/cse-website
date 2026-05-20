@@ -65,8 +65,9 @@ const Hero = ({
                         />
                     ) : (
                         <>
-                            {/* Poster — shown immediately, is the fast LCP element */}
-                            {!videoReady && (
+                            {/* Poster — shown immediately, is the LCP element on
+                                first paint AND the permanent hero on mobile. */}
+                            {(!videoReady || isMobile) && (
                                 <img
                                     src="/hero-poster.webp"
                                     alt="Canyon State Enterprises"
@@ -84,47 +85,21 @@ const Hero = ({
                                     }}
                                 />
                             )}
-                            {/* Desktop video (16:9) — deferred until after window.load */}
+                            {/* Desktop video (16:9) — deferred until after window.load.
+                                Mobile gets the poster only: a 3.5 MB autoplay loop on a
+                                phone is a Lighthouse-killing TBT/transfer cost for very
+                                little visual payoff (most mobile browsers won't even
+                                autoplay reliably with sound restrictions). */}
                             {videoReady && !isMobile && (
                                 <video
                                     src={videoUrl}
                                     className={`${styles.videoElement} ${styles.desktopVideo}`}
                                     poster="/hero-poster.webp"
+                                    preload="metadata"
                                     autoPlay
                                     loop
                                     muted
                                     playsInline
-                                />
-                            )}
-                            {/* Mobile video (9:16) — deferred until after window.load */}
-                            {videoReady && isMobile && mobileVideoUrl && (
-                                <video
-                                    src={mobileVideoUrl}
-                                    className={`${styles.videoElement} ${styles.mobileVideo}`}
-                                    poster="/hero-poster.webp"
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                />
-                            )}
-                            {/* Static poster fallback — only if no mobile video provided */}
-                            {isMobile && !mobileVideoUrl && (
-                                <img
-                                    src="/hero-poster.webp"
-                                    alt="Canyon State Enterprises"
-                                    fetchPriority="high"
-                                    loading="eager"
-                                    width="1920"
-                                    height="1080"
-                                    style={{
-                                        position: 'absolute',
-                                        inset: 0,
-                                        width: '100%',
-                                        height: '100%',
-                                        objectFit: 'cover',
-                                        objectPosition: 'center'
-                                    }}
                                 />
                             )}
                         </>

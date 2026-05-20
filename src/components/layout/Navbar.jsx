@@ -5,6 +5,21 @@ import styles from './Navbar.module.css';
 import logoWhite from '../../assets/logos/logo-white.png';
 import cactusImg from '../../assets/logos/cactus.png';
 
+// Hover-preload for lazy-loaded routes. Calling import() warms the chunk in the
+// background so the navigation feels instant when the user actually clicks.
+// Each value is a function — calling it triggers the dynamic import. Modules
+// are cached by the browser, so repeated hovers are free.
+const PRELOADERS = {
+  '/services':     () => import('../../pages/Services'),
+  '/portfolio':    () => import('../../pages/PortfolioLanding'),
+  '/where':        () => import('../../pages/Where'),
+  '/partnerships': () => import('../../pages/Partnerships'),
+};
+const preload = (path) => {
+  const fn = PRELOADERS[path];
+  if (fn) fn();
+};
+
 const TRADES = [
     { label: 'Roofing',                  path: '/services/roofing' },
     { label: 'Stucco & EIFS',            path: '/services/stucco' },
@@ -50,9 +65,13 @@ const Navbar = () => {
         <header className={navClass}>
             <div className={styles.container}>
                 <Link to="/" className={styles.logo}>
+                    {/* width/height match the intrinsic source (426x169) so the browser
+                        can reserve aspect-ratio-correct space before the image loads. */}
                     <img
                         src={logoWhite}
                         alt="Canyon State"
+                        width={426}
+                        height={169}
                         style={{ height: '50px', width: 'auto', maxWidth: '180px', objectFit: 'contain' }}
                     />
                 </Link>
@@ -76,7 +95,7 @@ const Navbar = () => {
                         <span className={styles.navLinkText}>Home</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <div className={styles.navItem}>
+                    <div className={styles.navItem} onMouseEnter={() => preload('/services')} onFocus={() => preload('/services')}>
                         <Link to="/services" className={styles.navLink} data-cursor="link">
                             <span className={styles.navLinkText}>Trades</span>
                             <img src={cactusImg} alt="" className={styles.cactusDecor} />
@@ -92,7 +111,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <Link to="/portfolio" className={styles.navLink} data-cursor="link">
+                    <Link to="/portfolio" className={styles.navLink} data-cursor="link" onMouseEnter={() => preload('/portfolio')} onFocus={() => preload('/portfolio')}>
                         <span className={styles.navLinkText}>Portfolio</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
@@ -100,7 +119,7 @@ const Navbar = () => {
                         <span className={styles.navLinkText}>About</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                    <div className={styles.navItem}>
+                    <div className={styles.navItem} onMouseEnter={() => preload('/where')} onFocus={() => preload('/where')}>
                         <Link to="/where" className={styles.navLink} data-cursor="link">
                             <span className={styles.navLinkText}>Where</span>
                             <img src={cactusImg} alt="" className={styles.cactusDecor} />
@@ -123,7 +142,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <Link to="/partnerships" className={styles.navLink} data-cursor="link">
+                    <Link to="/partnerships" className={styles.navLink} data-cursor="link" onMouseEnter={() => preload('/partnerships')} onFocus={() => preload('/partnerships')}>
                         <span className={styles.navLinkText}>Partnerships</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>

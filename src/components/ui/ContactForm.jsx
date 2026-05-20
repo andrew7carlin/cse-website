@@ -124,8 +124,9 @@ const ContactForm = () => {
 
                         {/* Closest Office - REQUIRED */}
                         <div className={styles.group}>
-                            <label>Which office is closest to you? *</label>
+                            <label htmlFor="cf-closestOffice">Which office is closest to you? *</label>
                             <select
+                                id="cf-closestOffice"
                                 name="closestOffice"
                                 value={formData.closestOffice}
                                 onChange={handleChange}
@@ -136,40 +137,40 @@ const ContactForm = () => {
                                 <option value="kingman">Kingman, AZ (Headquarters)</option>
                                 <option value="phoenix">Phoenix, AZ</option>
                                 <option value="lasvegas">Las Vegas, NV</option>
-                                <option value="kingman">I Don't Know</option>
+                                <option value="unknown">I Don't Know</option>
                             </select>
                         </div>
 
                         <div className={styles.row}>
                             <div className={styles.group}>
-                                <label>Name *</label>
-                                <input type="text" name="name" required value={formData.name} onChange={handleChange} />
+                                <label htmlFor="cf-name">Name *</label>
+                                <input id="cf-name" type="text" name="name" required autoComplete="name" value={formData.name} onChange={handleChange} />
                             </div>
                             <div className={styles.group}>
-                                <label>Company</label>
-                                <input type="text" name="company" value={formData.company} onChange={handleChange} />
-                            </div>
-                        </div>
-
-                        <div className={styles.row}>
-                            <div className={styles.group}>
-                                <label>Email *</label>
-                                <input type="email" name="email" required value={formData.email} onChange={handleChange} />
-                            </div>
-                            <div className={styles.group}>
-                                <label>Phone *</label>
-                                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} />
+                                <label htmlFor="cf-company">Company</label>
+                                <input id="cf-company" type="text" name="company" autoComplete="organization" value={formData.company} onChange={handleChange} />
                             </div>
                         </div>
 
                         <div className={styles.row}>
                             <div className={styles.group}>
-                                <label>City *</label>
-                                <input type="text" name="city" required value={formData.city} onChange={handleChange} />
+                                <label htmlFor="cf-email">Email *</label>
+                                <input id="cf-email" type="email" name="email" required autoComplete="email" value={formData.email} onChange={handleChange} />
                             </div>
                             <div className={styles.group}>
-                                <label>State *</label>
-                                <select name="state" value={formData.state} onChange={handleChange}>
+                                <label htmlFor="cf-phone">Phone *</label>
+                                <input id="cf-phone" type="tel" name="phone" required autoComplete="tel" value={formData.phone} onChange={handleChange} />
+                            </div>
+                        </div>
+
+                        <div className={styles.row}>
+                            <div className={styles.group}>
+                                <label htmlFor="cf-city">City *</label>
+                                <input id="cf-city" type="text" name="city" required autoComplete="address-level2" value={formData.city} onChange={handleChange} />
+                            </div>
+                            <div className={styles.group}>
+                                <label htmlFor="cf-state">State *</label>
+                                <select id="cf-state" name="state" value={formData.state} onChange={handleChange} autoComplete="address-level1">
                                     <option value="AZ">Arizona</option>
                                     <option value="NV">Nevada</option>
                                     <option value="UT">Utah</option>
@@ -180,16 +181,16 @@ const ContactForm = () => {
 
                         <div className={styles.row}>
                             <div className={styles.group}>
-                                <label>Project Type *</label>
-                                <select name="projectType" value={formData.projectType} onChange={handleChange}>
+                                <label htmlFor="cf-projectType">Project Type *</label>
+                                <select id="cf-projectType" name="projectType" value={formData.projectType} onChange={handleChange}>
                                     <option>Commercial</option>
                                     <option>Residential</option>
                                     <option>Industrial</option>
                                 </select>
                             </div>
                             <div className={styles.group}>
-                                <label>Timeline</label>
-                                <select name="timeline" value={formData.timeline} onChange={handleChange}>
+                                <label htmlFor="cf-timeline">Timeline</label>
+                                <select id="cf-timeline" name="timeline" value={formData.timeline} onChange={handleChange}>
                                     <option>ASAP</option>
                                     <option>30-60 Days</option>
                                     <option>60-90 Days</option>
@@ -199,9 +200,16 @@ const ContactForm = () => {
                         </div>
 
                         <div className={styles.group}>
-                            <label>Message *</label>
-                            <textarea name="message" rows="4" required value={formData.message} onChange={handleChange}></textarea>
+                            <label htmlFor="cf-message">Message *</label>
+                            <textarea id="cf-message" name="message" rows="4" required value={formData.message} onChange={handleChange}></textarea>
                         </div>
+
+                        {/* Sets expectations for the lead — what happens next, response time,
+                            and a fallback phone option if the user wants to skip the form. */}
+                        <p className={styles.formMeta}>
+                            A real human from the office closest to you will reply within one business day.
+                            Need an answer sooner? Call <a href="tel:9287579003">(928) 757-9003</a>.
+                        </p>
 
                         <button
                             type="submit"

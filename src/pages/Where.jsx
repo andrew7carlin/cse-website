@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Where.module.css';
 import SEO from '../components/common/SEO';
-import ServiceAreaMap from '../components/ui/ServiceAreaMap';
 import { locations } from '../data/locations';
+
+// ServiceAreaMap pulls in react-simple-maps + framer-motion + a 114 kB topojson
+// — together they were ~300 kB of the Where chunk. Lazy-load it so the page
+// paints immediately and the map streams in below the hero.
+const ServiceAreaMap = lazy(() => import('../components/ui/ServiceAreaMap'));
+
+// Tiny placeholder that holds the map's footprint so we don't shift layout
+// when the chunk arrives. Height roughly mirrors the rendered map.
+const MapPlaceholder = () => (
+  <div
+    aria-hidden="true"
+    style={{
+      width: '100%',
+      maxWidth: 800,
+      margin: '0 auto',
+      aspectRatio: '800 / 500',
+      background: 'linear-gradient(135deg, #111 0%, #1a1a1a 100%)',
+      borderRadius: 8,
+    }}
+  />
+);
 
 // ── State coverage data ────────────────────────────────────────────────────
 const states = [
@@ -117,7 +137,9 @@ const Where = () => {
         <div className={styles.mapEyebrow}>
           <span className={styles.eyebrow}>Where We Work</span>
         </div>
-        <ServiceAreaMap />
+        <Suspense fallback={<MapPlaceholder />}>
+          <ServiceAreaMap />
+        </Suspense>
         <p className={styles.mapSubtitle}>
           Pins represent Canyon State projects. Office locations marked in turquoise.
         </p>

@@ -103,6 +103,30 @@
     border-color: var(--color-copper);
 }
 
+/* "What happens next" microcopy above the submit button — sets response-time
+   expectations and offers a phone fallback to reduce form abandonment. */
+.formMeta {
+    margin: 0.5rem 0 0;
+    padding: 0.85rem 1rem;
+    background: #fef9f5;
+    border-left: 2px solid var(--color-copper);
+    border-radius: 2px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--color-text-main);
+}
+
+.formMeta a {
+    color: var(--color-copper);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.formMeta a:hover {
+    text-decoration: underline;
+}
+
 .submitBtn {
     background: var(--color-copper);
     color: white;

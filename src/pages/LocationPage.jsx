@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getLocation } from '../data/locations';
+import { allProjects } from '../data/projects';
 import SEO from '../components/common/SEO';
 import styles from './LocationPage.module.css';
 
@@ -22,6 +23,12 @@ const HERO_IMAGES = {
 const LocationPage = () => {
   const { locationId } = useParams();
   const loc = getLocation(locationId);
+
+  // Resolve featuredProjects (array of project IDs) → full project objects.
+  // Drops any IDs that don't match — guards against typos in locations.js.
+  const featured = (loc?.featuredProjects || [])
+    .map(id => allProjects.find(p => p.id === id))
+    .filter(Boolean);
 
   if (!loc) {
     return (
@@ -73,6 +80,13 @@ const LocationPage = () => {
               <h2 className={styles.sectionTitle}>About This Office</h2>
               <p className={styles.description}>{loc.description}</p>
 
+              {loc.localContext && (
+                <>
+                  <h3 className={styles.subTitle}>Built for {loc.city}</h3>
+                  <p className={styles.description}>{loc.localContext}</p>
+                </>
+              )}
+
               <h3 className={styles.subTitle}>Coverage Area</h3>
               <div className={styles.tagList}>
                 {loc.coverage.map(c => (
@@ -89,6 +103,34 @@ const LocationPage = () => {
                   </div>
                 ))}
               </div>
+
+              {featured.length > 0 && (
+                <>
+                  <h3 className={styles.subTitle}>Recent Work in {loc.city}</h3>
+                  <div className={styles.projectGrid}>
+                    {featured.map(p => (
+                      <Link
+                        key={p.id}
+                        to={`/portfolio/${p.id}`}
+                        className={styles.projectCard}
+                      >
+                        <div className={styles.projectImgWrap}>
+                          <img
+                            src={p.src}
+                            alt={`${p.name} — ${p.location}`}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+                        <div className={styles.projectMeta}>
+                          <span className={styles.projectName}>{p.name}</span>
+                          <span className={styles.projectTrade}>{p.trade}</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Sidebar */}

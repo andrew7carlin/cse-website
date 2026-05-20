@@ -1,32 +1,81 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { Suspense, lazy, useEffect } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import Layout from './components/layout/Layout';
-import SignatureCursor from './components/ui/SignatureCursor';
 import ScrollToTop from './components/common/ScrollToTop';
 
-// Eagerly load Home for fast initial paint
+// SignatureCursor pulls in GSAP (~70 kB / 27 kB gzip) and is entirely useless
+// on touch devices — it bails out of rendering once it sees a touch pointer.
+// Loading it lazily and only on `pointer: fine` devices keeps GSAP out of the
+// mobile bundle completely (which is what Lighthouse audits).
+const SignatureCursor = lazy(() => import('./components/ui/SignatureCursor'));
+
+// Only Home is eager — every other route is lazy. About/Contact were briefly
+// eager-imported to fix LCP-discovery on those routes, but that added ~10 kB
+// gzip to the home-page initial bundle. Instead we keep them lazy and
+// idle-prefetch them after the home page is interactive (see useIdlePrefetch
+// below), which preserves the LCP fix while keeping the home entry small.
 import Home from './pages/Home';
 import GoogleAnalytics from './components/common/GoogleAnalytics';
 import { trackPageView } from './components/common/analytics';
 import SchemaMarkup from './components/common/SchemaMarkup';
 
-// Lazy load all other pages for code splitting
-const TradeDetail = lazy(() => import('./pages/TradeDetail'));
-const Services = lazy(() => import('./pages/Services'));
-const PortfolioLanding = lazy(() => import('./pages/PortfolioLanding'));
-const CommercialPortfolio = lazy(() => import('./pages/CommercialPortfolio'));
-const ResidentialPortfolio = lazy(() => import('./pages/ResidentialPortfolio'));
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-const Careers = lazy(() => import('./pages/Careers'));
-const Where = lazy(() => import('./pages/Where'));
-const Partnerships = lazy(() => import('./pages/Partnerships'));
-const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
-const FAQ = lazy(() => import('./pages/FAQ'));
-const NotFound = lazy(() => import('./pages/NotFound'));
-const Privacy = lazy(() => import('./pages/Privacy'));
-const Terms = lazy(() => import('./pages/Terms'));
-const LocationPage = lazy(() => import('./pages/LocationPage'));
+// Lazy-loaded routes. Imports are extracted into named functions so they can
+// be reused by the idle-prefetch hook below.
+const importAbout                = () => import('./pages/About');
+const importContact              = () => import('./pages/Contact');
+const importServices             = () => import('./pages/Services');
+const importTradeDetail          = () => import('./pages/TradeDetail');
+const importPortfolioLanding     = () => import('./pages/PortfolioLanding');
+const importCommercialPortfolio  = () => import('./pages/CommercialPortfolio');
+const importResidentialPortfolio = () => import('./pages/ResidentialPortfolio');
+const importCareers              = () => import('./pages/Careers');
+const importWhere                = () => import('./pages/Where');
+const importPartnerships         = () => import('./pages/Partnerships');
+const importProjectDetail        = () => import('./pages/ProjectDetail');
+const importFAQ                  = () => import('./pages/FAQ');
+const importNotFound             = () => import('./pages/NotFound');
+const importPrivacy              = () => import('./pages/Privacy');
+const importTerms                = () => import('./pages/Terms');
+const importLocationPage         = () => import('./pages/LocationPage');
+
+const About                = lazy(importAbout);
+const Contact              = lazy(importContact);
+const Services             = lazy(importServices);
+const TradeDetail          = lazy(importTradeDetail);
+const PortfolioLanding     = lazy(importPortfolioLanding);
+const CommercialPortfolio  = lazy(importCommercialPortfolio);
+const ResidentialPortfolio = lazy(importResidentialPortfolio);
+const Careers              = lazy(importCareers);
+const Where                = lazy(importWhere);
+const Partnerships         = lazy(importPartnerships);
+const ProjectDetail        = lazy(importProjectDetail);
+const FAQ                  = lazy(importFAQ);
+const NotFound             = lazy(importNotFound);
+const Privacy              = lazy(importPrivacy);
+const Terms                = lazy(importTerms);
+const LocationPage         = lazy(importLocationPage);
+
+// After the page is interactive (during browser idle time), prefetch the
+// chunks for the most-likely next navigation. Click → render feels instant
+// because the chunk is already cached, but the home-page critical path
+// doesn't pay the parse/execute cost up front.
+function useIdlePrefetch() {
+  useEffect(() => {
+    const prefetch = () => {
+      importAbout();
+      importContact();
+      importServices();
+      importPortfolioLanding();
+    };
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(prefetch, { timeout: 4000 });
+      return () => window.cancelIdleCallback?.(id);
+    }
+    // Safari fallback — schedule after the page is interactive
+    const id = window.setTimeout(prefetch, 2500);
+    return () => window.clearTimeout(id);
+  }, []);
+}
 
 // Loading fallback component
 const PageLoader = () => (
@@ -63,10 +112,27 @@ function RouteTracker() {
 }
 
 function App() {
+  useIdlePrefetch();
+  // Only load SignatureCursor on devices with a real mouse — keeps GSAP out of
+  // the mobile critical path. State updates after mount so SSR/initial paint
+  // never tries to evaluate window.matchMedia.
+  const [enableCursor, setEnableCursor] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia?.('(pointer: fine)').matches) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setEnableCursor(true);
+    }
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
-      <SignatureCursor />
+      {enableCursor && (
+        <Suspense fallback={null}>
+          <SignatureCursor />
+        </Suspense>
+      )}
       <GoogleAnalytics />
       <SchemaMarkup />
       <RouteTracker />

@@ -102,7 +102,14 @@ const PartnersSection = () => {
                                 rel="noopener noreferrer"
                                 className={styles.logoItem}
                             >
-                                <img src={partner.logo} alt={partner.name} width="160" height="62" />
+                                <img
+                                    src={partner.logo}
+                                    alt={partner.name}
+                                    width="160"
+                                    height="62"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                             </a>
                         ))}
                     </div>
