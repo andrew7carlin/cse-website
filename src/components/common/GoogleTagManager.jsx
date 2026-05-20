@@ -13,16 +13,20 @@ import { useEffect } from 'react';
  * All tag/trigger/variable changes happen in the GTM web UI — this file
  * never needs to change unless we swap container IDs.
  *
- * Gated by the same `cookie_consent === 'accepted'` localStorage flag
- * that the previous direct gtag.js install used. Skipped in dev so we
- * don't pollute production analytics from localhost.
+ * Loads in production for all visitors. The cookie consent banner was
+ * dropped — the privacy policy still discloses cookies/tracking, which
+ * is the standard practice for US-only audiences. If the site later
+ * needs to serve EU/UK/EEA traffic, restore the consent gate (see git
+ * history for the previous `cookie_consent === 'accepted'` pattern) or
+ * implement Google Consent Mode v2 inside the GTM container.
+ *
+ * Skipped in dev so we don't pollute production analytics from localhost.
  */
 const GTM_CONTAINER_ID = import.meta.env.VITE_GTM_ID || 'GTM-NDBJ277C';
 
 const GoogleTagManager = () => {
     useEffect(() => {
         if (import.meta.env.DEV) return;
-        if (localStorage.getItem('cookie_consent') !== 'accepted') return;
         // StrictMode mounts effects twice in dev; production is unaffected
         // but the guard is cheap and prevents double-injection if anything
         // ever re-renders the root.
