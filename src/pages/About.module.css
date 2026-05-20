@@ -1,11 +1,13 @@
-/* Full-Bleed Hero */
+/* Full-Bleed Hero — Turner-style bottom-left anchored headline with a
+   directional gradient that creates a high-contrast dark wedge under the
+   text while leaving the upper-right of the photograph visible. */
 .fullHero {
     position: relative;
     width: 100%;
     min-height: 80vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-start;
     overflow: hidden;
 }
 
@@ -20,23 +22,36 @@
     display: block;
 }
 
+/* Two stacked gradients:
+   1) horizontal — heavy darkness on the left fading toward transparent right
+   2) vertical   — extra darkness near the bottom for the headline + subline
+   The combination keeps WCAG-readable contrast for white text even when the
+   underlying photo is bright (e.g. Hyundai Gilbert dealership with sky). */
 .heroOverlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.4) 50%,
-            rgba(0, 0, 0, 0.6) 100%);
+    background:
+        linear-gradient(to right,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.55) 30%,
+            rgba(0, 0, 0, 0.15) 65%,
+            rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to top,
+            rgba(0, 0, 0, 0.55) 0%,
+            rgba(0, 0, 0, 0.15) 55%,
+            rgba(0, 0, 0, 0) 100%);
     z-index: 1;
 }
 
 .heroContent {
     position: relative;
     z-index: 10;
-    text-align: center;
+    text-align: left;
     color: white;
-    padding: var(--container-padding);
-    padding-top: calc(var(--header-height) + 2rem);
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding) var(--spacing-xl);
 }
 
 .heroLabel {
@@ -54,15 +69,20 @@
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-heading);
     letter-spacing: var(--letter-spacing-tight);
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem;
+    max-width: 18ch;
+    /* Subtle text-shadow as belt-and-suspenders contrast guarantee against
+       the brightest photographs — invisible against the gradient itself. */
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
 }
 
 .heroSubline {
     font-size: var(--font-size-body-lg);
     font-weight: var(--font-weight-regular);
-    opacity: 0.9;
+    opacity: 0.92;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Our Story Section */
