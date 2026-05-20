@@ -191,7 +191,9 @@ const About = () => {
             {/* Drone Team Photo */}
             <section className={styles.droneSection}>
                 <div className={styles.droneHeader}>
+                    <span className={styles.droneEyebrow}>One Team</span>
                     <h2>The Canyon State Team</h2>
+                    <div className={styles.droneDivider} aria-hidden="true" />
                 </div>
                 <img
                     src={droneTeamImg}
