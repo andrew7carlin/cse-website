@@ -9,7 +9,7 @@ import styles from './About.module.css';
 import timeline1987 from '../assets/about/original-roc-1987.webp';
 import timeline2001 from '../assets/about/a2z-storefront.webp';
 import timeline2010 from '../assets/projects/Greenprint Apartments_Phoenix AZ.webp';
-import timeline2015 from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
+import timeline2024Vegas from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
 import timeline2016 from '../assets/about/hvac-van-2016.webp';
 import timeline2024 from '../assets/projects/Aquila Place_ Apache Junction_(2).webp';
 
@@ -68,7 +68,7 @@ const About = () => {
             year: "2024",
             title: "Nevada Operations",
             description: "Opened the Las Vegas branch, putting Canyon State crews on the Strip corridor and across Southern Nevada.",
-            image: timeline2015
+            image: timeline2024Vegas
         },
         {
             year: "2025",

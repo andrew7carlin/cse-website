@@ -31,7 +31,7 @@ export const locations = [
     abbrev: 'AZ',
     label: 'Phoenix, AZ',
     role: 'Phoenix Metro Office',
-    phone: '(928) 757-9003',
+    phone: '(602) 527-6050',
     region: 'Greater Phoenix Metro: East Valley, West Valley, Scottsdale, Tempe, Mesa, Gilbert, Chandler',
     description:
       'Our Phoenix office puts Canyon State crews in the heart of the fastest-growing construction market in the country. From large commercial builds in Scottsdale to multi-family developments across the East Valley, we bring the same standards that built our reputation in the Northwest to every Phoenix project.',

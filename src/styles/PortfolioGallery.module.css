@@ -180,6 +180,38 @@
   pointer-events: none;
 }
 
+/* Coming Soon — top-left corner badge for projects not yet documented.
+   Solid dark background to read against any photo; sits above featuredBadge
+   if a card ever has both. Card image gets a subtle desaturation so the
+   "in-progress" status reads visually without the badge alone carrying it. */
+.comingSoonBadge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 3;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid rgba(184, 115, 51, 0.45);
+  padding: 0.3rem 0.65rem;
+  border-radius: 2px;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.cardComingSoon .cardImage {
+  filter: grayscale(0.25) brightness(0.92);
+  transition: filter 0.3s ease, transform 0.5s ease;
+}
+
+.cardComingSoon:hover .cardImage {
+  filter: grayscale(0) brightness(1);
+}
+
 .featuredOverlay {
   position: absolute;
   inset: 0;

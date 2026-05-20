@@ -8,7 +8,7 @@ import styles from './LocationPage.module.css';
 // Hero images per location
 import heroKingman      from '../assets/portfolio/commercial/Hualapai_Mountain_Campus.webp';
 import heroPhoenix      from '../assets/portfolio/commercial/Greenprint_Apartments_Phoenix_AZ.webp';
-import heroBullhead     from '../assets/portfolio/commercial/Spirit_Mountain_Casino.webp';
+import heroBullhead     from '../assets/portfolio/commercial/Holiday Inn Express_Bullhead City AZ.webp';
 import heroLasVegas     from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
 import heroHavasu       from '../assets/portfolio/residential/Northpoint_Community.webp';
 

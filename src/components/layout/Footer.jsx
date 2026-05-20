@@ -52,6 +52,10 @@ const Footer = () => {
                                     <a href="tel:9287579003" className={styles.contactValue}>(928) 757-9003</a>
                                 </div>
                                 <div className={styles.phoneRow}>
+                                    <span className={styles.phoneLocation}>Phoenix</span>
+                                    <a href="tel:6025276050" className={styles.contactValue}>(602) 527-6050</a>
+                                </div>
+                                <div className={styles.phoneRow}>
                                     <span className={styles.phoneLocation}>Nevada</span>
                                     <a href="tel:7026592819" className={styles.contactValue}>(702) 659-2819</a>
                                 </div>

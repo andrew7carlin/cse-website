@@ -12,7 +12,7 @@ const ProjectsShowcase = () => {
     // Curated showcase — fixed order, no shuffle
     const allProjects = loadProjectAssets();
     const curatedIds = [
-        'spirit-mountain-casino',
+        'holiday-inn-express-bullhead',
         'kmrc-main-campus',
         'bettys-village',
         'greenprint-apartments',

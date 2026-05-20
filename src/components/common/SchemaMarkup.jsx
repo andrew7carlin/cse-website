@@ -36,6 +36,29 @@ const SchemaMarkup = () => {
                 "telephone": "+1-928-757-9003",
                 "email": "info@canyonstateaz.com",
                 "priceRange": "$$-$$$",
+                "contactPoint": [
+                    {
+                        "@type": "ContactPoint",
+                        "telephone": "+1-928-757-9003",
+                        "contactType": "customer service",
+                        "areaServed": ["AZ", "UT", "NM"],
+                        "availableLanguage": "English"
+                    },
+                    {
+                        "@type": "ContactPoint",
+                        "telephone": "+1-602-527-6050",
+                        "contactType": "customer service",
+                        "areaServed": "Phoenix Metro",
+                        "availableLanguage": "English"
+                    },
+                    {
+                        "@type": "ContactPoint",
+                        "telephone": "+1-702-659-2819",
+                        "contactType": "customer service",
+                        "areaServed": "NV",
+                        "availableLanguage": "English"
+                    }
+                ],
                 "areaServed": [
                     { "@type": "State", "name": "Arizona" },
                     { "@type": "State", "name": "Nevada" },
