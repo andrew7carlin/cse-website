@@ -1,10 +1,14 @@
-# Robots.txt
+# Canyon State Enterprises — robots.txt
+# Sitemap is auto-generated from src/data/* by scripts/generate-sitemap.mjs
+# on every build (see package.json "prebuild").
+
 User-agent: *
 Allow: /
 
-# Sitemaps
 Sitemap: https://canyonstateaz.com/sitemap.xml
 
-# Crawl directives
-Disallow: /api/
-Disallow: /*.json$
+# Crawl directives — pages we don't want indexed or crawled
+Disallow: /thank-you   # Form confirmation page (also marked noindex in <head>)
+Disallow: /.netlify/   # Netlify functions endpoints (contact form POST etc.)
+Disallow: /api/        # Reserved for any future API surface
+Disallow: /*.json$     # Defense-in-depth against accidentally exposed JSON
