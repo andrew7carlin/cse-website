@@ -34,7 +34,7 @@ export const posts = [
         author: 'Canyon State Enterprises',
         heroImage: heroBettysVillage,
         heroImageAlt:
-            "Aerial view of Betty's Village North under construction in Las Vegas — multiple residential buildings, the central clubhouse with its standing-seam waterfall roof, and the Opportunity Village campus taking shape.",
+            "Aerial view of Betty's Village North under construction in Las Vegas, with multiple residential buildings, the central clubhouse with its standing-seam waterfall roof, and the Opportunity Village campus taking shape.",
         readingTime: '6 min read',
         category: 'Project Spotlight',
         contentLoader: () => import('../content/blog/building-bettys-village-north-opportunity-village.jsx'),

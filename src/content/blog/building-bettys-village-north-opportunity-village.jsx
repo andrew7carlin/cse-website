@@ -43,7 +43,7 @@ const BettysVillageNorthPost = () => (
         <p>
             Seventy-two years later, Canyon State Enterprises is the roofing, stucco, and
             metals contractor on the second phase of Opportunity Village&rsquo;s housing community
-            for adult residents — a project called{' '}
+            for adult residents. The project is called{' '}
             <strong>Betty&rsquo;s Village North</strong>.
         </p>
 
@@ -56,12 +56,12 @@ const BettysVillageNorthPost = () => (
         <figure className={styles.figure}>
             <img
                 src={bvAerial}
-                alt="Betty's Village taking shape — a broad view of the development across multiple residential buildings."
+                alt="Betty's Village taking shape across multiple residential buildings."
                 loading="lazy"
                 decoding="async"
             />
             <figcaption>
-                A broad view of Betty&rsquo;s Village taking shape — 22 residential dwellings and
+                A broad view of Betty&rsquo;s Village taking shape. Twenty-two residential dwellings and
                 three commercial buildings under construction simultaneously.
             </figcaption>
         </figure>
@@ -78,7 +78,7 @@ const BettysVillageNorthPost = () => (
         <p>
             &ldquo;Betty&rdquo; is Betty Engelstad. The Ralph and Betty Engelstad Foundation is the
             primary funder of both the original Betty&rsquo;s Village and the new northwest
-            campus. Adult residents — most with intellectual or developmental disabilities —
+            campus. Adult residents, most with intellectual or developmental disabilities,
             live independently in a community designed around them, not around code-minimum
             compliance:
         </p>
@@ -88,7 +88,7 @@ const BettysVillageNorthPost = () => (
             <li>Emergency alert poles throughout the campus</li>
             <li>Center-facing townhomes so neighbors actually see each other from the porch</li>
             <li>A central clubhouse with a gym, pool, spa, and multipurpose spaces</li>
-            <li>Rent covered by Medicaid — residents pay nothing out of pocket for housing</li>
+            <li>Rent covered by Medicaid, so residents pay nothing out of pocket for housing</li>
         </ul>
 
         <p>
@@ -114,7 +114,7 @@ const BettysVillageNorthPost = () => (
         <ul>
             <li><strong>$59 million</strong> total project budget</li>
             <li><strong>17.6 acres</strong> at Thom and Rome Boulevards, just off N. Decatur Blvd and the I-215</li>
-            <li><strong>90 residential units</strong> in Phase 1 — a mix of 1-bedroom and 2-bedroom apartments plus 4-bedroom shared homes</li>
+            <li><strong>90 residential units</strong> in Phase 1: a mix of 1-bedroom and 2-bedroom apartments plus 4-bedroom shared homes</li>
             <li><strong>22 residential dwellings + 3 commercial buildings</strong> in Canyon State&rsquo;s scope</li>
             <li><strong>125+ residents</strong> at full build</li>
             <li><strong>~24 months</strong> from October 2024, targeting late-2026 completion</li>
@@ -122,7 +122,7 @@ const BettysVillageNorthPost = () => (
 
         <p>
             The three commercial buildings matter. They&rsquo;ll house workforce training space,
-            coffee shops, and retail — so residents will work in the same campus they live
+            coffee shops, and retail, so residents will work in the same campus they live
             in. That&rsquo;s the whole model: independent living plus meaningful employment, in
             one place, on one team.
         </p>
@@ -142,7 +142,7 @@ const BettysVillageNorthPost = () => (
             />
             <figcaption>
                 First residential buildings under construction. Large communities with tight
-                timelines often face scaffolding delays — owning our scaffolding inventory
+                timelines often face scaffolding delays. Owning our scaffolding inventory
                 is how we keep the schedule honest.
             </figcaption>
         </figure>
@@ -158,7 +158,7 @@ const BettysVillageNorthPost = () => (
 
         <p>
             Thirty buildings going up simultaneously on a tight schedule means scaffolding
-            becomes the bottleneck. Most stucco contractors rent — which means you&rsquo;re
+            becomes the bottleneck. Most stucco contractors rent, which means you&rsquo;re
             waiting on someone else&rsquo;s truck, someone else&rsquo;s scheduler, and someone else&rsquo;s
             priorities. We made the deliberate choice years ago to own ours. That decision
             costs money up front and pays back on jobs exactly like this one, where the
@@ -169,7 +169,7 @@ const BettysVillageNorthPost = () => (
 
         <p>
             The buildings mix concrete cement board fascia with traditional eaves.
-            Concrete cement board makes rake installation a fight — the saw kerfs don&rsquo;t
+            Concrete cement board makes rake installation a fight. The saw kerfs don&rsquo;t
             behave like wood, the dust is brutal, and you can&rsquo;t just shoot a fastener and
             move on. Every transition has to be detailed individually. We&rsquo;re running an
             extra QC pass on these specifically so the rakes still look clean when the
@@ -180,7 +180,7 @@ const BettysVillageNorthPost = () => (
 
         <p>
             The visual centerpiece of the whole campus is a standing seam metal roof on the
-            clubhouse — but not just any standing seam. It&rsquo;s a continuous waterfall design
+            clubhouse, but not just any standing seam. It&rsquo;s a continuous waterfall design
             where the panels drape over the building in <strong>70-foot continuous lengths</strong>.
             Standard install methods don&rsquo;t apply. To pull it off we brought a roll former
             on-site so we could produce panels at full length (no field seams visible), used
@@ -197,7 +197,7 @@ const BettysVillageNorthPost = () => (
         <figure className={styles.figure}>
             <img
                 src={bvWaterfall}
-                alt="The clubhouse at Betty's Village showing its dramatic standing-seam waterfall roof — a continuous metal panel system draping over the building."
+                alt="The clubhouse at Betty's Village showing its dramatic standing-seam waterfall roof, a continuous metal panel system draping over the building."
                 loading="lazy"
                 decoding="async"
             />
@@ -219,18 +219,18 @@ const BettysVillageNorthPost = () => (
         </p>
 
         <p>
-            Our answer is that we self-perform roofing, stucco, AND metals on the same job
-            — so when our schedule needs to shift because the rough-in plumbing got delayed,
+            Our answer is that we self-perform roofing, stucco, AND metals on the same job.
+            When our schedule needs to shift because the rough-in plumbing got delayed,
             we move our own crews around internally. We don&rsquo;t have to wait on three
-            different subs to confirm new dates. That single decision — being a multi-trade
-            subcontractor instead of three different ones — is the most underrated thing
+            different subs to confirm new dates. That single decision, being a multi-trade
+            subcontractor instead of three different ones, is the most underrated thing
             about how we run jobs.
         </p>
 
         <figure className={styles.figure}>
             <img
                 src={bvStaging}
-                alt="Neat material staging at Betty's Village — pallets organized, proper safety equipment in use, owned heavy machinery on site."
+                alt="Neat material staging at Betty's Village. Pallets organized, proper safety equipment in use, owned heavy machinery on site."
                 loading="lazy"
                 decoding="async"
             />
@@ -258,7 +258,7 @@ const BettysVillageNorthPost = () => (
         <p>
             So when our crew has to figure out how to install a 70-foot standing-seam panel
             over a public courtyard, or detail concrete-cement-board fascia at a rake
-            without making it look like an industrial loading dock — we figure it out. The
+            without making it look like an industrial loading dock, we figure it out. The
             deadline isn&rsquo;t a developer pro-forma. It&rsquo;s the date that 125 more Las Vegas
             residents finally get a home that was designed around them.
         </p>
@@ -284,7 +284,7 @@ const BettysVillageNorthPost = () => (
                 </a>
                 <br />
                 <strong>Looking for a Las Vegas multi-trade contractor?</strong>{' '}
-                <Link to="/contact">Tell us about your project</Link> — our Nevada crews are
+                <Link to="/contact">Tell us about your project</Link>. Our Nevada crews are
                 booked solid for a reason.
             </p>
         </div>

@@ -24,7 +24,7 @@ const Blog = () => {
     return (
         <main className={styles.page}>
             <SEO
-                title="Insights — From the Field"
+                title="Insights from the Field"
                 description="Stories from Canyon State Enterprises jobsites: project spotlights, construction problems and how we solve them, and what we're learning across roofing, stucco, and the trades."
                 canonical="https://canyonstateaz.com/blog"
             />
