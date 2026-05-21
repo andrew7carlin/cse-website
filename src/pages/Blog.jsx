@@ -31,12 +31,15 @@ const Blog = () => {
 
             <section className={styles.hero}>
                 <div className={styles.heroContent}>
-                    <span className={styles.eyebrow}>Insights</span>
-                    <h1 className={styles.headline}>Stories from the field.</h1>
-                    <p className={styles.subline}>
-                        Project spotlights, construction problems and how we solve them,
-                        and what we&rsquo;re learning across the trades.
-                    </p>
+                    <div className={styles.heroInner}>
+                        <span className={styles.eyebrow}>Insights</span>
+                        <h1 className={styles.headline}>Stories from the field.</h1>
+                        <div className={styles.divider} aria-hidden="true" />
+                        <p className={styles.subline}>
+                            Project spotlights, construction problems and how we solve
+                            them, and what we&rsquo;re learning across the trades.
+                        </p>
+                    </div>
                 </div>
             </section>
 

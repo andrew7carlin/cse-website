@@ -6,17 +6,46 @@
     background: var(--color-bg-base);
 }
 
-/* ── Hero ─────────────────────────────────────────────────────────── */
+/* ── Hero — editorial header, no photo. Matches the magazine feel of
+   an Insights hub: copper eyebrow, light-weight serif-confident
+   headline, copper accent rule, then a paired subline.
+   Background uses the same soft brand gradient as the rest of the site
+   (--color-bg-base → --color-bg-alt) with a generous header offset so
+   the eyebrow doesn't hug the navbar. */
 .hero {
+    position: relative;
     background: linear-gradient(180deg, var(--color-bg-base) 0%, var(--color-bg-alt) 100%);
-    padding: calc(var(--header-height) + var(--spacing-xl)) var(--container-padding) var(--spacing-xl);
+    padding: calc(var(--header-height) + var(--spacing-xxl)) var(--container-padding) var(--spacing-xl);
+    overflow: hidden;
+}
+
+/* Subtle watermark — a single oversized character in the bottom-right
+   for visual interest without competing with the headline. Decorative
+   only; aria-hidden via pure CSS (no real element). */
+.hero::after {
+    content: '';
+    position: absolute;
+    right: -3vw;
+    bottom: -8vh;
+    width: 40vw;
+    height: 40vw;
+    max-width: 600px;
+    max-height: 600px;
+    background-image: radial-gradient(circle at center, rgba(160, 73, 33, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .heroContent {
+    position: relative;
+    z-index: 1;
     max-width: var(--container-width);
     margin: 0 auto;
     text-align: left;
-    max-width: 880px;
+}
+
+.heroInner {
+    max-width: 760px;
 }
 
 .eyebrow {
@@ -26,16 +55,23 @@
     letter-spacing: var(--letter-spacing-eyebrow);
     color: var(--color-copper);
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .headline {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(2.25rem, 5.5vw, 4rem);
     font-weight: var(--font-weight-light);
     line-height: 1.05;
     letter-spacing: var(--letter-spacing-tight);
     color: var(--color-text-main);
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.75rem;
+}
+
+.divider {
+    width: 60px;
+    height: 2px;
+    background: var(--color-copper);
+    margin: 0 0 1.75rem;
 }
 
 .subline {
@@ -43,7 +79,7 @@
     line-height: 1.6;
     color: var(--color-text-muted);
     margin: 0;
-    max-width: 600px;
+    max-width: 540px;
 }
 
 /* ── Content ─────────────────────────────────────────────────────── */
