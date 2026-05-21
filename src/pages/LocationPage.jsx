@@ -47,6 +47,39 @@ const LocationPage = () => {
         canonical={`https://canyonstateaz.com/locations/${loc.id}`}
       />
 
+      {/* LocalBusiness schema specific to this branch office. Each location
+          gets its own @id, address locality, phone, and parentOrganization
+          reference. The areaServed maps to the coverage array. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            '@id': `https://canyonstateaz.com/locations/${loc.id}#location`,
+            name: `Canyon State Enterprises — ${loc.city}`,
+            url: `https://canyonstateaz.com/locations/${loc.id}`,
+            telephone: `+1-${loc.phone.replace(/\D/g, '')}`,
+            description: loc.description,
+            parentOrganization: { '@id': 'https://canyonstateaz.com/#organization' },
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: loc.city,
+              addressRegion: loc.abbrev,
+              addressCountry: 'US',
+            },
+            areaServed: loc.coverage.map((city) => ({
+              '@type': 'City',
+              name: city,
+            })),
+            makesOffer: loc.services.map((svc) => ({
+              '@type': 'Offer',
+              itemOffered: { '@type': 'Service', name: svc },
+            })),
+          }),
+        }}
+      />
+
       {/* ── Hero ── */}
       <section className={styles.hero}>
         {HERO_IMAGES[loc.heroImage] && (

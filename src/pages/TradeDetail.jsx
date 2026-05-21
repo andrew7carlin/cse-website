@@ -145,6 +145,32 @@ const TradeDetail = () => {
                 description={data.description}
                 canonical={`https://canyonstateaz.com/services/${tradeId}`}
             />
+
+            {/* Per-trade Service schema. Tells Google this URL describes a
+                specific service (the trade) offered by the parent organization,
+                with explicit area-served and provider reference back to the
+                site-wide LocalBusiness @id. */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'Service',
+                        '@id': `https://canyonstateaz.com/services/${tradeId}#service`,
+                        name: data.title,
+                        serviceType: data.title,
+                        url: `https://canyonstateaz.com/services/${tradeId}`,
+                        description: data.description,
+                        provider: { '@id': 'https://canyonstateaz.com/#organization' },
+                        areaServed: [
+                            { '@type': 'State', name: 'Arizona' },
+                            { '@type': 'State', name: 'Nevada' },
+                            { '@type': 'State', name: 'Utah' },
+                            { '@type': 'State', name: 'New Mexico' },
+                        ],
+                    }),
+                }}
+            />
             <div className={styles.hero}>
                 {/* Real <img> (not CSS bg) so the preload scanner finds the LCP image. */}
                 <img

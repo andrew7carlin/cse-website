@@ -24,6 +24,29 @@ export default function CommercialPortfolio() {
         description="View Canyon State Enterprises' commercial construction projects: dealerships, medical facilities, restaurants, hotels, and multi-trade builds across Arizona and the Southwest."
         canonical="https://canyonstateaz.com/portfolio/commercial"
       />
+
+      {/* ItemList schema — gives Google a structured inventory of the
+          commercial portfolio so rich results (carousel, list snippets)
+          become eligible. Limited to 50 entries to keep payload reasonable. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            '@id': 'https://canyonstateaz.com/portfolio/commercial#itemlist',
+            name: 'Canyon State Enterprises — Commercial Projects',
+            url: 'https://canyonstateaz.com/portfolio/commercial',
+            numberOfItems: allProjects.length,
+            itemListElement: allProjects.slice(0, 50).map((p, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              url: `https://canyonstateaz.com/portfolio/${p.id}`,
+              name: `${p.name} — ${p.location}`,
+            })),
+          }),
+        }}
+      />
       <div className={styles.container}>
         <h1 className={styles.title}>Commercial Projects</h1>
 

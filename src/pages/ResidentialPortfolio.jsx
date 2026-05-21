@@ -18,6 +18,28 @@ export default function ResidentialPortfolio() {
         description="View Canyon State Enterprises' residential construction projects: custom homes, roofing, stucco, and full-service builds across Arizona and the Southwest."
         canonical="https://canyonstateaz.com/portfolio/residential"
       />
+
+      {/* ItemList schema for the residential portfolio — same pattern as
+          the commercial gallery so Google can render rich result lists. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            '@id': 'https://canyonstateaz.com/portfolio/residential#itemlist',
+            name: 'Canyon State Enterprises — Residential Projects',
+            url: 'https://canyonstateaz.com/portfolio/residential',
+            numberOfItems: residentialProjects.length,
+            itemListElement: residentialProjects.slice(0, 50).map((p, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              url: `https://canyonstateaz.com/portfolio/${p.id}`,
+              name: `${p.name} — ${p.location}`,
+            })),
+          }),
+        }}
+      />
       <div className={styles.container}>
         <h1 className={styles.title}>Residential Projects</h1>
 

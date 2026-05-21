@@ -128,7 +128,16 @@ const BettysVillageNorthPost = () => (
         </p>
 
         <p>
-            Canyon State&rsquo;s scope on the job covers <strong>TPO roofing, tile roofing, metal
+            <a
+                href="https://www.randoco.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                R&amp;O Construction
+            </a>
+            {' '}is the general contractor on the project. They&rsquo;ve been building commercial work
+            across Las Vegas and Utah for 45 years and they&rsquo;re a long-time partner of ours.
+            Canyon State&rsquo;s scope under R&amp;O covers <strong>TPO roofing, tile roofing, metal
             roofing, flush panels, and three-coat stucco</strong>. Five trades, one self-performed
             crew structure, one schedule.
         </p>
@@ -273,6 +282,15 @@ const BettysVillageNorthPost = () => (
             <p>
                 <strong>See the project gallery:</strong>{' '}
                 <Link to="/portfolio/bettys-village">Betty&rsquo;s Village on our portfolio</Link>
+                <br />
+                <strong>The GC on this project:</strong>{' '}
+                <a
+                    href="https://www.randoco.com/project/bettys-village/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    R&amp;O Construction
+                </a>
                 <br />
                 <strong>Learn more about Opportunity Village:</strong>{' '}
                 <a
