@@ -104,6 +104,7 @@ import customHomeScottsdale from '../assets/trades/custom-home-scottsdale-az.web
 import abbotApartmentsBullhead from '../assets/portfolio/commercial/Abbot Apartments_Bullhead City AZ.webp';
 import abbotApartmentsBullhead2 from '../assets/portfolio/commercial/Abbot Apartments_Bullhead City AZ_2.webp';
 import andersonFordKingman from '../assets/portfolio/commercial/Anderson Ford_Kingman AZ.webp';
+import bradleyFordHavasu from '../assets/portfolio/commercial/Bradley_Ford_Lake_Havasu_City_Az.webp';
 import betterBuzzCoffeeTempe from '../assets/portfolio/commercial/Better Buzz Coffee_Tempe AZ.webp';
 import bistroKingman from '../assets/portfolio/commercial/Bistro_Kingman, AZ.webp';
 import bullheadFireDept7 from '../assets/portfolio/commercial/Bullhead City Fire Department 7_Bullhead City AZ.webp';
@@ -247,6 +248,7 @@ export const commercialProjects = [
   // ── New commercial imports ───────────────────────────────────────────────
   { id: 'abbot-apartments-bullhead', name: 'Abbot Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: abbotApartmentsBullhead, gallery: [abbotApartmentsBullhead, abbotApartmentsBullhead2] },
   { id: 'anderson-ford-kingman', name: 'Anderson Ford', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: andersonFordKingman },
+  { id: 'bradley-ford-havasu', name: 'Bradley Ford', location: 'Lake Havasu City, AZ', category: 'dealerships', trade: 'Roofing & Stucco', src: bradleyFordHavasu },
   { id: 'better-buzz-coffee-tempe', name: 'Better Buzz Coffee', location: 'Tempe, AZ', category: 'restaurants', trade: 'Roofing', src: betterBuzzCoffeeTempe },
   { id: 'bistro-kingman', name: 'Bistro', location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: bistroKingman },
   { id: 'bullhead-fire-dept-7', name: 'Bullhead City Fire Dept #7', location: 'Bullhead City, AZ', category: 'government', trade: 'Roofing', src: bullheadFireDept7 },
