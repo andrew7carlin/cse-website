@@ -1,0 +1,172 @@
+/* /blog — Insights index. Matches the site's section-header pattern,
+   light/elegant typography, copper accents. */
+
+.page {
+    min-height: 100vh;
+    background: var(--color-bg-base);
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+.hero {
+    background: linear-gradient(180deg, var(--color-bg-base) 0%, var(--color-bg-alt) 100%);
+    padding: calc(var(--header-height) + var(--spacing-xl)) var(--container-padding) var(--spacing-xl);
+}
+
+.heroContent {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    text-align: left;
+    max-width: 880px;
+}
+
+.eyebrow {
+    display: block;
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-eyebrow);
+    color: var(--color-copper);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.headline {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: var(--font-weight-light);
+    line-height: 1.05;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-text-main);
+    margin: 0 0 1.25rem;
+}
+
+.subline {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 600px;
+}
+
+/* ── Content ─────────────────────────────────────────────────────── */
+.content {
+    padding: var(--spacing-xl) 0 var(--spacing-xxl);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ── Card ─────────────────────────────────────────────────────────── */
+.card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border: 1px solid var(--color-divider);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(160, 73, 33, 0.4);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.cardImageWrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+    transform: scale(1.03);
+}
+
+.cardBody {
+    padding: 1.5rem 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cardMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+}
+
+.cardCategory {
+    color: var(--color-copper);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.cardDot {
+    color: var(--color-divider);
+}
+
+.cardDate {
+    color: var(--color-text-muted);
+}
+
+.cardTitle {
+    font-size: 1.35rem;
+    font-weight: var(--font-weight-light);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-text-main);
+    margin: 0 0 0.85rem;
+}
+
+.cardExcerpt {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0 0 1.25rem;
+    flex: 1;
+}
+
+.cardCta {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-top: auto;
+}

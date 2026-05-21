@@ -14,6 +14,7 @@ const PRELOADERS = {
   '/portfolio':    () => import('../../pages/PortfolioLanding'),
   '/where':        () => import('../../pages/Where'),
   '/partnerships': () => import('../../pages/Partnerships'),
+  '/blog':         () => import('../../pages/Blog'),
 };
 const preload = (path) => {
   const fn = PRELOADERS[path];
@@ -146,6 +147,10 @@ const Navbar = () => {
                         <span className={styles.navLinkText}>Partnerships</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
+                    <Link to="/blog" className={styles.navLink} data-cursor="link" onMouseEnter={() => preload('/blog')} onFocus={() => preload('/blog')}>
+                        <span className={styles.navLinkText}>Insights</span>
+                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    </Link>
                     <Link to="/contact" className={styles.navLink} data-cursor="link">
                         <span className={styles.navLinkText}>Contact</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
@@ -177,6 +182,7 @@ const Navbar = () => {
                     <Link to="/about" className={styles.mobileNavLink}>About</Link>
                     <Link to="/where" className={styles.mobileNavLink}>Where</Link>
                     <Link to="/partnerships" className={styles.mobileNavLink}>Partnerships</Link>
+                    <Link to="/blog" className={styles.mobileNavLink}>Insights</Link>
                     <Link to="/contact" className={styles.mobileNavLink}>Contact</Link>
                     <Link to="/contact" className={styles.mobileCta}>Let's Talk</Link>
                 </nav>

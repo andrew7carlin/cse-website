@@ -1,0 +1,279 @@
+/* /blog/:slug — Article page styling.
+   Long-form reading typography with the site's design tokens. */
+
+.page {
+    min-height: 100vh;
+    background: var(--color-white);
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 65vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.heroImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    display: block;
+}
+
+/* Layered gradient — strongest in the bottom-left where the headline lives,
+   fading toward the upper-right so the photograph still reads. Matches the
+   Turner-style hero treatment used on the About page. */
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to right,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.55) 30%,
+            rgba(0, 0, 0, 0.2) 60%,
+            rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to top,
+            rgba(0, 0, 0, 0.55) 0%,
+            rgba(0, 0, 0, 0.15) 55%,
+            rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding) var(--spacing-xl);
+    color: #fff;
+}
+
+.heroEyebrow {
+    display: inline-block;
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-eyebrow);
+    color: var(--color-copper);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.heroTitle {
+    font-size: clamp(1.85rem, 4.2vw, 3.25rem);
+    font-weight: var(--font-weight-light);
+    line-height: 1.1;
+    letter-spacing: var(--letter-spacing-tight);
+    margin: 0 0 1.25rem;
+    max-width: 980px;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.heroMeta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+.metaDot {
+    opacity: 0.6;
+}
+
+/* ── Article body ─────────────────────────────────────────────────── */
+.article {
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    background: var(--color-white);
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Lead paragraph — slightly larger, more confident */
+.lead {
+    font-size: 1.35rem;
+    line-height: 1.55;
+    color: var(--color-text-main);
+    font-weight: var(--font-weight-regular);
+    margin: 0 0 1.6rem;
+}
+
+.article .container :global(p) {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-text-main);
+    margin: 0 0 1.3rem;
+}
+
+.article .container :global(h2) {
+    font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+    font-weight: var(--font-weight-light);
+    line-height: 1.2;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-text-main);
+    margin: 2.5rem 0 1rem;
+    border-top: 1px solid var(--color-divider);
+    padding-top: 1.8rem;
+}
+
+.article .container :global(h3) {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    color: var(--color-copper);
+    margin: 1.75rem 0 0.7rem;
+}
+
+.article .container :global(ul),
+.article .container :global(ol) {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-main);
+    margin: 0 0 1.5rem 1.3rem;
+    padding: 0;
+}
+
+.article .container :global(li) {
+    margin-bottom: 0.55rem;
+}
+
+.article .container :global(strong) {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-main);
+}
+
+.article .container :global(a) {
+    color: var(--color-copper);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(160, 73, 33, 0.4);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.article .container :global(a:hover) {
+    color: #8a3d1b;
+    border-bottom-color: var(--color-copper);
+}
+
+.article .container :global(blockquote) {
+    margin: 1.8rem 0;
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--color-copper);
+    background: var(--color-bg-base);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-main);
+    font-style: italic;
+}
+
+/* ── Figures (in-article images) ──────────────────────────────────── */
+.figure {
+    margin: 2.2rem -1rem;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .figure {
+        margin: 2.5rem -3rem;
+    }
+}
+
+.figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.figure figcaption {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    font-style: italic;
+    text-align: center;
+    margin-top: 0.75rem;
+    padding: 0 1rem;
+}
+
+/* End-of-article link block */
+.endLinks {
+    margin-top: 2.5rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--color-bg-base);
+    border-left: 3px solid var(--color-copper);
+    border-radius: 0 4px 4px 0;
+}
+
+.endLinks p {
+    margin: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.85 !important;
+}
+
+/* ── Footer nav ───────────────────────────────────────────────────── */
+.postFooter {
+    background: var(--color-bg-alt);
+    padding: var(--spacing-lg) 0 var(--spacing-xl);
+}
+
+.backLink {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.backLink:hover {
+    opacity: 0.7;
+}
+
+/* ── Suspense loader ──────────────────────────────────────────────── */
+.loader {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--color-divider);
+    border-top-color: var(--color-copper);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Not Found ────────────────────────────────────────────────────── */
+.notFound {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: var(--spacing-xl) var(--container-padding);
+    text-align: center;
+    background: var(--color-bg-base);
+}

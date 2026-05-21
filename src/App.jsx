@@ -38,6 +38,8 @@ const importPrivacy              = () => import('./pages/Privacy');
 const importTerms                = () => import('./pages/Terms');
 const importLocationPage         = () => import('./pages/LocationPage');
 const importThankYou             = () => import('./pages/ThankYou');
+const importBlog                 = () => import('./pages/Blog');
+const importBlogPost             = () => import('./pages/BlogPost');
 
 const About                = lazy(importAbout);
 const Contact              = lazy(importContact);
@@ -56,6 +58,8 @@ const Privacy              = lazy(importPrivacy);
 const Terms                = lazy(importTerms);
 const LocationPage         = lazy(importLocationPage);
 const ThankYou             = lazy(importThankYou);
+const Blog                 = lazy(importBlog);
+const BlogPost             = lazy(importBlogPost);
 
 // After the page is interactive (during browser idle time), prefetch the
 // chunks for the most-likely next navigation. Click → render feels instant
@@ -68,6 +72,7 @@ function useIdlePrefetch() {
       importContact();
       importServices();
       importPortfolioLanding();
+      importBlog();
     };
     if ('requestIdleCallback' in window) {
       const id = window.requestIdleCallback(prefetch, { timeout: 4000 });
@@ -158,6 +163,8 @@ function App() {
             <Route path="privacy" element={<Privacy />} />
             <Route path="terms" element={<Terms />} />
             <Route path="thank-you" element={<ThankYou />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

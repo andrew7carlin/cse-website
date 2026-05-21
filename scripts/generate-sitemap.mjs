@@ -36,6 +36,7 @@ const STATIC = [
     { p: '/portfolio',            pri: 0.8,  cf: 'monthly' },
     { p: '/portfolio/commercial', pri: 0.8,  cf: 'monthly' },
     { p: '/portfolio/residential',pri: 0.8,  cf: 'monthly' },
+    { p: '/blog',                 pri: 0.85, cf: 'weekly'  },
 ];
 
 // ── Trade pages (must match Navbar.jsx TRADES) ────────────────────────────
@@ -69,12 +70,19 @@ const projectIds = [
     ...projectsSrc.matchAll(/\bid:\s*['"]([a-z0-9-]+)['"]\s*,\s*name:/g),
 ].map(m => m[1]);
 
+// ── Blog post slugs (scrape from src/data/blog.js) ────────────────────────
+const blogSrc = fs.readFileSync(path.join(projectRoot, 'src/data/blog.js'), 'utf8');
+const blogSlugs = [
+    ...blogSrc.matchAll(/\bslug:\s*['"]([a-z0-9-]+)['"]/g),
+].map(m => m[1]);
+
 // ── Build URL list ────────────────────────────────────────────────────────
 const urls = [];
 for (const r of STATIC)         urls.push({ loc: SITE + r.p,                lastmod: TODAY, cf: r.cf,        pri: r.pri  });
 for (const t of TRADES)         urls.push({ loc: SITE + '/services/' + t.id, lastmod: TODAY, cf: 'monthly',   pri: t.pri  });
 for (const id of locationIds)   urls.push({ loc: SITE + '/locations/' + id,  lastmod: TODAY, cf: 'monthly',   pri: 0.70  });
 for (const id of projectIds)    urls.push({ loc: SITE + '/portfolio/' + id,  lastmod: TODAY, cf: 'yearly',    pri: 0.50  });
+for (const s  of blogSlugs)     urls.push({ loc: SITE + '/blog/' + s,        lastmod: TODAY, cf: 'monthly',   pri: 0.75  });
 
 // ── Serialize ──────────────────────────────────────────────────────────────
 const xml =
@@ -95,4 +103,4 @@ const outPath = path.join(projectRoot, 'public/sitemap.xml');
 fs.writeFileSync(outPath, xml, 'utf8');
 
 console.log(`✓ wrote public/sitemap.xml`);
-console.log(`  ${STATIC.length} static + ${TRADES.length} trade + ${locationIds.length} location + ${projectIds.length} project = ${urls.length} URLs`);
+console.log(`  ${STATIC.length} static + ${TRADES.length} trade + ${locationIds.length} location + ${projectIds.length} project + ${blogSlugs.length} blog = ${urls.length} URLs`);
