@@ -2,13 +2,91 @@
 # Sitemap is auto-generated from src/data/* by scripts/generate-sitemap.mjs
 # on every build (see package.json "prebuild").
 
+# ─── Default policy: everyone allowed ──────────────────────────────
 User-agent: *
+Allow: /
+Disallow: /thank-you
+Disallow: /.netlify/
+Disallow: /api/
+Disallow: /*.json$
+
+# ─── Search engines (explicit allow — signals intent to audit tools) ─
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ─── SEO audit crawlers ─────────────────────────────────────────────
+User-agent: SemrushBot
+Allow: /
+
+User-agent: SemrushBot-SA
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: rogerbot
+Allow: /
+
+User-agent: Screaming Frog SEO Spider
+Allow: /
+
+# ─── LLM / AI training & retrieval bots ────────────────────────────
+# Allow these so the site is discoverable in AI search (ChatGPT, Claude,
+# Perplexity, Google AI Overviews, etc.) and so the company's actual
+# story shows up when these tools answer queries about Southwest
+# contractors. Block individually below if needed.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
 Allow: /
 
 Sitemap: https://canyonstateaz.com/sitemap.xml
-
-# Crawl directives — pages we don't want indexed or crawled
-Disallow: /thank-you   # Form confirmation page (also marked noindex in <head>)
-Disallow: /.netlify/   # Netlify functions endpoints (contact form POST etc.)
-Disallow: /api/        # Reserved for any future API surface
-Disallow: /*.json$     # Defense-in-depth against accidentally exposed JSON

@@ -10,9 +10,131 @@
   <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
   <!-- <title>, <meta name="description">, and OG tags are rendered per-route by src/components/common/SEO.jsx via React 19's built-in head hoisting. -->
   <title>Canyon State Enterprises</title>
+  <meta name="description" content="Multi-trade construction across Arizona, Nevada, Utah, and the Southwest. Roofing, stucco, HVAC, plumbing, and 8 more self-performed trades. 25 years building from offices in Kingman, Phoenix, Bullhead City, Lake Havasu City, and Las Vegas." />
 </head>
 
 <body>
+  <!--
+    Crawlable fallback content for non-JS-executing crawlers (Screaming Frog
+    free, GPTBot, ClaudeBot, CCBot, Perplexity, Google-Extended, Bytespider,
+    most LLM scrapers). Real users with JavaScript enabled never see this
+    block (browsers hide <noscript> when JS is on). Per-route content for
+    JS-rendering crawlers (Googlebot, SemrushBot, etc.) is delivered by the
+    React app at /src/main.jsx.
+
+    Keep this block in sync with the brand's actual positioning. Update when:
+      • a new trade is added to src/components/layout/Navbar.jsx
+      • a new location is added to src/data/locations.js
+      • phone numbers change in src/data/locations.js
+  -->
+  <noscript>
+    <header>
+      <h1>Canyon State Enterprises</h1>
+      <p>Multi-trade construction company serving Arizona, Nevada, Utah, and New Mexico. Roofing, stucco, HVAC, plumbing, and 8 more self-performed trades, with 25 years of work across the Southwest.</p>
+
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/services">Trades &amp; Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/where">Where We Work</a></li>
+          <li><a href="/partnerships">Partnerships</a></li>
+          <li><a href="/blog">Insights</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Self-Performed Trades</h2>
+        <p>Canyon State self-performs every trade we sell. No three layers of subcontractors. One crew structure, one schedule, one accountable team on every job.</p>
+        <ul>
+          <li><a href="/services/roofing">Roofing</a> &mdash; TPO, PVC, EPDM, tile, metal, asphalt shingle, foam, restoration coatings. Commercial and residential.</li>
+          <li><a href="/services/stucco">Stucco &amp; EIFS</a> &mdash; Three-coat stucco, synthetic stucco, EIFS systems for residential and commercial.</li>
+          <li><a href="/services/general-contracting">General Contracting</a> &mdash; New construction, renovations, tenant improvements.</li>
+          <li><a href="/services/hvac">HVAC</a> &mdash; Heating and cooling install, replacement, and service. Canyon State Heating &amp; Cooling, ROC328713.</li>
+          <li><a href="/services/plumbing">Plumbing</a> &mdash; Residential and commercial plumbing services across Mohave County.</li>
+          <li><a href="/services/res-const">Residential Construction</a> &mdash; Custom homes, multi-family, community developments.</li>
+          <li><a href="/services/com-const">Commercial Construction</a> &mdash; Retail, hospitality, medical, dealership, government.</li>
+          <li><a href="/services/metals">Specialty Metals</a> &mdash; Standing seam, flush panel, custom flashings, coping.</li>
+          <li><a href="/services/masonry">Masonry</a> &mdash; Block, brick, stone veneer.</li>
+          <li><a href="/services/fencing">Fencing</a> &mdash; CMU, decorative, perimeter.</li>
+          <li><a href="/services/gutters">Seamless Gutters</a> &mdash; Custom-fabricated gutters and downspouts.</li>
+          <li><a href="/services/land-dev">Land Development</a> &mdash; Site prep, grading, infrastructure.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Office Locations</h2>
+        <p>Five offices across Arizona and Nevada. Crews live and work in every market we serve.</p>
+        <ul>
+          <li>
+            <a href="/locations/kingman-az"><strong>Kingman, AZ (Corporate Headquarters)</strong></a><br />
+            2959 Rhoades Ave, Kingman, AZ 86409 &middot; <a href="tel:9287579003">(928) 757-9003</a><br />
+            Northwest Arizona: Mohave County, Golden Valley, the Bullhead City corridor.
+          </li>
+          <li>
+            <a href="/locations/phoenix-az"><strong>Phoenix, AZ</strong></a> &middot; <a href="tel:6025276050">(602) 527-6050</a><br />
+            Greater Phoenix Metro: East Valley, West Valley, Scottsdale, Tempe, Mesa, Gilbert, Chandler.
+          </li>
+          <li>
+            <a href="/locations/bullhead-city-az"><strong>Bullhead City, AZ</strong></a><br />
+            Tri-State Area: Western AZ, Southern NV, Eastern CA. Laughlin corridor, Fort Mohave.
+          </li>
+          <li>
+            <a href="/locations/lake-havasu-city-az"><strong>Lake Havasu City, AZ</strong></a><br />
+            Western Arizona: Lake Havasu, Parker, Quartzsite, Blythe area.
+          </li>
+          <li>
+            <a href="/locations/las-vegas-nv"><strong>Las Vegas, NV</strong></a> &middot; <a href="tel:7026592819">(702) 659-2819</a><br />
+            Southern Nevada: Las Vegas, Henderson, North Las Vegas, Pahrump, Mesquite.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Regions Served</h2>
+        <p>Active in Arizona, Nevada, Utah, and New Mexico. Past project history extends into Texas, California, North Carolina, Tennessee, and Colorado.</p>
+      </section>
+
+      <section>
+        <h2>Trust &amp; Credentials</h2>
+        <ul>
+          <li>Arizona ROC License #353683 (current)</li>
+          <li>Canyon State Heating &amp; Cooling: ROC328713</li>
+          <li>Original Arizona ROC License #074485 issued December 1987 to A-2-Z Roofing Supply Co., the predecessor that merged into Canyon State in 2020</li>
+          <li>Fully bonded and insured: general liability and workers' compensation</li>
+          <li>Manufacturer partners include GAF, CertainTeed, Carlisle, Firestone, Versico, Eagle Roofing, MBCI, Petersen Aluminum, Mule Hide, Karnak, Dryvit, Omega Flex</li>
+          <li>Client partners include AR Mays Construction, Lusardi Construction, Willmeng, Kitchell, Path Construction, Pacificap, Overland, Wadman, EOS Fitness, Salad and Go, Home Depot, Opportunity Village</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Featured Project: Betty's Village North</h2>
+        <p>Canyon State is the roofing, stucco, and metals contractor on Opportunity Village's $59 million residential community for adults with intellectual disabilities in northwest Las Vegas. 22 residential dwellings and 3 commercial buildings; targeting late-2026 completion. Read the full story in <a href="/blog/building-bettys-village-north-opportunity-village">our Insights post on Betty's Village</a>.</p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Talk to the office closest to your project. A human will respond within one business day.</p>
+        <ul>
+          <li><strong>Kingman HQ:</strong> <a href="tel:9287579003">(928) 757-9003</a></li>
+          <li><strong>Phoenix:</strong> <a href="tel:6025276050">(602) 527-6050</a></li>
+          <li><strong>Nevada:</strong> <a href="tel:7026592819">(702) 659-2819</a></li>
+          <li><strong>Email:</strong> <a href="mailto:office@canyonstateaz.com">office@canyonstateaz.com</a></li>
+          <li><strong>Quote form:</strong> <a href="/contact">canyonstateaz.com/contact</a></li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>&copy; Canyon State Enterprises, LLC. All rights reserved. <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Use</a></p>
+      </footer>
+    </main>
+  </noscript>
+
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
