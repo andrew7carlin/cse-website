@@ -11,9 +11,19 @@ import img3 from '../../assets/trades/chilis.webp';
 const SocialSection = () => {
     return (
         <section className={styles.section}>
-            {/* Watermark Logo */}
+            {/* Watermark Logo — width/height match intrinsic source (426×169) so
+                the browser reserves aspect-ratio space before paint. CSS in
+                .watermark img drives the actual rendered size (450px / 550px). */}
             <div className={styles.watermark}>
-                <img src={logoTan} alt="" aria-hidden="true" />
+                <img
+                    src={logoTan}
+                    alt=""
+                    aria-hidden="true"
+                    width={426}
+                    height={169}
+                    loading="lazy"
+                    decoding="async"
+                />
             </div>
 
             <div className={styles.container}>
