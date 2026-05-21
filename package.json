@@ -11,7 +11,9 @@
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "vite build",
+    "postbuild": "node scripts/prerender.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
+    "prerender": "node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "import-images": "node import-images.js"
@@ -35,6 +37,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "puppeteer-core": "^25.0.4",
     "resend": "^6.8.0",
     "sharp": "^0.34.5",
     "vite": "^7.2.4"

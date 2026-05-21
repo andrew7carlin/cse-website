@@ -8,8 +8,11 @@
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="preload" as="image" href="/hero-poster.webp" fetchpriority="high" />
   <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- <title>, <meta name="description">, and OG tags are rendered per-route by src/components/common/SEO.jsx via React 19's built-in head hoisting. -->
-  <title>Canyon State Enterprises</title>
+  <!-- <title> + per-route meta/OG/canonical tags are owned by src/components/common/SEO.jsx
+       and hoisted into <head> by React 19. Build-time prerender (scripts/prerender.mjs)
+       captures the fully rendered HTML for every route so crawlers see real per-page
+       titles + meta + JSON-LD without needing to execute JS. -->
+  <title>Canyon State Enterprises | Multi-Trade Contractor AZ, NV, UT</title>
   <meta name="description" content="Multi-trade construction across Arizona, Nevada, Utah, and the Southwest. Roofing, stucco, HVAC, plumbing, and 8 more self-performed trades. 25 years building from offices in Kingman, Phoenix, Bullhead City, Lake Havasu City, and Las Vegas." />
 </head>
 
