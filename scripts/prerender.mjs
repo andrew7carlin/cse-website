@@ -50,8 +50,19 @@ const PAGE_TIMEOUT = 25_000;
 // fallback.
 
 // ─── Route discovery (mirrors scripts/generate-sitemap.mjs) ─────────────
+// Note: `/` is intentionally OMITTED from this list. The home page has a
+// comprehensive <noscript> fallback in index.html (header, all 12 trades,
+// 5 office locations, trust credentials, contact) that crawlers without JS
+// see, so it gets near-equivalent SEO without the perf cost of
+// prerendering. Prerendering the home page tanked Lighthouse Performance
+// from 94 to 52 in production because the full rendered DOM (hero +
+// ScaleStats + TradeGrid + 30 partner-logo carousel + Accordion +
+// ProjectsShowcase + SafetyStats + TestimonialsSection + SocialSection +
+// QuoteCTA) is a heavy initial payload AND a costly hydrateRoot walk.
+// Content pages don't have this problem — they're smaller and benefit
+// proportionally more from real per-route HTML.
 const STATIC_ROUTES = [
-    '/', '/about', '/services', '/partnerships', '/where', '/contact',
+    '/about', '/services', '/partnerships', '/where', '/contact',
     '/careers', '/faq', '/privacy', '/terms', '/portfolio',
     '/portfolio/commercial', '/portfolio/residential', '/blog',
 ];
