@@ -18,6 +18,121 @@
   status = 301
   force = true
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Legacy URL redirects — old paths from the previous site that still get
+# inbound traffic / backlinks / indexed pages. Each 301 consolidates SEO
+# authority into a live equivalent. `force = true` ensures Netlify fires the
+# redirect before the SPA fallback below catches the request.
+#
+# Order: most-specific paths first. The SPA fallback at the bottom catches
+# everything else.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Legacy /services/* paths (services index covers what doesn't have a peer)
+[[redirects]]
+  from = "/services/sparkletts-water"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/block"
+  to = "/services/masonry"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/construction"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/remodeling"
+  to = "/services/general-contracting"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/consulting"
+  to = "/contact"
+  status = 301
+  force = true
+
+# Legacy form-success page from the old Sparkletts inquiry funnel
+[[redirects]]
+  from = "/thank-you-sparkletts-water"
+  to = "/thank-you"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thank-you-sparkletts-water/*"
+  to = "/thank-you"
+  status = 301
+  force = true
+
+# Legacy CMS author archive (old WordPress-style URL)
+[[redirects]]
+  from = "/author/meld"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/author/meld/*"
+  to = "/about"
+  status = 301
+  force = true
+
+# Legacy top-level service paths (now live under /services/*)
+[[redirects]]
+  from = "/roofing"
+  to = "/services/roofing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/HVAC"
+  to = "/services/hvac"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hvac"
+  to = "/services/hvac"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/remodeling"
+  to = "/services/general-contracting"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/consulting"
+  to = "/contact"
+  status = 301
+  force = true
+
+# About — canonical short form
+[[redirects]]
+  from = "/about-us"
+  to = "/about"
+  status = 301
+  force = true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SPA fallback — must remain LAST. Anything not matched above renders the
+# React app, which then handles client-side routing.
+# ─────────────────────────────────────────────────────────────────────────────
 [[redirects]]
   from = "/*"
   to = "/index.html"
