@@ -28,7 +28,7 @@
  * still works as a SPA; failed routes just don't get prerendered HTML.
  */
 
-import puppeteer from 'puppeteer-core';
+import puppeteer from 'puppeteer';
 import http from 'http';
 import fs from 'fs';
 import fsp from 'fs/promises';
@@ -41,25 +41,13 @@ const DIST_DIR     = path.join(projectRoot, 'dist');
 const CONCURRENCY  = 5;
 const PAGE_TIMEOUT = 25_000;
 
-// ─── Chrome detection (cross-platform) ──────────────────────────────────
-const CHROME_CANDIDATES = [
-    // Linux (Netlify build image)
-    '/opt/google/chrome/chrome',
-    '/usr/bin/google-chrome-stable',
-    '/usr/bin/google-chrome',
-    '/usr/bin/chromium-browser',
-    '/usr/bin/chromium',
-    // macOS
-    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    // Windows
-    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-];
-const findChrome = () => {
-    if (process.env.PUPPETEER_EXECUTABLE_PATH) return process.env.PUPPETEER_EXECUTABLE_PATH;
-    for (const p of CHROME_CANDIDATES) if (fs.existsSync(p)) return p;
-    return null;
-};
+// Using the full `puppeteer` package (not `puppeteer-core`) — it ships its
+// own Chromium that npm install downloads, so prerender works identically
+// on Windows, macOS, Linux, and Netlify's build image without depending on
+// a system Chrome install. The earlier puppeteer-core + system Chrome
+// approach silently failed in Netlify CI because no Chrome was present at
+// the expected paths, which left every URL serving the unprerendered SPA
+// fallback.
 
 // ─── Route discovery (mirrors scripts/generate-sitemap.mjs) ─────────────
 const STATIC_ROUTES = [
@@ -177,22 +165,16 @@ const renderRoute = async (page, baseUrl, route) => {
         process.exit(0); // Don't fail the build; just skip prerendering.
     }
 
-    const chromePath = findChrome();
-    if (!chromePath) {
-        console.error('✗ No Chrome/Chromium binary found. Prerender skipped.');
-        console.error('  Set PUPPETEER_EXECUTABLE_PATH or install Chrome at a standard path.');
-        process.exit(0);
-    }
-
     const routes = discoverRoutes();
-    console.log(`Prerendering ${routes.length} routes via ${chromePath}`);
+    console.log(`Prerendering ${routes.length} routes via bundled Chromium`);
 
     const server = await startServer();
     const port = server.address().port;
     const baseUrl = `http://127.0.0.1:${port}`;
 
+    // No executablePath — puppeteer auto-uses its bundled Chromium.
+    // --no-sandbox is required in CI environments (Netlify build container).
     const browser = await puppeteer.launch({
-        executablePath: chromePath,
         headless: 'new',
         args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
     });
