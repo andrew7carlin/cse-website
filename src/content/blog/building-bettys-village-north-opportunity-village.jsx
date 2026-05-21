@@ -136,7 +136,7 @@ const BettysVillageNorthPost = () => (
                 R&amp;O Construction
             </a>
             {' '}is the general contractor on the project. They&rsquo;ve been building commercial work
-            across Las Vegas and Utah for 45 years and they&rsquo;re a long-time partner of ours.
+            across Las Vegas and Utah for 45 years and they&rsquo;re a trusted partner of ours.
             Canyon State&rsquo;s scope under R&amp;O covers <strong>TPO roofing, tile roofing, metal
             roofing, flush panels, and three-coat stucco</strong>. Five trades, one self-performed
             crew structure, one schedule.
@@ -304,6 +304,37 @@ const BettysVillageNorthPost = () => (
                 <strong>Looking for a Las Vegas multi-trade contractor?</strong>{' '}
                 <Link to="/contact">Tell us about your project</Link>. Our Nevada crews are
                 booked solid for a reason.
+            </p>
+        </div>
+
+        <div className={styles.thanks}>
+            <span className={styles.thanksEyebrow}>Special Thanks</span>
+            <p>
+                To{' '}
+                <a
+                    href="https://www.opportunityvillage.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Opportunity Village
+                </a>
+                ,{' '}
+                <a
+                    href="https://www.randoco.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    R&amp;O Construction
+                </a>
+                , and{' '}
+                <a
+                    href="https://kga.design/opportunity-village-bettys-village.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    KGA Architecture
+                </a>
+                {' '}for trusting us with their project.
             </p>
         </div>
     </>
