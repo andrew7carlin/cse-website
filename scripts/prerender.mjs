@@ -185,6 +185,24 @@ const renderRoute = async (page, baseUrl, route) => {
     // noscript fallback intact for non-JS crawlers.
     html = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
 
+    // Safety net: strip any third-party script tags that snuck through
+    // request interception (e.g. scripts injected by something OTHER than
+    // a network request — inline scripts created by an extension or by a
+    // script that ran before interception engaged). The legitimate
+    // production-time GTM script tag (loaded by GoogleTagManager.jsx via
+    // client-side createElement on real visits) is fine — it's not in
+    // our source HTML and won't reappear here.
+    html = html.replace(
+        /<script[^>]*\s(?:src|data-src)="[^"]*(?:googletagmanager\.com|google-analytics\.com|googleadservices\.com|doubleclick\.net|facebook\.net|tiktok\.com)[^"]*"[^>]*>(?:[\s\S]*?<\/script>)?/g,
+        ''
+    );
+
+    // Strip any leftover puppeteer localhost references (127.0.0.1:PORT)
+    // that third-party scripts may have written into query strings before
+    // we managed to block them.
+    html = html.replace(/127\.0\.0\.1%3A\d+/g, '');
+    html = html.replace(/127\.0\.0\.1:\d+/g, '');
+
     const outDir = path.join(DIST_DIR, route === '/' ? '' : route.replace(/^\//, ''));
     const outFile = path.join(outDir, 'index.html');
     await fsp.mkdir(outDir, { recursive: true });
@@ -218,8 +236,43 @@ const renderRoute = async (page, baseUrl, route) => {
     let failed = 0;
     const t0 = Date.now();
 
+    // Domains we don't want firing during prerender. Each of these injects
+    // tracking pixels, conversion scripts, or analytics beacons into the DOM
+    // that puppeteer then captures into the static HTML. The capture pollutes
+    // every prerendered page with leftover localhost URLs (from puppeteer's
+    // own dev server) and phantom conversion events that fire on every real
+    // visitor. On the real visitor's browser, these scripts load fresh from
+    // GTM after hydration, which is what we want.
+    const THIRD_PARTY_BLOCKLIST = [
+        'googletagmanager.com',
+        'google-analytics.com',
+        'analytics.google.com',
+        'googleadservices.com',
+        'doubleclick.net',
+        'google.com/ads',
+        'facebook.com',
+        'facebook.net',
+        'connect.facebook.net',
+        'tiktok.com',
+        'cse-media.b-cdn.net',  // hero video CDN — not needed for static capture
+    ];
+
     const workers = Array.from({ length: CONCURRENCY }, async () => {
         const page = await browser.newPage();
+
+        // Block third-party requests so they don't inject scripts/pixels
+        // into the captured DOM. Same-origin requests (the React bundle,
+        // images, CSS) load normally so the page renders correctly.
+        await page.setRequestInterception(true);
+        page.on('request', (req) => {
+            const url = req.url();
+            if (THIRD_PARTY_BLOCKLIST.some((domain) => url.includes(domain))) {
+                req.abort();
+            } else {
+                req.continue();
+            }
+        });
+
         // Quieter logging; some routes warn about missing favicons etc.
         page.on('pageerror', () => {});
         page.on('requestfailed', () => {});
