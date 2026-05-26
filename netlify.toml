@@ -17,6 +17,24 @@
   # away every build.
   PUPPETEER_CACHE_DIR = "/opt/build/repo/node_modules/.cache/puppeteer"
 
+# Disable Netlify's "pretty URL" auto-redirect from /about → /about/.
+# Our sitemap, canonicals, and prerender all use the no-slash form
+# (/about, /services/roofing, /locations/las-vegas-nv). Netlify's default
+# pretty-URL behavior 301-redirects every no-slash request to a slashed
+# version, which (a) creates a sitemap-vs-served-URL mismatch that
+# Screaming Frog reports as redirect-then-content (sometimes dropping
+# H1/H2 extraction from the destination), and (b) splits SEO authority
+# between two URL variants until Google picks a canonical.
+# pretty_urls = false makes /about serve dist/about/index.html directly
+# without redirecting. /about/ continues to work the same way (Netlify
+# auto-resolves directory index for either form). Single URL throughout
+# the stack.
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = false
+
 [functions]
   directory = "netlify/functions"
 
