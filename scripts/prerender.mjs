@@ -161,7 +161,30 @@ const renderRoute = async (page, baseUrl, route) => {
         // We'll still capture whatever HTML React produced.
     }
 
-    const html = await page.content();
+    let html = await page.content();
+
+    // Strip the <noscript> fallback from prerendered pages.
+    //
+    // The noscript block in index.html exists so non-JS crawlers (Screaming
+    // Frog free mode, LLM scrapers, legacy spiders) see real content on the
+    // home page (which we don't prerender for perf reasons). It opens with
+    // <h1>Canyon State Enterprises</h1>, which is correct for the home
+    // page.
+    //
+    // But the same noscript ships inside every prerendered page too, so
+    // crawlers see TWO H1s on /about, /services/roofing, etc — the noscript
+    // brand H1 PLUS the page's own React-rendered H1. That's a real SEO
+    // problem (Screaming Frog flagged it, Google penalizes duplicate-H1
+    // patterns at scale). Removing the noscript block on prerendered pages
+    // leaves exactly one H1 per page (the correct per-route one) and is
+    // safe: those pages already have full per-route content in the
+    // prerendered React output, so the fallback isn't needed.
+    //
+    // The home page (route '/') is NOT in this script's STATIC_ROUTES list
+    // and is therefore not prerendered, so its index.html keeps the
+    // noscript fallback intact for non-JS crawlers.
+    html = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
+
     const outDir = path.join(DIST_DIR, route === '/' ? '' : route.replace(/^\//, ''));
     const outFile = path.join(outDir, 'index.html');
     await fsp.mkdir(outDir, { recursive: true });
