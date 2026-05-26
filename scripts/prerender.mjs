@@ -161,29 +161,49 @@ const renderRoute = async (page, baseUrl, route) => {
         // We'll still capture whatever HTML React produced.
     }
 
-    let html = await page.content();
+    // Remove the <noscript> fallback AND any HTML comments BEFORE capturing
+    // page.content(). Doing this via DOM manipulation (instead of regex on
+    // the captured string) is critical: a previous regex-based approach
+    // matched <noscript> text inside an HTML comment in index.html, which
+    // greedily stripped from the comment's mid-sentence "<noscript>" all
+    // the way through the real noscript's closing </noscript> tag —
+    // INCLUDING the comment's own --> terminator. That left an unclosed
+    // <!-- in <body>, which made every HTML parser (Screaming Frog,
+    // Googlebot, etc.) interpret the entire body content as comment text.
+    // The h1/h2/p/etc. were in the bytes but unreachable to parsers,
+    // which is why SF reported every body element as null while head
+    // metadata came through fine.
+    //
+    // DOM-based removal can't have that failure mode — it operates on
+    // parsed nodes, not on the source text.
+    //
+    // The home page (route '/') is NOT in STATIC_ROUTES so its index.html
+    // is served un-prerendered and keeps the noscript fallback intact
+    // for non-JS crawlers.
+    await page.evaluate(() => {
+        // Remove all <noscript> elements (redundant on prerendered pages
+        // since they have real per-route content in #root).
+        document.querySelectorAll('noscript').forEach((n) => n.remove());
 
-    // Strip the <noscript> fallback from prerendered pages.
-    //
-    // The noscript block in index.html exists so non-JS crawlers (Screaming
-    // Frog free mode, LLM scrapers, legacy spiders) see real content on the
-    // home page (which we don't prerender for perf reasons). It opens with
-    // <h1>Canyon State Enterprises</h1>, which is correct for the home
-    // page.
-    //
-    // But the same noscript ships inside every prerendered page too, so
-    // crawlers see TWO H1s on /about, /services/roofing, etc — the noscript
-    // brand H1 PLUS the page's own React-rendered H1. That's a real SEO
-    // problem (Screaming Frog flagged it, Google penalizes duplicate-H1
-    // patterns at scale). Removing the noscript block on prerendered pages
-    // leaves exactly one H1 per page (the correct per-route one) and is
-    // safe: those pages already have full per-route content in the
-    // prerendered React output, so the fallback isn't needed.
-    //
-    // The home page (route '/') is NOT in this script's STATIC_ROUTES list
-    // and is therefore not prerendered, so its index.html keeps the
-    // noscript fallback intact for non-JS crawlers.
-    html = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
+        // Walk the DOM and remove HTML comments. Comments serve no
+        // production purpose, take up bytes, and any structural error
+        // in a comment (unclosed, weird text inside) can mis-parse the
+        // surrounding document. Belt-and-suspenders cleanup.
+        const walker = document.createTreeWalker(
+            document,
+            NodeFilter.SHOW_COMMENT,
+            null
+        );
+        const comments = [];
+        let node = walker.nextNode();
+        while (node) {
+            comments.push(node);
+            node = walker.nextNode();
+        }
+        comments.forEach((c) => c.parentNode.removeChild(c));
+    });
+
+    let html = await page.content();
 
     // Safety net: strip any third-party script tags that snuck through
     // request interception (e.g. scripts injected by something OTHER than
