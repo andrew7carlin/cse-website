@@ -1,10 +1,21 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  # Chrome install is idempotent: fast no-op when cached, downloads when
+  # missing. We need it explicit because Netlify caches node_modules but
+  # NOT puppeteer's default Chrome cache (~/.cache/puppeteer), so a cache
+  # hit on node_modules skips the postinstall that would otherwise grab
+  # Chrome. Without this, the postbuild prerender step fails with
+  # "Could not find Chrome".
+  command = "npx puppeteer browsers install chrome && npm run build"
 
 [build.environment]
   NODE_VERSION = "22"
   NPM_FLAGS = "--prefer-offline=false"
+  # Tell puppeteer to download Chrome INSIDE node_modules so Netlify's
+  # node_modules cache preserves it between builds. The default cache
+  # path (~/.cache/puppeteer) is outside the cache scope and gets blown
+  # away every build.
+  PUPPETEER_CACHE_DIR = "/opt/build/repo/node_modules/.cache/puppeteer"
 
 [functions]
   directory = "netlify/functions"
