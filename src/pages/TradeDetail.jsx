@@ -149,7 +149,15 @@ const TradeDetail = () => {
             {/* Per-trade Service schema. Tells Google this URL describes a
                 specific service (the trade) offered by the parent organization,
                 with explicit area-served and provider reference back to the
-                site-wide LocalBusiness @id. */}
+                site-wide LocalBusiness @id.
+                hasOfferCatalog enumerates the concrete sub-services we perform
+                under this trade (drawn from data.expertise so it stays in sync
+                with the page content) — gives Google a structured inventory of
+                offerings per trade, which is a recognized signal for service-
+                provider rich results. provider uses @id to reference the
+                site-wide GeneralContractor entity from SchemaMarkup.jsx
+                instead of duplicating its fields, keeping the @graph clean
+                and the HTML small. */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -161,6 +169,7 @@ const TradeDetail = () => {
                         serviceType: data.title,
                         url: `https://canyonstateaz.com/services/${tradeId}`,
                         description: data.description,
+                        image: `https://canyonstateaz.com${data.image}`,
                         provider: { '@id': 'https://canyonstateaz.com/#organization' },
                         areaServed: [
                             { '@type': 'State', name: 'Arizona' },
@@ -168,6 +177,17 @@ const TradeDetail = () => {
                             { '@type': 'State', name: 'Utah' },
                             { '@type': 'State', name: 'New Mexico' },
                         ],
+                        hasOfferCatalog: {
+                            '@type': 'OfferCatalog',
+                            name: `${data.title} Services`,
+                            itemListElement: (data.expertise || []).map((offering) => ({
+                                '@type': 'Offer',
+                                itemOffered: {
+                                    '@type': 'Service',
+                                    name: offering,
+                                },
+                            })),
+                        },
                     }),
                 }}
             />
