@@ -72,6 +72,19 @@ const LocationPage = () => {
               '@type': 'City',
               name: city,
             })),
+            // OfferCatalog wraps the same services that makesOffer enumerates.
+            // Google treats OfferCatalog as the canonical "what this place
+            // does" grouping, while makesOffer stays for parsers that prefer
+            // the flat form. Both pull from the same loc.services array, so
+            // they never drift.
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: `Services Offered in ${loc.city}, ${loc.abbrev}`,
+              itemListElement: loc.services.map((svc) => ({
+                '@type': 'Offer',
+                itemOffered: { '@type': 'Service', name: svc },
+              })),
+            },
             makesOffer: loc.services.map((svc) => ({
               '@type': 'Offer',
               itemOffered: { '@type': 'Service', name: svc },

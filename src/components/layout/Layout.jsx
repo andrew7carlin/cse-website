@@ -1,10 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import BreadcrumbSchema from '../common/BreadcrumbSchema';
 
 export default function Layout() {
   return (
     <div className="app-shell">
+      {/* Route-derived BreadcrumbList JSON-LD. Mounted here so every page
+          (except home + /thank-you, which the component skips internally)
+          ships a breadcrumb without each page having to wire it up. */}
+      <BreadcrumbSchema />
       <a
         href="#main-content"
         style={{
