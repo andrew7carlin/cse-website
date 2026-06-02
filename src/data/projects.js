@@ -124,6 +124,7 @@ import take5BullheadCity from '../assets/portfolio/commercial/Take 5_Bullhead Ci
 import take5KingmanAz from '../assets/portfolio/commercial/Take 5_Kingman AZ.webp';
 import usDeptVeteranAffairs from '../assets/portfolio/commercial/US Department of Veteran Affairs_Kingman AZ.webp';
 import whataburgerTolleson from '../assets/portfolio/commercial/Whataburger_Tolleson AZ.webp';
+import critSchoolParker from '../assets/portfolio/commercial/CRIT_School_Parker_Az.webp';
 import canyonStateOfficeKingman from '../assets/portfolio/commercial/Canyon_State_Office_Kingman_Az.webp';
 import kingmanMosque from '../assets/portfolio/commercial/Kingman_Mosque_Kingman_Az.webp';
 import medusaFarmsKingman from '../assets/portfolio/commercial/Medusa_Farms_Kingman_Az.webp';
@@ -271,6 +272,7 @@ export const commercialProjects = [
   { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: take5KingmanAz },
   { id: 'us-dept-veteran-affairs-kingman', name: 'US Dept of Veteran Affairs', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: usDeptVeteranAffairs },
   { id: 'whataburger-tolleson', name: 'Whataburger', location: 'Tolleson, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: whataburgerTolleson },
+  { id: 'crit-school-parker', name: 'CRIT School', location: 'Parker, AZ', category: 'government', trade: 'Roofing & Metals', src: critSchoolParker },
   { id: 'canyon-state-office-kingman', name: 'Canyon State Enterprises HQ', location: 'Kingman, AZ', category: 'industrial', trade: 'Stucco & Metals', src: canyonStateOfficeKingman },
   { id: 'kingman-mosque', name: 'Kingman Mosque', location: 'Kingman, AZ', category: 'government', trade: 'Stucco', src: kingmanMosque },
   { id: 'medusa-farms-kingman', name: 'Medusa Farms', location: 'Kingman, AZ', category: 'retail', trade: 'Stucco', src: medusaFarmsKingman },
