@@ -81,8 +81,8 @@ const About = () => {
     return (
         <div className="about-page">
             <SEO
-                title="About Us - Our Story, Values & Leadership"
-                description="Since 2001. 25 years building the Southwest. Canyon State Enterprises is a multi-trade construction powerhouse with 12+ self-performed trades, serving Arizona, Nevada, Utah, and New Mexico."
+                title="About Us - Our Story & Leadership"
+                description="Since 2001, Canyon State Enterprises has built the Southwest with 12+ self-performed construction trades across Arizona, Nevada, Utah, and New Mexico."
                 canonical="https://canyonstateaz.com/about"
             />
             {/* Full-Bleed Hero */}

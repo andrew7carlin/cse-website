@@ -12,8 +12,8 @@ const Services = () => {
     return (
         <div>
             <SEO
-                title="Our Trades & Services - Full-Service Construction"
-                description="12+ self-performed trades under one roof: roofing, stucco, HVAC, plumbing, masonry, metals, residential & commercial construction. Complete construction services from pre-construction to closeout."
+                title="Trades & Construction Services"
+                description="12+ self-performed trades under one roof: roofing, stucco, HVAC, plumbing, masonry, metals, and full construction across Arizona, Nevada, and the Southwest."
                 canonical="https://canyonstateaz.com/services"
             />
             <Hero

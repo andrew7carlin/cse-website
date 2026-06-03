@@ -42,8 +42,8 @@ const LocationPage = () => {
   return (
     <main className={styles.page}>
       <SEO
-        title={`${loc.city}, ${loc.abbrev}: ${loc.role}`}
-        description={loc.description}
+        title={`${loc.city} Construction, ${loc.abbrev}`}
+        description={loc.metaDescription || loc.description}
         canonical={`https://canyonstateaz.com/locations/${loc.id}`}
       />
 

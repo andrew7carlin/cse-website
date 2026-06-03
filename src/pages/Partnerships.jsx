@@ -143,8 +143,8 @@ const Partnerships = () => {
     return (
         <main className={styles.page}>
             <SEO
-                title="Partnerships - Trusted By Industry Leaders"
-                description="Canyon State Enterprises partners with top manufacturers and clients including EOS Fitness, Salad and Go, Home Depot, Carlisle, GAF, and more. No fluff, no BS. Just solid partnerships built on trust."
+                title="Manufacturer & Client Partnerships"
+                description="Canyon State Enterprises partners with leading manufacturers and clients: GAF, Carlisle, EOS Fitness, Salad and Go, Home Depot, and more across the Southwest."
                 canonical="https://canyonstateaz.com/partnerships"
             />
             {/* Main Content Section */}

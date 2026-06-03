@@ -8,6 +8,7 @@ export const loadProjectAssets = () => {
     category: project.category,
     trade: project.trade,
     featured: project.featured ?? false,
+    seoDescription: project.seoDescription ?? '',
     blurb: project.blurb ?? '',
     videos: project.videos ?? [],
     cover: project.src ?? null,

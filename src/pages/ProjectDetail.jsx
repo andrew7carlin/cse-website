@@ -26,10 +26,18 @@ export default function ProjectDetail() {
 
   const hero = project.media[0];
 
+  // Keep the "(City, ST)" qualifier in the meta title only when the whole
+  // title still fits the ~65-char budget after SEO.jsx appends the 27-char
+  // " | Canyon State Enterprises" suffix; otherwise drop it (location stays
+  // in the description, the on-page H1, and the LocalBusiness schema). This
+  // keeps long project names from blowing past the title-length budget.
+  const titleWithLocation = `${project.title} (${project.location})`;
+  const seoTitle = titleWithLocation.length + 27 <= 65 ? titleWithLocation : project.title;
+
   return (
     <div style={{ background: '#000', minHeight: '100vh' }}>
       <SEO
-        title={`${project.title} (${project.location})`}
+        title={seoTitle}
         description={`${project.title}, a Canyon State Enterprises ${project.trade ? project.trade + ' ' : ''}project in ${project.location}. View project photos and details.`}
         canonical={`https://canyonstateaz.com/portfolio/${project.id}`}
       />

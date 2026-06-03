@@ -7,7 +7,7 @@ const Contact = () => {
         <div style={{ paddingTop: 'var(--header-height)' }}>
             <SEO
                 title="Contact Us - Get a Free Quote"
-                description="Get in touch with Canyon State Enterprises. Request a free quote for roofing, stucco, HVAC, or full construction services. Serving AZ, NV, NM, UT. ROC licensed and insured."
+                description="Request a free quote from Canyon State Enterprises for roofing, stucco, HVAC, or full construction. Serving AZ, NV, UT & NM. ROC licensed and insured."
                 canonical="https://canyonstateaz.com/contact"
             />
             {/* Visually hidden h1 — present for SEO and screen readers */}

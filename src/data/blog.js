@@ -28,6 +28,12 @@ export const posts = [
     {
         slug: 'building-bettys-village-north-opportunity-village',
         title: "Building Betty's Village North: 30 Buildings, 18 Months, and the Most Worthwhile Job We've Done This Year",
+        // Concise SEO title/description for <head> meta (the full headline +
+        // excerpt above are too long for meta tags). seoTitle keeps the
+        // brand suffix room (SEO.jsx appends " | Canyon State Enterprises").
+        seoTitle: "Building Betty's Village North",
+        seoDescription:
+            "Canyon State is the roofing, stucco, and metals contractor on Opportunity Village's Betty's Village North in Las Vegas. The story behind the build.",
         excerpt:
             "We're the roofing, stucco, and metals contractor on the second phase of Opportunity Village's housing community for adults with disabilities. Here's the human story behind it, the construction problems we're solving, and why this one's gotten under our crews' skin.",
         date: '2026-05-21',

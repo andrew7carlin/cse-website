@@ -114,6 +114,24 @@ const tradeData = {
     }
 };
 
+// Concise per-trade meta descriptions (140-160 chars: keyword + AZ/NV
+// service area + soft CTA). Kept separate from the long marketing copy in
+// tradeData[].description, which is far too long to use as a meta tag.
+const TRADE_META = {
+    roofing:               'Commercial and residential roofing across Arizona and Nevada: tile, metal, TPO, foam, shingle, repairs, and coatings. Get a straight answer from Canyon State.',
+    stucco:                'Three-coat stucco, synthetic stucco, and EIFS for homes and commercial buildings across the Southwest. Volume work without sacrificing the craft. Get a quote.',
+    'general-contracting': 'Full-service general contracting across Arizona and Nevada: pre-construction, trade coordination, budgets, and closeout. One accountable team, no surprises.',
+    hvac:                  'HVAC install, replacement, and service for homes and businesses across Arizona and Nevada. Keep the air moving and energy bills in check. Call Canyon State.',
+    plumbing:              'Residential and commercial plumbing across Arizona and Nevada: rough-in, fixtures, water and gas lines, repipes, and emergencies. Code-compliant and leak-free.',
+    'res-const':           'Custom homes, additions, and renovations across Arizona and Nevada. Ground-up or major remodel, Canyon State brings detail and accountability to every build.',
+    'com-const':           'Commercial construction across Arizona and Nevada: retail, hospitality, medical, and industrial. Fast timelines, tight budgets, zero drama. Get a quote.',
+    metals:                'Architectural specialty metals across Arizona and Nevada: standing seam, panel systems, coping, flashings, and custom fabrication. Sharp work that lasts.',
+    masonry:               'Masonry across Arizona and Nevada: brick, block, stone veneer, CMU walls, and retaining walls. Built with precision to stand the test of time. Get a quote.',
+    fencing:               'Commercial and residential fencing across Arizona and Nevada: chain link, wrought iron, wood, vinyl, privacy, and security. Clean and fast. Get a quote.',
+    gutters:               'Seamless gutters custom-rolled on site across Arizona and Nevada: aluminum gutters, downspouts, guards, and drainage. No seams, no leaks. Get a quote.',
+    'land-dev':            'Land development across Arizona and Nevada: grading, excavation, utilities, drainage, and pad prep. We get your site ready for whatever comes next.',
+};
+
 const TradeDetail = () => {
     const { tradeId } = useParams();
     const data = tradeData[tradeId] || tradeData.default;
@@ -141,8 +159,8 @@ const TradeDetail = () => {
     return (
         <div className={styles.page}>
             <SEO
-                title={`${data.title} Services - Expert ${data.title} Contractors`}
-                description={data.description}
+                title={`${data.title} Services`}
+                description={TRADE_META[tradeId] || data.description}
                 canonical={`https://canyonstateaz.com/services/${tradeId}`}
             />
 

@@ -59,8 +59,8 @@ const BlogPost = () => {
     return (
         <main className={styles.page}>
             <SEO
-                title={post.title}
-                description={post.excerpt}
+                title={post.seoTitle || post.title}
+                description={post.seoDescription || post.excerpt}
                 canonical={`https://canyonstateaz.com/blog/${post.slug}`}
                 image={post.heroImage}
             />

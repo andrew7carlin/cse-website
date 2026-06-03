@@ -12,6 +12,8 @@ export const locations = [
     region: 'Northwest Arizona: Mohave County, Golden Valley, Bullhead City corridor',
     description:
       'Kingman is home to Canyon State Enterprises corporate headquarters. Our Kingman office serves as the operations hub for the entire Southwest, coordinating roofing, stucco, metals, and specialty construction across Mohave County and beyond. With decades of local history, our team knows every jobsite, inspector, and supplier in the region.',
+    metaDescription:
+      'Canyon State Enterprises is headquartered in Kingman, AZ, serving Mohave County with roofing, stucco, metals, and full construction. Call (928) 757-9003.',
     services: ['Roofing', 'Stucco & EIFS', 'Specialty Metals', 'Masonry', 'Fencing', 'Seamless Gutters', 'HVAC', 'Plumbing'],
     coverage: ['Kingman', 'Golden Valley', 'Wikieup', 'Chloride', 'Hackberry', 'Valentine', 'Mohave Valley'],
     // Local-context copy (used in About This Office section). Speaks to
@@ -35,6 +37,8 @@ export const locations = [
     region: 'Greater Phoenix Metro: East Valley, West Valley, Scottsdale, Tempe, Mesa, Gilbert, Chandler',
     description:
       'Our Phoenix office puts Canyon State crews in the heart of the fastest-growing construction market in the country. From large commercial builds in Scottsdale to multi-family developments across the East Valley, we bring the same standards that built our reputation in the Northwest to every Phoenix project.',
+    metaDescription:
+      'Canyon State Enterprises serves Greater Phoenix with roofing, stucco, commercial construction, and land development across the Valley. Call (602) 527-6050.',
     services: ['Roofing', 'Stucco & EIFS', 'General Contracting', 'Commercial Construction', 'Land Development', 'HVAC'],
     coverage: ['Phoenix', 'Scottsdale', 'Mesa', 'Tempe', 'Gilbert', 'Chandler', 'Glendale', 'Peoria', 'Surprise', 'Goodyear', 'Avondale', 'Queen Creek'],
     localContext:
@@ -54,6 +58,8 @@ export const locations = [
     region: 'Tri-State Area: Western AZ, Southern NV, Eastern CA',
     description:
       'Bullhead City positions Canyon State at the crossroads of Arizona, Nevada, and California. Our crews service both sides of the Colorado River and the Laughlin corridor with the same speed and quality our clients expect. Whether it\'s a casino property in Laughlin or a commercial build in Fort Mohave, we\'re already there.',
+    metaDescription:
+      'Canyon State Enterprises serves the Bullhead City tri-state area: roofing, stucco, metals, and gutters across western AZ, the Laughlin corridor, and Fort Mohave.',
     services: ['Roofing', 'Stucco & EIFS', 'Specialty Metals', 'Seamless Gutters', 'Fencing', 'Masonry'],
     coverage: ['Bullhead City', 'Fort Mohave', 'Mohave Valley', 'Laughlin NV', 'Needles CA', 'Katherine Landing'],
     localContext:
@@ -73,6 +79,8 @@ export const locations = [
     region: 'Southern Nevada: Las Vegas, Henderson, North Las Vegas, Pahrump, Mesquite',
     description:
       'Canyon State\'s Nevada operations are headquartered in Las Vegas. The market is large, fast-moving, and unforgiving, and it fits us perfectly. From large multi-family communities like Betty\'s Village to hospitality projects on the Strip corridor, our Nevada crews bring the same relentless standards that define Canyon State everywhere we work.',
+    metaDescription:
+      'Canyon State Enterprises runs Nevada operations from Las Vegas: roofing, stucco, metals, and commercial construction across the Valley. Call (702) 659-2819.',
     services: ['Roofing', 'Stucco & EIFS', 'Commercial Construction', 'Specialty Metals'],
     coverage: ['Las Vegas', 'Henderson', 'North Las Vegas', 'Summerlin', 'Boulder City', 'Pahrump', 'Mesquite', 'Laughlin'],
     localContext:
@@ -92,6 +100,8 @@ export const locations = [
     region: 'Western Arizona: Lake Havasu City, Parker, Quartzsite, Blythe area',
     description:
       'Lake Havasu City is one of the fastest-growing communities in Arizona, and Canyon State has been part of that growth. Our west Arizona office serves the full Lake Havasu corridor, from residential custom homes to commercial and hospitality projects along the waterfront. If you\'re building near the lake, we know the market.',
+    metaDescription:
+      'Canyon State Enterprises serves Lake Havasu City and western Arizona with roofing, stucco, custom-home construction, and gutters. Building near the lake? We know it.',
     services: ['Roofing', 'Stucco & EIFS', 'Residential Construction', 'Seamless Gutters', 'Fencing', 'Masonry'],
     coverage: ['Lake Havasu City', 'Parker', 'Quartzsite', 'Blythe CA', 'Topock', 'Havasu Landing'],
     localContext:
