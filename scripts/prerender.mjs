@@ -314,6 +314,83 @@ const renderRoute = async (page, baseUrl, route) => {
     });
 
     await Promise.all(workers);
+
+    // ── Home-page head injection ────────────────────────────────────────
+    // The home route ('/') is intentionally NOT prerendered (see the
+    // STATIC_ROUTES note above — a prerendered home body tanked Lighthouse
+    // because of the heavy hydrateRoot walk). That left dist/index.html
+    // with an empty <head> for SEO purposes: no <title>, no meta
+    // description, no JSON-LD, because all of those are injected CLIENT-SIDE
+    // by SEO.jsx + SchemaMarkup.jsx, which non-JS crawlers (and AI search
+    // engines like GPTBot/ClaudeBot/PerplexityBot) never execute.
+    //
+    // Fix: render '/' in headless Chrome, capture ONLY the React-hoisted
+    // <head> tags (title, meta, canonical, JSON-LD), and splice them into
+    // dist/index.html's <head>. The body stays untouched — empty #root +
+    // noscript fallback — so there is ZERO change to runtime perf (no extra
+    // DOM to hydrate; home still client-renders exactly as before). And
+    // because we only patch dist/index.html (served solely for '/'), the
+    // 147 prerendered pages are unaffected, so no duplicate-metadata risk.
+    try {
+        const homePage = await browser.newPage();
+        await homePage.setRequestInterception(true);
+        homePage.on('request', (req) => {
+            const url = req.url();
+            if (THIRD_PARTY_BLOCKLIST.some((d) => url.includes(d))) req.abort();
+            else req.continue();
+        });
+        homePage.on('pageerror', () => {});
+        homePage.on('requestfailed', () => {});
+
+        await homePage.goto(`${baseUrl}/`, { waitUntil: 'networkidle2', timeout: PAGE_TIMEOUT });
+        // Wait until SEO.jsx has hoisted the per-route <title> into <head>.
+        await homePage.waitForFunction(
+            () => document.title && document.title.includes('Canyon State'),
+            { timeout: 8_000 },
+        ).catch(() => {});
+
+        // Extract exactly the tags SEO.jsx + SchemaMarkup.jsx add — and
+        // nothing the static template already ships (charset, viewport,
+        // icon, preloads, theme-color), so the splice can't duplicate them.
+        // Head meta come from <head>; JSON-LD is queried document-wide
+        // because React renders <script type="application/ld+json"> into
+        // the body (it hoists title/meta/link to head, but not scripts).
+        const headTags = await homePage.evaluate(() => {
+            const headSel = [
+                'title',
+                'meta[name="title"]',
+                'meta[name="description"]',
+                'meta[name="robots"]',
+                'meta[property^="og:"]',
+                'meta[name^="twitter:"]',
+                'link[rel="canonical"]',
+            ].join(',');
+            const headHtml = Array.from(document.head.querySelectorAll(headSel))
+                .map((el) => el.outerHTML);
+            const jsonLd = Array.from(
+                document.querySelectorAll('script[type="application/ld+json"]'),
+            ).map((el) => el.outerHTML);
+            return [...headHtml, ...jsonLd].join('\n  ');
+        });
+        await homePage.close();
+
+        if (headTags && headTags.includes('<title>')) {
+            const indexPath = path.join(DIST_DIR, 'index.html');
+            let indexHtml = await fsp.readFile(indexPath, 'utf8');
+            // Idempotent: only inject if not already present from a prior run.
+            if (!indexHtml.includes('data-home-seo')) {
+                const block = `  <!-- data-home-seo: SEO/JSON-LD captured from the rendered home route at build time (scripts/prerender.mjs). The source index.html stays clean to avoid duplicate metadata on prerendered pages; this block lands only in the home shell, which is served only for '/'. -->\n  ${headTags}\n`;
+                indexHtml = indexHtml.replace('</head>', `${block}</head>`);
+                await fsp.writeFile(indexPath, indexHtml, 'utf8');
+                console.log('✓ Injected home-page <head> SEO + JSON-LD into dist/index.html');
+            }
+        } else {
+            console.warn('  ✗ Home head capture returned nothing — dist/index.html left as-is');
+        }
+    } catch (err) {
+        console.warn(`  ✗ Home head injection skipped — ${err.message}`);
+    }
+
     await browser.close();
     server.close();
 
