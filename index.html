@@ -9,145 +9,72 @@
   <link rel="preload" as="image" href="/hero-poster.webp" fetchpriority="high" />
   <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
   <!--
-    DO NOT add a static <title> or <meta name="description"> here.
+    DO NOT add a static title or meta description tag here.
 
-    SEO.jsx (src/components/common/SEO.jsx) renders per-route <title>,
-    <meta name="description">, OG, Twitter, and canonical tags, and
-    React 19 hoists them into <head>. Build-time prerender then captures
-    that rendered head for every route so crawlers see real per-page meta.
+    SEO.jsx (src/components/common/SEO.jsx) renders the per-route title,
+    meta description, OG, Twitter, and canonical tags, and React 19 hoists
+    them into the head. Build-time prerender then captures that rendered
+    head for every route so crawlers see real per-page meta.
 
-    If we ALSO ship a static <title> or <meta description> from this
-    template, every prerendered page ends up with TWO of each in <head>
-    (the static one + the React-hoisted one). Screaming Frog and Google
-    flag this as duplicate metadata, which it is. Don't reintroduce them.
+    If we ALSO ship a static title or meta description from this template,
+    every prerendered page ends up with TWO of each in the head (the static
+    one plus the React-hoisted one). Screaming Frog and Google flag this as
+    duplicate metadata, which it is. Don't reintroduce them.
 
-    For the home page (not prerendered): React mounts almost immediately
-    via the preloaded font + hero poster + small entry bundle, and renders
-    the home title via SEO.jsx. The brief pre-mount moment has no title;
-    Googlebot waits for hydration so this doesn't hurt SEO.
+    For the home page (not prerendered): scripts/prerender.mjs injects the
+    captured home title, meta, canonical, and JSON-LD into dist/index.html's
+    head at build time, so the served home shell still has real per-page
+    metadata for non-JS crawlers.
+
+    NOTE: keep this comment free of literal angle-bracket tag syntax. The
+    prerender injects content by string-matching the root container element,
+    and any tag-like text in a comment can become a false match target (and
+    can mis-parse in crawlers). Describe tags in prose, never as markup.
   -->
 </head>
 
 <body>
   <!--
-    Crawlable fallback content for non-JS-executing crawlers (Screaming Frog
-    free, GPTBot, ClaudeBot, CCBot, Perplexity, Google-Extended, Bytespider,
-    most LLM scrapers). Real users with JavaScript enabled never see this
-    block (browsers hide <noscript> when JS is on). Per-route content for
-    JS-rendering crawlers (Googlebot, SemrushBot, etc.) is delivered by the
-    React app at /src/main.jsx.
+    Home-page crawlable body content is NOT inlined here in the source
+    template (it would then ship on every prerendered page). Instead,
+    scripts/prerender.mjs splices scripts/home-fallback.html — an
+    off-screen, ~650-word home-seo-content block (one H1 heading plus
+    section H2 headings) — into dist/index.html ONLY, immediately ahead of
+    the root container element. That block is what non-JS crawlers and AI
+    search engines read. main.jsx removes it the instant the React app
+    mounts, so JS users never see or retain it (no flash, no layout shift,
+    no duplicate headings at runtime).
 
-    Keep this block in sync with the brand's actual positioning. Update when:
-      • a new trade is added to src/components/layout/Navbar.jsx
-      • a new location is added to src/data/locations.js
-      • phone numbers change in src/data/locations.js
+    The short noscript below is the last-resort fallback for the rare
+    SIGHTED visitor with JavaScript disabled (the home-seo-content block is
+    clipped off-screen, so they can't see it). It deliberately has no H1
+    heading so it never competes with the real per-page heading. Keep
+    contacts here in sync with src/data/locations.js.
+
+    NOTE: keep this comment free of literal angle-bracket tag syntax (see
+    the head comment above for why).
   -->
   <noscript>
-    <header>
-      <h1>Canyon State Enterprises</h1>
-      <p>Multi-trade construction company serving Arizona, Nevada, Utah, and New Mexico. Roofing, stucco, HVAC, plumbing, and 8 more self-performed trades, with 25 years of work across the Southwest.</p>
-
-      <nav aria-label="Main">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/services">Trades &amp; Services</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/where">Where We Work</a></li>
-          <li><a href="/partnerships">Partnerships</a></li>
-          <li><a href="/blog">Insights</a></li>
-          <li><a href="/careers">Careers</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <section>
-        <h2>Self-Performed Trades</h2>
-        <p>Canyon State self-performs every trade we sell. No three layers of subcontractors. One crew structure, one schedule, one accountable team on every job.</p>
-        <ul>
-          <li><a href="/services/roofing">Roofing</a> &mdash; TPO, PVC, EPDM, tile, metal, asphalt shingle, foam, restoration coatings. Commercial and residential.</li>
-          <li><a href="/services/stucco">Stucco &amp; EIFS</a> &mdash; Three-coat stucco, synthetic stucco, EIFS systems for residential and commercial.</li>
-          <li><a href="/services/general-contracting">General Contracting</a> &mdash; New construction, renovations, tenant improvements.</li>
-          <li><a href="/services/hvac">HVAC</a> &mdash; Heating and cooling install, replacement, and service. Canyon State Heating &amp; Cooling, ROC328713.</li>
-          <li><a href="/services/plumbing">Plumbing</a> &mdash; Residential and commercial plumbing services across Mohave County.</li>
-          <li><a href="/services/res-const">Residential Construction</a> &mdash; Custom homes, multi-family, community developments.</li>
-          <li><a href="/services/com-const">Commercial Construction</a> &mdash; Retail, hospitality, medical, dealership, government.</li>
-          <li><a href="/services/metals">Specialty Metals</a> &mdash; Standing seam, flush panel, custom flashings, coping.</li>
-          <li><a href="/services/masonry">Masonry</a> &mdash; Block, brick, stone veneer.</li>
-          <li><a href="/services/fencing">Fencing</a> &mdash; CMU, decorative, perimeter.</li>
-          <li><a href="/services/gutters">Seamless Gutters</a> &mdash; Custom-fabricated gutters and downspouts.</li>
-          <li><a href="/services/land-dev">Land Development</a> &mdash; Site prep, grading, infrastructure.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Office Locations</h2>
-        <p>Five offices across Arizona and Nevada. Crews live and work in every market we serve.</p>
-        <ul>
-          <li>
-            <a href="/locations/kingman-az"><strong>Kingman, AZ (Corporate Headquarters)</strong></a><br />
-            2959 Rhoades Ave, Kingman, AZ 86409 &middot; <a href="tel:9287579003">(928) 757-9003</a><br />
-            Northwest Arizona: Mohave County, Golden Valley, the Bullhead City corridor.
-          </li>
-          <li>
-            <a href="/locations/phoenix-az"><strong>Phoenix, AZ</strong></a> &middot; <a href="tel:6025276050">(602) 527-6050</a><br />
-            Greater Phoenix Metro: East Valley, West Valley, Scottsdale, Tempe, Mesa, Gilbert, Chandler.
-          </li>
-          <li>
-            <a href="/locations/bullhead-city-az"><strong>Bullhead City, AZ</strong></a><br />
-            Tri-State Area: Western AZ, Southern NV, Eastern CA. Laughlin corridor, Fort Mohave.
-          </li>
-          <li>
-            <a href="/locations/lake-havasu-city-az"><strong>Lake Havasu City, AZ</strong></a><br />
-            Western Arizona: Lake Havasu, Parker, Quartzsite, Blythe area.
-          </li>
-          <li>
-            <a href="/locations/las-vegas-nv"><strong>Las Vegas, NV</strong></a> &middot; <a href="tel:7026592819">(702) 659-2819</a><br />
-            Southern Nevada: Las Vegas, Henderson, North Las Vegas, Pahrump, Mesquite.
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Regions Served</h2>
-        <p>Active in Arizona, Nevada, Utah, and New Mexico. Past project history extends into Texas, California, North Carolina, Tennessee, and Colorado.</p>
-      </section>
-
-      <section>
-        <h2>Trust &amp; Credentials</h2>
-        <ul>
-          <li>Arizona ROC License #353683 (current)</li>
-          <li>Canyon State Heating &amp; Cooling: ROC328713</li>
-          <li>Original Arizona ROC License #074485 issued December 1987 to A-2-Z Roofing Supply Co., the predecessor that merged into Canyon State in 2020</li>
-          <li>Fully bonded and insured: general liability and workers' compensation</li>
-          <li>Manufacturer partners include GAF, CertainTeed, Carlisle, Firestone, Versico, Eagle Roofing, MBCI, Petersen Aluminum, Mule Hide, Karnak, Dryvit, Omega Flex</li>
-          <li>Client partners include AR Mays Construction, Lusardi Construction, Willmeng, Kitchell, Path Construction, Pacificap, Overland, Wadman, EOS Fitness, Salad and Go, Home Depot, Opportunity Village</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Featured Project: Betty's Village North</h2>
-        <p>Canyon State is the roofing, stucco, and metals contractor on Opportunity Village's $59 million residential community for adults with intellectual disabilities in northwest Las Vegas. 22 residential dwellings and 3 commercial buildings; targeting late-2026 completion. Read the full story in <a href="/blog/building-bettys-village-north-opportunity-village">our Insights post on Betty's Village</a>.</p>
-      </section>
-
-      <section>
-        <h2>Contact</h2>
-        <p>Talk to the office closest to your project. A human will respond within one business day.</p>
-        <ul>
-          <li><strong>Kingman HQ:</strong> <a href="tel:9287579003">(928) 757-9003</a></li>
-          <li><strong>Phoenix:</strong> <a href="tel:6025276050">(602) 527-6050</a></li>
-          <li><strong>Nevada:</strong> <a href="tel:7026592819">(702) 659-2819</a></li>
-          <li><strong>Email:</strong> <a href="mailto:office@canyonstateaz.com">office@canyonstateaz.com</a></li>
-          <li><strong>Quote form:</strong> <a href="/contact">canyonstateaz.com/contact</a></li>
-        </ul>
-      </section>
-
-      <footer>
-        <p>&copy; Canyon State Enterprises, LLC. All rights reserved. <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Use</a></p>
-      </footer>
-    </main>
+    <p>
+      <strong>Canyon State Enterprises</strong> is a multi-trade construction
+      company serving Arizona, Nevada, Utah, and New Mexico &mdash; roofing,
+      stucco, HVAC, plumbing, masonry, metals, and full general contracting.
+      This site works best with JavaScript enabled.
+    </p>
+    <p>
+      Call our Kingman headquarters at <a href="tel:9287579003">(928) 757-9003</a>,
+      Phoenix at <a href="tel:6025276050">(602) 527-6050</a>, or Nevada at
+      <a href="tel:7026592819">(702) 659-2819</a>, or email
+      <a href="mailto:office@canyonstateaz.com">office@canyonstateaz.com</a>.
+    </p>
+    <p>
+      <a href="/about">About</a> &middot;
+      <a href="/services">Trades &amp; Services</a> &middot;
+      <a href="/portfolio">Portfolio</a> &middot;
+      <a href="/where">Where We Work</a> &middot;
+      <a href="/blog">Insights</a> &middot;
+      <a href="/contact">Contact</a>
+    </p>
   </noscript>
 
   <div id="root"></div>

@@ -315,22 +315,29 @@ const renderRoute = async (page, baseUrl, route) => {
 
     await Promise.all(workers);
 
-    // ── Home-page head injection ────────────────────────────────────────
+    // ── Home-page head + body injection ─────────────────────────────────
     // The home route ('/') is intentionally NOT prerendered (see the
     // STATIC_ROUTES note above — a prerendered home body tanked Lighthouse
     // because of the heavy hydrateRoot walk). That left dist/index.html
-    // with an empty <head> for SEO purposes: no <title>, no meta
-    // description, no JSON-LD, because all of those are injected CLIENT-SIDE
-    // by SEO.jsx + SchemaMarkup.jsx, which non-JS crawlers (and AI search
-    // engines like GPTBot/ClaudeBot/PerplexityBot) never execute.
+    // with an empty <head> for SEO purposes (no <title>, meta description,
+    // or JSON-LD — all injected CLIENT-SIDE by SEO.jsx + SchemaMarkup.jsx)
+    // AND an empty #root, so non-JS crawlers / AI search engines
+    // (GPTBot/ClaudeBot/PerplexityBot) saw zero words of body content.
     //
-    // Fix: render '/' in headless Chrome, capture ONLY the React-hoisted
-    // <head> tags (title, meta, canonical, JSON-LD), and splice them into
-    // dist/index.html's <head>. The body stays untouched — empty #root +
-    // noscript fallback — so there is ZERO change to runtime perf (no extra
-    // DOM to hydrate; home still client-renders exactly as before). And
-    // because we only patch dist/index.html (served solely for '/'), the
-    // 147 prerendered pages are unaffected, so no duplicate-metadata risk.
+    // Fix, in two parts, patched ONLY into dist/index.html (served solely
+    // for '/'), so the 147 prerendered pages are untouched (no duplicate
+    // metadata):
+    //   1. HEAD: render '/' in headless Chrome, capture the React-hoisted
+    //      <title>/meta/canonical + the Organization JSON-LD, splice before
+    //      </head>.
+    //   2. BODY: splice scripts/home-fallback.html (a ~650-word crawlable
+    //      block, one H1 + section H2s) immediately before <div id="root">.
+    //      It is off-screen (sr-only clip, not display:none) so crawlers
+    //      count it but sighted users never see it (no flash, no CLS), and
+    //      main.jsx removes #home-seo-content the instant React mounts so JS
+    //      users never retain hidden duplicate text.
+    // #root stays empty either way, so home still client-renders exactly as
+    // before — ZERO runtime perf change.
     try {
         const homePage = await browser.newPage();
         await homePage.setRequestInterception(true);
@@ -377,18 +384,46 @@ const renderRoute = async (page, baseUrl, route) => {
         if (headTags && headTags.includes('<title>')) {
             const indexPath = path.join(DIST_DIR, 'index.html');
             let indexHtml = await fsp.readFile(indexPath, 'utf8');
-            // Idempotent: only inject if not already present from a prior run.
+
+            // 1. HEAD — idempotent: only inject if not already present.
             if (!indexHtml.includes('data-home-seo')) {
                 const block = `  <!-- data-home-seo: SEO/JSON-LD captured from the rendered home route at build time (scripts/prerender.mjs). The source index.html stays clean to avoid duplicate metadata on prerendered pages; this block lands only in the home shell, which is served only for '/'. -->\n  ${headTags}\n`;
                 indexHtml = indexHtml.replace('</head>', `${block}</head>`);
-                await fsp.writeFile(indexPath, indexHtml, 'utf8');
                 console.log('✓ Injected home-page <head> SEO + JSON-LD into dist/index.html');
             }
+
+            // 2. BODY — splice the crawlable fallback before the root div.
+            // Extract just the home-seo-content div (drop the dev-facing
+            // comment at the top of the source file). We target the EXACT
+            // empty container `<div id="root"></div>` (with its closing tag)
+            // rather than the bare opening tag: the bare opening tag can also
+            // appear as descriptive text and matching that would splice the
+            // block into the wrong place. The empty-container string is
+            // unique to the real mount point in the built output.
+            const ROOT_MARKER = '<div id="root"></div>';
+            if (!indexHtml.includes('id="home-seo-content"')) {
+                const fallbackSrc = await fsp.readFile(
+                    path.join(projectRoot, 'scripts/home-fallback.html'), 'utf8',
+                );
+                const start = fallbackSrc.indexOf('<div id="home-seo-content"');
+                const fallbackDiv = start >= 0 ? fallbackSrc.slice(start).trim() : '';
+                if (fallbackDiv && indexHtml.includes(ROOT_MARKER)) {
+                    indexHtml = indexHtml.replace(
+                        ROOT_MARKER,
+                        `${fallbackDiv}\n  ${ROOT_MARKER}`,
+                    );
+                    console.log('✓ Injected crawlable home body into dist/index.html');
+                } else {
+                    console.warn('  ✗ Home body fallback not spliced (marker missing)');
+                }
+            }
+
+            await fsp.writeFile(indexPath, indexHtml, 'utf8');
         } else {
             console.warn('  ✗ Home head capture returned nothing — dist/index.html left as-is');
         }
     } catch (err) {
-        console.warn(`  ✗ Home head injection skipped — ${err.message}`);
+        console.warn(`  ✗ Home head/body injection skipped — ${err.message}`);
     }
 
     await browser.close();

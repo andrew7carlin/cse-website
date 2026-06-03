@@ -1,0 +1,68 @@
+<!--
+  Crawlable homepage content (server HTML).
+
+  The home route ('/') is not prerendered (a prerendered home body
+  reintroduced a heavy hydrateRoot walk that tanked Lighthouse). That left
+  the served home shell with an empty #root, so non-JS crawlers and AI
+  search engines saw zero words of body content.
+
+  scripts/prerender.mjs injects THIS block into dist/index.html (home shell
+  only) as a sibling immediately before <div id="root">. It is visually
+  hidden with the standard off-screen "sr-only" pattern (NOT display:none,
+  which search engines discount) so:
+    • Non-JS crawlers / AI extractors read it as real body text (~650 words,
+      one H1 + section H2s) and count it.
+    • Sighted users never see it (it is clipped off-screen), so there is no
+      flash and zero layout shift / CLS.
+    • On JS load, main.jsx removes #home-seo-content the moment the real
+      React app mounts, so JS users (and JS-rendering Googlebot, which then
+      reads the full visible home page) never retain hidden duplicate text.
+
+  Keep this in sync with the brand's positioning when trades, offices,
+  phone numbers, or featured work change (mirrors src/data/locations.js,
+  src/data/projects.js, and the SchemaMarkup org node).
+-->
+<div id="home-seo-content" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:normal;border:0">
+  <h1>Arizona &amp; Nevada Multi-Trade Construction Contractor</h1>
+
+  <p>Canyon State Enterprises is a multi-trade construction company serving Arizona, Nevada, Utah, and New Mexico. From our corporate headquarters in Kingman, Arizona and offices in Phoenix, Bullhead City, Lake Havasu City, and Las Vegas, we self-perform twelve construction trades in-house, including roofing, stucco and EIFS, HVAC, plumbing, masonry, specialty metals, and full general contracting. With roots that trace back to A-2-Z Roofing Supply Co. in 1987, Canyon State brings more than 25 years of Southwest construction experience to commercial and residential projects of every size.</p>
+
+  <h2>Twelve Self-Performed Construction Trades</h2>
+  <p>Canyon State self-performs every trade we sell, so one accountable team controls quality, schedule, and safety from start to finish:</p>
+  <ul>
+    <li><a href="/services/roofing">Roofing</a> &mdash; TPO, PVC, EPDM, tile, metal, asphalt shingle, foam, and restoration coatings for commercial and residential buildings.</li>
+    <li><a href="/services/stucco">Stucco &amp; EIFS</a> &mdash; Three-coat traditional stucco, synthetic stucco, and EIFS wall systems.</li>
+    <li><a href="/services/general-contracting">General Contracting</a> &mdash; Ground-up construction, renovations, and tenant improvements.</li>
+    <li><a href="/services/hvac">HVAC</a> &mdash; Heating and cooling installation, replacement, and service through Canyon State Heating &amp; Cooling, ROC 328713.</li>
+    <li><a href="/services/plumbing">Plumbing</a> &mdash; Residential and commercial plumbing across Mohave County and beyond.</li>
+    <li><a href="/services/res-const">Residential Construction</a> &mdash; Custom homes, multi-family housing, and community developments.</li>
+    <li><a href="/services/com-const">Commercial Construction</a> &mdash; Retail, hospitality, medical, dealership, and government projects.</li>
+    <li><a href="/services/metals">Specialty Metals</a> &mdash; Standing seam roofing, flush wall panels, custom flashings, and coping.</li>
+    <li><a href="/services/masonry">Masonry</a> &mdash; Block, brick, and stone veneer.</li>
+    <li><a href="/services/fencing">Fencing</a> &mdash; CMU, decorative, and commercial perimeter fencing.</li>
+    <li><a href="/services/gutters">Seamless Gutters</a> &mdash; Custom on-site fabricated gutters and downspouts.</li>
+    <li><a href="/services/land-dev">Land Development</a> &mdash; Site preparation, grading, and infrastructure.</li>
+  </ul>
+
+  <h2>Five Offices Across Arizona and Nevada</h2>
+  <p>Our crews live and work in every market we serve, which means faster response, local inspector relationships, and warranty work we can be on site for the same day.</p>
+  <ul>
+    <li><a href="/locations/kingman-az">Kingman, AZ (Corporate Headquarters)</a> &mdash; 2959 Rhoades Ave, Kingman, AZ 86409. Call (928) 757-9003. Serving Mohave County, Golden Valley, and the Bullhead City corridor.</li>
+    <li><a href="/locations/phoenix-az">Phoenix, AZ</a> &mdash; Call (602) 527-6050. Serving the East Valley, West Valley, Scottsdale, Tempe, Mesa, Gilbert, and Chandler.</li>
+    <li><a href="/locations/bullhead-city-az">Bullhead City, AZ</a> &mdash; Serving the tri-state area of western Arizona, southern Nevada, and eastern California, including the Laughlin corridor and Fort Mohave.</li>
+    <li><a href="/locations/lake-havasu-city-az">Lake Havasu City, AZ</a> &mdash; Serving Lake Havasu, Parker, Quartzsite, and the Blythe area.</li>
+    <li><a href="/locations/las-vegas-nv">Las Vegas, NV</a> &mdash; Call (702) 659-2819. Serving Henderson, North Las Vegas, Summerlin, Pahrump, and Mesquite.</li>
+  </ul>
+
+  <h2>One Accountable Team, Not a Chain of Subcontractors</h2>
+  <p>Most construction problems start where one subcontractor hands off to the next. Because Canyon State self-performs its trades, there is no finger-pointing between a roofer, a stucco crew, and a metals installer who have never worked together. You get one crew structure, one schedule, and one team that owns the result. Canyon State holds Arizona ROC License 353683, carries full general-liability and workers compensation coverage, and partners with leading manufacturers including GAF, CertainTeed, Carlisle, Firestone, Versico, Eagle Roofing, and Petersen Aluminum.</p>
+
+  <h2>Featured Project: Betty&rsquo;s Village North</h2>
+  <p>Canyon State is the roofing, stucco, and metals contractor on Opportunity Village&rsquo;s Betty&rsquo;s Village North, a residential community for adults with intellectual and developmental disabilities in northwest Las Vegas. The project includes 22 residential dwellings and three commercial buildings under general contractor R&amp;O Construction, with completion targeted for late 2026. <a href="/blog/building-bettys-village-north-opportunity-village">Read the full story on our Insights blog.</a></p>
+
+  <h2>Serving the Southwest</h2>
+  <p>Canyon State is actively building across Arizona, Nevada, Utah, and New Mexico, with past project history extending into Texas, California, North Carolina, Tennessee, and Colorado. Explore our <a href="/portfolio/commercial">commercial portfolio</a> and <a href="/portfolio/residential">residential portfolio</a> to see completed work, or learn more <a href="/about">about Canyon State Enterprises</a> and <a href="/where">where we work</a>.</p>
+
+  <h2>Talk to Canyon State Enterprises</h2>
+  <p>Reach the office closest to your project and a real person will respond within one business day. Call our Kingman headquarters at (928) 757-9003, our Phoenix office at (602) 527-6050, or our Nevada office at (702) 659-2819, email office@canyonstateaz.com, or <a href="/contact">request a quote online</a>. One team, multiple trades, zero excuses.</p>
+</div>

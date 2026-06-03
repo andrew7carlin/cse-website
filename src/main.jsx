@@ -35,5 +35,11 @@ if (root.hasChildNodes()) {
       : () => {}, // Suppress in production
   });
 } else {
+  // Home shell (and the SPA fallback) ships a crawlable, off-screen
+  // #home-seo-content block before #root (injected at build time by
+  // scripts/prerender.mjs) so non-JS crawlers see real body content. Now
+  // that the real app is mounting, remove it so JS users never retain
+  // hidden duplicate text. No-op on routes that don't have it.
+  document.getElementById('home-seo-content')?.remove();
   createRoot(root).render(tree);
 }
