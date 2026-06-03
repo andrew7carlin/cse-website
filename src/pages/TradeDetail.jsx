@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import styles from './TradeDetail.module.css';
 import SEO from '../components/common/SEO';
 import { allProjects } from '../data/projects';
+import { tradeContent } from '../data/tradeContent';
 
 // Import project images for service headers
 import roofingImage from '../assets/projects/Abbot Apartments_Bullhead City AZ.webp';
@@ -151,6 +152,8 @@ const TradeDetail = () => {
         'general-contracting': null,
     };
 
+    const content = tradeContent[tradeId];
+
     const categories = tradeCategoryMap[tradeId];
     const relatedProjects = categories
         ? allProjects.filter(p => categories.includes(p.category)).slice(0, 6)
@@ -270,6 +273,20 @@ const TradeDetail = () => {
                                 </div>
                             ))}
                         </div>
+
+                        {content && (
+                            <>
+                                <h2 className="text-h2" style={{ marginTop: '3rem' }}>
+                                    What {data.title} Work We Handle
+                                </h2>
+                                <p className={styles.description}>{content.scope}</p>
+
+                                <h2 className="text-h2" style={{ marginTop: '3rem' }}>
+                                    Why Canyon State for {data.title}
+                                </h2>
+                                <p className={styles.description}>{content.why}</p>
+                            </>
+                        )}
                     </div>
 
                     <div className={styles.sidebar}>
