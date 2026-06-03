@@ -54,9 +54,13 @@ const PortfolioLanding = () => {
                     government, multi-family, restaurant, retail, and industrial work
                     across Arizona, Nevada, and beyond. On the residential side, you
                     will find custom homes, model homes, and community developments
-                    built to the same standard. Looking for something specific?{' '}
+                    built to the same standard. Across both, the common thread is that
+                    Canyon State self-performed the roofing, stucco, metals, and more in
+                    house, so the quality you see in the photos came from one accountable
+                    team rather than a chain of subcontractors. Looking for something
+                    specific, or a reference for work like yours?{' '}
                     <Link to="/contact" style={{ color: 'var(--color-copper)', fontWeight: 600 }}>Get in touch</Link>{' '}
-                    and we will point you to the most relevant work.
+                    and we will point you to the most relevant projects.
                 </p>
             </div>
         </>

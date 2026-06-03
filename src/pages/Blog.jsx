@@ -45,6 +45,15 @@ const Blog = () => {
 
             <section className={styles.content}>
                 <div className={styles.container}>
+                    <p style={{ maxWidth: '720px', margin: '0 auto 3rem', textAlign: 'center', lineHeight: 1.7, color: 'var(--color-text-muted, #6b7280)' }}>
+                        Canyon State Enterprises is a multi-trade construction company
+                        working across Arizona, Nevada, and the Southwest. Our Insights
+                        blog goes behind the scenes on the projects we build and the
+                        trades we self-perform, from roofing and stucco to specialty
+                        metals, sharing the real construction problems we solve and the
+                        lessons that make the next job better. Check back as we add new
+                        project spotlights and field notes.
+                    </p>
                     <div className={styles.grid}>
                         {sorted.map((post) => (
                             <Link

@@ -42,7 +42,7 @@ const Services = () => {
                 </p>
 
                 <h2 className="text-h2" style={{ marginBottom: '1.25rem' }}>Built for the Southwest</h2>
-                <p style={{ lineHeight: 1.7 }}>
+                <p style={{ marginBottom: '1.5rem', lineHeight: 1.7 }}>
                     Construction in Arizona and Nevada is its own discipline. Sustained
                     desert heat, intense UV, and monsoon-driven wind and water punish
                     roof assemblies, wall systems, and mechanical equipment that were
@@ -52,6 +52,20 @@ const Services = () => {
                     from working these markets every day. From a single-trade repair to
                     a ground-up commercial build, we bring the same standards from
                     pre-construction through closeout.
+                </p>
+
+                <h2 className="text-h2" style={{ marginBottom: '1.25rem' }}>Commercial and Residential</h2>
+                <p style={{ lineHeight: 1.7 }}>
+                    We work at every scale. On the commercial side that means
+                    dealerships, hotels, medical facilities, restaurants, retail,
+                    government buildings, and multi-family communities, often on
+                    fast-track schedules where the open date is fixed. On the
+                    residential side it means custom homes, additions, renovations, and
+                    full developments built with the same accountability. With offices
+                    in Kingman, Phoenix, Bullhead City, Lake Havasu City, and Las Vegas,
+                    a Canyon State crew is rarely far from your project, and the company
+                    yard, equipment, and self-performed trades come with them. Explore
+                    the trades above, then tell us what you are building.
                 </p>
             </div>
 

@@ -285,6 +285,11 @@ const TradeDetail = () => {
                                     Why Canyon State for {data.title}
                                 </h2>
                                 <p className={styles.description}>{content.why}</p>
+
+                                <h2 className="text-h2" style={{ marginTop: '3rem' }}>
+                                    What to Expect
+                                </h2>
+                                <p className={styles.description}>{content.process}</p>
                             </>
                         )}
                     </div>

@@ -91,6 +91,18 @@ export default function ResidentialPortfolio() {
             </Link>
           ))}
         </div>
+
+        <p className={styles.intro} style={{ marginTop: '3rem', marginBottom: 0 }}>
+          Every home above was built by Canyon State crews self-performing the
+          roofing, stucco, metals, and more, the same trades and the same
+          standards we bring to our largest commercial work. From a custom home
+          on a Lake Havasu view lot to a model home setting the tone for a new
+          development, the goal is the same: a finish that looks right on day
+          one and an envelope built to hold up to desert sun, heat, and monsoon
+          weather for decades. Planning a build or a remodel?{' '}
+          <Link to="/contact" style={{ color: 'var(--color-copper)', fontWeight: 600 }}>Talk to our team</Link>{' '}
+          about your project.
+        </p>
       </div>
     </>
   );
