@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { loadProjectAssets } from '../utils/assetLoader';
+import { buildProjectCopy } from '../utils/projectCopy';
 import SEO from '../components/common/SEO';
 import FeaturedProjectDetail from '../components/ui/FeaturedProjectDetail';
 
@@ -33,6 +34,8 @@ export default function ProjectDetail() {
   // keeps long project names from blowing past the title-length budget.
   const titleWithLocation = `${project.title} (${project.location})`;
   const seoTitle = titleWithLocation.length + 27 <= 65 ? titleWithLocation : project.title;
+
+  const copy = buildProjectCopy(project);
 
   return (
     <div style={{ background: '#000', minHeight: '100vh' }}>
@@ -169,6 +172,52 @@ export default function ProjectDetail() {
             </div>
           </div>
         )}
+
+        {/* Grounded body copy + factual details (SEO + context for crawlers
+            and visitors). Generated from the project's real category, trade,
+            and location — no invented specifics. */}
+        <section style={{ marginTop: '3.5rem', paddingTop: '2.5rem', borderTop: '1px solid rgba(184,115,51,0.2)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '2rem', maxWidth: '820px' }}>
+            <div>
+              <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.85rem)', fontWeight: 600, color: '#fff', marginBottom: '1rem' }}>
+                {copy.heading}
+              </h2>
+              <p style={{ fontSize: '1.0625rem', lineHeight: 1.7, color: '#d1d5db', margin: 0 }}>
+                {copy.overview}
+              </p>
+            </div>
+
+            <div>
+              <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.85rem)', fontWeight: 600, color: '#fff', marginBottom: '1rem' }}>
+                Project Details
+              </h2>
+              <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', margin: 0 }}>
+                {copy.details.map((d) => (
+                  <div key={d.label} style={{ borderLeft: '3px solid #b87333', paddingLeft: '1rem' }}>
+                    <dt style={{ fontSize: '0.7rem', color: '#b87333', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.35rem' }}>
+                      {d.label}
+                    </dt>
+                    <dd style={{ fontSize: '1rem', color: '#e5e7eb', margin: 0 }}>{d.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div>
+              <p style={{ fontSize: '1.0625rem', lineHeight: 1.7, color: '#d1d5db', margin: '0 0 1.25rem' }}>
+                Planning something similar? Canyon State self-performs roofing, stucco, metals, and more across Arizona, Nevada, and the Southwest.
+              </p>
+              <Link
+                to="/contact"
+                style={{ display: 'inline-block', padding: '0.85rem 1.75rem', background: '#b87333',
+                  color: '#fff', textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '0.78rem',
+                  fontWeight: 700, textDecoration: 'none', borderRadius: '2px' }}
+              >
+                Get a Quote
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
