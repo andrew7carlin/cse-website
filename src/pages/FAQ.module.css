@@ -123,6 +123,14 @@
     padding: 0 var(--container-padding);
 }
 
+.categoryHeading {
+    font-size: var(--font-size-h2, 1.75rem);
+    font-weight: var(--font-weight-light);
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-text-main);
+    margin: 0 0 1.5rem;
+}
+
 .accordionList {
     display: flex;
     flex-direction: column;

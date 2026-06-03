@@ -191,6 +191,7 @@ const FAQ = () => {
                 className={`${styles.body} reveal ${bodyVisible ? 'visible' : ''}`}
             >
                 <div className={styles.container}>
+                    <h2 className={styles.categoryHeading}>{categories[activeCategory].title}</h2>
                     <div className={styles.accordionList}>
                         {categories[activeCategory].questions.map((item, i) => (
                             <FAQItem key={i} q={item.q} a={item.a} />
