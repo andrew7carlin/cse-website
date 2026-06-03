@@ -168,6 +168,18 @@ const Partnerships = () => {
                                 </p>
                             </div>
 
+                            <h2 className={styles.heading} style={{ fontSize: 'var(--font-size-h2, 1.75rem)', marginTop: '2.5rem' }}>
+                                Manufacturers, Suppliers, and Certifications
+                            </h2>
+                            <div className={styles.description}>
+                                <p>
+                                    Canyon State installs systems from the industry's leading manufacturers, including GAF, CertainTeed, Carlisle, Firestone, Versico, Eagle Roofing, MBCI, and Petersen Aluminum, and we hold the certifications that let us stand behind those systems with strong warranties.
+                                </p>
+                                <p>
+                                    On the client side, general contractors and national brands such as AR Mays Construction, Lusardi Construction, Willmeng, Kitchell, Path Construction, EOS Fitness, Salad and Go, Home Depot, and Opportunity Village trust Canyon State to self-perform critical scopes on their projects across the Southwest.
+                                </p>
+                            </div>
+
                             <button
                                 className={styles.inquireBtn}
                                 onClick={() => setShowForm(true)}

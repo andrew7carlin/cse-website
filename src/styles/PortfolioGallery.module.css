@@ -13,6 +13,23 @@
   color: var(--color-text-main);
 }
 
+.intro {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.sectionHeading {
+  font-size: var(--font-size-h2, 1.75rem);
+  font-weight: var(--font-weight-light);
+  letter-spacing: 0.03em;
+  color: var(--color-text-main);
+  margin: 0 0 1.75rem;
+}
+
 .filterBar {
   display: flex;
   flex-wrap: wrap;

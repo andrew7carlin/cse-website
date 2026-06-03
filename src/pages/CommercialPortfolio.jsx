@@ -50,6 +50,15 @@ export default function CommercialPortfolio() {
       <div className={styles.container}>
         <h1 className={styles.title}>Commercial Projects</h1>
 
+        <p className={styles.intro}>
+          Canyon State builds commercial space that has to open on time and
+          perform under use: dealerships, medical facilities, hospitality,
+          restaurants, retail, government, and light industrial. Because we
+          self-perform the building envelope, including roofing, stucco, and
+          metals, we keep the critical path moving across Arizona, Nevada, and
+          the wider Southwest.
+        </p>
+
         {/* FILTERS DISABLED — re-enable when ready */}
         {/* <div className={styles.filterBar}>
           {COMMERCIAL_CATEGORIES.map(cat => (

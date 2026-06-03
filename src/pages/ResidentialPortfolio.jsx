@@ -43,6 +43,17 @@ export default function ResidentialPortfolio() {
       <div className={styles.container}>
         <h1 className={styles.title}>Residential Projects</h1>
 
+        <p className={styles.intro}>
+          From custom homes on view lots to model homes and full community
+          developments, Canyon State self-performs the roofing, stucco, metals,
+          and more that give a home its finish and keep it watertight. These
+          residential projects span Kingman, Bullhead City, Lake Havasu City,
+          and across Arizona and Nevada, built with the same crews and the same
+          standards we bring to every job.
+        </p>
+
+        <h2 className={styles.sectionHeading}>Custom Homes, Model Homes, and Developments</h2>
+
         {/* Filter hidden — show all residential projects
         <div className={styles.filterBar}>
           {RESIDENTIAL_CATEGORIES.map(cat => (
