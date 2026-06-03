@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getLocation } from '../data/locations';
+import { locationContent } from '../data/locationContent';
 import { allProjects } from '../data/projects';
 import SEO from '../components/common/SEO';
 import styles from './LocationPage.module.css';
@@ -29,6 +30,8 @@ const LocationPage = () => {
   const featured = (loc?.featuredProjects || [])
     .map(id => allProjects.find(p => p.id === id))
     .filter(Boolean);
+
+  const content = loc ? locationContent[loc.id] : null;
 
   if (!loc) {
     return (
@@ -175,6 +178,20 @@ const LocationPage = () => {
                       </Link>
                     ))}
                   </div>
+                </>
+              )}
+
+              {content && (
+                <>
+                  <h2 className={styles.sectionTitle} style={{ marginTop: '3rem' }}>
+                    Construction Services in {loc.city}
+                  </h2>
+                  <p className={styles.description}>{content.services}</p>
+
+                  <h2 className={styles.sectionTitle} style={{ marginTop: '3rem' }}>
+                    Why {loc.city} Builds with Canyon State
+                  </h2>
+                  <p className={styles.description}>{content.commitment}</p>
                 </>
               )}
             </div>
