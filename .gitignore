@@ -36,3 +36,6 @@ incoming/*.jpg
 incoming/*.jpeg
 incoming/*.png
 incoming/*.heic
+
+# Local, generated audit artifacts — not source
+audit-report.html
