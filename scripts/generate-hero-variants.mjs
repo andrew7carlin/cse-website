@@ -26,6 +26,7 @@ const QUALITY = 80;
 // Hero source files (paths relative to project root). Add new heroes here.
 const SOURCES = [
   'src/assets/projects/Hyundai Gilbert_Gilbert Az.webp',
+  'src/assets/about/kingman-headquarters.webp',
 ];
 
 async function generateVariants(relPath) {

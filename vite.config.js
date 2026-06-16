@@ -44,6 +44,12 @@ export default defineConfig({
   server: {
     // Enable HMR
     hmr: true,
+    // Don't watch the image-staging folder. Files dropped into incoming/ are
+    // often still locked mid-copy, which makes Vite's file watcher throw an
+    // EBUSY error and crash the dev server. Nothing in incoming/ is imported.
+    watch: {
+      ignored: ['**/incoming/**'],
+    },
   },
 
   // Optimize dependency pre-bundling
