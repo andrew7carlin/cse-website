@@ -167,6 +167,23 @@
   to = "/index.html"
   status = 200
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Caching. Vite emits content-hashed filenames under /assets/ (a changed file
+# gets a new URL), so those are safe to cache forever. HTML and other
+# unhashed paths keep Netlify's default (max-age=0, must-revalidate + ETag),
+# which is what makes new deploys show up immediately.
+# ─────────────────────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Self-hosted fonts are unhashed but effectively never change.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -174,6 +191,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
     # CSP allowlist by service:
     #   - GTM / GA4:        *.googletagmanager.com, *.google-analytics.com, *.analytics.google.com
     #   - Google Ads (the 5 conversion + remarketing tags in container GTM-NDBJ277C):

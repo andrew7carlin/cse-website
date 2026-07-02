@@ -39,3 +39,6 @@ incoming/*.heic
 
 # Local, generated audit artifacts — not source
 audit-report.html
+
+# Failed-save/temp artifacts from image tooling
+*.tmp
