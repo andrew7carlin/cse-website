@@ -1,4 +1,3 @@
-import andersonChevrolet from '../assets/portfolio/commercial/Anderson_Chevrolet_Kingman_Az.webp';
 import aquilaPlace from '../assets/portfolio/commercial/Aquila_Place_Apache_Junction.webp';
 import arizonaFinancial from '../assets/portfolio/commercial/Arizona_Financial_Kingman_Az.webp';
 import nationalBankKingman from '../assets/portfolio/commercial/National_Bank_Kingman_Az.webp';
@@ -243,7 +242,7 @@ export const commercialProjects = [
   { id: 'arizona-financial', name: 'Arizona Financial', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: arizonaFinancial, gallery: [arizonaFinancial, arizonaFinancialKingmanAZ] },
   { id: 'national-bank-kingman', name: 'National Bank of Arizona', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: nationalBankKingman },
   { id: 'home-depot-kingman', name: 'The Home Depot', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: homeDepotKingman },
-  { id: 'anderson-chevrolet', name: 'Anderson Chevrolet', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: andersonChevrolet, gallery: [andersonChevrolet, andersonChevroletKingmanAZ] },
+  { id: 'anderson-chevrolet', name: 'Anderson Chevrolet', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: andersonChevroletKingmanAZ },
   { id: 'hyundai-gilbert', name: 'Hyundai Gilbert', location: 'Gilbert, AZ', category: 'dealerships', trade: 'Roofing', src: hyundaiGilbert },
   { id: 'honda-dealership', name: 'Honda Dealership', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: hondaDealership, gallery: [hondaDealership, hondaDealershipKingmanAZ] },
   { id: 'historical-downtown-building', name: 'Historical Downtown Building', location: 'Kingman, AZ', category: 'industrial', trade: 'Roofing', src: historicalDowntownBuilding },
