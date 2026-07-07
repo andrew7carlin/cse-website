@@ -133,6 +133,29 @@ import customHomeKingman7 from '../assets/portfolio/residential/Custom Home_King
 import ranchHomeKingman from '../assets/portfolio/residential/Ranch Home_Kingman AZ.webp';
 import reroofKingman from '../assets/portfolio/residential/Reroof_Kingman AZ.webp';
 import veteransVillasKingman from '../assets/portfolio/residential/Veterans Villas_Kingman AZ.webp';
+// July 2026 drone batch
+import andersonChevroletKingmanAZ from '../assets/portfolio/commercial/Anderson Chevrolet_Kingman AZ.webp';
+import arizonaFinancialKingmanAZ from '../assets/portfolio/commercial/Arizona Financial_Kingman AZ.webp';
+import aspenDentalKingmanAZ from '../assets/portfolio/commercial/Aspen Dental_Kingman AZ.webp';
+import canyonStateOfficeKingmanAZ from '../assets/portfolio/commercial/Canyon State Office_Kingman AZ.webp';
+import dunkinDonutsCenterKingmanAZ from '../assets/portfolio/commercial/Dunkin Donuts Center_Kingman AZ.webp';
+import dutchBrosKingmanAZ from '../assets/portfolio/commercial/Dutch Bros_Kingman AZ.webp';
+import enterpriseRentACarKingmanAZ from '../assets/portfolio/commercial/Enterprise Rent A Car_Kingman AZ.webp';
+import filibertosKingmanAZ from '../assets/portfolio/commercial/Filibertos_Kingman AZ.webp';
+import hobbyLobbyRemodelKingmanAZ from '../assets/portfolio/commercial/Hobby Lobby Remodel_Kingman AZ.webp';
+import hondaDealershipKingmanAZ from '../assets/portfolio/commercial/Honda Dealership_Kingman AZ.webp';
+import jimmyJohnsCenterKingmanAZ from '../assets/portfolio/commercial/Jimmy Johns Center_Kingman AZ.webp';
+import kingmanMosqueKingmanAZ from '../assets/portfolio/commercial/Kingman Mosque_Kingman AZ.webp';
+import kingmanPublicLibraryKingmanAZ from '../assets/portfolio/commercial/Kingman Public Library_Kingman AZ.webp';
+import kingmanPublicLibraryKingmanAZ2 from '../assets/portfolio/commercial/Kingman Public Library_Kingman AZ_2.webp';
+import kingmanPublicLibraryKingmanAZ3 from '../assets/portfolio/commercial/Kingman Public Library_Kingman AZ_3.webp';
+import critSchoolParkerAZ from '../assets/portfolio/commercial/CRIT School_Parker AZ.webp';
+import critSchoolParkerAZ2 from '../assets/portfolio/commercial/CRIT School_Parker AZ_2.webp';
+import critSchoolParkerAZ3 from '../assets/portfolio/commercial/CRIT School_Parker AZ_3.webp';
+import critSchoolParkerAZ4 from '../assets/portfolio/commercial/CRIT School_Parker AZ_4.webp';
+import sakuraPapaJohnsCenterKingmanAZ from '../assets/portfolio/commercial/Sakura Papa Johns Center_Kingman AZ.webp';
+import starbucksKingmanAZ from '../assets/portfolio/commercial/Starbucks_Kingman AZ.webp';
+import takeFiveKingmanAZ from '../assets/portfolio/commercial/Take Five_Kingman AZ.webp';
 
 export const COMMERCIAL_CATEGORIES = [
   { id: 'all', label: 'All' },
@@ -208,21 +231,21 @@ export const commercialProjects = [
   { id: 'medical-facility-kingman', name: 'Medical Facility', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: medicalFacility },
   { id: 'northern-az-fire-district', name: 'Northern Arizona Fire District', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: northernAzFireDistrict },
   { id: 'mohave-county-annex', name: 'Mohave County Annex', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: mohaveCountyAnnex },
-  { id: 'kingman-public-library', name: 'Kingman Public Library', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: kingmanPublicLibrary, gallery: [kingmanPublicLibrary, kingmanPublicLibrary2] },
+  { id: 'kingman-public-library', name: 'Kingman Public Library', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: kingmanPublicLibrary, gallery: [kingmanPublicLibrary, kingmanPublicLibrary2, kingmanPublicLibraryKingmanAZ, kingmanPublicLibraryKingmanAZ2, kingmanPublicLibraryKingmanAZ3] },
   { id: 'lds-church-concho', name: 'LDS Church', location: 'Concho, AZ', category: 'government', trade: 'Roofing', src: ldsChurchConcho },
   { id: 'texas-roadhouse-mesa', name: 'Texas Roadhouse', location: 'Mesa, AZ', category: 'restaurants', trade: 'Roofing', src: texasRoadhouseMesa },
   { id: 'bj-brewhouse-queen-creek', name: "BJ's Brewhouse", location: 'Queen Creek, AZ', category: 'restaurants', trade: 'Roofing', src: bjBrewhouseQueenCreek },
-  { id: 'jimmy-johns-kingman', name: "Jimmy John's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: jimmyJohns, gallery: [jimmyJohns, jimmyJohnsKingman2] },
-  { id: 'dunkin-donut-kingman', name: 'Dunkin Donut Plaza', location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: dunkinDonut },
+  { id: 'jimmy-johns-kingman', name: "Jimmy John's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: jimmyJohns, gallery: [jimmyJohns, jimmyJohnsKingman2, jimmyJohnsCenterKingmanAZ] },
+  { id: 'dunkin-donut-kingman', name: 'Dunkin Donut Plaza', location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: dunkinDonut, gallery: [dunkinDonut, dunkinDonutsCenterKingmanAZ] },
   { id: 'chilis-kingman', name: "Chili's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: chilisKingman },
   { id: 'culvers-kingman', name: "Culver's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: culversKingman },
   { id: 'eos-fitness-tempe', name: 'EOS Fitness', location: 'Tempe, AZ', category: 'retail', trade: 'Roofing', src: eosFitness },
-  { id: 'arizona-financial', name: 'Arizona Financial', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: arizonaFinancial },
+  { id: 'arizona-financial', name: 'Arizona Financial', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: arizonaFinancial, gallery: [arizonaFinancial, arizonaFinancialKingmanAZ] },
   { id: 'national-bank-kingman', name: 'National Bank of Arizona', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: nationalBankKingman },
   { id: 'home-depot-kingman', name: 'The Home Depot', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: homeDepotKingman },
-  { id: 'anderson-chevrolet', name: 'Anderson Chevrolet', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: andersonChevrolet },
+  { id: 'anderson-chevrolet', name: 'Anderson Chevrolet', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: andersonChevrolet, gallery: [andersonChevrolet, andersonChevroletKingmanAZ] },
   { id: 'hyundai-gilbert', name: 'Hyundai Gilbert', location: 'Gilbert, AZ', category: 'dealerships', trade: 'Roofing', src: hyundaiGilbert },
-  { id: 'honda-dealership', name: 'Honda Dealership', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: hondaDealership },
+  { id: 'honda-dealership', name: 'Honda Dealership', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: hondaDealership, gallery: [hondaDealership, hondaDealershipKingmanAZ] },
   { id: 'historical-downtown-building', name: 'Historical Downtown Building', location: 'Kingman, AZ', category: 'industrial', trade: 'Roofing', src: historicalDowntownBuilding },
   { id: 'historical-downtown', name: 'Historical Downtown', location: 'Kingman, AZ', category: 'industrial', trade: 'Roofing', src: historicalDowntown },
   { id: 'motel-6-flagstaff', name: 'Motel 6', location: 'Flagstaff, AZ', category: 'hospitality', trade: 'Roofing', src: motel6Flagstaff },
@@ -270,14 +293,21 @@ export const commercialProjects = [
   { id: 'planet-fitness-kingman', name: 'Planet Fitness', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: planetFitnessKingman },
   { id: 'salad-and-go-tucson', name: 'Salad and Go', location: 'Tucson, AZ', category: 'restaurants', trade: 'Roofing', src: saladAndGoTucson },
   { id: 'take-5-bullhead', name: 'Take 5 Oil Change', location: 'Bullhead City, AZ', category: 'retail', trade: 'Roofing', src: take5BullheadCity },
-  { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: take5KingmanAz },
+  { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: take5KingmanAz, gallery: [take5KingmanAz, takeFiveKingmanAZ] },
   { id: 'us-dept-veteran-affairs-kingman', name: 'US Dept of Veteran Affairs', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: usDeptVeteranAffairs },
   { id: 'whataburger-tolleson', name: 'Whataburger', location: 'Tolleson, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: whataburgerTolleson },
-  { id: 'crit-school-parker', name: 'CRIT School', location: 'Parker, AZ', category: 'government', trade: 'Roofing & Metals', src: critSchoolParker },
-  { id: 'canyon-state-office-kingman', name: 'Canyon State Enterprises HQ', location: 'Kingman, AZ', category: 'industrial', trade: 'Stucco & Metals', src: canyonStateOfficeKingman },
-  { id: 'kingman-mosque', name: 'Kingman Mosque', location: 'Kingman, AZ', category: 'government', trade: 'Stucco', src: kingmanMosque },
+  { id: 'crit-school-parker', name: 'CRIT School', location: 'Parker, AZ', category: 'government', trade: 'Roofing & Metals', src: critSchoolParker, gallery: [critSchoolParker, critSchoolParkerAZ, critSchoolParkerAZ2, critSchoolParkerAZ3, critSchoolParkerAZ4] },
+  { id: 'canyon-state-office-kingman', name: 'Canyon State Enterprises HQ', location: 'Kingman, AZ', category: 'industrial', trade: 'Stucco & Metals', src: canyonStateOfficeKingman, gallery: [canyonStateOfficeKingman, canyonStateOfficeKingmanAZ] },
+  { id: 'kingman-mosque', name: 'Kingman Mosque', location: 'Kingman, AZ', category: 'government', trade: 'Stucco', src: kingmanMosque, gallery: [kingmanMosque, kingmanMosqueKingmanAZ] },
   { id: 'medusa-farms-kingman', name: 'Medusa Farms', location: 'Kingman, AZ', category: 'retail', trade: 'Stucco', src: medusaFarmsKingman },
   { id: 'unisource-energy-kingman', name: 'Unisource Energy', location: 'Kingman, AZ', category: 'industrial', trade: 'Roofing & Stucco', src: unisourceEnergyKingman },
+  { id: 'aspen-dental-kingman', name: 'Aspen Dental', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: aspenDentalKingmanAZ },
+  { id: 'dutch-bros-kingman', name: 'Dutch Bros Coffee', location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: dutchBrosKingmanAZ },
+  { id: 'enterprise-rent-a-car-kingman', name: 'Enterprise Rent-A-Car', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: enterpriseRentACarKingmanAZ },
+  { id: 'filibertos-kingman', name: "Filiberto's", location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: filibertosKingmanAZ },
+  { id: 'hobby-lobby-remodel-kingman', name: 'Hobby Lobby Remodel', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: hobbyLobbyRemodelKingmanAZ },
+  { id: 'sakura-papa-johns-kingman', name: 'Sakura & Papa Johns Center', location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: sakuraPapaJohnsCenterKingmanAZ },
+  { id: 'starbucks-kingman', name: 'Starbucks', location: 'Kingman, AZ', category: 'restaurants', trade: 'Roofing', src: starbucksKingmanAZ },
 ];
 
 

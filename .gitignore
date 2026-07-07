@@ -32,6 +32,7 @@ public/videos/*.mp4
 
 # Image import tool — keep processed originals local only
 incoming/processed/
+incoming/_enhanced/
 incoming/*.jpg
 incoming/*.jpeg
 incoming/*.png
