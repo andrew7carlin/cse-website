@@ -120,7 +120,6 @@ import planetFitnessPhoenix from '../assets/portfolio/commercial/Planet Fitness_
 import planetFitnessKingman from '../assets/portfolio/commercial/Planet_Fitness_Kingman_Az.webp';
 import saladAndGoTucson from '../assets/portfolio/commercial/Salad and Go_Tucson AZ.webp';
 import take5BullheadCity from '../assets/portfolio/commercial/Take 5_Bullhead City.webp';
-import take5KingmanAz from '../assets/portfolio/commercial/Take 5_Kingman AZ.webp';
 import usDeptVeteranAffairs from '../assets/portfolio/commercial/US Department of Veteran Affairs_Kingman AZ.webp';
 import whataburgerTolleson from '../assets/portfolio/commercial/Whataburger_Tolleson AZ.webp';
 import critSchoolParker from '../assets/portfolio/commercial/CRIT_School_Parker_Az.webp';
@@ -292,7 +291,7 @@ export const commercialProjects = [
   { id: 'planet-fitness-kingman', name: 'Planet Fitness', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: planetFitnessKingman },
   { id: 'salad-and-go-tucson', name: 'Salad and Go', location: 'Tucson, AZ', category: 'restaurants', trade: 'Roofing', src: saladAndGoTucson },
   { id: 'take-5-bullhead', name: 'Take 5 Oil Change', location: 'Bullhead City, AZ', category: 'retail', trade: 'Roofing', src: take5BullheadCity },
-  { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: take5KingmanAz, gallery: [take5KingmanAz, takeFiveKingmanAZ] },
+  { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: takeFiveKingmanAZ },
   { id: 'us-dept-veteran-affairs-kingman', name: 'US Dept of Veteran Affairs', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: usDeptVeteranAffairs },
   { id: 'whataburger-tolleson', name: 'Whataburger', location: 'Tolleson, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: whataburgerTolleson },
   { id: 'crit-school-parker', name: 'CRIT School', location: 'Parker, AZ', category: 'government', trade: 'Roofing & Metals', src: critSchoolParker, gallery: [critSchoolParker, critSchoolParkerAZ, critSchoolParkerAZ2, critSchoolParkerAZ3, critSchoolParkerAZ4] },
