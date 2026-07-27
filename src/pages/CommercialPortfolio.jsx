@@ -11,11 +11,7 @@ export default function CommercialPortfolio() {
   //   : commercialProjects.filter(p => p.category === activeCategory);
 
   const featuredProjects = commercialProjects.filter(p => p.featured);
-  // Stable sort: keep array order within each group, push comingSoon to the
-  // bottom of the "All Projects" grid so completed work leads.
-  const allProjects = [...commercialProjects].sort(
-    (a, b) => Number(a.comingSoon || false) - Number(b.comingSoon || false)
-  );
+  const allProjects = commercialProjects;
 
   return (
     <>
@@ -117,12 +113,9 @@ export default function CommercialPortfolio() {
             <Link
               key={project.id}
               to={`/portfolio/${project.id}`}
-              className={`${styles.card} ${project.comingSoon ? styles.cardComingSoon : ''}`}
+              className={styles.card}
             >
               <div className={styles.cardImageWrap}>
-                {project.comingSoon && (
-                  <span className={styles.comingSoonBadge}>Coming Soon</span>
-                )}
                 <img
                   src={project.src}
                   alt={`${project.name}, ${project.location}`}
