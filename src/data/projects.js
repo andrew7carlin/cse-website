@@ -293,7 +293,7 @@ export const commercialProjects = [
   { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: takeFiveKingmanAZ },
   { id: 'us-dept-veteran-affairs-kingman', name: 'US Dept of Veteran Affairs', location: 'Kingman, AZ', category: 'government', trade: 'Roofing', src: usDeptVeteranAffairs },
   { id: 'whataburger-tolleson', name: 'Whataburger', location: 'Tolleson, AZ', category: 'restaurants', trade: 'Roofing & Stucco', src: whataburgerTolleson },
-  { id: 'crit-school-parker', name: 'CRIT School', location: 'Parker, AZ', category: 'government', trade: 'Roofing & Metals', src: critSchoolParkerAZ, gallery: [critSchoolParkerAZ, critSchoolParkerAZ2, critSchoolParkerAZ3, critSchoolParkerAZ4] },
+  { id: 'crit-school-parker', name: 'CRIT School', location: 'Parker, AZ', category: 'government', trade: 'Roofing & Metals', src: critSchoolParkerAZ4, gallery: [critSchoolParkerAZ4, critSchoolParkerAZ, critSchoolParkerAZ2, critSchoolParkerAZ3] },
   { id: 'canyon-state-office-kingman', name: 'Canyon State Enterprises HQ', location: 'Kingman, AZ', category: 'industrial', trade: 'Stucco & Metals', src: canyonStateOfficeKingman, gallery: [canyonStateOfficeKingman, canyonStateOfficeKingmanAZ] },
   { id: 'kingman-mosque', name: 'Kingman Mosque', location: 'Kingman, AZ', category: 'government', trade: 'Stucco', src: kingmanMosque, gallery: [kingmanMosque, kingmanMosqueKingmanAZ] },
   { id: 'medusa-farms-kingman', name: 'Medusa Farms', location: 'Kingman, AZ', category: 'retail', trade: 'Stucco', src: medusaFarmsKingman },
