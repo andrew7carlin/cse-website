@@ -92,10 +92,6 @@ const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <nav className={styles.navLinks}>
-                    <Link to="/" className={styles.navLink} data-cursor="link">
-                        <span className={styles.navLinkText}>Home</span>
-                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
-                    </Link>
                     <div className={styles.navItem} onMouseEnter={() => preload('/services')} onFocus={() => preload('/services')}>
                         <Link to="/services" className={styles.navLink} data-cursor="link">
                             <span className={styles.navLinkText}>Trades</span>
@@ -161,7 +157,6 @@ const Navbar = () => {
             {/* Mobile Menu Overlay */}
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
                 <nav className={styles.mobileNav}>
-                    <Link to="/" className={styles.mobileNavLink}>Home</Link>
                     <div className={styles.mobileTradesGroup}>
                         <button
                             className={styles.mobileNavLink}
