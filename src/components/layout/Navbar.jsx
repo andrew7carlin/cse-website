@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
-import logoWhite from '../../assets/logos/logo-white.png';
+import logoHeader from '../../assets/logos/logo-header.png';
+import logoSticky from '../../assets/logos/logo-sticky.png';
 import cactusImg from '../../assets/logos/cactus.png';
 
 // Hover-preload for lazy-loaded routes. Calling import() warms the chunk in the
@@ -65,15 +66,28 @@ const Navbar = () => {
     return (
         <header className={navClass}>
             <div className={styles.container}>
-                <Link to="/" className={styles.logo}>
-                    {/* width/height match the intrinsic source (426x169) so the browser
-                        can reserve aspect-ratio-correct space before the image loads. */}
+                {/* Two stacked marks that crossfade on scroll: the full ENTERPRISES
+                    logo at the top of the page, the compact wordmark once stuck.
+                    Both render up front (12 kB + 6 kB) and toggle opacity — swapping
+                    a single src would fetch the second mark mid-scroll and flash.
+                    width/height match each intrinsic source so space is reserved
+                    before load; sizing itself lives in the CSS module so it can be
+                    responsive. */}
+                <Link to="/" className={styles.logo} aria-label="Canyon State — home">
                     <img
-                        src={logoWhite}
+                        src={logoHeader}
                         alt="Canyon State"
                         width={426}
                         height={169}
-                        style={{ height: '50px', width: 'auto', maxWidth: '180px', objectFit: 'contain' }}
+                        className={`${styles.logoImg} ${isScrolled ? styles.logoHidden : ''}`}
+                    />
+                    <img
+                        src={logoSticky}
+                        alt=""
+                        aria-hidden="true"
+                        width={426}
+                        height={114}
+                        className={`${styles.logoImg} ${styles.logoImgSticky} ${isScrolled ? '' : styles.logoHidden}`}
                     />
                 </Link>
 

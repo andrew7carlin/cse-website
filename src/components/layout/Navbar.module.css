@@ -33,13 +33,48 @@
     justify-content: space-between;
 }
 
+/* The logo holds two stacked marks (full + sticky) that crossfade on scroll.
+   The full mark sits in normal flow and sizes the box; the sticky mark is
+   absolutely positioned over it so the swap happens in place. Sizes are
+   mobile-first: the header bar is 70px under 768px and 80px above it, so the
+   marks scale to keep breathing room in both. */
 .logo {
-    font-weight: 800;
-    font-size: 1.5rem;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
     color: inherit;
     z-index: 1001;
+}
+
+.logoImg {
+    display: block;
+    height: 48px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    transition: opacity 0.25s ease;
+}
+
+.logoImgSticky {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 38px;
+}
+
+.logoHidden {
+    opacity: 0;
+}
+
+@media (min-width: 769px) {
+    .logoImg {
+        height: 64px;
+    }
+
+    .logoImgSticky {
+        height: 46px;
+    }
 }
 
 .navLinks {
