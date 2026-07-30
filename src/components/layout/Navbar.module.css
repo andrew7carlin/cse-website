@@ -74,9 +74,21 @@
     opacity: 0;
 }
 
-/* Desktop: the full mark nearly fills the 112px bar — 92px tall leaves
-   exactly 10px of air above and below. */
-@media (min-width: 769px) {
+/* Tablet (769-991px): the bar is still 80px here (hamburger zone), so the
+   mark scales to 60px — same ~10px air as desktop, no bleed. */
+@media (min-width: 769px) and (max-width: 991px) {
+    .logoImg {
+        height: 60px;
+    }
+
+    .logoImgSticky {
+        height: 46px;
+    }
+}
+
+/* Desktop (≥992px, where the bar is 112px): the full mark nearly fills it —
+   92px tall leaves exactly 10px of air above and below. */
+@media (min-width: 992px) {
     .logoImg {
         height: 92px;
         max-width: 240px;
