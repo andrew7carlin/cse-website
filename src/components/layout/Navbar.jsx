@@ -107,17 +107,18 @@ const Navbar = () => {
                     </span>
                 </button>
 
-                {/* Desktop Nav — double-decker: slim utility row (phone + CTA)
-                    stacked over the main menu row. Hidden below 992px where the
-                    hamburger takes over. */}
+                {/* Desktop Nav — double-decker with the menu split across rows:
+                    secondary/company links live in the slim top row with the
+                    phone; the money items (Trades, Portfolio, Where, Contact)
+                    hold the main row. Hidden below 992px (hamburger). */}
                 <div className={styles.navStack}>
                     <div className={styles.utilityRow}>
+                        <Link to="/about" className={styles.utilityLink} data-cursor="link">About</Link>
+                        <Link to="/partnerships" className={styles.utilityLink} data-cursor="link" onMouseEnter={() => preload('/partnerships')} onFocus={() => preload('/partnerships')}>Partnerships</Link>
+                        <Link to="/blog" className={styles.utilityLink} data-cursor="link" onMouseEnter={() => preload('/blog')} onFocus={() => preload('/blog')}>Insights</Link>
                         <a href="tel:9287579003" className={styles.utilityPhone} data-cursor="link">
                             (928) 757-9003
                         </a>
-                        <Link to="/contact" className={styles.utilityCta} data-cursor="link">
-                            Let's Talk
-                        </Link>
                     </div>
                     <nav className={styles.navLinks}>
                     <div className={styles.navItem} onMouseEnter={() => preload('/services')} onFocus={() => preload('/services')}>
@@ -138,10 +139,6 @@ const Navbar = () => {
                     </div>
                     <Link to="/portfolio" className={styles.navLink} data-cursor="link" onMouseEnter={() => preload('/portfolio')} onFocus={() => preload('/portfolio')}>
                         <span className={styles.navLinkText}>Portfolio</span>
-                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
-                    </Link>
-                    <Link to="/about" className={styles.navLink} data-cursor="link">
-                        <span className={styles.navLinkText}>About</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
                     <div className={styles.navItem} onMouseEnter={() => preload('/where')} onFocus={() => preload('/where')}>
@@ -167,17 +164,8 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <Link to="/partnerships" className={styles.navLink} data-cursor="link" onMouseEnter={() => preload('/partnerships')} onFocus={() => preload('/partnerships')}>
-                        <span className={styles.navLinkText}>Partnerships</span>
-                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
-                    </Link>
-                    <Link to="/blog" className={styles.navLink} data-cursor="link" onMouseEnter={() => preload('/blog')} onFocus={() => preload('/blog')}>
-                        <span className={styles.navLinkText}>Insights</span>
-                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
-                    </Link>
-                    <Link to="/contact" className={styles.navLink} data-cursor="link">
-                        <span className={styles.navLinkText}>Contact</span>
-                        <img src={cactusImg} alt="" className={styles.cactusDecor} />
+                    <Link to="/contact" className={styles.contactBtn} data-cursor="link">
+                        Contact
                     </Link>
                     </nav>
                 </div>

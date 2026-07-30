@@ -110,7 +110,8 @@
         display: flex;
     }
 
-    /* Row 1 — utility strip: quieter, smaller, separated by a hairline */
+    /* Row 1 — utility strip: secondary links + phone. Quieter and smaller
+       than the main row so the two tiers read differently. */
     .utilityRow {
         display: flex;
         align-items: center;
@@ -121,33 +122,49 @@
         justify-content: flex-end;
     }
 
-    .utilityPhone {
-        font-size: 0.8rem;
+    .utilityLink {
+        font-size: 0.68rem;
         font-weight: 400;
-        letter-spacing: 0.1em;
-        color: rgba(255, 255, 255, 0.72);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.62);
         text-decoration: none;
         transition: color 0.2s ease;
+    }
+
+    .utilityLink:hover {
+        color: var(--color-white);
+    }
+
+    .utilityPhone {
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.78);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        margin-left: 0.5rem;
     }
 
     .utilityPhone:hover {
         color: var(--color-white);
     }
 
-    .utilityCta {
-        font-size: 0.72rem;
-        font-weight: 700;
+    /* Contact as the single CTA on the main row */
+    .contactBtn {
+        font-size: 0.8rem;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.1em;
         color: var(--color-white);
         background-color: var(--color-copper);
-        padding: 0.4rem 1rem;
+        padding: 0.5rem 1.15rem;
         border-radius: 2px;
         text-decoration: none;
         transition: background-color 0.2s ease, transform 0.2s ease;
     }
 
-    .utilityCta:hover {
+    .contactBtn:hover {
         background-color: #b85527;
         transform: translateY(-1px);
     }
