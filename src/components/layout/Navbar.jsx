@@ -61,7 +61,10 @@ const Navbar = () => {
         setIsMobileMenuOpen(false);
     }, [location]);
 
-    const navClass = `${styles.navbar} ${isScrolled || !isHome ? styles.scrolled : ''}`;
+    // Home keeps the fully transparent glass look; interior pages sit on light
+    // backgrounds that wash the white logo out through the blur, so they get a
+    // near-solid dark bar instead.
+    const navClass = `${styles.navbar} ${isScrolled || !isHome ? styles.scrolled : ''} ${!isHome ? styles.solid : ''}`;
 
     return (
         <header className={navClass}>
@@ -104,8 +107,19 @@ const Navbar = () => {
                     </span>
                 </button>
 
-                {/* Desktop Nav */}
-                <nav className={styles.navLinks}>
+                {/* Desktop Nav — double-decker: slim utility row (phone + CTA)
+                    stacked over the main menu row. Hidden below 992px where the
+                    hamburger takes over. */}
+                <div className={styles.navStack}>
+                    <div className={styles.utilityRow}>
+                        <a href="tel:9287579003" className={styles.utilityPhone} data-cursor="link">
+                            (928) 757-9003
+                        </a>
+                        <Link to="/contact" className={styles.utilityCta} data-cursor="link">
+                            Let's Talk
+                        </Link>
+                    </div>
+                    <nav className={styles.navLinks}>
                     <div className={styles.navItem} onMouseEnter={() => preload('/services')} onFocus={() => preload('/services')}>
                         <Link to="/services" className={styles.navLink} data-cursor="link">
                             <span className={styles.navLinkText}>Trades</span>
@@ -165,7 +179,8 @@ const Navbar = () => {
                         <span className={styles.navLinkText}>Contact</span>
                         <img src={cactusImg} alt="" className={styles.cactusDecor} />
                     </Link>
-                </nav>
+                    </nav>
+                </div>
             </div>
 
             {/* Mobile Menu Overlay */}

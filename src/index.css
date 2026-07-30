@@ -82,6 +82,15 @@
   }
 }
 
+/* Desktop double-decker header: utility row (phone + CTA) stacked over the
+   main menu. Only at ≥992px, where the desktop nav is visible — every page
+   offsets content with --header-height, so they all adapt automatically. */
+@media (min-width: 992px) {
+  :root {
+    --header-height: 112px;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

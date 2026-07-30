@@ -23,6 +23,13 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Interior pages: the glass look sits on light page backgrounds and washes
+   the white logo out, so off-home the bar goes near-solid dark. Home keeps
+   the original transparency in both states. */
+.navbar.solid {
+    background-color: rgba(19, 17, 14, 0.93);
+}
+
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
@@ -77,6 +84,12 @@
     }
 }
 
+/* Double-decker right side: slim utility row over the main menu row.
+   Hidden entirely below 992px (hamburger handles those widths). */
+.navStack {
+    display: none;
+}
+
 .navLinks {
     display: none;
     gap: 3.5rem;
@@ -84,8 +97,59 @@
 }
 
 @media (min-width: 992px) {
+    .navStack {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        gap: 0.6rem;
+    }
+
     .navLinks {
         display: flex;
+    }
+
+    /* Row 1 — utility strip: quieter, smaller, separated by a hairline */
+    .utilityRow {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .utilityPhone {
+        font-size: 0.8rem;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.72);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .utilityPhone:hover {
+        color: var(--color-white);
+    }
+
+    .utilityCta {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--color-white);
+        background-color: var(--color-copper);
+        padding: 0.4rem 1rem;
+        border-radius: 2px;
+        text-decoration: none;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .utilityCta:hover {
+        background-color: #b85527;
+        transform: translateY(-1px);
     }
 }
 
