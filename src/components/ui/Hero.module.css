@@ -240,6 +240,16 @@
     color: white;
 }
 
+/* Tablet (769-991px): the glass card is at its narrow desktop max-width but
+   the headline still renders at the desktop clamp minimum (44px), which
+   wraps the longer SEO headline onto 6+ towering lines. Scale it to fit. */
+@media (min-width: 769px) and (max-width: 991px) {
+    .video .headline {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+}
+
 /* Short windows (laptop with browser shrunk, small landscape screens):
    the full-size glass card stack needs ~750px of height, which pushes the
    CTAs below the fold. Compress it so the whole card fits — normal-height
