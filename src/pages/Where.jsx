@@ -77,31 +77,31 @@ const stats = [
   { number: '25',  label: 'Years' },
 ];
 
-// ── JSON-LD LocalBusiness schema ───────────────────────────────────────────
+// ── JSON-LD WebPage schema (Aug 2026 SEO spec) ─────────────────────────────
+// Replaces the old standalone RoofingContractor entity, which duplicated the
+// site-wide organization node with no @id. This page now describes itself as a
+// WebPage ABOUT the org (referenced by @id) rather than a second business.
 const schemaMarkup = {
   '@context': 'https://schema.org',
-  '@type': 'RoofingContractor',
-  name: 'Canyon State Enterprises',
-  url: 'https://canyonstateaz.com',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '2959 Rhoades Ave',
-    addressLocality: 'Kingman',
-    addressRegion: 'AZ',
-    postalCode: '86409',
-    addressCountry: 'US',
+  '@type': 'WebPage',
+  '@id': 'https://canyonstateaz.com/where#webpage',
+  url: 'https://canyonstateaz.com/where',
+  name: "Where We Work | Canyon State",
+  description:
+    "Explore Canyon State's construction service areas across Arizona, Nevada, Utah, and Colorado, including active projects and office locations throughout the Southwest.",
+  isPartOf: { '@id': 'https://canyonstateaz.com/#website' },
+  about: { '@id': 'https://canyonstateaz.com/#organization' },
+  mainEntity: {
+    '@type': 'Place',
+    name: 'Canyon State Service Areas',
+    areaServed: [
+      { '@type': 'State', name: 'Arizona' },
+      { '@type': 'State', name: 'Nevada' },
+      { '@type': 'State', name: 'Utah' },
+      { '@type': 'State', name: 'Colorado' },
+    ],
   },
-  areaServed: [
-    'Kingman, AZ', 'Bullhead City, AZ', 'Lake Havasu City, AZ',
-    'Phoenix, AZ', 'Mesa, AZ', 'Glendale, AZ', 'Scottsdale, AZ',
-    'Tempe, AZ', 'Chandler, AZ', 'Gilbert, AZ', 'Peoria, AZ',
-    'Apache Junction, AZ', 'Queen Creek, AZ', 'Flagstaff, AZ',
-    'Tucson, AZ', 'Marana, AZ', 'Oro Valley, AZ', 'Sahuarita, AZ',
-    'Show Low, AZ', 'Las Vegas, NV', 'Henderson, NV', 'Laughlin, NV',
-    'Pahrump, NV', 'Mesquite, NV', 'Reno, NV', 'St. George, UT',
-    'Hurricane, UT', 'Salt Lake City, UT', 'Spanish Fork, UT',
-    'Denver, CO', 'Colorado Springs, CO', 'Grand Junction, CO',
-  ],
+  inLanguage: 'en-US',
 };
 
 // ── Component ──────────────────────────────────────────────────────────────
@@ -109,8 +109,8 @@ const Where = () => {
   return (
     <main className={styles.page}>
       <SEO
-        title="Where We Work | Canyon State Enterprises"
-        description="Canyon State Enterprises serves roofing, stucco, and construction across Arizona, Nevada, Utah, and Colorado. Active projects in 30+ cities across the Southwest."
+        title="Canyon State's Service Areas | Construction Across AZ, NV, UT & CO"
+        description="Explore Canyon State's construction service areas across Arizona, Nevada, Utah, and Colorado with local teams delivering quality projects."
         canonical="https://canyonstateaz.com/where"
       />
 

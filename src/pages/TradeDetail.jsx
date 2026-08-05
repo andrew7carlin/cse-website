@@ -115,22 +115,125 @@ const tradeData = {
     }
 };
 
-// Concise per-trade meta descriptions (140-160 chars: keyword + AZ/NV
-// service area + soft CTA). Kept separate from the long marketing copy in
-// tradeData[].description, which is far too long to use as a meta tag.
+// Per-trade SEO fields from the Aug 2026 SEO-team spec. Four parallel maps:
+// TRADE_TITLE (title tag — brand suffix auto-appended by SEO.jsx when absent),
+// TRADE_META (meta description), TRADE_H1 (visible headline override for the
+// trades the spec called out; others keep the plain trade name), and
+// TRADE_SCHEMA (JSON-LD name/serviceType/description/offer-catalog — the
+// visible Expertise grid still renders from data.expertise, unchanged).
+const TRADE_TITLE = {
+    roofing:               'Commercial & Residential Roofing Services in Southwest | Canyon State',
+    stucco:                'Residential & Commercial Stucco Installation & Repair in Southwest',
+    'general-contracting': 'General Contracting Services in Arizona & Nevada | Canyon State',
+    hvac:                  'Residential & Commercial HVAC Services across Arizona & Nevada',
+    plumbing:              'Residential & Commercial Plumbing Services Across Mohave County & the Southwest',
+    'res-const':           'Residential Construction & Addition Services in Arizona & Nevada',
+    'com-const':           'Commercial Construction Services across Arizona & Nevada',
+    metals:                'Specialty Metal Fabrication Services Across Arizona & Nevada',
+    masonry:               'Residential & Commercial Masonry Services across Arizona & Nevada',
+    fencing:               'Residential & Commercial Fencing across Arizona & Nevada',
+    gutters:               'Seamless Gutters Repair & Installation across Arizona & Nevada',
+    'land-dev':            'Land Development Services across Arizona & Nevada',
+};
+
 const TRADE_META = {
-    roofing:               'Commercial and residential roofing across Arizona and Nevada: tile, metal, TPO, foam, shingle, repairs, and coatings. Get a straight answer from Canyon State.',
-    stucco:                'Three-coat stucco, synthetic stucco, and EIFS for homes and commercial buildings across the Southwest. Volume work without sacrificing the craft. Get a quote.',
-    'general-contracting': 'Full-service general contracting across Arizona and Nevada: pre-construction, trade coordination, budgets, and closeout. One accountable team, no surprises.',
-    hvac:                  'HVAC install, replacement, and service for homes and businesses across Arizona and Nevada. Keep the air moving and energy bills in check. Call Canyon State.',
-    plumbing:              'Residential and commercial plumbing across Arizona and Nevada: rough-in, fixtures, water and gas lines, repipes, and emergencies. Code-compliant and leak-free.',
-    'res-const':           'Custom homes, additions, and renovations across Arizona and Nevada. Ground-up or major remodel, Canyon State brings detail and accountability to every build.',
-    'com-const':           'Commercial construction across Arizona and Nevada: retail, hospitality, medical, and industrial. Fast timelines, tight budgets, zero drama. Get a quote.',
-    metals:                'Architectural specialty metals across Arizona and Nevada: standing seam, panel systems, coping, flashings, and custom fabrication. Sharp work that lasts.',
-    masonry:               'Masonry across Arizona and Nevada: brick, block, stone veneer, CMU walls, and retaining walls. Built with precision to stand the test of time. Get a quote.',
-    fencing:               'Commercial and residential fencing across Arizona and Nevada: chain link, wrought iron, wood, vinyl, privacy, and security. Clean and fast. Get a quote.',
-    gutters:               'Seamless gutters custom-rolled on site across Arizona and Nevada: aluminum gutters, downspouts, guards, and drainage. No seams, no leaks. Get a quote.',
-    'land-dev':            'Land development across Arizona and Nevada: grading, excavation, utilities, drainage, and pad prep. We get your site ready for whatever comes next.',
+    roofing:               'Canyon State provides commercial & residential roofing, roof repair, roof replacement, and new roof installation services across Arizona and Nevada. Contact us!',
+    stucco:                'Expert residential & commercial stucco installation, repair, and replacement across the Southwest. Contact Canyon State for a free estimate.',
+    'general-contracting': 'Expert general contracting for commercial & residential projects in Arizona & Nevada. Contact Canyon State for a free consultation.',
+    hvac:                  'Residential & commercial HVAC installation, repair & replacement in Arizona & Nevada. Contact Canyon State for a free HVAC estimate today.',
+    plumbing:              'Expert residential & commercial plumbing services across Mohave County & the Southwest. Repairs, installations & replacements. Contact Canyon State today.',
+    'res-const':           'Custom homes, additions & residential construction in Arizona & Nevada. Build with Canyon State—contact us for a free consultation.',
+    'com-const':           'Commercial construction for retail, healthcare, industrial & mixed-use projects in Arizona & Nevada. Contact Canyon State for a consultation.',
+    metals:                'Custom specialty metal fabrication for residential & commercial projects in Arizona & Nevada. Contact Canyon State for a free consultation.',
+    masonry:               'Expert residential & commercial masonry services in Arizona & Nevada. Brick, block, stone & CMU walls. Contact Canyon State today.',
+    fencing:               'Residential & commercial fencing, gates, privacy & security fence installation in Arizona & Nevada. Contact Canyon State for a free estimate.',
+    gutters:               'Custom seamless gutter installation, gutter guards & drainage solutions in Arizona & Nevada. Contact Canyon State for a free estimate.',
+    'land-dev':            'Expert land development, site preparation & grading services in Arizona & Nevada. Contact Canyon State for a free consultation.',
+};
+
+const TRADE_H1 = {
+    roofing:               'Commercial and Residential Roofing Services in Arizona & Nevada',
+    stucco:                'Residential & Commercial Stucco Services Across the Southwest',
+    'general-contracting': 'General Contracting Services in Arizona & Nevada',
+    hvac:                  'Residential & Commercial HVAC Services in Arizona & Nevada',
+    plumbing:              'Residential & Commercial Plumbing Services Across Mohave County & the Southwest',
+    masonry:               'Residential & Commercial Masonry Services in Arizona & Nevada',
+    fencing:               'Residential & Commercial Fencing Services in Arizona & Nevada',
+};
+
+const TRADE_SCHEMA = {
+    roofing: {
+        name: 'Residential & Commercial Roofing',
+        serviceType: 'Roofing Services',
+        description: 'Canyon State provides residential and commercial roofing services, including roof installation, roof repair, roof replacement, reroofing, inspections, and maintenance across Arizona and Nevada.',
+        offers: ['Residential Roofing', 'Commercial Roofing', 'Roof Repair', 'Roof Replacement', 'New Roof Installation', 'Roof Maintenance', 'Roof Inspections'],
+    },
+    stucco: {
+        name: 'Residential & Commercial Stucco Services',
+        serviceType: 'Stucco & EIFS Services',
+        description: 'Canyon State provides residential and commercial stucco services, including stucco installation, repair, replacement, EIFS systems, and exterior finishes throughout Arizona and Nevada.',
+        offers: ['Residential Stucco', 'Commercial Stucco', 'Stucco Installation', 'Stucco Repair', 'Stucco Replacement', 'EIFS Installation', 'EIFS Repair'],
+    },
+    'general-contracting': {
+        name: 'General Contracting Services',
+        serviceType: 'Commercial & Residential General Contracting',
+        description: 'Canyon State provides commercial and residential general contracting services, including pre-construction planning, project management, trade coordination, budgeting, scheduling, quality control, renovations, tenant improvements, and ground-up construction throughout Arizona and Nevada.',
+        offers: ['Commercial General Contracting', 'Residential General Contracting', 'Pre-Construction Planning', 'Project Management', 'Trade Coordination', 'Budget Management', 'Scheduling', 'Quality Control', 'Tenant Improvements', 'Ground-Up Construction', 'Owner Representation', 'Value Engineering'],
+    },
+    hvac: {
+        name: 'Residential & Commercial HVAC Services',
+        serviceType: 'Heating & Air Conditioning Services',
+        description: 'Canyon State provides residential and commercial HVAC services, including heating and cooling installation, repair, replacement, maintenance, and air conditioning solutions throughout Arizona and Nevada.',
+        offers: ['Residential HVAC', 'Commercial HVAC', 'HVAC Installation', 'HVAC Repair', 'HVAC Replacement', 'Air Conditioning Services', 'Heating Services', 'HVAC Maintenance'],
+    },
+    plumbing: {
+        name: 'Residential & Commercial Plumbing Services',
+        serviceType: 'Plumbing Services',
+        description: 'Canyon State provides residential and commercial plumbing services, including plumbing installation, repair, replacement, maintenance, drain solutions, water line services, and plumbing system upgrades throughout Arizona and Nevada.',
+        offers: ['Residential Plumbing', 'Commercial Plumbing', 'Plumbing Installation', 'Plumbing Repair', 'Plumbing Replacement', 'Drain Cleaning', 'Water Line Services', 'Leak Detection & Repair', 'Fixture Installation', 'Plumbing Maintenance'],
+    },
+    'res-const': {
+        name: 'Residential Construction Services',
+        serviceType: 'Residential Construction',
+        description: 'Canyon State provides residential construction services including custom homes, home additions, renovations, remodeling, multi-family construction, and design-build solutions throughout Arizona and Nevada.',
+        offers: ['Custom Home Construction', 'Home Additions', 'Home Renovations', 'Home Remodeling', 'Multi-Family Construction', 'Design-Build Construction', 'Residential Project Management'],
+    },
+    'com-const': {
+        name: 'Commercial Construction Services',
+        serviceType: 'Commercial Construction',
+        description: 'Canyon State provides commercial construction services including ground-up construction, tenant improvements, renovations, project management, healthcare, retail, hospitality, industrial, and mixed-use construction throughout Arizona and Nevada.',
+        offers: ['Ground-Up Commercial Construction', 'Tenant Improvements', 'Commercial Renovations', 'Healthcare Construction', 'Retail Construction', 'Hospitality Construction', 'Industrial Construction', 'Mixed-Use Construction', 'Project Management', 'Design-Build Construction'],
+    },
+    metals: {
+        name: 'Specialty Metal Fabrication Services',
+        serviceType: 'Metal Fabrication',
+        description: 'Canyon State provides custom specialty metal fabrication services for residential and commercial construction, including structural steel, architectural metals, welding, fabrication, installation, and custom metal solutions across Arizona and Nevada.',
+        offers: ['Custom Metal Fabrication', 'Structural Steel Fabrication', 'Architectural Metal Fabrication', 'Commercial Metal Fabrication', 'Residential Metal Fabrication', 'Metal Welding', 'Metal Installation', 'Decorative Metalwork'],
+    },
+    masonry: {
+        name: 'Residential & Commercial Masonry Services',
+        serviceType: 'Masonry Services',
+        description: 'Canyon State provides residential and commercial masonry services, including brick laying, block construction, stone veneer, CMU walls, retaining walls, fireplaces, pavers, hardscaping, restoration, and tuckpointing across Arizona and Nevada.',
+        offers: ['Residential Masonry', 'Commercial Masonry', 'Brick Laying', 'Block Construction', 'Stone Veneer', 'CMU Walls', 'Retaining Walls', 'Pavers & Hardscaping', 'Fireplaces', 'Masonry Restoration', 'Tuckpointing', 'Decorative Block'],
+    },
+    fencing: {
+        name: 'Residential & Commercial Fencing Services',
+        serviceType: 'Fence Installation & Repair',
+        description: 'Canyon State provides residential and commercial fencing services including chain link, wrought iron, wood, vinyl, privacy, decorative, security, pool fencing, gates, and commercial perimeter fencing across Arizona and Nevada.',
+        offers: ['Residential Fencing', 'Commercial Fencing', 'Chain Link Fencing', 'Wood Fencing', 'Vinyl Fencing', 'Wrought Iron Fencing', 'Privacy Fencing', 'Decorative Fencing', 'Security Fencing', 'Pool Fencing', 'Commercial Perimeter Fencing', 'Gates & Gate Operators'],
+    },
+    gutters: {
+        name: 'Seamless Gutter Services',
+        serviceType: 'Residential & Commercial Gutter Installation',
+        description: 'Canyon State provides seamless gutter installation, custom aluminum gutters, gutter guards, downspouts, fascia repair, soffit installation, drip edge, commercial gutter systems, and drainage solutions throughout Arizona and Nevada.',
+        offers: ['Seamless Gutter Installation', 'Custom Aluminum Gutters', 'Gutter Guards', 'Downspout Installation', 'Commercial Gutter Systems', 'Fascia Repair', 'Soffit Installation', 'Drip Edge Installation', 'Drainage Solutions'],
+    },
+    'land-dev': {
+        name: 'Land Development Services',
+        serviceType: 'Commercial & Residential Land Development',
+        description: 'Canyon State provides commercial and residential land development services, including site preparation, grading, excavation, utility installation, drainage, road construction, infrastructure development, and project management throughout Arizona and Nevada.',
+        offers: ['Site Preparation', 'Grading & Excavation', 'Utility Installation', 'Road Construction', 'Drainage & Stormwater Management', 'Infrastructure Development', 'Commercial Land Development', 'Residential Land Development', 'Project Management'],
+    },
 };
 
 const TradeDetail = () => {
@@ -162,7 +265,7 @@ const TradeDetail = () => {
     return (
         <div className={styles.page}>
             <SEO
-                title={`${data.title} Services`}
+                title={TRADE_TITLE[tradeId] || `${data.title} Services`}
                 description={TRADE_META[tradeId] || data.description}
                 canonical={`https://canyonstateaz.com/services/${tradeId}`}
             />
@@ -186,22 +289,19 @@ const TradeDetail = () => {
                         '@context': 'https://schema.org',
                         '@type': 'Service',
                         '@id': `https://canyonstateaz.com/services/${tradeId}#service`,
-                        name: data.title,
-                        serviceType: data.title,
+                        name: TRADE_SCHEMA[tradeId]?.name || data.title,
+                        serviceType: TRADE_SCHEMA[tradeId]?.serviceType || data.title,
                         url: `https://canyonstateaz.com/services/${tradeId}`,
-                        description: data.description,
-                        image: `https://canyonstateaz.com${data.image}`,
+                        description: TRADE_SCHEMA[tradeId]?.description || data.description,
                         provider: { '@id': 'https://canyonstateaz.com/#organization' },
                         areaServed: [
                             { '@type': 'State', name: 'Arizona' },
                             { '@type': 'State', name: 'Nevada' },
-                            { '@type': 'State', name: 'Utah' },
-                            { '@type': 'State', name: 'New Mexico' },
                         ],
                         hasOfferCatalog: {
                             '@type': 'OfferCatalog',
-                            name: `${data.title} Services`,
-                            itemListElement: (data.expertise || []).map((offering) => ({
+                            name: `${TRADE_SCHEMA[tradeId]?.name || data.title} Catalog`,
+                            itemListElement: (TRADE_SCHEMA[tradeId]?.offers || data.expertise || []).map((offering) => ({
                                 '@type': 'Offer',
                                 itemOffered: {
                                     '@type': 'Service',
@@ -209,6 +309,7 @@ const TradeDetail = () => {
                                 },
                             })),
                         },
+                        inLanguage: 'en-US',
                     }),
                 }}
             />
@@ -226,7 +327,7 @@ const TradeDetail = () => {
                 <div className={styles.heroOverlay}>
                     <div className={styles.container}>
                         <span className={styles.eyebrow}>Services / {data.title}</span>
-                        <h1 className={styles.title}>{data.title}</h1>
+                        <h1 className={styles.title}>{TRADE_H1[tradeId] || data.title}</h1>
                     </div>
                 </div>
             </div>

@@ -81,9 +81,28 @@ const About = () => {
     return (
         <div className="about-page">
             <SEO
-                title="About Us - Our Story & Leadership"
-                description="Since 2001, Canyon State Enterprises has built the Southwest with 12+ self-performed construction trades across Arizona, Nevada, Utah, and New Mexico."
+                title="About Canyon State | Southwest Construction Experts"
+                description="Learn about Canyon State, a trusted multi-trade construction company serving Arizona, Nevada, Utah, and Colorado with quality craftsmanship."
                 canonical="https://canyonstateaz.com/about"
+            />
+            {/* AboutPage JSON-LD (Aug 2026 SEO spec) — references the sitewide
+                #organization node rather than duplicating the business data. */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'AboutPage',
+                        '@id': 'https://canyonstateaz.com/about#webpage',
+                        url: 'https://canyonstateaz.com/about',
+                        name: 'About Canyon State',
+                        description:
+                            'Learn about Canyon State, a trusted construction, roofing, and restoration company serving Arizona, Nevada, Utah, and Colorado.',
+                        mainEntity: { '@id': 'https://canyonstateaz.com/#organization' },
+                        publisher: { '@id': 'https://canyonstateaz.com/#organization' },
+                        inLanguage: 'en-US',
+                    }),
+                }}
             />
             {/* Full-Bleed Hero */}
             <section className={styles.fullHero}>

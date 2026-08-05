@@ -23,20 +23,14 @@ const SEO = ({
     const siteUrl = 'https://canyonstateaz.com';
     const resolvedCanonical = canonical || `${siteUrl}${location.pathname}`;
 
-    // Brand suffix logic:
-    //  - If title is exactly "Canyon State Enterprises", expand to the
-    //    full home-page tagline.
-    //  - If the caller already included the brand in their title (legacy
-    //    pages that pre-appended " | Canyon State Enterprises"), use as-is
-    //    so we don't end up with "Foo | Canyon State Enterprises |
-    //    Canyon State Enterprises".
-    //  - Otherwise append the brand suffix.
-    const hasBrandSuffix = /\bCanyon State Enterprises\b/i.test(title);
-    const fullTitle = title === 'Canyon State Enterprises'
-        ? 'Canyon State Enterprises | Multi-Trade Contractor AZ, NV, UT'
-        : hasBrandSuffix
-            ? title
-            : `${title} | Canyon State Enterprises`;
+    // Brand suffix logic: if the caller's title already mentions the brand in
+    // any form ("Canyon State", "Canyon State Enterprises", "Canyon State
+    // Jobs"...), use it verbatim — the SEO spec supplies fully-formed titles.
+    // Only brandless titles get " | Canyon State Enterprises" appended.
+    const hasBrandSuffix = /\bCanyon State\b/i.test(title);
+    const fullTitle = hasBrandSuffix
+        ? title
+        : `${title} | Canyon State Enterprises`;
 
     const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 

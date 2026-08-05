@@ -26,10 +26,17 @@ const AGGREGATE_RATING = null;
 const SchemaMarkup = () => {
     // Build the org node first so aggregateRating can be conditionally added
     // without affecting the rest of the @graph.
+    // Per the Aug 2026 SEO spec: HomeAndConstructionBusiness type, short brand
+    // name, office@ email, AZ/NV/UT/CO service area, and real offices listed as
+    // departments. Spec corrections applied: the @id stays #organization (every
+    // page-level schema references it), asset URLs are this site's real files
+    // (not the spec's wp-content paths), and only the three staffed offices
+    // (Kingman HQ, Phoenix, Las Vegas) are departments — Bullhead City and Lake
+    // Havasu City are service areas, not physical offices.
     const organization = {
-        "@type": "GeneralContractor",
+        "@type": "HomeAndConstructionBusiness",
         "@id": "https://canyonstateaz.com/#organization",
-        "name": "Canyon State Enterprises",
+        "name": "Canyon State",
         "url": "https://canyonstateaz.com",
         "logo": {
             "@type": "ImageObject",
@@ -38,7 +45,7 @@ const SchemaMarkup = () => {
             "height": 60
         },
         "image": "https://canyonstateaz.com/og-image.jpg",
-        "description": "Arizona's trusted multi-trade construction company. Roofing, stucco, HVAC, plumbing, and more across the Southwest.",
+        "description": "Canyon State provides residential and commercial roofing, restoration, and construction services throughout Arizona, Nevada, Utah, and Colorado.",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "2959 Rhoades Ave",
@@ -53,28 +60,29 @@ const SchemaMarkup = () => {
             "longitude": -114.0531
         },
         "telephone": "+1-928-757-9003",
-        "email": "info@canyonstateaz.com",
-        "priceRange": "$$-$$$",
+        "email": "office@canyonstateaz.com",
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 08:00-17:00",
         "contactPoint": [
             {
                 "@type": "ContactPoint",
                 "telephone": "+1-928-757-9003",
-                "contactType": "customer service",
-                "areaServed": ["AZ", "UT", "NM"],
+                "contactType": "Customer Service",
+                "areaServed": "Arizona",
                 "availableLanguage": "English"
             },
             {
                 "@type": "ContactPoint",
                 "telephone": "+1-602-527-6050",
-                "contactType": "customer service",
+                "contactType": "Phoenix Office",
                 "areaServed": "Phoenix Metro",
                 "availableLanguage": "English"
             },
             {
                 "@type": "ContactPoint",
                 "telephone": "+1-702-659-2819",
-                "contactType": "customer service",
-                "areaServed": "NV",
+                "contactType": "Nevada Office",
+                "areaServed": "Nevada",
                 "availableLanguage": "English"
             }
         ],
@@ -82,11 +90,50 @@ const SchemaMarkup = () => {
             { "@type": "State", "name": "Arizona" },
             { "@type": "State", "name": "Nevada" },
             { "@type": "State", "name": "Utah" },
-            { "@type": "State", "name": "New Mexico" }
+            { "@type": "State", "name": "Colorado" }
+        ],
+        "department": [
+            {
+                "@type": "HomeAndConstructionBusiness",
+                "name": "Corporate Headquarters",
+                "telephone": "+1-928-757-9003",
+                "openingHours": "Mo-Fr 08:00-17:00",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "2959 Rhoades Ave",
+                    "addressLocality": "Kingman",
+                    "addressRegion": "AZ",
+                    "postalCode": "86409",
+                    "addressCountry": "US"
+                }
+            },
+            {
+                "@type": "HomeAndConstructionBusiness",
+                "name": "Phoenix Metro Office",
+                "telephone": "+1-602-527-6050",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Phoenix",
+                    "addressRegion": "AZ",
+                    "addressCountry": "US"
+                }
+            },
+            {
+                "@type": "HomeAndConstructionBusiness",
+                "name": "Nevada Operations",
+                "telephone": "+1-702-659-2819",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Las Vegas",
+                    "addressRegion": "NV",
+                    "addressCountry": "US"
+                }
+            }
         ],
         "serviceType": [
             "Roofing",
             "Stucco & EIFS",
+            "General Contracting",
             "HVAC",
             "Plumbing",
             "Residential Construction",

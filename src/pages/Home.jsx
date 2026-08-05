@@ -15,12 +15,12 @@ const Home = () => {
     return (
         <div className="home-page">
             <SEO
-                title="Canyon State Enterprises"
-                description="Arizona's trusted multi-trade construction company. Roofing, stucco, HVAC, plumbing, masonry and more across Arizona, Nevada, and the Southwest."
+                title="Multi-Trade Roofing Contractors AZ, NV, UT | Canyon State Enterprises"
+                description="Arizona's trusted multi-trade roofing construction company. Roofing, stucco, HVAC, plumbing, masonry and more across Arizona, Nevada, and the Southwest."
                 canonical="https://canyonstateaz.com/"
             />
             <Hero
-                headline="One Team, Multiple Trades."
+                headline="Construction, Roofing & Restoration Experts Across the Southwest"
                 subheadline="Your trusted construction partner across Arizona, Nevada & Utah. Roofing, stucco, HVAC, and more."
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}

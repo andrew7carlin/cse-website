@@ -2,13 +2,31 @@ import React from 'react';
 import ContactForm from '../components/ui/ContactForm';
 import SEO from '../components/common/SEO';
 
+// ContactPage JSON-LD (Aug 2026 SEO spec) — mainEntity references the
+// site-wide #organization node rather than duplicating it.
+const contactSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': 'https://canyonstateaz.com/contact#webpage',
+    url: 'https://canyonstateaz.com/contact',
+    name: 'Contact Canyon State',
+    description:
+        'Contact Canyon State for commercial and residential construction services. Request a quote or speak with our team about your next project.',
+    mainEntity: { '@id': 'https://canyonstateaz.com/#organization' },
+    inLanguage: 'en-US',
+};
+
 const Contact = () => {
     return (
         <div style={{ paddingTop: 'var(--header-height)' }}>
             <SEO
-                title="Contact Us - Get a Free Quote"
-                description="Request a free quote from Canyon State Enterprises for roofing, stucco, HVAC, or full construction. Serving AZ, NV, UT & NM. ROC licensed and insured."
+                title="Contact Canyon State | Request a Construction Quote Today"
+                description="Contact Canyon State for commercial and residential construction services across AZ, NV, UT & CO. Request a free quote or speak with our team today."
                 canonical="https://canyonstateaz.com/contact"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
             />
             {/* Visually hidden h1 — present for SEO and screen readers */}
             <h1 style={{ position: 'absolute', width: '1px', height: '1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap' }}>

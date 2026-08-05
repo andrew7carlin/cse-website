@@ -45,53 +45,60 @@ const LocationPage = () => {
   return (
     <main className={styles.page}>
       <SEO
-        title={`${loc.city} Construction, ${loc.abbrev}`}
+        title={loc.seoTitle || `${loc.city} Construction, ${loc.abbrev}`}
         description={loc.metaDescription || loc.description}
         canonical={`https://canyonstateaz.com/locations/${loc.id}`}
       />
 
-      {/* LocalBusiness schema specific to this branch office. Each location
-          gets its own @id, address locality, phone, and parentOrganization
-          reference. The areaServed maps to the coverage array. */}
+      {/* Per-location schema (Aug 2026 SEO spec). Staffed offices (isOffice)
+          are HomeAndConstructionBusiness entities; service-area pages carry
+          the same shape but are named as service areas and never claim a
+          street address — Google penalizes location claims it can't verify.
+          Kingman (the HQ) additionally carries the full street address, geo,
+          and opening hours. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            '@id': `https://canyonstateaz.com/locations/${loc.id}#location`,
-            name: `Canyon State Enterprises — ${loc.city}`,
+            '@type': 'HomeAndConstructionBusiness',
+            '@id': `https://canyonstateaz.com/locations/${loc.id}#localbusiness`,
+            name: loc.schemaName || `Canyon State — ${loc.city}`,
             url: `https://canyonstateaz.com/locations/${loc.id}`,
             telephone: `+1-${loc.phone.replace(/\D/g, '')}`,
+            email: 'office@canyonstateaz.com',
             description: loc.description,
             parentOrganization: { '@id': 'https://canyonstateaz.com/#organization' },
             address: {
               '@type': 'PostalAddress',
+              ...(loc.id === 'kingman-az' && {
+                streetAddress: '2959 Rhoades Ave',
+                postalCode: '86409',
+              }),
               addressLocality: loc.city,
               addressRegion: loc.abbrev,
               addressCountry: 'US',
             },
-            areaServed: loc.coverage.map((city) => ({
+            ...(loc.id === 'kingman-az' && {
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 35.1896,
+                longitude: -114.0529,
+              },
+              openingHours: 'Mo-Fr 08:00-17:00',
+            }),
+            areaServed: (loc.schemaAreaServed || loc.coverage).map((name) => ({
               '@type': 'City',
-              name: city,
+              name,
             })),
-            // OfferCatalog wraps the same services that makesOffer enumerates.
-            // Google treats OfferCatalog as the canonical "what this place
-            // does" grouping, while makesOffer stays for parsers that prefer
-            // the flat form. Both pull from the same loc.services array, so
-            // they never drift.
             hasOfferCatalog: {
               '@type': 'OfferCatalog',
-              name: `Services Offered in ${loc.city}, ${loc.abbrev}`,
+              name: 'Construction Services',
               itemListElement: loc.services.map((svc) => ({
                 '@type': 'Offer',
                 itemOffered: { '@type': 'Service', name: svc },
               })),
             },
-            makesOffer: loc.services.map((svc) => ({
-              '@type': 'Offer',
-              itemOffered: { '@type': 'Service', name: svc },
-            })),
           }),
         }}
       />
@@ -114,7 +121,7 @@ const LocationPage = () => {
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <span className={styles.eyebrow}>Canyon State Enterprises</span>
-          <h1 className={styles.city}>{loc.city}, {loc.abbrev}</h1>
+          <h1 className={styles.city}>{loc.h1 || `${loc.city}, ${loc.abbrev}`}</h1>
           <span className={styles.role}>{loc.role}</span>
         </div>
       </section>

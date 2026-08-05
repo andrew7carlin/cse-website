@@ -89,8 +89,8 @@ const Careers = () => {
     return (
         <div className={styles.page}>
             <SEO
-                title="Careers - Join Canyon State"
-                description="Build a real career at Canyon State Enterprises. We run 12 self-performed trades across Arizona, Nevada, Utah, and Colorado. Hiring crews and office talent."
+                title="Construction Careers in AZ, NV, UT & CO | Canyon State Jobs"
+                description="Join Canyon State and build your construction career. Explore opportunities in roofing, HVAC, plumbing, masonry, and general contracting across the Southwest."
                 canonical="https://canyonstateaz.com/careers"
             />
 

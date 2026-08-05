@@ -7,14 +7,50 @@ import { Link } from 'react-router-dom';
 // Hero image
 import heroImage from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
 
+// Service JSON-LD for the services hub (Aug 2026 SEO spec).
+const SERVICES_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://canyonstateaz.com/services#service',
+    name: 'Construction Services',
+    serviceType: 'Commercial & Residential Construction Services',
+    url: 'https://canyonstateaz.com/services',
+    description:
+        'Canyon State provides commercial and residential construction services, including roofing, stucco, EIFS, general contracting, HVAC, plumbing, masonry, specialty metals, fencing, seamless gutters, and land development across Arizona, Nevada, Utah, and Colorado.',
+    provider: { '@id': 'https://canyonstateaz.com/#organization' },
+    areaServed: [
+        { '@type': 'State', name: 'Arizona' },
+        { '@type': 'State', name: 'Nevada' },
+        { '@type': 'State', name: 'Utah' },
+        { '@type': 'State', name: 'Colorado' },
+    ],
+    hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Construction Services',
+        itemListElement: [
+            'Roofing', 'Stucco & EIFS', 'General Contracting', 'HVAC', 'Plumbing',
+            'Residential Construction', 'Commercial Construction', 'Specialty Metals',
+            'Masonry', 'Fencing', 'Seamless Gutters', 'Land Development',
+        ].map((name) => ({
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name },
+        })),
+    },
+    inLanguage: 'en-US',
+};
+
 const Services = () => {
 
     return (
         <div>
             <SEO
-                title="Trades & Construction Services"
-                description="12+ self-performed trades under one roof: roofing, stucco, HVAC, plumbing, masonry, metals, and full construction across Arizona, Nevada, and the Southwest."
+                title="Construction Services in AZ, NV, UT & CO | Canyon State Enterprises"
+                description="Explore Canyon State's roofing, HVAC, plumbing, stucco, masonry, land development, and construction services across AZ, NV, UT & CO."
                 canonical="https://canyonstateaz.com/services"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICES_SCHEMA) }}
             />
             <Hero
                 headline="Complete Construction Services."

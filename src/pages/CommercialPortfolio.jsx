@@ -16,8 +16,8 @@ export default function CommercialPortfolio() {
   return (
     <>
       <SEO
-        title="Commercial Projects"
-        description="Canyon State Enterprises commercial projects: dealerships, medical, restaurants, hotels, and multi-trade builds across Arizona and the Southwest."
+        title="Commercial Construction Portfolio | Canyon State Projects"
+        description="Explore Canyon State's commercial construction portfolio featuring retail, healthcare, industrial, hospitality, and tenant improvement projects."
         canonical="https://canyonstateaz.com/portfolio/commercial"
       />
 
