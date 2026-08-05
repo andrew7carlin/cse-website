@@ -219,9 +219,17 @@
     }
 }
 
-/* Override text colors for dark video bg */
+/* Override text colors for dark video bg.
+   The video-hero headline also gets its own size: the glass card is 500px
+   max-width, and the page-level headline clamp (min 44px, up to 72px) was
+   tuned for the old five-word slogan — the longer SEO headline at 64px is
+   physically wider than the card ("Construction," alone overflows it) and
+   pushes the CTAs below the fold. ~2.4rem keeps it to 3-4 lines inside the
+   card at any desktop size. */
 .video .headline {
     color: white;
+    font-size: clamp(1.9rem, 2.2vw, 2.4rem);
+    line-height: 1.25;
 }
 
 .video .subheadline {
