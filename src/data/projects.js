@@ -213,7 +213,7 @@ export const commercialProjects = [
   { id: 'hilton-garden-el-paso', name: 'Hilton Garden Inn', location: 'El Paso, TX', category: 'hospitality', trade: 'Roofing', src: hiltonGardenElPaso },
   { id: 'residence-inn-el-paso', name: 'Residence Inn by Marriott', location: 'El Paso, TX', category: 'hospitality', trade: 'Roofing', src: residenceInnElPaso },
   { id: 'marriott-studio-phoenix', name: 'Marriott Studio Res', location: 'Phoenix, AZ', category: 'hospitality', trade: 'Roofing', src: marriottStudioPhoenix },
-  { id: 'avid-hilton-kingman', name: 'Avid by IHG', location: 'Kingman, AZ', category: 'hospitality', trade: 'Roofing', src: avidHotelKingmanAZ, gallery: [avidHotelKingmanAZ, avidHotelKingmanAZ2, avidHotelKingmanAZ3, avidHotelKingmanAZ4] },
+  { id: 'avid-hilton-kingman', name: 'Avid by IHG', location: 'Kingman, AZ', category: 'hospitality', trade: 'Multi-Trade', src: avidHotelKingmanAZ, gallery: [avidHotelKingmanAZ, avidHotelKingmanAZ2, avidHotelKingmanAZ3, avidHotelKingmanAZ4] },
   { id: 'springhill-suites-kingman', name: 'Springhill Suites', location: 'Kingman, AZ', category: 'hospitality', trade: 'Roofing', src: springhillSuitesKingman },
   { id: 'echo-suites-chandler', name: 'Echo Suites', location: 'Chandler, AZ', category: 'hospitality', trade: 'Roofing', src: echoSuitesChandler },
   { id: 'home-2-suites-peoria', name: 'Home 2 Suites', location: 'Peoria, AZ', category: 'hospitality', trade: 'Roofing', src: home2SuitesPeoria },
