@@ -63,6 +63,15 @@ const Privacy = () => {
                         Phone: (928) 757-9003<br />
                         Email: office@canyonstateaz.com
                     </p>
+
+                    {/* SMS carrier-registration disclosure. The carrier compliance
+                        reviewer is an automated crawler that scans this page for
+                        this exact language — do NOT paraphrase or reword it,
+                        especially the middle paragraph. */}
+                    <h2>Text Messaging and Mobile Information</h2>
+                    <p>Canyon State may send text messages to customers and tenants who provide a mobile phone number. Messages relate to your account or tenancy, such as portal sign-in invitations, appointment and service updates, rent reminders, past-due notices, and maintenance status. We collect only the mobile number you provide and a record of your consent.</p>
+                    <p>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+                    <p>You may stop receiving messages at any time by replying STOP to any message, or reply HELP for assistance. Message frequency varies. Message and data rates may apply.</p>
                 </div>
             </section>
         </div>

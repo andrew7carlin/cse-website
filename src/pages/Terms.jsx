@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import styles from './About.module.css';
 
@@ -55,6 +56,19 @@ const Terms = () => {
                         Phone: (928) 757-9003<br />
                         Email: office@canyonstateaz.com
                     </p>
+
+                    {/* SMS carrier-registration terms. Scanned verbatim by the
+                        carrier compliance crawler — do not reword. Bold STOP and
+                        HELP are a carrier requirement, not styling. */}
+                    <h2>SMS / Text Messaging Terms</h2>
+                    <p><strong>Program:</strong> Canyon State sends account and tenancy service messages, including portal sign-in invitations, rent reminders, past-due notices, appointment confirmations, and maintenance updates.</p>
+                    <p><strong>How to join:</strong> You consent by giving Canyon State your mobile number on our rental application or in our office and agreeing to receive text messages. Consent is not a condition of renting or of any purchase.</p>
+                    <p>Message frequency varies based on your account activity.</p>
+                    <p>Message and data rates may apply.</p>
+                    <p>To opt out, reply <strong>STOP</strong> to any message at any time. You will receive one confirmation message and no further messages after that.</p>
+                    <p>For help, reply <strong>HELP</strong>, or contact our office at (928) 757-9003 or 2959 Rhoades Ave, Kingman, AZ 86401.</p>
+                    <p>Carriers are not liable for delayed or undelivered messages.</p>
+                    <p>See our <Link to="/privacy">Privacy Policy</Link> for how we handle your information.</p>
                 </div>
             </section>
         </div>
