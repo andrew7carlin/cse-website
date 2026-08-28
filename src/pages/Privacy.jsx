@@ -1,5 +1,5 @@
 import SEO from '../components/common/SEO';
-import styles from './About.module.css';
+import styles from './Legal.module.css';
 
 const Privacy = () => {
     return (
@@ -10,15 +10,13 @@ const Privacy = () => {
                 canonical="https://canyonstateaz.com/privacy"
             />
 
-            <section className={styles.hero} style={{ minHeight: '40vh' }}>
-                <div className={styles.heroContent}>
-                    <h1 className="text-h1">Privacy Policy</h1>
-                    <p className={styles.subtitle}>Last updated: February 2, 2026</p>
-                </div>
+            <section className={styles.hero}>
+                <h1 className={`text-h1 ${styles.heroTitle}`}>Privacy Policy</h1>
+                <p className={styles.updated}>Last updated: February 2, 2026</p>
             </section>
 
-            <section className={styles.content} style={{ padding: 'var(--spacing-3xl) var(--spacing-lg)' }}>
-                <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <section className={styles.content}>
+                <div>
                     <h2>Information We Collect</h2>
                     <p>When you use our contact form, we collect the following information:</p>
                     <ul>

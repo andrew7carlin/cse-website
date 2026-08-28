@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
-import styles from './About.module.css';
+import styles from './Legal.module.css';
 
 const Terms = () => {
     return (
@@ -11,15 +11,13 @@ const Terms = () => {
                 canonical="https://canyonstateaz.com/terms"
             />
 
-            <section className={styles.hero} style={{ minHeight: '40vh' }}>
-                <div className={styles.heroContent}>
-                    <h1 className="text-h1">Terms of Service</h1>
-                    <p className={styles.subtitle}>Last updated: February 2, 2026</p>
-                </div>
+            <section className={styles.hero}>
+                <h1 className={`text-h1 ${styles.heroTitle}`}>Terms of Service</h1>
+                <p className={styles.updated}>Last updated: February 2, 2026</p>
             </section>
 
-            <section className={styles.content} style={{ padding: 'var(--spacing-3xl) var(--spacing-lg)' }}>
-                <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <section className={styles.content}>
+                <div>
                     <h2>Agreement to Terms</h2>
                     <p>By accessing and using the Canyon State Enterprises website, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
 

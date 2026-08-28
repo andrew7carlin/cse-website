@@ -1,0 +1,78 @@
+/* Shared layout for the legal pages (Privacy, Terms).
+   These pages previously borrowed class names from About.module.css that
+   don't exist there, which left them completely unstyled: invisible white
+   hero text, zero page padding, bullets hanging at the margin. This module
+   gives them a proper document layout consistent with the site. */
+
+.page {
+    background: var(--color-bg-base);
+}
+
+/* Dark title band under the fixed header */
+.hero {
+    background: var(--color-dark-brown);
+    padding: calc(var(--header-height) + var(--spacing-lg)) var(--container-padding) var(--spacing-lg);
+    text-align: center;
+}
+
+.heroTitle {
+    color: var(--color-white);
+    margin: 0;
+}
+
+.updated {
+    color: var(--color-tan);
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    margin-top: 0.75rem;
+}
+
+/* Document body */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--container-padding) var(--spacing-xl);
+    color: var(--color-text-main);
+    line-height: 1.7;
+}
+
+.content h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2.5rem 0 0.9rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid rgba(160, 73, 33, 0.35);
+}
+
+.content h2:first-child {
+    margin-top: 0;
+}
+
+.content p {
+    margin: 0 0 1rem;
+    color: var(--color-text-muted);
+}
+
+.content strong {
+    color: var(--color-text-main);
+}
+
+.content ul {
+    margin: 0 0 1.25rem;
+    padding-left: 1.5rem;
+}
+
+.content li {
+    margin-bottom: 0.45rem;
+    color: var(--color-text-muted);
+}
+
+.content a {
+    color: var(--color-copper);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.content a:hover {
+    color: #b85527;
+}
