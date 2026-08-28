@@ -113,10 +113,21 @@ function FAQItem({ q, a }) {
                 aria-hidden={!open}
             >
                 <div className={styles.panelInner}>
-                    <p>{a}</p>
+                    <p>{linkifyPhones(a)}</p>
                 </div>
             </div>
         </div>
+    );
+}
+
+// Renders phone numbers inside answer text as tap-to-call links. The FAQPage
+// JSON-LD keeps the plain string (schema text should stay markup-free).
+function linkifyPhones(text) {
+    const parts = text.split(/(\(\d{3}\) \d{3}-\d{4})/g);
+    return parts.map((part, i) =>
+        /^\(\d{3}\) \d{3}-\d{4}$/.test(part)
+            ? <a key={i} href={`tel:${part.replace(/\D/g, '')}`}>{part}</a>
+            : part
     );
 }
 

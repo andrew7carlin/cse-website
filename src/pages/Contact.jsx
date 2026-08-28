@@ -43,8 +43,9 @@ const Contact = () => {
                     HVAC, plumbing, masonry, metals, and full construction, so whether you
                     need a single trade or a general contractor for a ground-up build, you
                     are talking to the team that will actually do the work. Reach our
-                    Kingman headquarters at (928) 757-9003, Phoenix at (602) 527-6050, or
-                    our Nevada office at (702) 659-2819.
+                    Kingman headquarters at <a href="tel:9287579003" style={{ color: 'var(--color-copper)' }}>(928) 757-9003</a>,
+                    Phoenix at <a href="tel:6025276050" style={{ color: 'var(--color-copper)' }}>(602) 527-6050</a>, or
+                    our Nevada office at <a href="tel:7026592819" style={{ color: 'var(--color-copper)' }}>(702) 659-2819</a>.
                 </p>
 
                 <h2 className="text-h2" style={{ marginBottom: '2rem' }}>Service Areas</h2>

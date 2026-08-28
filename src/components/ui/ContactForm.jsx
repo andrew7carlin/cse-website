@@ -78,11 +78,11 @@ const ContactForm = () => {
                             </div>
                             <div className={styles.detailItem}>
                                 <h3>Phone</h3>
-                                <p>(928) 757-9003</p>
+                                <p><a href="tel:9287579003">(928) 757-9003</a></p>
                             </div>
                             <div className={styles.detailItem}>
                                 <h3>Email</h3>
-                                <p>office@canyonstateaz.com</p>
+                                <p><a href="mailto:office@canyonstateaz.com">office@canyonstateaz.com</a></p>
                             </div>
                         </div>
                     </div>

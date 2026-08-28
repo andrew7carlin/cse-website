@@ -51,8 +51,8 @@ const Terms = () => {
                         <strong>Canyon State Enterprises</strong><br />
                         2959 Rhoades Ave<br />
                         Kingman, AZ 86409<br />
-                        Phone: (928) 757-9003<br />
-                        Email: office@canyonstateaz.com
+                        Phone: <a href="tel:9287579003">(928) 757-9003</a><br />
+                        Email: <a href="mailto:office@canyonstateaz.com">office@canyonstateaz.com</a>
                     </p>
 
                     {/* SMS carrier-registration terms. Scanned verbatim by the
@@ -64,7 +64,7 @@ const Terms = () => {
                     <p>Message frequency varies based on your account activity.</p>
                     <p>Message and data rates may apply.</p>
                     <p>To opt out, reply <strong>STOP</strong> to any message at any time. You will receive one confirmation message and no further messages after that.</p>
-                    <p>For help, reply <strong>HELP</strong>, or contact our office at (928) 757-9003 or 2959 Rhoades Ave, Kingman, AZ 86401.</p>
+                    <p>For help, reply <strong>HELP</strong>, or contact our office at <a href="tel:9287579003">(928) 757-9003</a> or 2959 Rhoades Ave, Kingman, AZ 86401.</p>
                     <p>Carriers are not liable for delayed or undelivered messages.</p>
                     <p>See our <Link to="/privacy">Privacy Policy</Link> for how we handle your information.</p>
                 </div>

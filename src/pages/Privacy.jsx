@@ -58,8 +58,8 @@ const Privacy = () => {
                         <strong>Canyon State Enterprises</strong><br />
                         2959 Rhoades Ave<br />
                         Kingman, AZ 86409<br />
-                        Phone: (928) 757-9003<br />
-                        Email: office@canyonstateaz.com
+                        Phone: <a href="tel:9287579003">(928) 757-9003</a><br />
+                        Email: <a href="mailto:office@canyonstateaz.com">office@canyonstateaz.com</a>
                     </p>
 
                     {/* SMS carrier-registration disclosure. The carrier compliance
