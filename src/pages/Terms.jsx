@@ -64,7 +64,7 @@ const Terms = () => {
                     <p>Message frequency varies based on your account activity.</p>
                     <p>Message and data rates may apply.</p>
                     <p>To opt out, reply <strong>STOP</strong> to any message at any time. You will receive one confirmation message and no further messages after that.</p>
-                    <p>For help, reply <strong>HELP</strong>, or contact our office at <a href="tel:9287579003">(928) 757-9003</a> or 2959 Rhoades Ave, Kingman, AZ 86401.</p>
+                    <p>For help, reply <strong>HELP</strong>, or contact our office at <a href="tel:9287579003">(928) 757-9003</a> or 2959 Rhoades Ave, Kingman, AZ 86409.</p>
                     <p>Carriers are not liable for delayed or undelivered messages.</p>
                     <p>See our <Link to="/privacy">Privacy Policy</Link> for how we handle your information.</p>
                 </div>
