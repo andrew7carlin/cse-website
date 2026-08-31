@@ -24,7 +24,8 @@ import fairfieldInnKingman from '../assets/portfolio/commercial/Fairfield_Inn_Ki
 import hamptonInnDelRio from '../assets/portfolio/commercial/Hampton_Inn_Del_Rio.webp';
 import hiltonGardenElPaso from '../assets/portfolio/commercial/Hilton_Garden_Inn_El_Paso.webp';
 import home2SuitesPeoria from '../assets/portfolio/commercial/Home_2_Suites_Peoria.webp';
-import marriottStudioPhoenix from '../assets/portfolio/commercial/Marriott_Studio_Phoenix.webp';
+import marriottStudioPhoenix from '../assets/portfolio/commercial/Marriott Studio Res_Phoenix AZ.webp';
+import eosFitnessSurpriseAZ from '../assets/portfolio/commercial/EOS Fitness_Surprise AZ.webp';
 import marriottTownplaceHesperia from '../assets/portfolio/commercial/Marriott_Townplace_Hesperia.webp';
 import redRoofInnHesperia from '../assets/portfolio/commercial/Red_Roof_Inn_Hesperia.webp';
 import residenceInnElPaso from '../assets/portfolio/commercial/Residence_Inn_El_Paso.webp';
@@ -237,6 +238,7 @@ export const commercialProjects = [
   { id: 'planet-fitness-kingman', name: 'Planet Fitness', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: planetFitnessKingman },
   { id: 'planet-fitness-phoenix', name: 'Planet Fitness', location: 'Phoenix, AZ', category: 'retail', trade: 'Roofing', src: planetFitnessPhoenix },
   { id: 'eos-fitness-tempe', name: 'EOS Fitness', location: 'Tempe, AZ', category: 'retail', trade: 'Roofing', src: eosFitness },
+  { id: 'eos-fitness-surprise', name: 'EOS Fitness', location: 'Surprise, AZ', category: 'retail', trade: 'Stucco', src: eosFitnessSurpriseAZ },
   { id: 'aspen-dental-kingman', name: 'Aspen Dental', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: aspenDentalKingmanAZ },
   { id: 'enterprise-rent-a-car-kingman', name: 'Enterprise Rent-A-Car', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: enterpriseRentACarKingmanAZ },
   { id: 'take-5-kingman', name: 'Take 5 Oil Change', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: takeFiveKingmanAZ },
