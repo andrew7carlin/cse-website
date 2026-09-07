@@ -30,6 +30,7 @@ const STATIC = [
     { p: '/where',                pri: 0.8,  cf: 'yearly'  },
     { p: '/contact',              pri: 0.9,  cf: 'yearly'  },
     { p: '/careers',              pri: 0.9,  cf: 'weekly'  },
+    { p: '/rentals',              pri: 0.8,  cf: 'monthly' },
     { p: '/faq',                  pri: 0.7,  cf: 'monthly' },
     { p: '/privacy',              pri: 0.3,  cf: 'yearly'  },
     { p: '/terms',                pri: 0.3,  cf: 'yearly'  },

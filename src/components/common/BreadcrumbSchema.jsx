@@ -39,6 +39,7 @@ const STATIC_LABELS = {
     faq:          'FAQ',
     contact:      'Contact',
     careers:      'Careers',
+    rentals:      'Property Management',
     privacy:      'Privacy Policy',
     terms:        'Terms of Service',
     blog:         'Blog',
