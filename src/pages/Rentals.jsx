@@ -71,7 +71,8 @@ const Rentals = () => {
 
                     <h2>Questions About a Rental?</h2>
                     <p>
-                        Call our office at <a href="tel:9287579003">928-757-9003</a>.
+                        For questions about a rental or our property management services, call
+                        our office at <a href="tel:9287579003">928-757-9003</a>.
                     </p>
                 </div>
             </section>
