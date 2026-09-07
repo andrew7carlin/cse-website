@@ -151,6 +151,18 @@
         color: var(--color-white);
     }
 
+    /* Rentals is a separate line of business — teal (the brand's secondary
+       accent, otherwise unused in the header) sets it apart from the
+       roofing/contracting links without competing with the copper CTA. */
+    .utilityLinkAccent {
+        color: #3fc1b7;
+        font-weight: 600;
+    }
+
+    .utilityLinkAccent:hover {
+        color: #7fe0d8;
+    }
+
     .utilityPhone {
         font-size: 0.85rem;
         font-weight: 500;
@@ -425,6 +437,10 @@
     color: white;
     opacity: 0.9;
     transition: all 0.2s ease;
+}
+
+.mobileNavLinkAccent {
+    color: #3fc1b7;
 }
 
 .mobileNavLink:hover {

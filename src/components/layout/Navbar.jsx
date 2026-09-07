@@ -116,7 +116,7 @@ const Navbar = () => {
                         <Link to="/about" className={styles.utilityLink} data-cursor="link">About</Link>
                         <Link to="/partnerships" className={styles.utilityLink} data-cursor="link" onMouseEnter={() => preload('/partnerships')} onFocus={() => preload('/partnerships')}>Partnerships</Link>
                         <Link to="/blog" className={styles.utilityLink} data-cursor="link" onMouseEnter={() => preload('/blog')} onFocus={() => preload('/blog')}>Insights</Link>
-                        <Link to="/rentals" className={styles.utilityLink} data-cursor="link">Rentals</Link>
+                        <Link to="/rentals" className={`${styles.utilityLink} ${styles.utilityLinkAccent}`} data-cursor="link">Rentals</Link>
                         <a href="tel:9287579003" className={styles.utilityPhone} data-cursor="link">
                             (928) 757-9003
                         </a>
@@ -196,7 +196,7 @@ const Navbar = () => {
                     <Link to="/where" className={styles.mobileNavLink}>Where</Link>
                     <Link to="/partnerships" className={styles.mobileNavLink}>Partnerships</Link>
                     <Link to="/blog" className={styles.mobileNavLink}>Insights</Link>
-                    <Link to="/rentals" className={styles.mobileNavLink}>Rentals</Link>
+                    <Link to="/rentals" className={`${styles.mobileNavLink} ${styles.mobileNavLinkAccent}`}>Rentals</Link>
                     <Link to="/contact" className={styles.mobileNavLink}>Contact</Link>
                     <Link to="/contact" className={styles.mobileCta}>Let's Talk</Link>
                 </nav>
