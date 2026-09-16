@@ -36,6 +36,45 @@ const Hero = ({
         }
     }, []);
 
+    // Phone layout: the owner wants the whole video frame visible, not a
+    // centre-cropped still, and no call-to-action card over it. So under
+    // 768px the hero becomes a letterboxed 16:9 player at screen width,
+    // sitting directly under the header, and the page content follows.
+    // The H1/subheadline stay in the DOM (visually hidden) for SEO.
+    if (variant === 'video' && videoUrl && !isYouTube && isMobile) {
+        return (
+            <section className={`${styles.hero} ${styles.video} ${styles.mobileHero}`}>
+                <div className={styles.mobileFrame}>
+                    {!videoReady && (
+                        <img
+                            src="/hero-poster.webp"
+                            alt="Canyon State Enterprises"
+                            fetchPriority="high"
+                            loading="eager"
+                            width="1920"
+                            height="1080"
+                            className={styles.mobileMedia}
+                        />
+                    )}
+                    {videoReady && (
+                        <video
+                            src={videoUrl}
+                            className={styles.mobileMedia}
+                            poster="/hero-poster.webp"
+                            preload="metadata"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                    )}
+                </div>
+                <h1 className={styles.srOnly}>{headline}</h1>
+                <p className={styles.srOnly}>{subheadline}</p>
+            </section>
+        );
+    }
+
     if (variant === 'video' && videoUrl) {
         return (
             <section className={`${styles.hero} ${styles.video}`}>

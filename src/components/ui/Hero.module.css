@@ -285,6 +285,47 @@
     }
 }
 
+/* Screen-reader-only: keeps the H1/subheadline in the document on phones
+   (SEO / a11y) without painting them over the video. */
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Phone hero (<768px): the full 16:9 video, letterboxed at screen width,
+   directly under the fixed header. No full-screen crop, no glass card —
+   the owner wants the whole frame visible and the content right after. */
+@media (max-width: 768px) {
+    .hero.mobileHero {
+        min-height: 0;
+        height: auto;
+        background: #0f0e0c;
+        padding-top: var(--header-height);
+    }
+
+    .mobileFrame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        overflow: hidden;
+    }
+
+    .mobileMedia {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
 /* Mobile Optimizations for Video Hero */
 @media (max-width: 768px) {
     .hero {
