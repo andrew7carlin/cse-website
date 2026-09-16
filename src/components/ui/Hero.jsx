@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Hero.module.css';
 
@@ -17,6 +17,25 @@ const Hero = ({
 }) => {
     const [isMobile, setIsMobile] = useState(false);
     const [videoReady, setVideoReady] = useState(false);
+    // Phone player: iOS Safari only autoplays when the <video> element
+    // literally carries the `muted` attribute — React sets the *property*
+    // and skips the attribute, so Safari sits on the poster. Force it on the
+    // DOM node and call play() ourselves; if Safari still refuses (Low Power
+    // Mode, data saver) show a tap-to-play button rather than a dead frame.
+    const mobileVideoRef = useRef(null);
+    const [needsTap, setNeedsTap] = useState(false);
+    const tryPlay = useCallback(() => {
+        const el = mobileVideoRef.current;
+        if (!el) return;
+        el.muted = true;
+        el.defaultMuted = true;
+        el.setAttribute('muted', '');
+        const p = el.play();
+        if (p && p.catch) p.then(() => setNeedsTap(false)).catch(() => setNeedsTap(true));
+    }, []);
+    useEffect(() => {
+        if (videoReady && isMobile) tryPlay();
+    }, [videoReady, isMobile, tryPlay]);
 
     useEffect(() => {
         const check = () => setIsMobile(window.innerWidth < 768);
@@ -58,15 +77,29 @@ const Hero = ({
                     )}
                     {videoReady && (
                         <video
+                            ref={mobileVideoRef}
                             src={videoUrl}
                             className={styles.mobileMedia}
                             poster="/hero-poster.webp"
-                            preload="metadata"
+                            preload="auto"
                             autoPlay
                             loop
                             muted
                             playsInline
+                            webkit-playsinline="true"
+                            onCanPlay={tryPlay}
+                            onPlaying={() => setNeedsTap(false)}
                         />
+                    )}
+                    {videoReady && needsTap && (
+                        <button
+                            type="button"
+                            className={styles.tapToPlay}
+                            onClick={tryPlay}
+                            aria-label="Play video"
+                        >
+                            <span className={styles.tapToPlayIcon} aria-hidden="true">&#9654;</span>
+                        </button>
                     )}
                 </div>
                 <h1 className={styles.srOnly}>{headline}</h1>
