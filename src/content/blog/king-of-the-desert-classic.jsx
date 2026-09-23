@@ -196,7 +196,6 @@ const KingOfTheDesertClassicPost = () => (
                 decoding="async"
                 alt="Golfers gather beside golf carts at a tee box, with a fairway and desert hills behind them."
             />
-            <figcaption>Time together on the course at the King of the Desert Classic.</figcaption>
         </figure>
 
         <h2>Thanks for being part of it</h2>

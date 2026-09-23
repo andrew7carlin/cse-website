@@ -42,7 +42,6 @@ export const posts = [
         heroImage: heroKingOfTheDesert,
         heroImageAlt:
             'A large group poses on a golf green beside a pond, with trees and desert hills in the background.',
-        heroCaption: 'A group photo on the green at the King of the Desert Classic.',
         readingTime: '2 min read',
         category: 'Partner Appreciation',
         contentLoader: () => import('../content/blog/king-of-the-desert-classic.jsx'),
