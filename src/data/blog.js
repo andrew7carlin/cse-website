@@ -46,6 +46,16 @@ export const posts = [
         readingTime: '2 min read',
         category: 'Partner Appreciation',
         contentLoader: () => import('../content/blog/king-of-the-desert-classic.jsx'),
+        // Full photo set lives on /blog/{slug}/photos (see galleryRoutes below).
+        gallery: {
+            title: 'King of the Desert Classic Photos',
+            subline: 'All {count} photos from the course — the group on the green, the carts, the tee boxes and the swings.',
+            seoTitle: 'King of the Desert Classic Photos | Canyon State',
+            seoDescription:
+                'All 93 photos from the King of the Desert Classic, our partner-appreciation golf outing. A look at the people we are glad to work with.',
+            count: 93,
+            loader: () => import('../content/blog/king-of-the-desert-classic.gallery.js'),
+        },
     },
     {
         slug: 'building-bettys-village-north-opportunity-village',
@@ -70,3 +80,10 @@ export const posts = [
 ];
 
 export const getPost = (slug) => posts.find((p) => p.slug === slug) || null;
+
+// Extra routes under a post (currently only photo galleries). Kept as a
+// literal array so scripts/prerender.mjs and scripts/generate-sitemap.mjs
+// can scrape it without importing this module.
+export const galleryRoutes = [
+    '/blog/king-of-the-desert-classic/photos',
+];

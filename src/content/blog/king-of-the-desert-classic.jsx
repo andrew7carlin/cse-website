@@ -9,38 +9,25 @@
  * blog-article fragment, Sept 2026). The 80 partner labels are kept in the
  * supplied order; they acknowledge partners and are not an attendance or
  * sponsor list. No event date, venue or results are stated by design.
+ *
+ * Layout (owner's call, Sept 2026): the recap video leads right after the
+ * opening lines, the article shows a 6-photo strip, and the full 93-photo
+ * gallery lives on its own page at /blog/king-of-the-desert-classic/photos.
  */
 
+import { Link } from 'react-router-dom';
 import styles from '../../pages/BlogPost.module.css';
 import PhotoGallery from '../../components/ui/PhotoGallery';
+import gallery, { strip } from './king-of-the-desert-classic.gallery';
 
 import partners800 from '../../assets/blog/king-of-the-desert-classic/partners-on-course-800.webp';
 import partners1600 from '../../assets/blog/king-of-the-desert-classic/partners-on-course-1600.webp';
 import partners2400 from '../../assets/blog/king-of-the-desert-classic/partners-on-course-2400.webp';
 
-// Gallery — every event photo, drone stills first then video frame grabs.
-// Vite's import.meta.glob keeps this list in sync with the folder.
-const fullImports = import.meta.glob(
-    '../../assets/blog/king-of-the-desert-classic/gallery-??.webp',
-    { eager: true, import: 'default' }
-);
-const thumbImports = import.meta.glob(
-    '../../assets/blog/king-of-the-desert-classic/gallery-??-thumb.webp',
-    { eager: true, import: 'default' }
-);
-const GALLERY = Object.keys(fullImports)
-    .sort()
-    .map((key) => ({
-        full: fullImports[key],
-        thumb: thumbImports[key.replace('.webp', '-thumb.webp')],
-        alt: 'Golfers and partners on the course at the King of the Desert Classic.',
-        width: 640,
-        height: 480,
-    }));
-
 const VIDEO_MP4 = '/videos/king-of-the-desert-classic-widescreen-v4.mp4';
 const VIDEO_VTT = '/videos/king-of-the-desert-classic-v4.vtt';
 const VIDEO_POSTER = '/videos/king-of-the-desert-classic-poster.jpg';
+const GALLERY_PATH = '/blog/king-of-the-desert-classic/photos';
 
 const PARTNERS = [
     '66 Auto / Freedom Auto Sales',
@@ -138,6 +125,45 @@ const KingOfTheDesertClassicPost = () => (
             we appreciate you.
         </p>
 
+        <figure className={styles.videoBlock}>
+            <div className={styles.videoWrap}>
+                <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={VIDEO_POSTER}
+                    width="1920"
+                    height="1080"
+                    aria-label="King of the Desert Classic partner-appreciation recap"
+                    aria-describedby="kotdc-video-description"
+                >
+                    <source src={VIDEO_MP4} type="video/mp4" />
+                    <track kind="captions" src={VIDEO_VTT} srcLang="en" label="English" default />
+                    Your browser cannot play this video.{' '}
+                    <a href={VIDEO_MP4}>Download the recap</a>.
+                </video>
+            </div>
+            <figcaption className={styles.videoMeta}>
+                <span>King of the Desert Classic &middot; Partner appreciation and team credits</span>
+                <a href={VIDEO_MP4} download>Download video</a>
+            </figcaption>
+            <details className={styles.transcript}>
+                <summary>Video description and narration</summary>
+                <p id="kotdc-video-description">
+                    The video opens with real event footage, including a Canyon State course sign
+                    and people on the green. Brian begins the voiceover near the opening: &ldquo;The
+                    King of the Desert Classic was our way of saying thanks to the people we work
+                    with. A little golf, good company, and time together off the jobsite. To all
+                    our partners, thank you. We&rsquo;re glad to have you alongside us.&rdquo; A
+                    brief animated cameo shows Chuck blinking and making a shallow nod with his
+                    mouth closed; the voiceover is narration, not speech from the mascot. Golf
+                    footage and a company endcard lead into closing pages of names grouped by
+                    company under &ldquo;Thank you to our partners and team.&rdquo; Instrumental
+                    music also accompanies the video.
+                </p>
+            </details>
+        </figure>
+
         <h2>A little time on the course</h2>
         <p>
             We&rsquo;ve pulled together a few moments from the course, from the group photo on
@@ -145,7 +171,14 @@ const KingOfTheDesertClassicPost = () => (
             this event was about.
         </p>
 
-        <PhotoGallery items={GALLERY} label="King of the Desert Classic photos" />
+        <div className={styles.photoStrip}>
+            <PhotoGallery items={strip} label="King of the Desert Classic photo highlights" />
+        </div>
+        <p className={styles.galleryCtaRow}>
+            <Link to={GALLERY_PATH} className={styles.galleryCta}>
+                See all {gallery.length} photos &rarr;
+            </Link>
+        </p>
 
         <h2>Here&rsquo;s to our partners</h2>
         <p>We&rsquo;re glad to have these partners alongside us:</p>
@@ -187,45 +220,6 @@ const KingOfTheDesertClassicPost = () => (
             To everyone who joined us, thanks for making time for Canyon State. And to all our
             partners, we&rsquo;re glad to have you alongside us.
         </p>
-
-        <figure className={styles.videoBlock}>
-            <div className={styles.videoWrap}>
-                <video
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster={VIDEO_POSTER}
-                    width="1920"
-                    height="1080"
-                    aria-label="King of the Desert Classic partner-appreciation recap"
-                    aria-describedby="kotdc-video-description"
-                >
-                    <source src={VIDEO_MP4} type="video/mp4" />
-                    <track kind="captions" src={VIDEO_VTT} srcLang="en" label="English" default />
-                    Your browser cannot play this video.{' '}
-                    <a href={VIDEO_MP4}>Download the recap</a>.
-                </video>
-            </div>
-            <figcaption className={styles.videoMeta}>
-                <span>King of the Desert Classic &middot; Partner appreciation and team credits</span>
-                <a href={VIDEO_MP4} download>Download video</a>
-            </figcaption>
-            <details className={styles.transcript}>
-                <summary>Video description and narration</summary>
-                <p id="kotdc-video-description">
-                    The video opens with real event footage, including a Canyon State course sign
-                    and people on the green. Brian begins the voiceover near the opening: &ldquo;The
-                    King of the Desert Classic was our way of saying thanks to the people we work
-                    with. A little golf, good company, and time together off the jobsite. To all
-                    our partners, thank you. We&rsquo;re glad to have you alongside us.&rdquo; A
-                    brief animated cameo shows Chuck blinking and making a shallow nod with his
-                    mouth closed; the voiceover is narration, not speech from the mascot. Golf
-                    footage and a company endcard lead into closing pages of names grouped by
-                    company under &ldquo;Thank you to our partners and team.&rdquo; Instrumental
-                    music also accompanies the video.
-                </p>
-            </details>
-        </figure>
 
         <p className={styles.signature}>One team. Multiple trades.</p>
     </>

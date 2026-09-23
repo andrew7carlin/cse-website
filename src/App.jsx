@@ -41,6 +41,7 @@ const importLocationPage         = () => import('./pages/LocationPage');
 const importThankYou             = () => import('./pages/ThankYou');
 const importBlog                 = () => import('./pages/Blog');
 const importBlogPost             = () => import('./pages/BlogPost');
+const importBlogGallery          = () => import('./pages/BlogGallery');
 
 const About                = lazy(importAbout);
 const Contact              = lazy(importContact);
@@ -62,6 +63,7 @@ const LocationPage         = lazy(importLocationPage);
 const ThankYou             = lazy(importThankYou);
 const Blog                 = lazy(importBlog);
 const BlogPost             = lazy(importBlogPost);
+const BlogGallery          = lazy(importBlogGallery);
 
 // After the page is interactive (during browser idle time), prefetch the
 // chunks for the most-likely next navigation. Click → render feels instant
@@ -168,6 +170,7 @@ function App() {
             <Route path="thank-you" element={<ThankYou />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPost />} />
+            <Route path="blog/:slug/photos" element={<BlogGallery />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

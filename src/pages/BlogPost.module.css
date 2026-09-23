@@ -250,6 +250,46 @@
     }
 }
 
+/* In-article photo strip (a handful of highlights; full set on /photos).
+   The PhotoGallery grid bleeds like .figure; force 3 columns so six
+   photos make a tidy 3×2 block on desktop, 2×3 on phones. */
+.photoStrip {
+    margin: 0.5rem 0 0;
+}
+
+.photoStrip :global(ul) {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media (max-width: 600px) {
+    .photoStrip :global(ul) {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+.galleryCtaRow {
+    text-align: center;
+    margin: -0.5rem 0 2.5rem !important;
+}
+
+.galleryCta {
+    display: inline-block;
+    background: var(--color-copper);
+    color: #fff !important;
+    padding: 0.85rem 1.75rem;
+    border-radius: 4px;
+    font-weight: var(--font-weight-semibold);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-decoration: none !important;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.galleryCta:hover {
+    background: #8a3d1b;
+    transform: translateY(-1px);
+}
+
 /* Recap video */
 .videoBlock {
     margin: 2.2rem -1rem;

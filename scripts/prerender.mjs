@@ -89,6 +89,13 @@ const discoverRoutes = () => {
     for (const m of blogSrc.matchAll(/\bslug:\s*['"]([a-z0-9-]+)['"]/g)) {
         routes.push(`/blog/${m[1]}`);
     }
+    // Sub-routes under posts (photo galleries) — literal `galleryRoutes` array.
+    const galleryBlock = blogSrc.match(/galleryRoutes\s*=\s*\[([^\]]*)\]/);
+    if (galleryBlock) {
+        for (const m of galleryBlock[1].matchAll(/['"](\/blog\/[a-z0-9-]+\/photos)['"]/g)) {
+            routes.push(m[1]);
+        }
+    }
 
     return routes;
 };

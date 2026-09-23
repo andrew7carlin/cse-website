@@ -76,6 +76,11 @@ const blogSrc = fs.readFileSync(path.join(projectRoot, 'src/data/blog.js'), 'utf
 const blogSlugs = [
     ...blogSrc.matchAll(/\bslug:\s*['"]([a-z0-9-]+)['"]/g),
 ].map(m => m[1]);
+// Sub-routes under posts (photo galleries) — literal `galleryRoutes` array.
+const galleryBlock = blogSrc.match(/galleryRoutes\s*=\s*\[([^\]]*)\]/);
+const galleryRoutes = galleryBlock
+    ? [...galleryBlock[1].matchAll(/['"](\/blog\/[a-z0-9-]+\/photos)['"]/g)].map(m => m[1])
+    : [];
 
 // ── Build URL list ────────────────────────────────────────────────────────
 const urls = [];
@@ -84,6 +89,7 @@ for (const t of TRADES)         urls.push({ loc: SITE + '/services/' + t.id, las
 for (const id of locationIds)   urls.push({ loc: SITE + '/locations/' + id,  lastmod: TODAY, cf: 'monthly',   pri: 0.70  });
 for (const id of projectIds)    urls.push({ loc: SITE + '/portfolio/' + id,  lastmod: TODAY, cf: 'yearly',    pri: 0.50  });
 for (const s  of blogSlugs)     urls.push({ loc: SITE + '/blog/' + s,        lastmod: TODAY, cf: 'monthly',   pri: 0.75  });
+for (const r  of galleryRoutes) urls.push({ loc: SITE + r,                    lastmod: TODAY, cf: 'yearly',    pri: 0.50  });
 
 // ── Serialize ──────────────────────────────────────────────────────────────
 const xml =

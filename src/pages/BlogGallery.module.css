@@ -1,0 +1,59 @@
+/* /blog/:slug/photos — full gallery page. Header reuses Blog.module.css. */
+
+.galleryWrap {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--container-padding) var(--spacing-xl);
+}
+
+/* PhotoGallery adds negative side margins meant for the narrow article
+   column — neutralise them here so the grid sits inside the page gutter. */
+.galleryWrap > div {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.backLink {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--color-copper);
+    font-weight: var(--font-weight-semibold);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.backLink:hover {
+    color: var(--color-text-main);
+}
+
+.footer {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding) var(--spacing-xl);
+}
+
+.notFound {
+    min-height: 60vh;
+    padding: calc(var(--header-height) + var(--spacing-xl)) var(--container-padding);
+    text-align: center;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--color-divider);
+    border-top-color: var(--color-copper);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

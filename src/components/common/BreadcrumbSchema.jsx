@@ -43,6 +43,7 @@ const STATIC_LABELS = {
     privacy:      'Privacy Policy',
     terms:        'Terms of Service',
     blog:         'Blog',
+    photos:       'Photos',
 };
 
 // Pretty names for the per-trade routes. Mirrors tradeData in TradeDetail.jsx
