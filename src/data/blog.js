@@ -52,8 +52,8 @@ export const posts = [
             subline: 'All {count} photos from the course — the group on the green, the carts, the tee boxes and the swings.',
             seoTitle: 'King of the Desert Classic Photos | Canyon State',
             seoDescription:
-                'All 93 photos from the King of the Desert Classic, our partner-appreciation golf outing. A look at the people we are glad to work with.',
-            count: 93,
+                'All 65 photos from the King of the Desert Classic, our partner-appreciation golf outing. A look at the people we are glad to work with.',
+            count: 65,
             loader: () => import('../content/blog/king-of-the-desert-classic.gallery.js'),
         },
     },
