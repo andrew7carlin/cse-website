@@ -135,7 +135,6 @@ const KingOfTheDesertClassicPost = () => (
                     width="1920"
                     height="1080"
                     aria-label="King of the Desert Classic partner-appreciation recap"
-                    aria-describedby="kotdc-video-description"
                 >
                     <source src={VIDEO_MP4} type="video/mp4" />
                     <track kind="captions" src={VIDEO_VTT} srcLang="en" label="English" default />
@@ -147,21 +146,6 @@ const KingOfTheDesertClassicPost = () => (
                 <span>King of the Desert Classic &middot; Partner appreciation and team credits</span>
                 <a href={VIDEO_MP4} download>Download video</a>
             </figcaption>
-            <details className={styles.transcript}>
-                <summary>Video description and narration</summary>
-                <p id="kotdc-video-description">
-                    The video opens with real event footage, including a Canyon State course sign
-                    and people on the green. Brian begins the voiceover near the opening: &ldquo;The
-                    King of the Desert Classic was our way of saying thanks to the people we work
-                    with. A little golf, good company, and time together off the jobsite. To all
-                    our partners, thank you. We&rsquo;re glad to have you alongside us.&rdquo; A
-                    brief animated cameo shows Chuck blinking and making a shallow nod with his
-                    mouth closed; the voiceover is narration, not speech from the mascot. Golf
-                    footage and a company endcard lead into closing pages of names grouped by
-                    company under &ldquo;Thank you to our partners and team.&rdquo; Instrumental
-                    music also accompanies the video.
-                </p>
-            </details>
         </figure>
 
         <h2>A little time on the course</h2>
