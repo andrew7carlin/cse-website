@@ -27,8 +27,11 @@ dist-ssr
 
 # Large video files — upload directly to BunnyCDN, do not commit
 src/assets/videos/*.mp4
-public/videos/
+public/videos/*
 public/videos/*.mp4
+# Exception: the King of the Desert Classic recap is self-hosted by request
+# (Sept 2026). Committed as a plain blob (see .gitattributes), ~46 MB.
+!public/videos/king-of-the-desert-classic-*
 
 # Image import tool — keep processed originals local only
 incoming/processed/

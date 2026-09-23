@@ -121,6 +121,9 @@ const BlogPost = () => {
             {/* ── Body ── */}
             <article className={styles.article}>
                 <div className={styles.container}>
+                    {post.heroCaption && (
+                        <p className={styles.heroCaption}>{post.heroCaption}</p>
+                    )}
                     <Suspense fallback={<ArticleLoader />}>
                         <ArticleBody />
                     </Suspense>

@@ -184,6 +184,12 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
+# Self-hosted article videos/captions/posters (unhashed, versioned by name).
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
 [[headers]]
   for = "/*"
   [headers.values]

@@ -23,8 +23,30 @@
  */
 
 import heroBettysVillage from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
+import heroKingOfTheDesert from '../assets/blog/king-of-the-desert-classic/hero-1600.webp';
 
 export const posts = [
+    {
+        slug: 'king-of-the-desert-classic',
+        title: 'King of the Desert Classic: A Big Thank-You to Our Partners',
+        // Client-supplied SEO title already carries the brand, so SEO.jsx
+        // won't append the suffix a second time.
+        seoTitle: 'King of the Desert Classic: Partner Appreciation | Canyon State',
+        seoDescription:
+            "We got together for golf at the King of the Desert Classic to thank our partners. Here's a look at the event and the people we're glad to work with.",
+        excerpt:
+            "We got together for golf at the King of the Desert Classic to thank our partners. Here's a look at the event and the people we're glad to work with.",
+        // Publication date only — the article intentionally states no event date.
+        date: '2026-09-18',
+        author: 'Canyon State Enterprises',
+        heroImage: heroKingOfTheDesert,
+        heroImageAlt:
+            'A large group poses on a golf green beside a pond, with trees and desert hills in the background.',
+        heroCaption: 'A group photo on the green at the King of the Desert Classic.',
+        readingTime: '2 min read',
+        category: 'Partner Appreciation',
+        contentLoader: () => import('../content/blog/king-of-the-desert-classic.jsx'),
+    },
     {
         slug: 'building-bettys-village-north-opportunity-village',
         title: "Building Betty's Village North: 30 Buildings, 18 Months, and the Most Worthwhile Job We've Done This Year",
