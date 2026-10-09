@@ -22,7 +22,7 @@ const Blog = () => {
     const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
 
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             <SEO
                 title="Insights from the Field"
                 description="Stories from Canyon State Enterprises jobsites: project spotlights, the construction problems we solve, and what we're learning across the trades."
@@ -87,7 +87,7 @@ const Blog = () => {
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
     );
 };
 

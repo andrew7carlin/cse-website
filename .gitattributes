@@ -1,3 +1,4 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
-# Self-hosted article video: plain blob so Netlify serves the file, not an LFS pointer
+# Self-hosted site videos: plain blobs so Netlify serves the file, not an LFS pointer
 public/videos/king-of-the-desert-classic-*.mp4 -filter -diff -merge
+public/videos/hero-mobile-*.mp4 -filter -diff -merge

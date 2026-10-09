@@ -37,6 +37,28 @@ const escapeHtml = (s) =>
 // Strip CR/LF to prevent header injection in subject / address fields.
 const stripCrLf = (s) => String(s ?? '').replace(/[\r\n]+/g, ' ').trim();
 
+// Cloudflare Turnstile verification. Only enforced when TURNSTILE_SECRET_KEY
+// is set in the Netlify environment; without it the form works as before.
+const verifyTurnstile = async (token, ip) => {
+    const secret = process.env.TURNSTILE_SECRET_KEY;
+    if (!secret) return { ok: true, skipped: true };
+    if (!token || typeof token !== 'string' || token.length > 2048) return { ok: false };
+    try {
+        const body = new URLSearchParams({ secret, response: token });
+        if (ip) body.set('remoteip', ip);
+        const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body,
+        });
+        const json = await res.json();
+        return { ok: Boolean(json.success) };
+    } catch (err) {
+        console.error('Turnstile verify error:', err);
+        return { ok: false };
+    }
+};
+
 const titleCase = (s) =>
     s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
 
@@ -63,7 +85,16 @@ export const handler = async (event) => {
             return { statusCode: 200, body: JSON.stringify({ success: true }) };
         }
 
-        const { name, company, email, phone, city, state, closestOffice, projectType, timeline, message } = data;
+        const { name, company, email, phone, city, state, closestOffice, projectType, timeline, message, turnstileToken } = data;
+
+        const clientIp = event.headers?.['x-nf-client-connection-ip'] || event.headers?.['client-ip'] || '';
+        const turnstile = await verifyTurnstile(turnstileToken, clientIp);
+        if (!turnstile.ok) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({ error: 'Verification failed. Please try again.' })
+            };
+        }
 
         if (!name || !email || !phone || !closestOffice || !message) {
             return {

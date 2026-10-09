@@ -64,8 +64,13 @@ const PAGE_TIMEOUT = 25_000;
 const STATIC_ROUTES = [
     '/about', '/services', '/partnerships', '/where', '/contact',
     '/careers', '/rentals', '/faq', '/privacy', '/terms', '/portfolio',
-    '/portfolio/commercial', '/portfolio/residential', '/blog',
+    '/portfolio/commercial', '/portfolio/residential', '/blog', '/thank-you',
 ];
+
+// Rendered through the router's catch-all (NotFound) and written to
+// dist/404.html. Netlify serves that file with a real 404 status for any
+// path that has no prerendered file (see the final rule in netlify.toml).
+const NOT_FOUND_ROUTE = '/__not-found';
 const TRADES = [
     'roofing', 'stucco', 'general-contracting', 'hvac', 'plumbing',
     'res-const', 'com-const', 'metals', 'masonry', 'fencing',
@@ -97,6 +102,7 @@ const discoverRoutes = () => {
         }
     }
 
+    routes.push(NOT_FOUND_ROUTE);
     return routes;
 };
 
@@ -230,8 +236,9 @@ const renderRoute = async (page, baseUrl, route) => {
     html = html.replace(/127\.0\.0\.1%3A\d+/g, '');
     html = html.replace(/127\.0\.0\.1:\d+/g, '');
 
-    const outDir = path.join(DIST_DIR, route === '/' ? '' : route.replace(/^\//, ''));
-    const outFile = path.join(outDir, 'index.html');
+    const isNotFound = route === NOT_FOUND_ROUTE;
+    const outDir = isNotFound ? DIST_DIR : path.join(DIST_DIR, route === '/' ? '' : route.replace(/^\//, ''));
+    const outFile = path.join(outDir, isNotFound ? '404.html' : 'index.html');
     await fsp.mkdir(outDir, { recursive: true });
     await fsp.writeFile(outFile, html, 'utf8');
     return outFile;

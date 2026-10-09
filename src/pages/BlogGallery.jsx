@@ -30,7 +30,7 @@ const BlogGallery = () => {
 
     if (!post || !loader) {
         return (
-            <main className={styles.notFound}>
+            <div className={styles.notFound}>
                 <SEO
                     title="Gallery Not Found"
                     description="This photo gallery doesn't exist."
@@ -39,7 +39,7 @@ const BlogGallery = () => {
                 />
                 <h1>Gallery Not Found</h1>
                 <Link to="/blog" className={styles.backLink}>← Back to Insights</Link>
-            </main>
+            </div>
         );
     }
 
@@ -47,7 +47,7 @@ const BlogGallery = () => {
     const count = items ? items.length : g.count;
 
     return (
-        <main className={blogStyles.page}>
+        <div className={blogStyles.page}>
             <SEO
                 title={g.seoTitle}
                 description={g.seoDescription}
@@ -80,7 +80,7 @@ const BlogGallery = () => {
             <section className={styles.footer}>
                 <Link to={`/blog/${post.slug}`} className={styles.backLink}>← Back to the story</Link>
             </section>
-        </main>
+        </div>
     );
 };
 

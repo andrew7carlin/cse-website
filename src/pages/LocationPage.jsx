@@ -43,7 +43,7 @@ const LocationPage = () => {
   }
 
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <SEO
         title={loc.seoTitle || `${loc.city} Construction, ${loc.abbrev}`}
         description={loc.metaDescription || loc.description}
@@ -237,7 +237,7 @@ const LocationPage = () => {
 
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

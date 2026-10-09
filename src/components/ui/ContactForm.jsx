@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './ContactForm.module.css';
 import { trackEvent } from '../common/analytics';
+
+// Cloudflare Turnstile (bot check). Inert until VITE_TURNSTILE_SITE_KEY is set
+// at build time; the function side is likewise gated on TURNSTILE_SECRET_KEY.
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '';
+const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -19,6 +24,42 @@ const ContactForm = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+    const [turnstileToken, setTurnstileToken] = useState('');
+    const turnstileRef = useRef(null);
+
+    // Load the Turnstile script once and render the widget explicitly so it
+    // also works after client-side navigation back to this page.
+    useEffect(() => {
+        if (!TURNSTILE_SITE_KEY) return undefined;
+        let widgetId = null;
+        let cancelled = false;
+        const render = () => {
+            if (cancelled || !turnstileRef.current || !window.turnstile) return;
+            widgetId = window.turnstile.render(turnstileRef.current, {
+                sitekey: TURNSTILE_SITE_KEY,
+                theme: 'light',
+                callback: (token) => setTurnstileToken(token),
+                'expired-callback': () => setTurnstileToken(''),
+                'error-callback': () => setTurnstileToken(''),
+            });
+        };
+        if (window.turnstile) {
+            render();
+        } else {
+            let script = document.querySelector(`script[src="${TURNSTILE_SRC}"]`);
+            if (!script) {
+                script = document.createElement('script');
+                script.src = TURNSTILE_SRC;
+                script.async = true;
+                document.head.appendChild(script);
+            }
+            script.addEventListener('load', render);
+        }
+        return () => {
+            cancelled = true;
+            if (widgetId !== null && window.turnstile) window.turnstile.remove(widgetId);
+        };
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,7 +77,7 @@ const ContactForm = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ ...formData, turnstileToken })
             });
 
             if (response.ok) {
@@ -201,10 +242,14 @@ const ContactForm = () => {
                             Need an answer sooner? Call <a href="tel:9287579003">(928) 757-9003</a>.
                         </p>
 
+                        {TURNSTILE_SITE_KEY && (
+                            <div ref={turnstileRef} className={styles.turnstile} aria-label="Spam protection" />
+                        )}
+
                         <button
                             type="submit"
                             className={styles.submitBtn}
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || (Boolean(TURNSTILE_SITE_KEY) && !turnstileToken)}
                         >
                             {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>

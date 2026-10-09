@@ -24,6 +24,7 @@ const Hero = ({
     // Mode, data saver) show a tap-to-play button rather than a dead frame.
     const mobileVideoRef = useRef(null);
     const [needsTap, setNeedsTap] = useState(false);
+    const [mobilePlaying, setMobilePlaying] = useState(false);
     const tryPlay = useCallback(() => {
         const el = mobileVideoRef.current;
         if (!el) return;
@@ -64,22 +65,22 @@ const Hero = ({
         return (
             <section className={`${styles.hero} ${styles.video} ${styles.mobileHero}`}>
                 <div className={styles.mobileFrame}>
-                    {!videoReady && (
-                        <img
-                            src="/hero-poster.webp"
-                            alt="Canyon State Enterprises"
-                            fetchPriority="high"
-                            loading="eager"
-                            width="1920"
-                            height="1080"
-                            className={styles.mobileMedia}
-                        />
-                    )}
+                    {/* Poster stays painted (it is the LCP element) until the
+                        video actually plays, then the video fades in over it. */}
+                    <img
+                        src="/hero-poster.webp"
+                        alt="Canyon State Enterprises"
+                        fetchPriority="high"
+                        loading="eager"
+                        width="1920"
+                        height="1080"
+                        className={styles.mobileMedia}
+                    />
                     {videoReady && (
                         <video
                             ref={mobileVideoRef}
-                            src={videoUrl}
-                            className={styles.mobileMedia}
+                            src={mobileVideoUrl || videoUrl}
+                            className={`${styles.mobileMedia} ${styles.mobileVideo} ${mobilePlaying ? styles.mobileVideoOn : ''}`}
                             poster="/hero-poster.webp"
                             preload="auto"
                             autoPlay
@@ -88,7 +89,7 @@ const Hero = ({
                             playsInline
                             webkit-playsinline="true"
                             onCanPlay={tryPlay}
-                            onPlaying={() => setNeedsTap(false)}
+                            onPlaying={() => { setNeedsTap(false); setMobilePlaying(true); }}
                         />
                     )}
                     {videoReady && needsTap && (

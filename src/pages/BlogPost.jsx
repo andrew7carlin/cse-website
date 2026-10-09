@@ -42,7 +42,7 @@ const BlogPost = () => {
 
     if (!post) {
         return (
-            <main className={styles.notFound}>
+            <div className={styles.notFound}>
                 <SEO
                     title="Post Not Found"
                     description="The article you were looking for has been moved or doesn't exist."
@@ -52,12 +52,12 @@ const BlogPost = () => {
                 <h1>Post Not Found</h1>
                 <p>The article you were looking for has been moved or doesn&rsquo;t exist.</p>
                 <Link to="/blog" className={styles.backLink}>← Back to Insights</Link>
-            </main>
+            </div>
         );
     }
 
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             <SEO
                 title={post.seoTitle || post.title}
                 description={post.seoDescription || post.excerpt}
@@ -136,7 +136,7 @@ const BlogPost = () => {
                     <Link to="/blog" className={styles.backLink}>← All Insights</Link>
                 </div>
             </section>
-        </main>
+        </div>
     );
 };
 

@@ -32,6 +32,7 @@ public/videos/*.mp4
 # Exception: the King of the Desert Classic recap is self-hosted by request
 # (Sept 2026). Committed as a plain blob (see .gitattributes), ~46 MB.
 !public/videos/king-of-the-desert-classic-*
+!public/videos/hero-mobile-*
 
 # Image import tool — keep processed originals local only
 incoming/processed/

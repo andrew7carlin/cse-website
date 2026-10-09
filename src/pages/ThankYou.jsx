@@ -15,7 +15,7 @@ import styles from './ThankYou.module.css';
  */
 const ThankYou = () => {
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             <SEO
                 title="Thank You, We'll Be in Touch"
                 description="Thanks for reaching out to Canyon State Enterprises. A team member will respond within one business day."
@@ -51,7 +51,7 @@ const ThankYou = () => {
                     <Link to="/portfolio" className={styles.btnSecondary}>Browse Our Work</Link>
                 </div>
             </div>
-        </main>
+        </div>
     );
 };
 

@@ -421,7 +421,7 @@ const TradeDetail = () => {
                                     ? '/portfolio/residential'
                                     : '/portfolio/commercial'}
                                 style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase',
-                                    letterSpacing: '0.15em', color: '#b87333', textDecoration: 'none' }}
+                                    letterSpacing: '0.15em', color: 'var(--color-copper)', textDecoration: 'none' }}
                             >
                                 View All Projects →
                             </Link>
@@ -458,7 +458,7 @@ const TradeDetail = () => {
                                     <div style={{ padding: '0.875rem 1rem', background: '#0d0d0d' }}>
                                         <p style={{ margin: '0 0 0.25rem', fontSize: '0.9375rem',
                                             fontWeight: 600, color: '#b87333' }}>{project.name}</p>
-                                        <p style={{ margin: 0, fontSize: '0.8125rem', color: '#6b7280' }}>
+                                        <p style={{ margin: 0, fontSize: '0.8125rem', color: '#9ca3af' }}>
                                             {project.location}
                                         </p>
                                     </div>

@@ -141,7 +141,7 @@ const Partnerships = () => {
     };
 
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             <SEO
                 title="Construction Partnerships | Trusted Industry Partners | Canyon State"
                 description="Partner with Canyon State for reliable construction solutions. We collaborate with developers, contractors, architects, and industry leaders across the Southwest."
@@ -330,7 +330,7 @@ const Partnerships = () => {
                     </div>
                 </div>
             )}
-        </main>
+        </div>
     );
 };
 

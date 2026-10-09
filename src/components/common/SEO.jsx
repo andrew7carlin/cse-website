@@ -55,7 +55,7 @@ const SEO = ({
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={ogImage} />
 
-            <link rel="canonical" href={resolvedCanonical} />
+            {!noindex && <link rel="canonical" href={resolvedCanonical} />}
 
             {noindex && <meta name="robots" content="noindex, nofollow" />}
         </>

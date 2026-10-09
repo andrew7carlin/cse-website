@@ -107,7 +107,7 @@ const schemaMarkup = {
 // ── Component ──────────────────────────────────────────────────────────────
 const Where = () => {
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <SEO
         title="Canyon State's Service Areas | Construction Across AZ, NV, UT & CO"
         description="Explore Canyon State's construction service areas across Arizona, Nevada, Utah, and Colorado with local teams delivering quality projects."
@@ -218,11 +218,11 @@ const Where = () => {
         <p className={styles.ctaSubtext}>
           Get a free estimate from the team that's already there.
         </p>
-        <Link to="/quote" className={styles.ctaButton}>
+        <Link to="/contact" className={styles.ctaButton}>
           Get a Quote
         </Link>
       </section>
-    </main>
+    </div>
   );
 };
 

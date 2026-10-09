@@ -325,6 +325,19 @@
         object-fit: contain;
     }
 
+    /* Phone video sits over the poster and fades in once it is playing */
+    .mobileFrame .mobileVideo {
+        position: absolute;
+        inset: 0;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .mobileFrame .mobileVideoOn {
+        opacity: 1;
+    }
+
     /* Shown only when iOS refuses autoplay (Low Power Mode etc.) */
     .tapToPlay {
         position: absolute;

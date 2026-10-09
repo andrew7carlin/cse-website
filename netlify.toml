@@ -162,10 +162,14 @@
 # SPA fallback — must remain LAST. Anything not matched above renders the
 # React app, which then handles client-side routing.
 # ─────────────────────────────────────────────────────────────────────────────
+# Every real route is prerendered to a physical file, so anything that
+# reaches this rule is a genuinely unknown URL. Serve the prerendered 404
+# page (scripts/prerender.mjs writes dist/404.html) with a real 404 status
+# instead of the old SPA fallback that returned 200 for everything.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Caching. Vite emits content-hashed filenames under /assets/ (a changed file
@@ -207,4 +211,5 @@
     #       www.google.com         (Google Ads conversion pixel + remarketing endpoints)
     #   - Resend (contact form): api.resend.com (connect-src only)
     #   - Bunny CDN (hero video): cse-media.b-cdn.net (media-src only)
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.doubleclick.net https://www.google.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; media-src 'self' https://cse-media.b-cdn.net; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com https://*.doubleclick.net https://*.googleadservices.com https://www.google.com https://api.resend.com; frame-src 'self' https://*.doubleclick.net https://*.googletagmanager.com; frame-ancestors 'none'"
+    #   - Cloudflare Turnstile (contact-form bot check): challenges.cloudflare.com (script-src + frame-src)
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.doubleclick.net https://www.google.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; media-src 'self' https://cse-media.b-cdn.net; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com https://*.doubleclick.net https://*.googleadservices.com https://www.google.com https://api.resend.com; frame-src 'self' https://challenges.cloudflare.com https://*.doubleclick.net https://*.googletagmanager.com; frame-ancestors 'none'"

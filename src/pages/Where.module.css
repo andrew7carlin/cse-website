@@ -147,7 +147,7 @@
 }
 
 .stateBadgeFull {
-  color: #b87333;
+  color: #c9843e; /* lighter copper: 5.5:1 on the dark card (AA) */
   border-color: rgba(184, 115, 51, 0.4);
   background: rgba(184, 115, 51, 0.07);
 }
@@ -164,7 +164,7 @@
   font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #b87333;
+  color: #c9843e;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -188,7 +188,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #b87333;
+  color: #c9843e;
   background: rgba(184, 115, 51, 0.08);
   border: 1px solid rgba(184, 115, 51, 0.2);
   border-radius: 3px;
@@ -224,7 +224,7 @@
 
 .beyondSubtext {
   font-size: 0.9375rem;
-  color: #6b7280;
+  color: #9ca3af;
 }
 
 .beyondGrid {
@@ -326,7 +326,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #6b7280;
+  color: #9ca3af;
 }
 
 /* ── CTA Section ──────────────────────────────────────────────────────────── */
@@ -356,7 +356,7 @@
 .ctaButton {
   display: inline-block;
   padding: 16px 40px;
-  background: #b87333;
+  background: var(--color-copper); /* darker copper: white text passes AA */
   color: #ffffff;
   font-weight: 700;
   font-size: 0.9375rem;
@@ -368,7 +368,7 @@
 }
 
 .ctaButton:hover {
-  background: #d4924d;
+  background: #8a3d1b;
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(184, 115, 51, 0.35);
 }

@@ -188,3 +188,8 @@
     margin-bottom: 1.5rem;
     font-weight: 500;
 }
+/* Cloudflare Turnstile widget (only rendered when a site key is configured) */
+.turnstile {
+    margin: 0.25rem 0 1rem;
+    min-height: 65px;
+}

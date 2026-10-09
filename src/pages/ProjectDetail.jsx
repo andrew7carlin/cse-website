@@ -209,7 +209,7 @@ export default function ProjectDetail() {
               </p>
               <Link
                 to="/contact"
-                style={{ display: 'inline-block', padding: '0.85rem 1.75rem', background: '#b87333',
+                style={{ display: 'inline-block', padding: '0.85rem 1.75rem', background: 'var(--color-copper)',
                   color: '#fff', textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '0.78rem',
                   fontWeight: 700, textDecoration: 'none', borderRadius: '2px' }}
               >
