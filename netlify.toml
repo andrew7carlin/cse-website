@@ -158,6 +158,13 @@
   status = 301
   force = true
 
+# Property Management page removed Oct 2026 (owner request)
+[[redirects]]
+  from = "/rentals"
+  to = "/"
+  status = 301
+  force = true
+
 # ─────────────────────────────────────────────────────────────────────────────
 # SPA fallback — must remain LAST. Anything not matched above renders the
 # React app, which then handles client-side routing.

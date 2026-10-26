@@ -29,7 +29,6 @@ const importPortfolioLanding     = () => import('./pages/PortfolioLanding');
 const importCommercialPortfolio  = () => import('./pages/CommercialPortfolio');
 const importResidentialPortfolio = () => import('./pages/ResidentialPortfolio');
 const importCareers              = () => import('./pages/Careers');
-const importRentals              = () => import('./pages/Rentals');
 const importWhere                = () => import('./pages/Where');
 const importPartnerships         = () => import('./pages/Partnerships');
 const importProjectDetail        = () => import('./pages/ProjectDetail');
@@ -51,7 +50,6 @@ const PortfolioLanding     = lazy(importPortfolioLanding);
 const CommercialPortfolio  = lazy(importCommercialPortfolio);
 const ResidentialPortfolio = lazy(importResidentialPortfolio);
 const Careers              = lazy(importCareers);
-const Rentals              = lazy(importRentals);
 const Where                = lazy(importWhere);
 const Partnerships         = lazy(importPartnerships);
 const ProjectDetail        = lazy(importProjectDetail);
@@ -164,7 +162,6 @@ function App() {
             <Route path="faq" element={<FAQ />} />
             <Route path="contact" element={<Contact />} />
             <Route path="careers" element={<Careers />} />
-            <Route path="rentals" element={<Rentals />} />
             <Route path="privacy" element={<Privacy />} />
             <Route path="terms" element={<Terms />} />
             <Route path="thank-you" element={<ThankYou />} />

@@ -63,7 +63,7 @@ const PAGE_TIMEOUT = 25_000;
 // proportionally more from real per-route HTML.
 const STATIC_ROUTES = [
     '/about', '/services', '/partnerships', '/where', '/contact',
-    '/careers', '/rentals', '/faq', '/privacy', '/terms', '/portfolio',
+    '/careers', '/faq', '/privacy', '/terms', '/portfolio',
     '/portfolio/commercial', '/portfolio/residential', '/blog', '/thank-you',
 ];
 
