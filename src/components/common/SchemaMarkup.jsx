@@ -151,6 +151,8 @@ const SchemaMarkup = () => {
             "maxValue": 200
         },
         "slogan": "One Team. Multiple Trades. Zero Excuses.",
+        // Verifiable third-party recognition (see /blog/nextdoor-fave-award-2026-kingman).
+        "award": ["2026 Nextdoor Fave Award Winner, General Contractor, Kingman, AZ"],
         "sameAs": [
             "https://www.facebook.com/canyonstateaz",
             "https://www.linkedin.com/company/canyon-state-enterprises"

@@ -11,6 +11,8 @@
  *   - heroImageAlt  → accessibility text for the hero
  *   - readingTime   → "5 min read" – informational, not auto-calculated
  *   - contentLoader → () => import('../content/blog/{slug}.jsx')
+ *   - faq           → optional [{ q, a }]; emitted as FAQPage JSON-LD. Must
+ *                     match Q&As that are visible in the article body.
  *
  * The contentLoader pattern keeps post bodies out of the main bundle.
  * Each article ships as its own lazy chunk.
@@ -24,8 +26,46 @@
 
 import heroBettysVillage from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
 import heroKingOfTheDesert from '../assets/blog/king-of-the-desert-classic/hero-1600.webp';
+import heroKingmanHQ from '../assets/about/kingman-headquarters.webp';
 
 export const posts = [
+    {
+        slug: 'nextdoor-fave-award-2026-kingman',
+        title: 'Kingman Neighbors Named Canyon State a 2026 Nextdoor Fave',
+        // Brand-carrying SEO title, so SEO.jsx won't append the suffix again.
+        seoTitle: '2026 Nextdoor Fave Award: Kingman General Contractor | Canyon State',
+        seoDescription:
+            'Canyon State Enterprises was voted a 2026 Nextdoor Fave Award Winner for General Contractor by verified neighbors in Kingman, AZ.',
+        excerpt:
+            "Kingman neighbors voted Canyon State Enterprises a 2026 Nextdoor Fave Award Winner in the General Contractor category. Here's what the award is, how winners are chosen, and why this one means a lot to us.",
+        date: '2026-11-03',
+        author: 'Canyon State Enterprises',
+        heroImage: heroKingmanHQ,
+        heroImageAlt:
+            'Canyon State Enterprises headquarters in Kingman, Arizona: a gray stone-panel entry with the Canyon State logo above the front doors under a clear blue sky.',
+        readingTime: '4 min read',
+        category: 'Company News',
+        contentLoader: () => import('../content/blog/nextdoor-fave-award-2026-kingman.jsx'),
+        // Mirrors the visible FAQ section in the article (FAQPage JSON-LD).
+        faq: [
+            {
+                q: 'What is the Nextdoor Fave Award?',
+                a: 'The Nextdoor Fave Award is an annual recognition for local businesses, chosen by votes from verified Nextdoor neighbors in each community. Businesses cannot apply for it or buy it.',
+            },
+            {
+                q: 'What award did Canyon State Enterprises win?',
+                a: 'Canyon State Enterprises was named a 2026 Nextdoor Fave Award Winner in the General Contractor category by neighbors in Kingman, Arizona.',
+            },
+            {
+                q: 'How are Nextdoor Fave winners chosen?',
+                a: "Winners are chosen by votes from real, verified Nextdoor members who know the business's work and want others in their community to find it.",
+            },
+            {
+                q: 'What does Canyon State do in Kingman?',
+                a: 'Canyon State is a multi-trade contractor headquartered in Kingman. We self-perform roofing, stucco and EIFS, HVAC, plumbing, specialty metals, masonry, fencing, seamless gutters, and residential and commercial construction across Mohave County and the Southwest.',
+            },
+        ],
+    },
     {
         slug: 'king-of-the-desert-classic',
         title: 'King of the Desert Classic: A Big Thank-You to Our Partners',

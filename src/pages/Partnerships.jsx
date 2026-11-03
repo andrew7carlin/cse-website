@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Partnerships.module.css';
 import SEO from '../components/common/SEO';
+import { Link } from 'react-router-dom';
+import NextdoorCertificate from '../components/ui/NextdoorCertificate';
 
 // Random off-screen entry position for a logo's mount animation.
 // Defined outside render so the useState lazy initializer is the only place it runs.
@@ -178,6 +180,19 @@ const Partnerships = () => {
                                 <p>
                                     On the client side, general contractors and national brands such as AR Mays Construction, Lusardi Construction, Willmeng, Kitchell, Path Construction, EOS Fitness, Salad and Go, Home Depot, and Opportunity Village trust Canyon State to self-perform critical scopes on their projects across the Southwest.
                                 </p>
+                            </div>
+
+                            <h2 className={styles.heading} style={{ fontSize: 'var(--font-size-h2, 1.75rem)', marginTop: '2.5rem' }}>
+                                Awards and Recognition
+                            </h2>
+                            <div className={styles.description}>
+                                <p>
+                                    In 2026, verified neighbors on Nextdoor voted Canyon State a Nextdoor Fave Award Winner in the General Contractor category for Kingman, Arizona. It&rsquo;s an award a business can&rsquo;t apply for or buy.{' '}
+                                    <Link to="/blog/nextdoor-fave-award-2026-kingman">Read the story</Link>.
+                                </p>
+                            </div>
+                            <div className={styles.awardBlock}>
+                                <NextdoorCertificate compact />
                             </div>
 
                             <button

@@ -1,0 +1,94 @@
+.certificate {
+    margin: 2.5rem auto;
+    max-width: 560px;
+    padding: 10px;
+    background: var(--color-white);
+    border: 2px solid var(--color-copper);
+    box-shadow: 0 12px 32px rgba(27, 21, 15, 0.08);
+}
+
+.inner {
+    border: 1px solid var(--color-bronze);
+    padding: 2rem 1.75rem 1.75rem;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(180, 143, 115, 0.12), transparent 60%),
+        var(--color-bg-base);
+}
+
+.certificate .badge {
+    display: block;
+    width: 120px;
+    height: auto;
+    margin: 0 auto 1.25rem;
+}
+
+.certificate .eyebrow {
+    display: block;
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 0.75rem;
+}
+
+.certificate .title {
+    margin: 0;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: var(--font-weight-light);
+    line-height: 1.2;
+    color: var(--color-dark-brown);
+}
+
+.certificate .category {
+    margin: 0.5rem 0 0;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-teal);
+}
+
+.certificate .rule {
+    width: 64px;
+    height: 2px;
+    margin: 1.25rem auto;
+    background: var(--color-copper);
+}
+
+.certificate .presented {
+    margin: 0 0 0.5rem;
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+.certificate .cseLogo {
+    display: block;
+    width: min(240px, 70%);
+    height: auto;
+    margin: 0 auto;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.certificate .note {
+    margin: 1.25rem auto 0;
+    max-width: 34ch;
+    font-size: var(--font-size-small);
+    line-height: 1.5;
+    color: var(--color-text-muted);
+}
+
+.compact {
+    margin: 0;
+    max-width: 420px;
+}
+
+.certificate.compact .inner {
+    padding: 1.5rem 1.25rem 1.25rem;
+}
+
+.certificate.compact .badge {
+    width: 96px;
+}

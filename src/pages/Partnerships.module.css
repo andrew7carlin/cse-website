@@ -335,3 +335,13 @@
         padding: 2rem;
     }
 }
+/* Awards and Recognition — certificate authority marker */
+.awardBlock {
+    margin: 1.5rem 0 2.5rem;
+}
+
+.description a {
+    color: var(--color-copper);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
