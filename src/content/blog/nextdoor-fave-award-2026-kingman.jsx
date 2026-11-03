@@ -7,7 +7,9 @@
  *
  * Source material: Nextdoor's winner letter to Canyon State Enterprises, LLC
  * (2026 Fave Award, General Contractor category, Kingman) and Nextdoor's
- * 2026 Fave Awards winner's digital kit. Statistics are Nextdoor's own and are
+ * 2026 Fave Awards winner's kit (press release template, certificate and
+ * sticker badge). Nextdoor asks winners to link the winners list
+ * (nextdoor.com/fave_awards_winners), tag @Nextdoor and use #FaveAwards2026. Statistics are Nextdoor's own and are
  * attributed to Nextdoor in the copy. The FAQ answers below are mirrored in
  * the post's `faq` field in src/data/blog.js (FAQPage JSON-LD) — keep the two
  * in sync if either changes.
@@ -40,9 +42,11 @@ const NextdoorFaveAward2026Post = () => (
 
         <p>
             The Fave Awards are Nextdoor&rsquo;s yearly recognition of the local businesses
-            neighbors recommend most. Winners are picked by votes from verified Nextdoor
-            members in each community, one category at a time. A business can&rsquo;t apply
-            for the award or pay to be considered. In Nextdoor&rsquo;s words, someone who
+            neighbors recommend most, and 2026 is the program&rsquo;s 10th year. Neighbors
+            voted during Nextdoor&rsquo;s award window from September 9 to September 30,
+            2026, one category at a time. Every vote comes from a verified Nextdoor member,
+            not a star rating or an ad placement. A business can&rsquo;t apply for the award
+            or pay to be considered. In Nextdoor&rsquo;s words, someone who
             knows your work, trusts your business, and wants others to discover you has to
             vote for you.
         </p>
@@ -133,7 +137,8 @@ const NextdoorFaveAward2026Post = () => (
         <h3>How are Nextdoor Fave winners chosen?</h3>
         <p>
             Winners are chosen by votes from real, verified Nextdoor members who know the
-            business&rsquo;s work and want others in their community to find it.
+            business&rsquo;s work and want others in their community to find it. For 2026,
+            voting ran from September 9 to September 30, 2026.
         </p>
 
         <h3>What does Canyon State do in Kingman?</h3>
@@ -162,6 +167,15 @@ const NextdoorFaveAward2026Post = () => (
                 <br />
                 <strong>Our manufacturer certifications:</strong>{' '}
                 <Link to="/partnerships">Partnerships</Link>
+                <br />
+                <strong>See every 2026 winner:</strong>{' '}
+                <a
+                    href="https://nextdoor.com/fave_awards_winners"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Nextdoor Fave Awards winners list
+                </a>
                 <br />
                 <strong>Ready to start a project?</strong>{' '}
                 <Link to="/contact">Tell us about it</Link>, or call our Kingman HQ at{' '}

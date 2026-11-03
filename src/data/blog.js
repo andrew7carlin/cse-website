@@ -58,7 +58,7 @@ export const posts = [
             },
             {
                 q: 'How are Nextdoor Fave winners chosen?',
-                a: "Winners are chosen by votes from real, verified Nextdoor members who know the business's work and want others in their community to find it.",
+                a: "Winners are chosen by votes from real, verified Nextdoor members who know the business's work and want others in their community to find it. For 2026, voting ran from September 9 to September 30, 2026.",
             },
             {
                 q: 'What does Canyon State do in Kingman?',

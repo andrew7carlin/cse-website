@@ -5,11 +5,10 @@ import cseLogo from '../../assets/logos/logo-dark.png';
  * 2026 Nextdoor Fave Award certificate — an authority marker used on the
  * Partnerships page and in the award blog post.
  *
- * The official Nextdoor Fave 2026 winner badge comes from Nextdoor's winner's
- * digital kit. Drop it into src/assets/awards/ named
- * `nextdoor-fave-2026.(webp|png|svg)` and it is picked up automatically; until
- * then the certificate renders without the badge (we never redraw Nextdoor's
- * mark ourselves).
+ * The badge is Nextdoor's official 2026 Fave Winner sticker from the winner's
+ * kit (Web/Nextdoor Fave Awards 2026 Sticker US.png), saved as
+ * src/assets/awards/nextdoor-fave-2026.webp. Nextdoor permits kit assets on
+ * winners' websites. Use the official file only; never redraw Nextdoor's mark.
  */
 const badgeModules = import.meta.glob('../../assets/awards/nextdoor-fave-2026.{webp,png,svg}', {
     eager: true,
@@ -26,7 +25,7 @@ const NextdoorCertificate = ({ compact = false }) => (
             {NEXTDOOR_BADGE && (
                 <img
                     src={NEXTDOOR_BADGE}
-                    alt="Nextdoor Fave 2026 winner badge"
+                    alt="2026 Fave Winner, voted by neighbors on Nextdoor"
                     className={styles.badge}
                     loading="lazy"
                     decoding="async"
