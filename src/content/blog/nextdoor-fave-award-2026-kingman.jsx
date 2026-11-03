@@ -31,9 +31,9 @@ const NextdoorFaveAward2026Post = () => (
         </p>
 
         <p>
-            We found out the old-fashioned way: a letter in the mail from Nextdoor that opened
-            with &ldquo;Congratulations! Neighbors in Kingman chose you!&rdquo; That&rsquo;s a
-            sentence we&rsquo;ll take every time.
+            The news came in a letter from Nextdoor that opened with &ldquo;Congratulations!
+            Neighbors in Kingman chose you!&rdquo; That&rsquo;s a sentence we&rsquo;ll take
+            every time.
         </p>
 
         <NextdoorCertificate />
