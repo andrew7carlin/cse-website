@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Partnerships.module.css';
 import SEO from '../components/common/SEO';
+import { Link } from 'react-router-dom';
+import NextdoorCertificate from '../components/ui/NextdoorCertificate';
 
 // Random off-screen entry position for a logo's mount animation.
 // Defined outside render so the useState lazy initializer is the only place it runs.
@@ -22,7 +24,6 @@ import arMays from '../assets/Partners/AR Mays.webp';
 import carlisle from '../assets/Partners/Carlisle.webp';
 import qxo from '../assets/Partners/QXO.webp';
 import rAndO from '../assets/Partners/R and O.webp';
-import saladAndGo from '../assets/Partners/Salad and go.webp';
 import homeDepot from '../assets/Partners/the-home-depot-1-logo-black-and-white.webp';
 import certainteed from '../assets/Partners/Certainteed.webp';
 import eagleTile from '../assets/Partners/Eagle tile.webp';
@@ -58,7 +59,6 @@ import gulfEagleLogo from '../assets/Partners/gulf-eagle.svg';
 // Trusted By - Client Partners with URLs
 const trustedByPartners = [
     { name: 'EOS Fitness', logo: eosFitness, url: 'https://www.eosfitness.com/' },
-    { name: 'Salad and Go', logo: saladAndGo, url: 'https://www.saladandgo.com/' },
     { name: 'Home Depot', logo: homeDepot, url: 'https://www.homedepot.com/' },
     { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },
     { name: 'R and O', logo: rAndO, url: 'https://www.randoconstruction.com/' },
@@ -176,8 +176,21 @@ const Partnerships = () => {
                                     Canyon State installs systems from the industry's leading manufacturers, including GAF, CertainTeed, Carlisle, Firestone, Versico, Eagle Roofing, MBCI, and Petersen Aluminum, and we hold the certifications that let us stand behind those systems with strong warranties.
                                 </p>
                                 <p>
-                                    On the client side, general contractors and national brands such as AR Mays Construction, Lusardi Construction, Willmeng, Kitchell, Path Construction, EOS Fitness, Salad and Go, Home Depot, and Opportunity Village trust Canyon State to self-perform critical scopes on their projects across the Southwest.
+                                    On the client side, general contractors and national brands such as AR Mays Construction, Lusardi Construction, Willmeng, Kitchell, Path Construction, EOS Fitness, Home Depot, and Opportunity Village trust Canyon State to self-perform critical scopes on their projects across the Southwest.
                                 </p>
+                            </div>
+
+                            <h2 className={styles.heading} style={{ fontSize: 'var(--font-size-h2, 1.75rem)', marginTop: '2.5rem' }}>
+                                Awards and Recognition
+                            </h2>
+                            <div className={styles.description}>
+                                <p>
+                                    In 2026, verified neighbors on Nextdoor voted Canyon State a Nextdoor Fave Award Winner in the General Contractor category for Kingman, Arizona. It&rsquo;s an award a business can&rsquo;t apply for or buy.{' '}
+                                    <Link to="/blog/nextdoor-fave-award-2026-kingman">Read the story</Link>.
+                                </p>
+                            </div>
+                            <div className={styles.awardBlock}>
+                                <NextdoorCertificate compact />
                             </div>
 
                             <button

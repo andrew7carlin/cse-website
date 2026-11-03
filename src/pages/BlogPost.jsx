@@ -94,6 +94,24 @@ const BlogPost = () => {
                 }}
             />
 
+            {/* FAQPage schema for posts with a visible Q&A section (AEO). */}
+            {post.faq?.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'FAQPage',
+                            mainEntity: post.faq.map(({ q, a }) => ({
+                                '@type': 'Question',
+                                name: q,
+                                acceptedAnswer: { '@type': 'Answer', text: a },
+                            })),
+                        }),
+                    }}
+                />
+            )}
+
             {/* ── Hero ── */}
             <section className={styles.hero}>
                 <img

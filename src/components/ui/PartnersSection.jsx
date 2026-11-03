@@ -7,7 +7,6 @@ import rAndO from '../../assets/Partners/R and O.webp';
 import lusardi from '../../assets/Partners/Lusardi.webp';
 import homeDepot from '../../assets/Partners/the-home-depot-1-logo-black-and-white.webp';
 import eosFitness from '../../assets/Partners/EOS Fitness.webp';
-import saladAndGo from '../../assets/Partners/Salad and go.webp';
 import willmeng from '../../assets/Partners/Willmeng.webp';
 import kitchell from '../../assets/Partners/Kitchell.webp';
 import pathConstruction from '../../assets/Partners/Path Construction.webp';
@@ -41,7 +40,6 @@ import iconDark from '../../assets/logos/icon-dark.png';
 const partners = [
     // Trusted By - Client Partners
     { name: 'EOS Fitness', logo: eosFitness, url: 'https://www.eosfitness.com/' },
-    { name: 'Salad and Go', logo: saladAndGo, url: 'https://www.saladandgo.com/' },
     { name: 'Home Depot', logo: homeDepot, url: 'https://www.homedepot.com/' },
     { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },
     { name: 'R and O', logo: rAndO, url: 'https://www.randoconstruction.com/' },
