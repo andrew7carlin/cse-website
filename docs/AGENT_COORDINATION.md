@@ -24,8 +24,8 @@ Aaron pushes from his own GitHub account, so his work is attributed to him. Chat
 1. **Check before claiming.** List open PRs and branches first. If an open PR already touches the files you need, do not edit them: comment on that PR and ask, or wait for it to merge.
 2. **Claim with a draft PR.** Branch from the latest `main` using your own prefix, open a draft PR right away with your title prefix, and list the files you expect to touch. Stay inside those files; if you need more, update the list in the PR description first.
 3. **Build and check.** Run the repo's checks (see below) before marking the PR ready.
-4. **Ready for Andrew.** Mark the PR ready and say in two or three plain sentences what changes for users and how you checked it.
-5. **Merge.** Andrew approves going live. Each person or agent merges only their own PR. Merging to `main` deploys to production.
+4. **Mark ready.** Mark the PR ready and say in two or three plain sentences what changes for users and how you checked it.
+5. **Merge.** Aaron merges his own PRs as soon as the checks pass. He does not need Andrew's approval or preview, and his change goes live on merge. ChatGPT and Claude wait for Andrew's approval before merging. Each person or agent merges only their own PR. Merging to `main` deploys to production.
 
 ## Hard rules
 
