@@ -24,7 +24,6 @@ import arMays from '../assets/Partners/AR Mays.webp';
 import carlisle from '../assets/Partners/Carlisle.webp';
 import qxo from '../assets/Partners/QXO.webp';
 import rAndO from '../assets/Partners/R and O.webp';
-import saladAndGo from '../assets/Partners/Salad and go.webp';
 import homeDepot from '../assets/Partners/the-home-depot-1-logo-black-and-white.webp';
 import certainteed from '../assets/Partners/Certainteed.webp';
 import eagleTile from '../assets/Partners/Eagle tile.webp';
@@ -60,7 +59,6 @@ import gulfEagleLogo from '../assets/Partners/gulf-eagle.svg';
 // Trusted By - Client Partners with URLs
 const trustedByPartners = [
     { name: 'EOS Fitness', logo: eosFitness, url: 'https://www.eosfitness.com/' },
-    { name: 'Salad and Go', logo: saladAndGo, url: 'https://www.saladandgo.com/' },
     { name: 'Home Depot', logo: homeDepot, url: 'https://www.homedepot.com/' },
     { name: 'AR Mays', logo: arMays, url: 'https://www.armays.com/' },
     { name: 'R and O', logo: rAndO, url: 'https://www.randoconstruction.com/' },
@@ -178,7 +176,7 @@ const Partnerships = () => {
                                     Canyon State installs systems from the industry's leading manufacturers, including GAF, CertainTeed, Carlisle, Firestone, Versico, Eagle Roofing, MBCI, and Petersen Aluminum, and we hold the certifications that let us stand behind those systems with strong warranties.
                                 </p>
                                 <p>
-                                    On the client side, general contractors and national brands such as AR Mays Construction, Lusardi Construction, Willmeng, Kitchell, Path Construction, EOS Fitness, Salad and Go, Home Depot, and Opportunity Village trust Canyon State to self-perform critical scopes on their projects across the Southwest.
+                                    On the client side, general contractors and national brands such as AR Mays Construction, Lusardi Construction, Willmeng, Kitchell, Path Construction, EOS Fitness, Home Depot, and Opportunity Village trust Canyon State to self-perform critical scopes on their projects across the Southwest.
                                 </p>
                             </div>
 
