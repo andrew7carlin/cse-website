@@ -20,7 +20,7 @@ const Home = () => {
                 canonical="https://canyonstateaz.com/"
             />
             <Hero
-                headline="Construction, Roofing & Restoration Experts"
+                headline="Construction, Roofing & Repair Experts"
                 subheadline="Your trusted construction partner across Arizona, Nevada & Utah. Roofing, stucco, HVAC, and more."
                 variant="video"
                 videoUrl={LOBBY_VIDEO_URL}
