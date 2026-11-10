@@ -65,7 +65,7 @@ const LocationPage = () => {
             '@id': `https://canyonstateaz.com/locations/${loc.id}#localbusiness`,
             name: loc.schemaName || `Canyon State — ${loc.city}`,
             url: `https://canyonstateaz.com/locations/${loc.id}`,
-            telephone: `+1-${loc.phone.replace(/\D/g, '')}`,
+            telephone: `+1-${loc.phone.replace(/\D/g, '').replace(/^(\d{3})(\d{3})(\d{4})$/, '$1-$2-$3')}`,
             email: 'office@canyonstateaz.com',
             description: loc.description,
             parentOrganization: { '@id': 'https://canyonstateaz.com/#organization' },
