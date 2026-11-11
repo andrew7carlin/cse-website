@@ -27,8 +27,26 @@
 import heroBettysVillage from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
 import heroKingOfTheDesert from '../assets/blog/king-of-the-desert-classic/hero-1600.webp';
 import heroKingmanHQ from '../assets/about/kingman-headquarters.webp';
+import heroAvidKingman from '../assets/portfolio/commercial/Avid Hotel_Kingman AZ_2.webp';
 
 export const posts = [
+    {
+        slug: 'avid-hotel-kingman-how-we-built-it',
+        title: "The New Avid Hotel in Kingman Is Done. Here's How We Built It.",
+        seoTitle: 'How We Built the Avid Hotel in Kingman',
+        seoDescription:
+            "The new Avid hotel in Kingman is finished. Here's how Canyon State built the EIFS, the roof, the heating and air and more, and how we handled the curveballs.",
+        excerpt:
+            "The new four-story Avid hotel on Hotel Way in Kingman is open, and our crews built a big part of it. Here's how it went, the good parts and the curveballs too.",
+        date: '2026-11-11',
+        author: 'Canyon State Enterprises',
+        heroImage: heroAvidKingman,
+        heroImageAlt:
+            'Aerial view of the new Avid by IHG hotel in Kingman, Arizona: gray EIFS walls, a red tower with the Avid sign, and a white roof with rooftop units, with mountains behind.',
+        readingTime: '4 min read',
+        category: 'Project Spotlight',
+        contentLoader: () => import('../content/blog/avid-hotel-kingman-how-we-built-it.jsx'),
+    },
     {
         slug: 'nextdoor-fave-award-2026-kingman',
         title: 'Kingman Neighbors Named Canyon State a 2026 Nextdoor Fave',

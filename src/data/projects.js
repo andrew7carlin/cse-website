@@ -214,7 +214,25 @@ export const commercialProjects = [
   { id: 'hilton-garden-el-paso', name: 'Hilton Garden Inn', location: 'El Paso, TX', category: 'hospitality', trade: 'Roofing', src: hiltonGardenElPaso },
   { id: 'residence-inn-el-paso', name: 'Residence Inn by Marriott', location: 'El Paso, TX', category: 'hospitality', trade: 'Roofing', src: residenceInnElPaso },
   { id: 'marriott-studio-phoenix', name: 'Marriott Studio Res', location: 'Phoenix, AZ', category: 'hospitality', trade: 'Roofing', src: marriottStudioPhoenix },
-  { id: 'avid-hilton-kingman', name: 'Avid by IHG', location: 'Kingman, AZ', category: 'hospitality', trade: 'Multi-Trade', src: avidHotelKingmanAZ, gallery: [avidHotelKingmanAZ, avidHotelKingmanAZ2, avidHotelKingmanAZ3, avidHotelKingmanAZ4] },
+  {
+    // Slug says "hilton" but the hotel is an IHG brand. Kept as-is because the
+    // URL is already live and in the sitemap.
+    id: 'avid-hilton-kingman',
+    name: 'Avid by IHG',
+    location: 'Kingman, AZ',
+    category: 'hospitality',
+    trade: 'Multi-Trade',
+    src: avidHotelKingmanAZ2,
+    featured: true,
+    seoDescription: 'Canyon State built the EIFS, roof, heating and air, trash enclosure and caulking on the new four-story Avid by IHG hotel in Kingman, AZ, for Livebox GC.',
+    blurb: "The new four-story Avid hotel on Hotel Way in Kingman is open, and our crews built a big chunk of it. Livebox GC brought us in for the outside of the building and the systems that keep it comfortable inside: the EIFS on the walls, a white roof that reflects the sun with metal trim around the edges, heating and air conditioning on every floor, the block trash enclosure out back finished in stucco to match, and the caulking that keeps wind, dust and rain outside.\n\nOn a building like this, the walls, the roof and the AC all run into each other. With one team handling all three, there was no finger-pointing. When the builder needed a new AC unit for a hot elevator shaft late in the summer, our HVAC crew set it and our roofing side patched the roof around it. When the windows needed one more round of sealing after the hotel opened, we worked room by room around the guests. The roof also carries a 20-year warranty from the manufacturer.",
+    gallery: [
+      { src: avidHotelKingmanAZ2, caption: "The finished Avid by IHG in Kingman. Our crews built the EIFS on the walls, the white roof and metal edge trim, and the heating and air on every floor." },
+      { src: avidHotelKingmanAZ, caption: "The entrance side. The smooth gray EIFS panels are insulated to keep the heat out in summer and in during winter, and sealed to keep water out." },
+      { src: avidHotelKingmanAZ4, caption: "The white roof bounces the sun back, and the rooftop air conditioning units tie into it. With one team on both, the roof and the AC never had a gap between who owned what." },
+      { src: avidHotelKingmanAZ3, caption: "Built for Kingman weather: insulated walls, a reflective roof and air conditioning made for July, ready for hot afternoons, cold nights and the wind." },
+    ],
+  },
   { id: 'springhill-suites-kingman', name: 'Springhill Suites', location: 'Kingman, AZ', category: 'hospitality', trade: 'Roofing', src: springhillSuitesKingman },
   { id: 'echo-suites-chandler', name: 'Echo Suites', location: 'Chandler, AZ', category: 'hospitality', trade: 'Roofing', src: echoSuitesChandler },
   { id: 'home-2-suites-peoria', name: 'Home 2 Suites', location: 'Peoria, AZ', category: 'hospitality', trade: 'Roofing', src: home2SuitesPeoria },
