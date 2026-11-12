@@ -41,9 +41,14 @@ const About = () => {
 
     const timelineEvents = [
         {
+            year: "1972",
+            title: "Where It All Started",
+            description: "A-2-Z Roofing is founded. Its 2020 merger with Canyon State brought nearly 50 years of roofing experience under one roof."
+        },
+        {
             year: "1987",
             title: "The Original License",
-            description: "Arizona ROC issues License No. 074485 to A-2-Z Roofing Supply Co. — the company whose 2020 merger with Canyon State brought 33 years of roofing pedigree under one roof.",
+            description: "Arizona ROC issues License No. 074485 to A-2-Z Roofing Supply Co., 15 years after the company got its start.",
             image: timeline1987
         },
         {
@@ -72,8 +77,8 @@ const About = () => {
         },
         {
             year: "2025",
-            title: "Three Moves in One Year",
-            description: "Merged stucco operations with Gonzalez Wall Systems, opened a second Kingman expansion, and acquired Kingman Quality Plumbing.",
+            title: "Two Moves in One Year",
+            description: "Opened a second Kingman expansion and acquired Kingman Quality Plumbing.",
             image: timeline2025
         }
     ];
