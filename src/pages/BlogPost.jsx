@@ -51,7 +51,7 @@ const BlogPost = () => {
                 />
                 <h1>Post Not Found</h1>
                 <p>The article you were looking for has been moved or doesn&rsquo;t exist.</p>
-                <Link to="/blog" className={styles.backLink}>← Back to Insights</Link>
+                <Link to="/blog" className={styles.backLink}>← Back to Blog</Link>
             </div>
         );
     }
@@ -151,7 +151,7 @@ const BlogPost = () => {
             {/* ── Footer nav ── */}
             <section className={styles.postFooter}>
                 <div className={styles.container}>
-                    <Link to="/blog" className={styles.backLink}>← All Insights</Link>
+                    <Link to="/blog" className={styles.backLink}>← All Blog Posts</Link>
                 </div>
             </section>
         </div>
