@@ -4,7 +4,7 @@ import SEO from '../components/common/SEO';
 import styles from './Blog.module.css';
 
 /**
- * /blog — Insights index. Lists every post from src/data/blog.js, newest first.
+ * /blog — Blog index. Lists every post from src/data/blog.js, newest first.
  * Each card links to /blog/{slug}, which is handled by BlogPost.jsx.
  */
 
@@ -24,7 +24,7 @@ const Blog = () => {
     return (
         <div className={styles.page}>
             <SEO
-                title="Insights from the Field"
+                title="Blog: Stories from the Field"
                 description="Stories from Canyon State Enterprises jobsites: project spotlights, the construction problems we solve, and what we're learning across the trades."
                 canonical="https://canyonstateaz.com/blog"
             />
@@ -32,7 +32,7 @@ const Blog = () => {
             <section className={styles.hero}>
                 <div className={styles.heroContent}>
                     <div className={styles.heroInner}>
-                        <span className={styles.eyebrow}>Insights</span>
+                        <span className={styles.eyebrow}>Blog</span>
                         <h1 className={styles.headline}>Stories from the field.</h1>
                         <div className={styles.divider} aria-hidden="true" />
                         <p className={styles.subline}>
@@ -47,7 +47,7 @@ const Blog = () => {
                 <div className={styles.container}>
                     <p style={{ maxWidth: '720px', margin: '0 auto 3rem', textAlign: 'center', lineHeight: 1.7, color: 'var(--color-text-muted, #6b7280)' }}>
                         Canyon State Enterprises is a multi-trade construction company
-                        working across Arizona, Nevada, and the Southwest. Our Insights
+                        working across Arizona, Nevada, and the Southwest. Our
                         blog goes behind the scenes on the projects we build and the
                         trades we self-perform, from roofing and stucco to specialty
                         metals, sharing the real construction problems we solve and the

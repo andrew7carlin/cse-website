@@ -1,4 +1,4 @@
-/* /blog — Insights index. Matches the site's section-header pattern,
+/* /blog — Blog index. Matches the site's section-header pattern,
    light/elegant typography, copper accents. */
 
 .page {
@@ -7,7 +7,7 @@
 }
 
 /* ── Hero — editorial header, no photo. Matches the magazine feel of
-   an Insights hub: copper eyebrow, light-weight serif-confident
+   a blog hub: copper eyebrow, light-weight serif-confident
    headline, copper accent rule, then a paired subline.
    Background uses the same soft brand gradient as the rest of the site
    (--color-bg-base → --color-bg-alt) with a generous header offset so

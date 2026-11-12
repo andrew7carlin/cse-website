@@ -11,7 +11,7 @@ import styles from './BlogGallery.module.css';
  *
  * Only posts with a `gallery` field in src/data/blog.js have this page. The
  * gallery module (93 asset URLs for the golf post) is lazy-loaded here so it
- * never weighs on the article or the Insights index.
+ * never weighs on the article or the Blog index.
  */
 const BlogGallery = () => {
     const { slug } = useParams();
@@ -38,7 +38,7 @@ const BlogGallery = () => {
                     noindex
                 />
                 <h1>Gallery Not Found</h1>
-                <Link to="/blog" className={styles.backLink}>← Back to Insights</Link>
+                <Link to="/blog" className={styles.backLink}>← Back to Blog</Link>
             </div>
         );
     }

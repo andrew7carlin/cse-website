@@ -1,5 +1,5 @@
 /**
- * Blog/Insights post metadata.
+ * Blog post metadata.
  *
  * Each post:
  *   - slug          → URL at /blog/{slug}
