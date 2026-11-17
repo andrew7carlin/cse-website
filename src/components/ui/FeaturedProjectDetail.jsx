@@ -43,6 +43,7 @@ export default function FeaturedProjectDetail({ project }) {
           src={heroSrc}
           alt={project.title}
           className={styles.heroImg}
+          style={project.heroPosition ? { objectPosition: project.heroPosition } : undefined}
           width="1920"
           height="1080"
         />

@@ -116,6 +116,10 @@ import costcoHenderson from '../assets/portfolio/commercial/Costco Henderson_Hen
 import gordonFireStationKingman from '../assets/portfolio/commercial/Gordon Fire Station_Kingman AZ.webp';
 import holidayInnExpressBullhead from '../assets/portfolio/commercial/Holiday Inn Express_Bullhead City AZ.webp';
 import hyundaiPhoenix from '../assets/portfolio/commercial/Hyundai_Phoenix AZ.webp';
+import highDesertHyundai1 from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ.webp';
+import highDesertHyundai2 from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_2.webp';
+import highDesertHyundai3 from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_3.webp';
+import highDesertHyundai4 from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_4.webp';
 import jimmyJohnsKingman2 from '../assets/portfolio/commercial/Jimmy Johns_Kingman AZ.webp';
 import medicalSuitesKingman from '../assets/portfolio/commercial/Medical Suites_Kingman AZ.webp';
 import mohaveCountyReachOut from '../assets/portfolio/commercial/Mohave County Reach Out_Kingman AZ.webp';
@@ -204,6 +208,25 @@ export const commercialProjects = [
     videos: [
       'https://cse-media.b-cdn.net/Bettys_Village_LV_10.mp4',
       'https://cse-media.b-cdn.net/Bettys_Village_LV_11.mp4',
+    ],
+  },
+  {
+    id: 'high-desert-hyundai-kingman',
+    name: 'High Desert Hyundai',
+    location: 'Kingman, AZ',
+    category: 'dealerships',
+    trade: 'Multi-Trade',
+    src: highDesertHyundai1,
+    // Show the building at the top of the hero; cars fill in below.
+    heroPosition: 'center top',
+    featured: true,
+    seoDescription: 'Canyon State built the EIFS, the white TPO roof, gutters, heating and air, block walls and metal trim on the new High Desert Hyundai in Kingman, AZ, for Primak Construction Group.',
+    blurb: "The new High Desert Hyundai on Stockton Hill Road in Kingman is done, and our crews built a big part of it. Primak Construction Group took an existing building across the street from the old dealership, fixed it up and added a new showroom, service drive and vehicle delivery area. They brought us in for the outside of the building and the systems that keep it comfortable inside: the insulated EIFS on the walls, a white TPO roof over the old building and the new one, about 320 feet of new gutter, heating and air for every part of the building, a block retaining wall and screen wall, and the metal flashing and trim that ties it all together.\n\nOn a dealership, the walls, the roof, the AC and the big service doors all run into each other. With one team on all of them, there was no finger-pointing. When the metal panels needed a different edge where they meet our walls, our EIFS crew came back and made them tie together cleanly. When the overhead door tracks landed where our ducts were, our HVAC crew rerouted around them. And the rooftop equipment sits behind the parapet, so the building looks clean from the street.",
+    gallery: [
+      { src: highDesertHyundai1, caption: "The finished High Desert Hyundai on Stockton Hill Road in Kingman, ready for customers." },
+      { src: highDesertHyundai2, caption: "The glass showroom and the service wing, where our EIFS, roofing and HVAC crews all worked." },
+      { src: highDesertHyundai3, caption: "From straight overhead: the white TPO roof over the whole building, with the rooftop units and exhaust fans our HVAC crew set." },
+      { src: highDesertHyundai4, caption: "From the back: the showroom, the service bays and the big shop building, all under the new white roof." },
     ],
   },
   { id: 'spirit-mountain-casino', name: 'Spirit Mountain Casino', location: 'Fort Mohave, AZ', category: 'hospitality', trade: 'Roofing', src: spiritMountainCasino },
