@@ -28,8 +28,45 @@ import heroBettysVillage from '../assets/portfolio/commercial/Bettys_Village_Cov
 import heroKingOfTheDesert from '../assets/blog/king-of-the-desert-classic/hero-1600.webp';
 import heroKingmanHQ from '../assets/about/kingman-headquarters.webp';
 import heroAvidKingman from '../assets/portfolio/commercial/Avid Hotel_Kingman AZ_2.webp';
+import heroHighDesertHyundai from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_5.webp';
 
 export const posts = [
+    {
+        slug: 'high-desert-hyundai-kingman',
+        title: "The New High Desert Hyundai in Kingman Is Done. Here's How We Built It.",
+        seoTitle: 'How We Built High Desert Hyundai in Kingman',
+        seoDescription:
+            "The new High Desert Hyundai on Stockton Hill Road in Kingman is finished. Here's how Canyon State built the EIFS, the roof, the heating and air and more, and how we handled the curveballs.",
+        excerpt:
+            "The new High Desert Hyundai on Stockton Hill Road in Kingman is done, and our crews built a big part of it. Five trades, one team. Here's how it went, the good parts and the curveballs too.",
+        date: '2026-11-17',
+        author: 'Canyon State Enterprises',
+        heroImage: heroHighDesertHyundai,
+        heroImageAlt:
+            'Aerial view of the new High Desert Hyundai dealership on Stockton Hill Road in Kingman, Arizona.',
+        readingTime: '6 min read',
+        category: 'Project Spotlight',
+        contentLoader: () => import('../content/blog/high-desert-hyundai-kingman.jsx'),
+        // Mirrors the visible FAQ section in the article (FAQPage JSON-LD).
+        faq: [
+            {
+                q: 'Who built the new High Desert Hyundai in Kingman?',
+                a: 'Primak Construction Group was the general contractor. Canyon State Enterprises built the EIFS, the TPO roof, the gutters, the heating and air conditioning, the block walls and the metal flashing and trim.',
+            },
+            {
+                q: 'Where is High Desert Hyundai in Kingman?',
+                a: "It's on Stockton Hill Road in Kingman, Arizona, across the street from the dealership's old location.",
+            },
+            {
+                q: 'When was the work finished?',
+                a: 'Canyon State worked on the building from April through September 2026, and our work was substantially complete in late September 2026.',
+            },
+            {
+                q: 'Does Canyon State do dealership and commercial remodels?',
+                a: 'Yes. Canyon State is a multi-trade contractor headquartered in Kingman. We self-perform roofing, EIFS and stucco, heating and air, masonry and metals on commercial remodels and new buildings across Arizona, Nevada and Utah.',
+            },
+        ],
+    },
     {
         slug: 'avid-hotel-kingman-how-we-built-it',
         title: "The New Avid Hotel in Kingman Is Done. Here's How We Built It.",
