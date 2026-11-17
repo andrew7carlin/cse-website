@@ -12,6 +12,8 @@ export const loadProjectAssets = () => {
     blurb: project.blurb ?? '',
     videos: project.videos ?? [],
     cover: project.src ?? null,
+    // Optional CSS object-position for the featured hero crop, e.g. 'center top'.
+    heroPosition: project.heroPosition ?? null,
     media: project.gallery
       ? project.gallery.map((item, i) => {
           // gallery items can be plain imports OR {src, caption} objects

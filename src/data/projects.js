@@ -217,6 +217,8 @@ export const commercialProjects = [
     category: 'dealerships',
     trade: 'Multi-Trade',
     src: highDesertHyundai1,
+    // Show the building at the top of the hero; cars fill in below.
+    heroPosition: 'center top',
     featured: true,
     seoDescription: 'Canyon State built the EIFS, the white TPO roof, gutters, heating and air, block walls and metal trim on the new High Desert Hyundai in Kingman, AZ, for Primak Construction Group.',
     blurb: "The new High Desert Hyundai on Stockton Hill Road in Kingman is done, and our crews built a big part of it. Primak Construction Group took an existing building across the street from the old dealership, fixed it up and added a new showroom, service drive and vehicle delivery area. They brought us in for the outside of the building and the systems that keep it comfortable inside: the insulated EIFS on the walls, a white TPO roof over the old building and the new one, about 320 feet of new gutter, heating and air for every part of the building, a block retaining wall and screen wall, and the metal flashing and trim that ties it all together.\n\nOn a dealership, the walls, the roof, the AC and the big service doors all run into each other. With one team on all of them, there was no finger-pointing. When the metal panels needed a different edge where they meet our walls, our EIFS crew came back and made them tie together cleanly. When the overhead door tracks landed where our ducts were, our HVAC crew rerouted around them. And the rooftop equipment sits behind the parapet, so the building looks clean from the street.",
