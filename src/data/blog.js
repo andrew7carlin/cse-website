@@ -28,7 +28,7 @@ import heroBettysVillage from '../assets/portfolio/commercial/Bettys_Village_Cov
 import heroKingOfTheDesert from '../assets/blog/king-of-the-desert-classic/hero-1600.webp';
 import heroKingmanHQ from '../assets/about/kingman-headquarters.webp';
 import heroAvidKingman from '../assets/portfolio/commercial/Avid Hotel_Kingman AZ_2.webp';
-import heroHighDesertHyundai from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_5.webp';
+import heroHighDesertHyundai from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_4.webp';
 
 export const posts = [
     {
@@ -42,10 +42,11 @@ export const posts = [
         date: '2026-11-17',
         author: 'Canyon State Enterprises',
         heroImage: heroHighDesertHyundai,
-        // Optional CSS object-position for the hero crop. Show the building at the top; cars fill in below.
-        heroPosition: 'center top',
+        // Optional CSS object-position for the hero crop. Keeps the new showroom and service wing
+        // in frame on wide screens, and the glass showroom in view on phones.
+        heroPosition: '70% 55%',
         heroImageAlt:
-            'Aerial view of the new High Desert Hyundai dealership on Stockton Hill Road in Kingman, Arizona.',
+            'Aerial view of the new glass showroom and service wing at High Desert Hyundai on Stockton Hill Road in Kingman, Arizona.',
         readingTime: '6 min read',
         category: 'Project Spotlight',
         contentLoader: () => import('../content/blog/high-desert-hyundai-kingman.jsx'),

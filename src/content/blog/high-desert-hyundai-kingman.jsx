@@ -19,7 +19,7 @@ import styles from '../../pages/BlogPost.module.css';
 // Same assets the featured project page uses, so Vite dedupes them.
 import hdhShowroom from '../../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_2.webp';
 import hdhRoof     from '../../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_3.webp';
-import hdhBack     from '../../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_4.webp';
+import hdhFront    from '../../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ.webp';
 
 const HighDesertHyundaiPost = () => (
     <>
@@ -169,14 +169,14 @@ const HighDesertHyundaiPost = () => (
 
         <figure className={styles.figure}>
             <img
-                src={hdhBack}
-                alt="The back of High Desert Hyundai in Kingman, showing the service bays, the showroom and the large shop building behind them."
+                src={hdhFront}
+                alt="Aerial view of the finished High Desert Hyundai from the front, with the showroom facing a lot full of new cars in Kingman, Arizona."
                 loading="lazy"
                 decoding="async"
             />
             <figcaption>
-                From the back: the showroom, the service bays and the big shop building, all
-                under the new white roof.
+                The finished dealership from the front, with the showroom facing the lot and
+                the new white roof up top.
             </figcaption>
         </figure>
 
