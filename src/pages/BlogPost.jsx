@@ -118,6 +118,7 @@ const BlogPost = () => {
                     src={post.heroImage}
                     alt={post.heroImageAlt}
                     className={styles.heroImg}
+                    style={post.heroPosition ? { objectPosition: post.heroPosition } : undefined}
                     fetchPriority="high"
                     loading="eager"
                     decoding="async"

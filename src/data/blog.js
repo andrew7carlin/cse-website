@@ -42,6 +42,8 @@ export const posts = [
         date: '2026-11-17',
         author: 'Canyon State Enterprises',
         heroImage: heroHighDesertHyundai,
+        // Optional CSS object-position for the hero crop. Show the building at the top; cars fill in below.
+        heroPosition: 'center top',
         heroImageAlt:
             'Aerial view of the new High Desert Hyundai dealership on Stockton Hill Road in Kingman, Arizona.',
         readingTime: '6 min read',
