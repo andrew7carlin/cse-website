@@ -165,6 +165,26 @@
   status = 301
   force = true
 
+# Duplicate portfolio entries combined Nov 2026: each removed project page
+# points to the entry that was kept.
+[[redirects]]
+  from = "/portfolio/kmrc-main-campus"
+  to = "/portfolio/krmc-medical-main"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/custom-home-kingman-7"
+  to = "/portfolio/custom-home-kingman-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/ranch-home-kingman"
+  to = "/portfolio/ranch-model-kingman"
+  status = 301
+  force = true
+
 # ─────────────────────────────────────────────────────────────────────────────
 # SPA fallback — must remain LAST. Anything not matched above renders the
 # React app, which then handles client-side routing.
