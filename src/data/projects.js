@@ -133,6 +133,8 @@ import medusaFarmsKingman from '../assets/portfolio/commercial/Medusa_Farms_King
 import unisourceEnergyKingman from '../assets/portfolio/commercial/Unisource_Energy_Kingman_Az.webp';
 import reroofKingman from '../assets/portfolio/residential/Reroof_Kingman AZ.webp';
 import veteransVillasKingman from '../assets/portfolio/residential/Veterans Villas_Kingman AZ.webp';
+import rvGarageKingman from '../assets/portfolio/residential/RV Garage_Kingman AZ.webp';
+import customGarageKingman from '../assets/portfolio/residential/Custom Garage_Kingman AZ.webp';
 // July 2026 drone batch
 import andersonChevroletKingmanAZ from '../assets/portfolio/commercial/Anderson Chevrolet_Kingman AZ.webp';
 import arizonaFinancialKingmanAZ from '../assets/portfolio/commercial/Arizona Financial_Kingman AZ.webp';
@@ -370,6 +372,8 @@ export const residentialProjects = [
   { id: 'custom-home-scottsdale', name: 'Custom Home', location: 'Scottsdale, AZ', category: 'custom-home', trade: 'Roofing & Stucco', src: customHomeScottsdale },
   { id: 'reroof-kingman', name: 'Reroof', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing', src: reroofKingman },
   { id: 'veterans-villas-kingman', name: 'Veterans Villas', location: 'Kingman, AZ', category: 'development', trade: 'Roofing & Stucco', src: veteransVillasKingman },
+  { id: 'rv-garage-kingman', name: 'RV Garage', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing & Stucco', src: rvGarageKingman },
+  { id: 'custom-garage-kingman', name: 'Custom Garage', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing & Stucco', src: customGarageKingman },
 ];
 
 export const allProjects = [...commercialProjects, ...residentialProjects];
