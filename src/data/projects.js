@@ -113,7 +113,6 @@ import bureauLandManagement from '../assets/portfolio/commercial/1_Bureau of Lan
 import costcoHenderson from '../assets/portfolio/commercial/Costco Henderson_Henderson, NV.webp';
 import gordonFireStationKingman from '../assets/portfolio/commercial/Gordon Fire Station_Kingman AZ.webp';
 import holidayInnExpressBullhead from '../assets/portfolio/commercial/Holiday Inn Express_Bullhead City AZ.webp';
-import hyundaiPhoenix from '../assets/portfolio/commercial/Hyundai_Phoenix AZ.webp';
 import highDesertHyundai1 from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ.webp';
 import highDesertHyundai2 from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_2.webp';
 import highDesertHyundai3 from '../assets/portfolio/commercial/High Desert Hyundai_Kingman AZ_3.webp';
@@ -292,7 +291,6 @@ export const commercialProjects = [
   { id: 'anderson-ford-kingman', name: 'Anderson Ford', location: 'Kingman, AZ', category: 'dealerships', trade: 'Roofing', src: andersonFordKingman },
   { id: 'bradley-ford-havasu', name: 'Bradley Ford', location: 'Lake Havasu City, AZ', category: 'dealerships', trade: 'Roofing & Stucco', src: bradleyFordHavasu },
   { id: 'hyundai-gilbert', name: 'Hyundai Gilbert', location: 'Gilbert, AZ', category: 'dealerships', trade: 'Roofing', src: hyundaiGilbert },
-  { id: 'hyundai-phoenix', name: 'Hyundai', location: 'Phoenix, AZ', category: 'dealerships', trade: 'Roofing', src: hyundaiPhoenix },
   { id: 'arizona-financial', name: 'Arizona Financial', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing', src: arizonaFinancial, gallery: [arizonaFinancial, arizonaFinancialKingmanAZ] },
   { id: 'national-bank-kingman', name: 'National Bank of Arizona', location: 'Kingman, AZ', category: 'retail', trade: 'Roofing & Stucco', src: nationalBankKingman },
   // ── Tier 4 — Multi-family, senior & medical ──

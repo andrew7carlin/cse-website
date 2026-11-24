@@ -184,6 +184,11 @@
   to = "/portfolio/ranch-model-kingman"
   status = 301
   force = true
+[[redirects]]
+  from = "/portfolio/hyundai-phoenix"
+  to = "/portfolio/hyundai-gilbert"
+  status = 301
+  force = true
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SPA fallback — must remain LAST. Anything not matched above renders the
