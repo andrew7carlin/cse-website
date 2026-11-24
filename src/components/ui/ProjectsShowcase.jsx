@@ -13,7 +13,7 @@ const ProjectsShowcase = () => {
     const allProjects = loadProjectAssets();
     const curatedIds = [
         'holiday-inn-express-bullhead',
-        'kmrc-main-campus',
+        'krmc-medical-main',
         'bettys-village',
         'greenprint-apartments',
         'embassy-suites-houston',

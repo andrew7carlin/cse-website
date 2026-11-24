@@ -10,7 +10,6 @@ import hondaDealership from '../assets/portfolio/commercial/Honda_Dealership_Kin
 import hyundaiGilbert from '../assets/portfolio/commercial/Hyundai_Gilbert_Gilbert_Az.webp';
 import jimmyJohns from '../assets/portfolio/commercial/Jimmy_Johns_Kingman_Az.webp';
 import kmrcMainCampus from '../assets/portfolio/commercial/KMRC_Medical_Center_Main_Campus_Kingman_Az.webp';
-import krmcMedicalMain from '../assets/portfolio/commercial/KRMC_Medical_Center_Main_Kingman_Az.webp';
 import laQuintaHotel from '../assets/portfolio/commercial/La_Quinta_Hotel_Kingman_Az.webp';
 import ldsChurchLitchfield from '../assets/portfolio/commercial/LDS_Church_Addition_Litchfield_Park_Az.webp';
 import medicalFacility from '../assets/portfolio/commercial/Medical_Facility_Kingman_Az.webp';
@@ -85,7 +84,6 @@ import northpointCommunity from '../assets/portfolio/residential/Northpoint_Comm
 import aquilaPlace2 from '../assets/projects/Aquila Place_ Apache Junction_(2).webp';
 import lasVegas28th2 from '../assets/projects/28th & Sunrise_Las Vegas Nev.webp';
 import lasVegas28th3 from '../assets/projects/28th and Sunrise_Las Vegas Nv.webp';
-import krmcMedicalMain2 from '../assets/projects/KRMC Medical Center Main_ Kingman Az.webp';
 
 import bettysVillage1 from '../assets/portfolio/commercial/Betty\'s Village_Las Vegas NV.webp';
 import bettysVillageCover from '../assets/portfolio/commercial/Bettys_Village_Cover_Las_Vegas_NV.webp';
@@ -134,8 +132,6 @@ import canyonStateOfficeKingman from '../assets/portfolio/commercial/Canyon_Stat
 import kingmanMosque from '../assets/portfolio/commercial/Kingman_Mosque_Kingman_Az.webp';
 import medusaFarmsKingman from '../assets/portfolio/commercial/Medusa_Farms_Kingman_Az.webp';
 import unisourceEnergyKingman from '../assets/portfolio/commercial/Unisource_Energy_Kingman_Az.webp';
-import customHomeKingman7 from '../assets/portfolio/residential/Custom Home_Kingman AZ.webp';
-import ranchHomeKingman from '../assets/portfolio/residential/Ranch Home_Kingman AZ.webp';
 import reroofKingman from '../assets/portfolio/residential/Reroof_Kingman AZ.webp';
 import veteransVillasKingman from '../assets/portfolio/residential/Veterans Villas_Kingman AZ.webp';
 // July 2026 drone batch
@@ -309,9 +305,8 @@ export const commercialProjects = [
   { id: 'schiffer-court-apartments', name: 'Shiffer Court Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: schifferCourtApartments },
   { id: 'abbot-apartments-bullhead', name: 'Abbot Apartments', location: 'Bullhead City, AZ', category: 'multi-family', trade: 'Roofing', src: abbotApartmentsBullhead, gallery: [abbotApartmentsBullhead, abbotApartmentsBullhead2] },
   { id: 'rivyve-behavioral-health', name: 'Rivyve Behavioral Health', location: 'Bullhead City, AZ', category: 'medical', trade: 'Roofing', src: rivyveBehavioralHealth },
-  { id: 'krmc-medical-main', name: 'KRMC Medical Center', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: krmcMedicalMain, gallery: [krmcMedicalMain, krmcMedicalMain2] },
+  { id: 'krmc-medical-main', name: 'KRMC Medical Center', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: kmrcMainCampus },
   { id: 'hualapai-mountain-campus', name: 'Hualapai Mountain Campus', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: hualapaiMountainCampus },
-  { id: 'kmrc-main-campus', name: 'KMRC Medical Center', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: kmrcMainCampus },
   { id: 'mohave-eye-center', name: 'Mohave Eye Center', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: mohaveEyeCenter },
   { id: 'fresenius-medical', name: 'Fresenius Medical Care', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: freseniusMedical },
   { id: 'medical-facility-kingman', name: 'Medical Facility', location: 'Kingman, AZ', category: 'medical', trade: 'Roofing', src: medicalFacility },
@@ -375,8 +370,6 @@ export const residentialProjects = [
   { id: 'century-complete-pahrump', name: 'Century Complete Development', location: 'Pahrump, NV', category: 'development', trade: 'Roofing & Stucco', src: centuryCompleteParhrump },
   { id: 'northpoint-community', name: 'Northpoint Community', location: 'Lake Havasu City, AZ', category: 'development', trade: 'Roofing & Stucco', src: northpointCommunity },
   { id: 'custom-home-scottsdale', name: 'Custom Home', location: 'Scottsdale, AZ', category: 'custom-home', trade: 'Roofing & Stucco', src: customHomeScottsdale },
-  { id: 'custom-home-kingman-7', name: 'Custom Home No. 7', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing & Stucco', src: customHomeKingman7 },
-  { id: 'ranch-home-kingman', name: 'Ranch Home', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing', src: ranchHomeKingman },
   { id: 'reroof-kingman', name: 'Reroof', location: 'Kingman, AZ', category: 'custom-home', trade: 'Roofing', src: reroofKingman },
   { id: 'veterans-villas-kingman', name: 'Veterans Villas', location: 'Kingman, AZ', category: 'development', trade: 'Roofing & Stucco', src: veteransVillasKingman },
 ];
