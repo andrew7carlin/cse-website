@@ -16,13 +16,14 @@ const SERVICES_SCHEMA = {
     serviceType: 'Commercial & Residential Construction Services',
     url: 'https://canyonstateaz.com/services',
     description:
-        'Canyon State provides commercial and residential construction services, including roofing, stucco, EIFS, general contracting, HVAC, plumbing, masonry, specialty metals, fencing, seamless gutters, and land development across Arizona, Nevada, Utah, and Colorado.',
+        'Canyon State provides commercial and residential construction services, including roofing, stucco, EIFS, general contracting, HVAC, plumbing, masonry, specialty metals, fencing, seamless gutters, and land development across Arizona, Nevada, Utah, Colorado, and New Mexico.',
     provider: { '@id': 'https://canyonstateaz.com/#organization' },
     areaServed: [
         { '@type': 'State', name: 'Arizona' },
         { '@type': 'State', name: 'Nevada' },
         { '@type': 'State', name: 'Utah' },
         { '@type': 'State', name: 'Colorado' },
+        { '@type': 'State', name: 'New Mexico' },
     ],
     hasOfferCatalog: {
         '@type': 'OfferCatalog',
@@ -44,8 +45,8 @@ const Services = () => {
     return (
         <div>
             <SEO
-                title="Construction Services in AZ, NV, UT & CO | Canyon State Enterprises"
-                description="Explore Canyon State's roofing, HVAC, plumbing, stucco, masonry, land development, and construction services across AZ, NV, UT & CO."
+                title="Construction Services in AZ, NV, UT, CO & NM | Canyon State Enterprises"
+                description="Explore Canyon State's roofing, HVAC, plumbing, stucco, masonry, land development, and construction services across AZ, NV, UT, CO & NM."
                 canonical="https://canyonstateaz.com/services"
             />
             <script
@@ -79,7 +80,7 @@ const Services = () => {
 
                 <h2 className="text-h2" style={{ marginBottom: '1.25rem' }}>Built for the Southwest</h2>
                 <p style={{ marginBottom: '1.5rem', lineHeight: 1.7 }}>
-                    Construction in Arizona and Nevada is its own discipline. Sustained
+                    Construction in Arizona, Nevada, Utah, Colorado, and New Mexico is its own discipline. Sustained
                     desert heat, intense UV, and monsoon-driven wind and water punish
                     roof assemblies, wall systems, and mechanical equipment that were
                     specified for a milder climate. Canyon State details every system

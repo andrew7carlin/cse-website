@@ -205,7 +205,7 @@ export default function ProjectDetail() {
 
             <div>
               <p style={{ fontSize: '1.0625rem', lineHeight: 1.7, color: '#d1d5db', margin: '0 0 1.25rem' }}>
-                Planning something similar? Canyon State self-performs roofing, stucco, metals, and more across Arizona, Nevada, and the Southwest.
+                Planning something similar? Canyon State self-performs roofing, stucco, metals, and more across Arizona, Nevada, Utah, Colorado, and New Mexico.
               </p>
               <Link
                 to="/contact"

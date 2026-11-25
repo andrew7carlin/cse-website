@@ -51,8 +51,8 @@ export default function CommercialPortfolio() {
           perform under use: dealerships, medical facilities, hospitality,
           restaurants, retail, government, and light industrial. Because we
           self-perform the building envelope, including roofing, stucco, and
-          metals, we keep the critical path moving across Arizona, Nevada, and
-          the wider Southwest.
+          metals, we keep the critical path moving across Arizona, Nevada, Utah,
+          Colorado, and New Mexico.
         </p>
 
         {/* FILTERS DISABLED — re-enable when ready */}

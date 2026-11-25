@@ -21,7 +21,7 @@ const Contact = () => {
         <div style={{ paddingTop: 'var(--header-height)' }}>
             <SEO
                 title="Contact Canyon State | Request a Construction Quote Today"
-                description="Contact Canyon State for commercial and residential construction services across AZ, NV, UT & CO. Request a free quote or speak with our team today."
+                description="Contact Canyon State for commercial and residential construction services across AZ, NV, UT, CO & NM. Request a free quote or speak with our team today."
                 canonical="https://canyonstateaz.com/contact"
             />
             <script

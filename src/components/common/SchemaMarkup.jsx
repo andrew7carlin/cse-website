@@ -27,7 +27,7 @@ const SchemaMarkup = () => {
     // Build the org node first so aggregateRating can be conditionally added
     // without affecting the rest of the @graph.
     // Per the Aug 2026 SEO spec: HomeAndConstructionBusiness type, short brand
-    // name, office@ email, AZ/NV/UT/CO service area, and real offices listed as
+    // name, office@ email, AZ/NV/UT/CO/NM service area, and real offices listed as
     // departments. Spec corrections applied: the @id stays #organization (every
     // page-level schema references it), asset URLs are this site's real files
     // (not the spec's wp-content paths), and only the three staffed offices
@@ -45,7 +45,7 @@ const SchemaMarkup = () => {
             "height": 60
         },
         "image": "https://canyonstateaz.com/og-image.jpg",
-        "description": "Canyon State provides residential and commercial roofing, restoration, and construction services throughout Arizona, Nevada, Utah, and Colorado.",
+        "description": "Canyon State provides residential and commercial roofing, restoration, and construction services throughout Arizona, Nevada, Utah, Colorado, and New Mexico.",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "2959 Rhoades Ave",
@@ -90,7 +90,8 @@ const SchemaMarkup = () => {
             { "@type": "State", "name": "Arizona" },
             { "@type": "State", "name": "Nevada" },
             { "@type": "State", "name": "Utah" },
-            { "@type": "State", "name": "Colorado" }
+            { "@type": "State", "name": "Colorado" },
+            { "@type": "State", "name": "New Mexico" }
         ],
         "department": [
             {

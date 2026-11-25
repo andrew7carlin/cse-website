@@ -214,7 +214,7 @@ const HighDesertHyundaiPost = () => (
         <p>
             Yes. Canyon State is a multi-trade contractor headquartered in Kingman. We
             self-perform roofing, EIFS and stucco, heating and air, masonry and metals on
-            commercial remodels and new buildings across Arizona, Nevada and Utah.
+            commercial remodels and new buildings across Arizona, Nevada, Utah, Colorado and New Mexico.
         </p>
 
         <h2>Thank you</h2>
@@ -243,7 +243,7 @@ const HighDesertHyundaiPost = () => (
                 <Link to="/services">Our trades</Link>
                 <br />
                 <strong>Planning a remodel?</strong>{' '}
-                We work across Arizona, Nevada and Utah, doing roofing, EIFS and stucco,
+                We work across Arizona, Nevada, Utah, Colorado and New Mexico, doing roofing, EIFS and stucco,
                 heating and air, block work and more, for dealerships, hotels, offices and
                 retail.{' '}
                 <Link to="/contact">Tell us about it</Link>.

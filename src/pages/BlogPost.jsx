@@ -76,6 +76,7 @@ const BlogPost = () => {
                         headline: post.title,
                         description: post.excerpt,
                         datePublished: post.date,
+                        dateModified: post.dateModified || post.date,
                         author: { '@type': 'Organization', name: post.author },
                         publisher: {
                             '@type': 'Organization',

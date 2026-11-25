@@ -1,6 +1,6 @@
 # Canyon State Enterprises
 
-> Multi-trade roofing and construction company serving Arizona, Nevada, Utah, and Colorado. Canyon State self-performs 12 trades in-house — roofing, stucco/EIFS, HVAC, plumbing, masonry, metals, fencing, gutters, general contracting, residential and commercial construction, and land development — with 25+ years of work across the Southwest. Corporate headquarters in Kingman, AZ, with offices in Phoenix, Bullhead City, Lake Havasu City, and Las Vegas.
+> Multi-trade roofing and construction company serving Arizona, Nevada, Utah, Colorado, and New Mexico. Canyon State self-performs 12 trades in-house — roofing, stucco/EIFS, HVAC, plumbing, masonry, metals, fencing, gutters, general contracting, residential and commercial construction, and land development — with 25+ years of work across the Southwest. Corporate headquarters in Kingman, AZ, with offices in Phoenix, Bullhead City, Lake Havasu City, and Las Vegas.
 
 Arizona ROC License #353683 (current). Canyon State Heating & Cooling: ROC #328713. The original Arizona ROC License #074485 was issued December 1987 to A-2-Z Roofing Supply Co., the predecessor that merged into Canyon State in 2020. Fully bonded and insured (general liability and workers' compensation).
 
@@ -27,14 +27,18 @@ Key differentiator: Canyon State self-performs every trade it sells. No layered 
 
 - [Kingman, AZ (Corporate HQ)](https://canyonstateaz.com/locations/kingman-az): 2959 Rhoades Ave, Kingman, AZ 86409. Phone (928) 757-9003. Serves Northwest Arizona — Mohave County, Golden Valley, the Bullhead City corridor.
 - [Phoenix, AZ](https://canyonstateaz.com/locations/phoenix-az): Phone (602) 527-6050. Serves Greater Phoenix Metro — East Valley, West Valley, Scottsdale, Tempe, Mesa, Gilbert, Chandler.
-- [Bullhead City, AZ](https://canyonstateaz.com/locations/bullhead-city-az): Serves the Tri-State Area — Western AZ, Southern NV, Eastern CA, including the Laughlin corridor and Fort Mohave.
-- [Lake Havasu City, AZ](https://canyonstateaz.com/locations/lake-havasu-city-az): Serves Western Arizona — Lake Havasu, Parker, Quartzsite, and the Blythe area.
+- [Bullhead City, AZ](https://canyonstateaz.com/locations/bullhead-city-az): Serves the Tri-State Area — Western AZ, Southern NV, Eastern CA, including the Laughlin corridor and Fort Mohave. Phone (928) 757-9003 (Kingman HQ).
+- [Lake Havasu City, AZ](https://canyonstateaz.com/locations/lake-havasu-city-az): Serves Western Arizona — Lake Havasu, Parker, Quartzsite, and the Blythe area. Phone (928) 757-9003 (Kingman HQ).
 - [Las Vegas, NV](https://canyonstateaz.com/locations/las-vegas-nv): Phone (702) 659-2819. Serves Southern Nevada — Las Vegas, Henderson, North Las Vegas, Pahrump, Mesquite.
 
-Active in Arizona, Nevada, Utah, and Colorado. Past project history extends into Texas, California, North Carolina, Tennessee, and New Mexico.
+Active in Arizona, Nevada, Utah, Colorado, and New Mexico. Past project history extends into Texas, California, North Carolina, and Tennessee.
 
 ## Featured Work
 
+- [High Desert Hyundai project](https://canyonstateaz.com/portfolio/high-desert-hyundai-kingman): The new High Desert Hyundai dealership on Stockton Hill Road in Kingman, AZ. Canyon State built the EIFS, the roof, the heating and air and more.
+- [How We Built High Desert Hyundai in Kingman](https://canyonstateaz.com/blog/high-desert-hyundai-kingman): Five trades, one team. How Canyon State built the new dealership, including the curveballs.
+- [Avid Hotel project](https://canyonstateaz.com/portfolio/avid-hilton-kingman): The new four-story Avid by IHG hotel on Hotel Way in Kingman, AZ. Canyon State built the EIFS, the roof, the heating and air and more.
+- [How We Built the Avid Hotel in Kingman](https://canyonstateaz.com/blog/avid-hotel-kingman-how-we-built-it): How Canyon State built a big part of the new Avid hotel, the good parts and the curveballs too.
 - [Betty's Village North](https://canyonstateaz.com/blog/building-bettys-village-north-opportunity-village): Canyon State is the roofing, stucco, and metals contractor on Opportunity Village's residential community for adults with intellectual disabilities in northwest Las Vegas — 22 residential dwellings and 3 commercial buildings, targeting late-2026 completion. General contractor: R&O Construction.
 - [2026 Nextdoor Fave Award](https://canyonstateaz.com/blog/nextdoor-fave-award-2026-kingman): Kingman neighbors voted Canyon State a 2026 Nextdoor Fave Award Winner in the General Contractor category. The award is chosen by verified Nextdoor neighbors and cannot be applied for or bought.
 - [Commercial Portfolio](https://canyonstateaz.com/portfolio/commercial): Medical, hospitality, dealership, government, multi-family, and retail projects across the Southwest.
@@ -43,7 +47,8 @@ Active in Arizona, Nevada, Utah, and Colorado. Past project history extends into
 ## Company
 
 - [About Canyon State](https://canyonstateaz.com/about): Company history, leadership, and the A-2-Z Roofing lineage dating to 1987.
-- [Where We Work](https://canyonstateaz.com/where): Full coverage map across Arizona, Nevada, and the Southwest.
+- [FAQ](https://canyonstateaz.com/faq): Answers on services, trades, service areas, offices, licensing, estimates and warranties.
+- [Where We Work](https://canyonstateaz.com/where): Full coverage map across Arizona, Nevada, Utah, Colorado, and New Mexico.
 - [Partnerships](https://canyonstateaz.com/partnerships): Manufacturer partners (GAF, CertainTeed, Carlisle, Firestone, Versico, Eagle Roofing, MBCI, Petersen Aluminum, Mule Hide, Karnak, Dryvit, Omega Flex) and general-contractor clients (AR Mays, Lusardi, Willmeng, Kitchell, Path Construction, Pacificap, Overland, Wadman, EOS Fitness, Home Depot, Opportunity Village).
 - [Careers](https://canyonstateaz.com/careers): Open roles and trades hiring across all five offices.
 - [Blog](https://canyonstateaz.com/blog): Project spotlights and construction articles.

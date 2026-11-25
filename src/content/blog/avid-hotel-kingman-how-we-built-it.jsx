@@ -185,7 +185,7 @@ const AvidHotelKingmanPost = () => (
                 <Link to="/services">Our trades</Link>
                 <br />
                 <strong>Got a project coming up?</strong>{' '}
-                We work across Arizona, Nevada and Utah, doing roofing, EIFS and stucco,
+                We work across Arizona, Nevada, Utah, Colorado and New Mexico, doing roofing, EIFS and stucco,
                 heating and air, block work and more, for homes and businesses.{' '}
                 <Link to="/contact">Tell us about it</Link>.
             </p>

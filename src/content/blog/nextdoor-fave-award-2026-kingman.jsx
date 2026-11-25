@@ -64,7 +64,7 @@ const NextdoorFaveAward2026Post = () => (
             Kingman is home. Our corporate headquarters is at 2959 Rhoades Ave, and the
             company&rsquo;s roots here go back to 1987, when A-2-Z Roofing Supply Co. picked
             up the original Arizona ROC license. We&rsquo;ve grown into a multi-trade
-            contractor working across Arizona, Nevada, Utah, and Colorado, but Kingman is
+            contractor working across Arizona, Nevada, Utah, Colorado, and New Mexico, but Kingman is
             still where the company is run from.
         </p>
 

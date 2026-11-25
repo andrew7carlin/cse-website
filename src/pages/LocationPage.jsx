@@ -21,6 +21,31 @@ const HERO_IMAGES = {
   havasu:   heroHavasu,
 };
 
+// Lowercase a service name for use mid-sentence, keeping acronyms (HVAC, EIFS).
+const lowerService = (name) =>
+  name.split(' ').map((w) => (w === w.toUpperCase() ? w : w.toLowerCase())).join(' ');
+
+const listJoin = (items) =>
+  items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')}, and ${items[items.length - 1]}`;
+
+// Short Q&A block for each location page (AEO). Built only from this page's
+// own data (services, coverage, phone), so it can never drift from the copy
+// above it. Rendered visibly and mirrored in FAQPage JSON-LD.
+const buildLocationFaq = (loc) => [
+  {
+    q: `What construction services does Canyon State offer in ${loc.city}, ${loc.abbrev}?`,
+    a: `In ${loc.city}, Canyon State's own crews handle ${listJoin(loc.services.map(lowerService))}.`,
+  },
+  {
+    q: `Which areas does the ${loc.city} team serve?`,
+    a: `The ${loc.city} team serves ${listJoin(loc.coverage)}.`,
+  },
+  {
+    q: `How do I get a free estimate in ${loc.city}?`,
+    a: `Call ${loc.phone} or send a request through our Contact form, and our ${loc.city} team will follow up.`,
+  },
+];
+
 const LocationPage = () => {
   const { locationId } = useParams();
   const loc = getLocation(locationId);
@@ -32,6 +57,7 @@ const LocationPage = () => {
     .filter(Boolean);
 
   const content = loc ? locationContent[loc.id] : null;
+  const faq = loc ? buildLocationFaq(loc) : [];
 
   if (!loc) {
     return (
@@ -99,6 +125,21 @@ const LocationPage = () => {
                 itemOffered: { '@type': 'Service', name: svc },
               })),
             },
+          }),
+        }}
+      />
+      {/* FAQPage schema mirrors the visible Q&A block (AEO). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faq.map(({ q, a }) => ({
+              '@type': 'Question',
+              name: q,
+              acceptedAnswer: { '@type': 'Answer', text: a },
+            })),
           }),
         }}
       />
@@ -199,6 +240,20 @@ const LocationPage = () => {
                     Why {loc.city} Builds with Canyon State
                   </h2>
                   <p className={styles.description}>{content.commitment}</p>
+                </>
+              )}
+
+              {faq.length > 0 && (
+                <>
+                  <h2 className={styles.sectionTitle} style={{ marginTop: '3rem' }}>
+                    {loc.city} Questions
+                  </h2>
+                  {faq.map(({ q, a }) => (
+                    <div key={q}>
+                      <h3 className={styles.subTitle}>{q}</h3>
+                      <p className={styles.description}>{a}</p>
+                    </div>
+                  ))}
                 </>
               )}
             </div>

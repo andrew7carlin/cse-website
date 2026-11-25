@@ -11,7 +11,7 @@ const PortfolioLanding = () => {
         <>
             <SEO
                 title="Construction Portfolio | Commercial & Residential Projects"
-                description="Explore Canyon State's portfolio of commercial, residential, industrial, and multi-trade construction projects across Arizona, Nevada, Utah, and beyond."
+                description="Explore Canyon State's portfolio of commercial, residential, industrial, and multi-trade construction projects across Arizona, Nevada, Utah, Colorado, and New Mexico."
                 canonical="https://canyonstateaz.com/portfolio"
             />
             <div className={styles.container}>
@@ -52,7 +52,7 @@ const PortfolioLanding = () => {
                 <p style={{ maxWidth: '760px', margin: '2.5rem auto 0', textAlign: 'center', lineHeight: 1.7, color: 'var(--color-text-muted, #6b7280)' }}>
                     Our commercial portfolio spans hospitality, medical, dealership,
                     government, multi-family, restaurant, retail, and industrial work
-                    across Arizona, Nevada, and beyond. On the residential side, you
+                    across Arizona, Nevada, Utah, Colorado, and New Mexico. On the residential side, you
                     will find custom homes, model homes, and community developments
                     built to the same standard. Across both, the common thread is that
                     Canyon State self-performed the roofing, stucco, metals, and more in

@@ -205,6 +205,7 @@ const ContactForm = () => {
                                     <option value="AZ">Arizona</option>
                                     <option value="NV">Nevada</option>
                                     <option value="UT">Utah</option>
+                                    <option value="CO">Colorado</option>
                                     <option value="NM">New Mexico</option>
                                 </select>
                             </div>
