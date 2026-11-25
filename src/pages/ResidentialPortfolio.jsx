@@ -48,7 +48,7 @@ export default function ResidentialPortfolio() {
           developments, Canyon State self-performs the roofing, stucco, metals,
           and more that give a home its finish and keep it watertight. These
           residential projects span Kingman, Bullhead City, Lake Havasu City,
-          and across Arizona and Nevada, built with the same crews and the same
+          and across Arizona, Nevada, Utah, Colorado, and New Mexico, built with the same crews and the same
           standards we bring to every job.
         </p>
 

@@ -6,6 +6,8 @@
  *   - title         → headline
  *   - excerpt       → 1-2 sentence preview (used on /blog index + meta description)
  *   - date          → ISO yyyy-mm-dd (sorted desc on the index)
+ *   - dateModified  → optional ISO yyyy-mm-dd of the last real edit; schema
+ *                     falls back to `date` when it is not set
  *   - author        → display name shown on the article
  *   - heroImage     → imported asset, used as the index card + article hero
  *   - heroImageAlt  → accessibility text for the hero
@@ -66,7 +68,7 @@ export const posts = [
             },
             {
                 q: 'Does Canyon State do dealership and commercial remodels?',
-                a: 'Yes. Canyon State is a multi-trade contractor headquartered in Kingman. We self-perform roofing, EIFS and stucco, heating and air, masonry and metals on commercial remodels and new buildings across Arizona, Nevada and Utah.',
+                a: 'Yes. Canyon State is a multi-trade contractor headquartered in Kingman. We self-perform roofing, EIFS and stucco, heating and air, masonry and metals on commercial remodels and new buildings across Arizona, Nevada, Utah, Colorado and New Mexico.',
             },
         ],
     },

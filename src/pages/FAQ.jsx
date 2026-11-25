@@ -15,7 +15,7 @@ const categories = [
             },
             {
                 q: 'How long has Canyon State Enterprises been in business?',
-                a: 'Canyon State Enterprises has been in business since 2001. Over 25 years building across the Southwest. We\'ve built a strong reputation with general contractors, property managers, and developers across Arizona, Nevada, and Utah.',
+                a: 'Canyon State Enterprises has been in business since 2001. Over 25 years building across the Southwest. We\'ve built a strong reputation with general contractors, property managers, and developers across Arizona, Nevada, Utah, Colorado, and New Mexico.',
             },
             {
                 q: 'Are you licensed and insured?',
@@ -32,7 +32,7 @@ const categories = [
         questions: [
             {
                 q: 'What trades do you self-perform?',
-                a: 'We self-perform 12+ trades in-house, including roofing (TPO, PVC, shingle, tile, metal), stucco, HVAC, plumbing, electrical rough-in, framing, masonry, concrete flatwork, metal panel systems, paint & coatings, and general construction management.',
+                a: 'We self-perform 12 trades in-house: roofing, stucco & EIFS, general contracting, HVAC, plumbing, residential construction, commercial construction, specialty metals, masonry, fencing, seamless gutters, and land development.',
             },
             {
                 q: 'Do you offer design-build services?',
@@ -41,6 +41,10 @@ const categories = [
             {
                 q: 'Can you handle roof repairs as well as full reroof projects?',
                 a: 'Absolutely. We offer single-trade roof repairs, emergency leak response, coating applications, and complete tear-off/replacement projects. Our crews are certified applicators for Carlisle, GAF, Certainteed, Firestone, and other leading manufacturers.',
+            },
+            {
+                q: 'Do you offer warranties?',
+                a: 'Yes. Our crews are certified applicators for Carlisle, GAF, CertainTeed, Firestone, and other leading manufacturers, so the systems we install can carry those manufacturers\' warranties, and the crew that installs your work is the crew that answers warranty calls. Ask your estimator for the warranty terms on your project.',
             },
             {
                 q: 'Do you work as a subcontractor for general contractors?',
@@ -53,11 +57,15 @@ const categories = [
         questions: [
             {
                 q: 'What geographic areas do you serve?',
-                a: 'Our headquarters is in Kingman, AZ. We serve the entire state of Arizona (Phoenix Valley, Tucson, Northern Arizona) and have active operations in Nevada (Las Vegas metro) and Utah. We take on select projects in New Mexico as well.',
+                a: 'Our headquarters is in Kingman, AZ. We work across Arizona, Nevada, Utah, Colorado, and New Mexico: the entire state of Arizona (Phoenix Valley, Tucson, Northern Arizona), Nevada (Las Vegas metro), and projects in Utah, Colorado, and New Mexico. Past projects also reach into Texas, California, North Carolina, and Tennessee.',
             },
             {
                 q: 'Do you have multiple office locations?',
-                a: 'Yes. Our main office is in Kingman, AZ at 2959 Rhoades Ave. We operate field offices and project-based crews throughout the southwestern U.S. Contact us to discuss coverage for your specific area.',
+                a: 'Yes. Our corporate headquarters is at 2959 Rhoades Ave, Kingman, AZ 86409, with offices in Phoenix and Las Vegas and local teams serving Bullhead City and Lake Havasu City. Call Kingman at (928) 757-9003, Phoenix at (602) 527-6050, or Nevada at (702) 659-2819.',
+            },
+            {
+                q: 'Which cities do you serve?',
+                a: 'Kingman and Mohave County; the Phoenix metro, including Scottsdale, Tempe, Mesa, Gilbert, and Chandler; Bullhead City and Laughlin; Lake Havasu City, Parker, and Quartzsite; and Las Vegas, Henderson, North Las Vegas, Pahrump, and Mesquite. We also take on projects in Utah, Colorado, and New Mexico.',
             },
             {
                 q: 'Can you travel for larger projects outside your primary region?',
@@ -71,6 +79,10 @@ const categories = [
             {
                 q: 'How do I request a quote?',
                 a: 'The fastest way is to fill out our Contact form with as much detail as possible (location, scope, timeline, project type). Our estimating department typically responds within 1 to 2 business days.',
+            },
+            {
+                q: 'Do you give free estimates?',
+                a: 'Yes. Request a free estimate through our Contact form or call your nearest office: Kingman (928) 757-9003, Phoenix (602) 527-6050, or Nevada (702) 659-2819.',
             },
             {
                 q: 'What information should I have ready when requesting a bid?',

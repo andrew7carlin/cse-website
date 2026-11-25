@@ -153,6 +153,7 @@ const Navbar = () => {
                                 <Link to="/where#nevada" className={styles.dropdownLink}><span className={styles.dropdownDot} />Nevada (Full Coverage)</Link>
                                 <Link to="/where#utah" className={styles.dropdownLink}><span className={styles.dropdownDot} />Utah (Active Projects)</Link>
                                 <Link to="/where#colorado" className={styles.dropdownLink}><span className={styles.dropdownDot} />Colorado (Expanding)</Link>
+                                <Link to="/where#new-mexico" className={styles.dropdownLink}><span className={styles.dropdownDot} />New Mexico (Active Projects)</Link>
                             </div>
                             <div className={styles.dropdownHeader} style={{ marginTop: '0.75rem' }}>Our Offices</div>
                             <div className={styles.dropdownGrid}>

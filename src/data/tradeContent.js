@@ -22,6 +22,26 @@ export const tradeContent = {
       'Roofing is where Canyon State started, and it still sets the standard for everything else we do. Because we self-perform instead of brokering the work to a rotating cast of subcontractors, the crew that bids your roof is the crew that installs it and the crew that warranties it. That continuity matters most on the details that fail first: flashings, penetrations, crickets, and terminations. Our roots trace back to A-2-Z Roofing Supply in 1987, and that history shows up as relationships with the manufacturers whose systems we install, faster approvals from inspectors who know our work, and warranty calls we can answer the same day.',
     process:
       'Every Canyon State roof starts with a real assessment, not a sales pitch. We inspect the existing assembly, identify the failure points, and specify a system matched to the building, the budget, and the climate. Then our own crews install it, our own supervisors check it, and we document the work for the warranty. If a question comes up after completion, you call the company that did the work, not a subcontractor who has already moved on to the next job.',
+    // Short Q&A block (AEO). Built only from facts already on this page;
+    // rendered as visible questions plus matching FAQPage JSON-LD.
+    faq: [
+      {
+        q: 'What roofing systems does Canyon State install?',
+        a: 'On flat and low-slope commercial roofs we install single-ply TPO, PVC, and EPDM membranes, built-up and modified bitumen, and spray polyurethane foam with reflective coatings. On steep-slope and residential roofs we install concrete and clay tile, standing-seam and exposed-fastener metal, and architectural asphalt shingle.',
+      },
+      {
+        q: 'Do you do roof repairs as well as full roof replacements?',
+        a: 'Yes. Canyon State handles roof repair, leak diagnosis, restoration coatings, reroofs, tear-offs, and new roof installation on commercial and residential buildings.',
+      },
+      {
+        q: 'Who actually installs my roof?',
+        a: 'Canyon State\'s own crews. We self-perform roofing instead of handing it to subcontractors, so the crew that bids your roof is the crew that installs it and the crew that answers warranty calls.',
+      },
+      {
+        q: 'Where does Canyon State do roofing?',
+        a: 'Across Arizona, Nevada, Utah, Colorado, and New Mexico, from our corporate headquarters in Kingman, Arizona.',
+      },
+    ],
   },
   stucco: {
     scope:
@@ -30,6 +50,25 @@ export const tradeContent = {
       'Stucco built our reputation after roofing built our foundation, and we approach it with the same discipline. A stucco wall is only as good as the lath, the moisture barrier, and the transitions behind the finish you can see, which is exactly where rushed crews cut corners. Canyon State self-performs the entire assembly, so the waterproofing and the finish are the responsibility of one accountable team rather than a handoff between trades. The result is a wall that looks right on day one and stays watertight through years of monsoon exposure and desert temperature swings.',
     process:
       'A Canyon State stucco job is planned from the substrate out. We confirm the lath, the moisture barrier, and the flashing details before any finish goes on, because that is where walls fail. Our crews apply the scratch, brown, and finish coats on a controlled schedule, match texture and color to the architect or the existing wall, and protect the work as it cures. You get a wall that performs as well as it looks, backed by the crew that installed it.',
+    // Short Q&A block (AEO). Built only from facts already on this page.
+    faq: [
+      {
+        q: 'What stucco systems does Canyon State install?',
+        a: 'We install traditional three-coat stucco, synthetic stucco, and full EIFS wall systems on homes and commercial buildings, including lath, scratch-and-brown coats, and finish coats.',
+      },
+      {
+        q: 'Can you match the texture and color of my existing stucco?',
+        a: 'Yes. We apply finish coats in a wide range of textures, match color to existing walls, and take on custom texture and finish work most plasterers avoid.',
+      },
+      {
+        q: 'Do you repair stucco and EIFS as well as install it?',
+        a: 'Yes. Canyon State handles stucco installation, repair, and replacement, plus EIFS installation and repair, on residential and commercial buildings.',
+      },
+      {
+        q: 'Why does stucco fail, and how do you prevent it?',
+        a: 'A stucco wall is only as good as the lath, the moisture barrier, and the flashing behind the finish. We confirm those details before any finish goes on, and our own crews self-perform the whole assembly.',
+      },
+    ],
   },
   'general-contracting': {
     scope:
@@ -41,7 +80,7 @@ export const tradeContent = {
   },
   hvac: {
     scope:
-      'Canyon State Heating & Cooling installs, replaces, and services heating and air conditioning systems for homes and businesses across Arizona and Nevada. We handle new-construction rough-in and ductwork, full system replacements, and ongoing preventive maintenance, plus zoning, smart thermostats, and indoor-air-quality upgrades. On the commercial side we service rooftop units and larger packaged systems on the same buildings our roofing crews work on. Whether it is a failed compressor in July or a ground-up mechanical package, the goal is the same: keep the air moving, the temperatures right, and the energy bills under control.',
+      'Canyon State Heating & Cooling installs, replaces, and services heating and air conditioning systems for homes and businesses across Arizona, Nevada, Utah, Colorado, and New Mexico. We handle new-construction rough-in and ductwork, full system replacements, and ongoing preventive maintenance, plus zoning, smart thermostats, and indoor-air-quality upgrades. On the commercial side we service rooftop units and larger packaged systems on the same buildings our roofing crews work on. Whether it is a failed compressor in July or a ground-up mechanical package, the goal is the same: keep the air moving, the temperatures right, and the energy bills under control.',
     why:
       'In the desert, an HVAC system is not a convenience, it is the thing standing between you and a 115-degree afternoon. Canyon State Heating & Cooling carries its own Arizona ROC license (328713) and brings the same self-perform discipline to mechanical work that the rest of the company brings to the building envelope. That matters on a commercial building where the roof and the rooftop units have to work together: one company that understands both will not leave you with a leak around a curb or a unit that was never sized for the load. Installs, repairs, and maintenance, all from one accountable team.',
     process:

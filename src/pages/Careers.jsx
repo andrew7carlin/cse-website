@@ -21,7 +21,7 @@ const BENEFITS = [
     { title: 'Medical Insurance', desc: 'Health coverage for you and your family, available after a short waiting period.' },
     { title: 'Paid Time Off & Holidays', desc: 'Time to rest, time with family, time to take care of life outside of work.' },
     { title: 'Cross-Trade Training', desc: 'We self-perform 12 trades. Learn a second or third skill and earn more on the truck.' },
-    { title: 'Steady Work, Year-Round', desc: '5 offices across 4 states means crews stay busy when one market slows down.' },
+    { title: 'Steady Work, Year-Round', desc: '5 offices serving 5 states means crews stay busy when one market slows down.' },
     { title: 'Safety You Can Feel', desc: 'EMR 0.75, top 15% nationally. We mean it when we say everyone goes home safe.' },
     { title: 'Real Career Paths', desc: 'Apprentice → journeyman → foreman → superintendent. Office-side, the ladder is just as real.' },
 ];
@@ -89,7 +89,7 @@ const Careers = () => {
     return (
         <div className={styles.page}>
             <SEO
-                title="Construction Careers in AZ, NV, UT & CO | Canyon State Jobs"
+                title="Construction Careers in AZ, NV, UT, CO & NM | Canyon State Jobs"
                 description="Join Canyon State and build your construction career. Explore opportunities in roofing, HVAC, plumbing, masonry, and general contracting across the Southwest."
                 canonical="https://canyonstateaz.com/careers"
             />

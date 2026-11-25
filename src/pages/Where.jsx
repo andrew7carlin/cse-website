@@ -68,10 +68,19 @@ const states = [
     badgeFull: false,
     cities: ['Denver', 'Colorado Springs', 'Grand Junction'],
   },
+  {
+    id: 'new-mexico',
+    state: 'New Mexico',
+    abbrev: 'NM',
+    tagline: 'Active Projects',
+    badge: 'Active Projects',
+    badgeFull: false,
+    cities: ['Albuquerque'],
+  },
 ];
 
 const stats = [
-  { number: '4',   label: 'States' },
+  { number: '5',   label: 'States' },
   { number: '30+', label: 'Cities' },
   { number: '1',   label: 'Standard' },
   { number: '25',  label: 'Years' },
@@ -88,7 +97,7 @@ const schemaMarkup = {
   url: 'https://canyonstateaz.com/where',
   name: "Where We Work | Canyon State",
   description:
-    "Explore Canyon State's construction service areas across Arizona, Nevada, Utah, and Colorado, including active projects and office locations throughout the Southwest.",
+    "Explore Canyon State's construction service areas across Arizona, Nevada, Utah, Colorado, and New Mexico, including active projects and office locations throughout the Southwest.",
   isPartOf: { '@id': 'https://canyonstateaz.com/#website' },
   about: { '@id': 'https://canyonstateaz.com/#organization' },
   mainEntity: {
@@ -99,6 +108,7 @@ const schemaMarkup = {
       { '@type': 'State', name: 'Nevada' },
       { '@type': 'State', name: 'Utah' },
       { '@type': 'State', name: 'Colorado' },
+      { '@type': 'State', name: 'New Mexico' },
     ],
   },
   inLanguage: 'en-US',
@@ -109,8 +119,8 @@ const Where = () => {
   return (
     <div className={styles.page}>
       <SEO
-        title="Canyon State's Service Areas | Construction Across AZ, NV, UT & CO"
-        description="Explore Canyon State's construction service areas across Arizona, Nevada, Utah, and Colorado with local teams delivering quality projects."
+        title="Canyon State's Service Areas | Construction Across AZ, NV, UT, CO & NM"
+        description="Explore Canyon State's construction service areas across Arizona, Nevada, Utah, Colorado, and New Mexico with local teams delivering quality projects."
         canonical="https://canyonstateaz.com/where"
       />
 
@@ -126,7 +136,7 @@ const Where = () => {
           <span className={styles.eyebrow}>Service Areas</span>
           <h1 className={styles.title}>Building the Southwest</h1>
           <p className={styles.subtitle}>
-            Active projects across Arizona, Nevada, Utah, and Colorado —<br />
+            Active projects across Arizona, Nevada, Utah, Colorado, and New Mexico —<br />
             with more on the way.
           </p>
         </div>
